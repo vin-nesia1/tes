@@ -31,12 +31,14 @@
         /* --- Definisi Warna Kustom --- */
         /* Menggunakan variabel CSS untuk konsistensi dan kemudahan perubahan */
         :root {
-            --color-primary-dark: #1A1A2E; /* Ungu Kehitaman Gelap - Warna dasar untuk latar belakang utama dan elemen penting */
-            --color-secondary-dark: #0F0F1A; /* Ungu Kehitaman Lebih Gelap - Latar belakang untuk bagian yang kontras */
-            --color-accent-green: #00FF7F; /* Hijau Terang - Warna aksen sekunder untuk highlight dan interaksi */
-            --color-accent-gold: #FFD700; /* Emas - Warna aksen utama untuk judul, border, dan tombol utama */
-            --color-text-light: #E0E0E0; /* Abu-abu Terang - Warna teks utama untuk keterbacaan */
-            --color-text-muted: #A0A0A0; /* Abu-abu Redup - Warna teks sekunder atau deskripsi */
+            --color-primary-dark: #2C2E43; /* Ungu Gelap (lebih terlihat) */
+            --color-secondary-dark: #1E1E2F; /* Ungu Kehitaman Lebih Dalam */
+            --color-accent-green: #00FF7F; /* Hijau Terang (tetap) */
+            --color-accent-gold: #FFD700; /* Emas (tetap) */
+            --color-text-light: #E0E0E0; /* Abu-abu Terang (tetap) */
+            --color-text-muted: #A0A0A0; /* Abu-abu Redup (tetap) */
+            --color-dark-green: #1A3A2A; /* Hijau Kehitaman (lebih jelas) */
+            --color-true-black: #000000; /* Tambahkan warna hitam murni jika diperlukan untuk kontras tertentu */
         }
 
         /* --- Penerapan Warna Kustom dengan Tailwind CSS --- */
@@ -60,7 +62,8 @@
         /* --- Pengaturan Global --- */
         body {
             font-family: 'Inter', sans-serif; /* Font yang bersih dan modern */
-            background-color: var(--color-secondary-dark); /* Latar belakang body */
+            /* Latar belakang body menggunakan gradasi campuran hijau, ungu, dan hitam yang lebih terlihat */
+            background: linear-gradient(160deg, var(--color-secondary-dark) 0%, var(--color-dark-green) 50%, var(--color-primary-dark) 100%);
             color: var(--color-text-light); /* Warna teks default */
             -webkit-font-smoothing: antialiased; /* Untuk rendering font yang lebih halus */
             -moz-osx-font-smoothing: grayscale;
@@ -417,7 +420,7 @@
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        <section class="relative bg-gradient-to-br from-primary-dark to-secondary-dark text-center py-20 md:py-32 overflow-hidden">
+        <section class="relative bg-gradient-to-br from-primary-dark via-dark-green to-secondary-dark text-center py-20 md:py-32 overflow-hidden">
             <div class="absolute inset-0 opacity-20">
                 <!-- Background pattern/gradient for elegance -->
                 <div class="absolute inset-0 pattern-green-gold"></div>
@@ -788,6 +791,120 @@
                             Untuk melaporkan masalah atau bug, Anda bisa menggunakan formulir di atas dengan subjek "Laporan Bug" atau "Masalah Teknis".
                         </p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Guide Section (New Section) -->
+        <section id="panduan-pengguna" class="py-16 md:py-24 bg-secondary-dark px-6">
+            <div class="container mx-auto max-w-5xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-accent-gold mb-8 text-center">Panduan Pengguna VIN NESIA</h2>
+                <div class="text-text-muted leading-relaxed text-base space-y-6">
+                    <p>
+                        Selamat datang di **VIN NESIA**, platform perkakas digital inovatif yang dirancang untuk menyederhanakan berbagai tugas bagi programmer, pengembang web, dan pengguna umum. Panduan ini akan membantu Anda menjelajahi fitur-fitur utama situs kami dan memanfaatkan setiap alat yang tersedia secara efektif.
+                    </p>
+
+                    <h3 class="text-2xl font-bold text-text-light mt-8 mb-4">1. Navigasi Situs Web</h3>
+                    <p>
+                        Antarmuka VIN NESIA dirancang agar intuitif dan mudah dinavigasi. Anda akan menemukan menu utama di bagian atas halaman (Header) yang menyediakan akses cepat ke berbagai bagian situs:
+                    </p>
+                    <ul class="list-disc list-inside ml-4 space-y-2">
+                        <li><a href="https://www.vinnesia.my.id/" class="text-accent-gold hover:underline">Home:</a> Kembali ke halaman utama VIN NESIA.</li>
+                        <li><a href="#tools" class="text-accent-gold hover:underline">Tools:</a> Mengarahkan Anda ke bagian daftar perkakas, di mana Anda dapat menemukan semua alat yang kami sediakan. Menu ini juga memiliki sub-menu untuk langsung menuju "SEO Tools" atau "General Tools".</li>
+                        <li><a href="#about-us" class="text-accent-gold hover:underline">About Us:</a> Halaman yang menjelaskan tentang VIN NESIA, filosofi kami, dan misi kami dalam menyediakan perkakas digital.</li>
+                        <li><a href="#blog-section" class="text-accent-gold hover:underline">Blog:</a> Akses ke artikel-artikel terbaru kami yang berisi tips, panduan, dan berita seputar dunia teknologi dan pengembangan web.</li>
+                        <li><a href="#contact-us" class="text-accent-gold hover:underline">Contact:</a> Halaman untuk menghubungi tim VIN NESIA, baik untuk pertanyaan, saran, maupun laporan masalah.</li>
+                        <li><a href="#panduan-pengguna" class="text-accent-gold hover:underline">Panduan Pengguna:</a> Halaman yang sedang Anda baca ini.</li>
+                    </ul>
+
+                    <h3 class="text-2xl font-bold text-text-light mt-8 mb-4">2. Menggunakan Bagian "Tools"</h3>
+                    <p>
+                        Bagian "Tools" adalah inti dari VIN NESIA. Di sini, Anda akan menemukan semua perkakas yang kami sediakan, diorganisir agar mudah ditemukan dan digunakan.
+                    </p>
+                    <ul class="list-disc list-inside ml-4 space-y-2">
+                        <li>**Breadcrumb Navigation:** Di bagian atas halaman "Tools", Anda akan melihat navigasi breadcrumb (misalnya, `Home / Tools`). Ini membantu Anda mengetahui lokasi Anda di situs dan memudahkan navigasi kembali.</li>
+                        <li>**Search Tool (Alat Pencarian):** Anda dapat menggunakan kolom pencarian (`Cari perkakas...`) untuk menemukan alat spesifik dengan mengetikkan namanya atau kata kunci terkait. Hasil akan difilter secara real-time saat Anda mengetik.</li>
+                        <li>**Category Filters (Filter Kategori):** Di samping kolom pencarian, terdapat tombol filter:
+                            <ul class="list-circle list-inside ml-6 mt-1 space-y-1">
+                                <li>**Semua:** Menampilkan semua perkakas yang tersedia.</li>
+                                <li>**SEO Tools:** Hanya menampilkan perkakas yang berkaitan dengan Search Engine Optimization.</li>
+                                <li>**General Tools:** Hanya menampilkan perkakas umum yang berguna untuk berbagai kebutuhan.</li>
+                            </ul>
+                            Klik tombol kategori untuk memfilter daftar perkakas sesuai kebutuhan Anda.
+                        </li>
+                        <li>**Mengakses Perkakas:** Setiap perkakas disajikan dalam bentuk kartu dengan judul dan deskripsi singkat. Klik pada kartu perkakas yang ingin Anda gunakan. Anda akan diarahkan ke subdomain yang relevan (misalnya, `https://seo.vinnesia.my.id` atau `https://toolsvin.vinnesia.my.id`) di mana alat tersebut beroperasi.</li>
+                    </ul>
+
+                    <h3 class="text-2xl font-bold text-text-light mt-8 mb-4">3. Daftar Perkakas VIN NESIA</h3>
+                    <p>
+                        Berikut adalah daftar perkakas yang tersedia di VIN NESIA, beserta deskripsi singkatnya:
+                    </p>
+                    <h4 class="text-xl font-semibold text-text-light mt-6 mb-2">SEO Tools (Tersedia di `https://seo.vinnesia.my.id`)</h4>
+                    <p>
+                        Perkakas ini dirancang untuk membantu Anda mengoptimalkan situs web Anda agar lebih mudah ditemukan oleh mesin pencari dan tampil menarik di hasil pencarian serta media sosial.
+                    </p>
+                    <ol class="list-decimal list-inside ml-4 space-y-2">
+                        <li>**Meta Tag Generator:** Buat meta tag dasar (seperti `title` dan `description`) yang relevan dan SEO-friendly untuk setiap halaman situs Anda. Meta tag ini penting untuk memberi tahu mesin pencari tentang isi halaman Anda.</li>
+                        <li>**OG (Open Graph) Tag Generator:** Hasilkan tag Open Graph yang memungkinkan Anda mengontrol bagaimana konten situs Anda ditampilkan saat dibagikan di platform media sosial seperti Facebook, LinkedIn, dan WhatsApp. Ini memastikan gambar, judul, dan deskripsi yang tepat muncul.</li>
+                        <li>**Twitter Card Tag Generator:** Mirip dengan Open Graph, alat ini membantu Anda membuat Twitter Card. Ini memastikan konten Anda tampil sempurna dan menarik ketika dibagikan di Twitter, dengan gambar, judul, dan deskripsi yang kaya.</li>
+                        <li>**Canonical URL Tag Generator:** Alat ini membantu Anda membuat tag canonical URL untuk menghindari masalah konten duplikat di mata mesin pencari. Ini memberi tahu mesin pencari versi mana dari halaman Anda yang harus diindeks sebagai "master".</li>
+                        <li>**Noindex/Nofollow Meta Tag Tool:** Kontrol bagaimana mesin pencari mengindeks atau mengikuti tautan di halaman Anda. Gunakan `noindex` untuk mencegah halaman diindeks, dan `nofollow` untuk mencegah mesin pencari mengikuti tautan tertentu.</li>
+                        <li>**Favicon Tag Generator:** Ciptakan tag HTML yang benar untuk favicon situs Anda. Favicon adalah ikon kecil yang muncul di tab browser, bookmark, dan hasil pencarian, memberikan identitas visual untuk situs Anda.</li>
+                    </ol>
+
+                    <h4 class="text-xl font-semibold text-text-light mt-6 mb-2">General Tools (Tersedia di `https://toolsvin.vinnesia.my.id`)</h4>
+                    <p>
+                        Perkakas ini menyediakan solusi cepat untuk berbagai kebutuhan umum dalam pengembangan web dan pengolahan teks.
+                    </p>
+                    <ol class="list-decimal list-inside ml-4 space-y-2">
+                        <li>**HTML, CSS, JSON Beautifier/Minifier:**
+                            <ul class="list-circle list-inside ml-6 mt-1 space-y-1">
+                                <li>**Beautifier:** Merapikan dan memformat ulang kode HTML, CSS, atau JSON Anda agar lebih mudah dibaca dan dipahami oleh manusia.</li>
+                                <li>**Minifier:** Mengompres kode HTML, CSS, atau JSON Anda dengan menghapus spasi, komentar, dan karakter yang tidak perlu, sehingga ukuran file lebih kecil dan waktu muat halaman lebih cepat.</li>
+                            </ul>
+                        </li>
+                        <li>**Markdown to HTML Converter:** Konversi teks yang ditulis dalam format Markdown (format penulisan sederhana) menjadi kode HTML standar. Ini sangat berguna untuk blogger atau penulis konten yang ingin menerbitkan tulisan mereka di web.</li>
+                        <li>**HTML Entity Encoder/Decoder:**
+                            <ul class="list-circle list-inside ml-6 mt-1 space-y-1">
+                                <li>**Encoder:** Mengubah karakter khusus (seperti `<`, `>`, `&`) menjadi entitas HTML yang aman untuk ditampilkan di halaman web tanpa menyebabkan masalah parsing.</li>
+                                <li>**Decoder:** Mengubah entitas HTML kembali menjadi karakter aslinya.</li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <h3 class="text-2xl font-bold text-text-light mt-8 mb-4">4. Bagian Penting Lainnya</h3>
+                    <ul class="list-disc list-inside ml-4 space-y-2">
+                        <li><a href="#blog-section" class="text-accent-gold hover:underline">Blog:</a> Kunjungi bagian blog kami secara berkala untuk mendapatkan artikel terbaru seputar optimasi web, panduan penggunaan alat, tips produktivitas, dan berita teknologi.</li>
+                        <li><a href="#contact-us" class="text-accent-gold hover:underline">Contact Us:</a> Jika Anda memiliki pertanyaan, saran, atau menemukan masalah saat menggunakan situs atau alat kami, silakan hubungi kami melalui formulir kontak atau alamat email yang tertera. Kami akan dengan senang hati membantu Anda.</li>
+                        <li><a href="#terms-of-service" class="text-accent-gold hover:underline">Terms of Service (Ketentuan Layanan):</a> Dokumen ini menjelaskan aturan dan ketentuan yang mengatur penggunaan Anda atas situs VIN NESIA. Penting untuk membacanya untuk memahami hak dan kewajiban Anda.</li>
+                        <li><a href="#privacy-policy" class="text-accent-gold hover:underline">Privacy Policy (Kebijakan Privasi):</a> Dokumen ini menguraikan bagaimana VIN NESIA menangani data pengguna. Karena semua alat kami bersifat client-side, kami sangat berkomitmen pada privasi Anda dan tidak menyimpan data pribadi Anda di server kami. Kebijakan ini juga menjelaskan penggunaan cookie dan hak-hak Anda sesuai GDPR.</li>
+                        <li>**Newsletter Subscription:** Di bagian bawah halaman, Anda dapat berlangganan newsletter kami untuk menerima pembaruan, tips eksklusif, dan informasi tentang alat baru langsung ke kotak masuk Anda.</li>
+                    </ul>
+
+                    <h3 class="text-2xl font-bold text-text-light mt-8 mb-4">5. Keamanan dan Privasi</h3>
+                    <p>
+                        VIN NESIA sangat mengutamakan keamanan dan privasi pengguna. Semua alat kami beroperasi sepenuhnya di sisi klien (di browser Anda). Ini berarti:
+                    </p>
+                    <ul class="list-disc list-inside ml-4 space-y-2">
+                        <li>**Tidak Ada Data yang Dikirim ke Server:** Data yang Anda masukkan ke dalam alat (misalnya, kode atau teks) tidak pernah diunggah atau disimpan di server kami. Semua pemrosesan terjadi secara lokal di perangkat Anda.</li>
+                        <li>**Kecepatan Optimal:** Karena tidak ada komunikasi bolak-balik dengan server, alat-alat kami bekerja dengan sangat cepat, memberikan hasil instan.</li>
+                    </ul>
+
+                    <h3 class="text-2xl font-bold text-text-light mt-8 mb-4">6. Persetujuan Cookie dan Verifikasi Usia</h3>
+                    <ul class="list-disc list-inside ml-4 space-y-2">
+                        <li>**Cookie Consent Banner:** Saat pertama kali mengunjungi situs, Anda mungkin akan melihat banner persetujuan cookie. Ini adalah praktik standar untuk memberi tahu Anda tentang penggunaan cookie (misalnya, untuk Google Analytics anonim atau mengingat preferensi Anda) dan meminta persetujuan Anda.</li>
+                        <li>**Age Verification Modal:** Untuk memastikan kepatuhan terhadap standar konten, situs ini mungkin menampilkan modal verifikasi usia. Harap konfirmasi usia Anda untuk melanjutkan akses ke situs.</li>
+                    </ul>
+
+                    <h3 class="text-2xl font-bold text-text-light mt-8 mb-4">7. Tips untuk Pengalaman Terbaik</h3>
+                    <ul class="list-disc list-inside ml-4 space-y-2">
+                        <li>**Gunakan Browser Terbaru:** Pastikan Anda menggunakan browser web versi terbaru untuk kompatibilitas dan performa terbaik.</li>
+                        <li>**Koneksi Internet Stabil:** Meskipun sebagian besar alat bersifat client-side, koneksi internet yang stabil tetap diperlukan untuk memuat halaman dan aset situs.</li>
+                        <li>**Berikan Masukan:** Kami selalu terbuka untuk saran dan masukan Anda. Jika ada alat yang Anda inginkan atau fitur yang perlu ditingkatkan, jangan ragu untuk menghubungi kami.</li>
+                    </ul>
+                    <p class="mt-8">
+                        Terima kasih telah memilih VIN NESIA sebagai mitra digital Anda. Kami berharap alat-alat kami dapat membantu Anda mencapai produktivitas yang lebih tinggi dan menyederhanakan alur kerja Anda.
+                    </p>
                 </div>
             </div>
         </section>
