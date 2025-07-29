@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VIN NESIA - Free & Professional Online Tools for Productivity</title>
-  <meta name="description" content="VIN NESIA offers over 15+ free and professional online tools. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, and more for your productivity." />
+  <meta name="description" content="VIN NESIA offers over 17 free and professional online tools. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, and more for your productivity. Last updated: July 30, 2025, 12:44 AM WIB." />
   <meta name="robots" content="index, follow" />
   <meta name="keywords" content="online tools, QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, productivity" />
 
   <meta property="og:title" content="VIN NESIA - Free & Professional Online Tools for Productivity" />
-  <meta property="og:description" content="Over 15+ free online tools for daily productivity. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, and more." />
+  <meta property="og:description" content="Over 17 free online tools for daily productivity. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, and more." />
   <meta property="og:image" content="https://vinnesia.my.id/images/vin-nesia-banner.jpg" />
   <meta property="og:url" content="https://vinnesia.my.id/" />
   <meta property="og:type" content="website" />
@@ -20,7 +20,7 @@
   <meta name="twitter:site" content="@VinNesiaID" />
   <meta name="twitter:creator" content="@VinNesiaID" />
   <meta name="twitter:title" content="VIN NESIA - Free & Professional Online Tools for Productivity" />
-  <meta name="twitter:description" content="Over 15+ free online tools for daily productivity. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, and more." />
+  <meta name="twitter:description" content="Over 17 free online tools for daily productivity. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, and more." />
   <meta name="twitter:image" content="https://vinnesia.my.id/images/vin-nesia-banner.jpg" />
 
   <link rel="canonical" href="https://vinnesia.my.id/" />
@@ -96,6 +96,14 @@
       flex-grow: 1; /* Allow description to adjust height */
       overflow-wrap: break-word; /* Ensure text doesn't break */
     }
+    .popular-tools-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columns for mobile */
+    }
+    @media (min-width: 768px) {
+      .popular-tools-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 columns for desktop */
+      }
+    }
     .testimonial-slider {
       display: flex;
       overflow-x: auto;
@@ -149,7 +157,7 @@
 
   <section class="hero py-16 sm:py-20 px-4 text-center text-white mb-10" role="region" aria-labelledby="hero-title">
     <h1 id="hero-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-yellow-400 mb-4">VIN NESIA — One Portal, All Free Online Tools!</h1>
-    <p class="text-lg sm:text-xl max-w-2xl mx-auto mb-6">Discover over 15+ free and professional tools to boost your daily productivity.</p>
+    <p class="text-lg sm:text-xl max-w-2xl mx-auto mb-6">Discover over 17 free and professional tools to boost your daily productivity.</p>
     <a href="#all-tools" aria-label="Explore all tools">
       <button class="bg-gradient-to-r from-purple-500 to-green-400 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg hover:from-green-400 hover:to-purple-500 focus:outline focus:outline-2 focus:outline-yellow-400 transform hover:-translate-y-0.5 focus:-translate-y-0.5 transition">Explore Tools</button>
     </a>
@@ -179,23 +187,41 @@
           <span class="cat-icon text-2xl" aria-hidden="true">📝</span>Text Tools
         </div>
         <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">
-          <div class="tool-card bg-gray-700 rounded-lg p-4 shadow-md hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105 transition" role="listitem" tabindex="0" data-keywords="word counter count words characters file pdf docx html txt zip odt rtf">
-            <div class="tool-icon w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-green-400 flex items-center justify-center text-white text-xl mb-3" aria-hidden="true">🧮</div>
-            <div class="tool-title font-semibold text-lg text-yellow-400">Word Counter</div>
-            <div class="tool-desc text-sm text-gray-400">Count words, characters, sentences, paragraphs, even PDF/DOCX/ZIP/HTML files!</div>
-            <a class="tool-link text-green-400 text-sm font-medium mt-2 inline-flex items-center hover:text-yellow-400 focus:text-yellow-400 focus:outline focus:outline-2 focus:outline-green-400" href="https://word.vinnesia.my.id/" target="_blank" rel="noopener" aria-label="Open Word Counter">Open Tool &rarr;</a>
-          </div>
-          <!-- Other Text Tools cards (unchanged for brevity) -->
-          <div class="tool-card bg-gray-700 rounded-lg p-4 shadow-md hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105 transition" role="listitem" tabindex="0" data-keywords="json formatter json beautifier minifier validation">
-            <div class="tool-icon w-10 h-10 rounded-lg bg-gradient-to-br from-green-400 to-yellow-400 flex items-center justify-center text-white text-xl mb-3" aria-hidden="true">🧩</div>
-            <div class="tool-title font-semibold text-lg text-yellow-400">JSON Formatter</div>
-            <div class="tool-desc text-sm text-gray-400">Format, minify, and validate JSON online, easy & free.</div>
-            <a class="tool-link text-green-400 text-sm font-medium mt-2 inline-flex items-center hover:text-yellow-400 focus:text-yellow-400 focus:outline focus:outline-2 focus:outline-green-400" href="https://json.vinnesia.my.id/" target="_blank" rel="noopener" aria-label="Open JSON Formatter">Open Tool &rarr;</a>
-          </div>
-          <!-- Add other text tools similarly -->
+          <!-- Tools will be populated dynamically -->
         </div>
       </div>
-      <!-- Other categories (Security, Design & Image, Converter, Developer) remain unchanged for brevity -->
+      <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="security" aria-label="Security Tools Category">
+        <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
+          <span class="cat-icon text-2xl" aria-hidden="true">🔒</span>Security Tools
+        </div>
+        <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">
+          <!-- Tools will be populated dynamically -->
+        </div>
+      </div>
+      <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="design-image" aria-label="Design & Image Tools Category">
+        <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
+          <span class="cat-icon text-2xl" aria-hidden="true">🎨</span>Design & Image Tools
+        </div>
+        <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">
+          <!-- Tools will be populated dynamically -->
+        </div>
+      </div>
+      <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="converter" aria-label="Converter Tools Category">
+        <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
+          <span class="cat-icon text-2xl" aria-hidden="true">🔄</span>Converter Tools
+        </div>
+        <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">
+          <!-- Tools will be populated dynamically -->
+        </div>
+      </div>
+      <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="developer" aria-label="Developer Tools Category">
+        <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
+          <span class="cat-icon text-2xl" aria-hidden="true">💻</span>Developer Tools
+        </div>
+        <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">
+          <!-- Tools will be populated dynamically -->
+        </div>
+      </div>
     </div>
   </section>
 
@@ -300,7 +326,7 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37a4 4 0 1 1-4.63-4.63 4 4 0 0 1 4.63 4.63z"/><circle cx="17.5" cy="6.5" r="1"/></svg>
           </a>
           <a href="https://wa.me/6281234567890" class="text-yellow-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="WhatsApp VIN NESIA" target="_blank" rel="noopener">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 12A9.5 9.5 0 1 1 12 2.5a9.5 9.5 0 0 1 9.5 9.5z" /><path d="M12 22c-2.21 0-4.27-.72-5.94-1.97l-3.05.82.81-3.04A9.5 9.5 0 1 1 12 22z"/><path d="M16.29 14.12c-.18-.09-1.07-.53-1.24-.59-.17-.06-.29-.09-.41.09-.12.18-.47.58-.58.70-.11.12-.22.13-.4.04-.18-.09-.76-.28-1.44-.89-.53-.47-.88-1.05-.98-1.23-.1-.18-.01-.28.08-.37.09-.09.18-.22.27-.33.09-.11.12-.18.18-.30.06-.12.03-.23-.02-.32-.06-.09-.41-.98-.56-1.34-.15-.36-.3-.31-.41-.32-.11-.01-.23-.01-.36-.01-.12 0-.31.05-.47.23-.16.18-.62.61-.62 1.5 0 .89.63 1.74.71 1.86.09.12 1.25 2.02 3.13 2.76.44.15.79.23 1.06.29.45.1.86.08 1.18.05.36-.03 1.07-.44 1.22-.87.15-.43.15-.79.1-.87z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 12A9.5 9.5 0 1 1 12 2.5a9.5 9.5 0 0 1 9.5 9.5z" /><path d="M12 22c-2.21 0-4.27-.72-5.94-1.97l-3.05.82.81-3.04A9.5 9.5 0 1 1 12 22z"/><path d="M16.29 14.12c-.18-.09-1.07-.53-1.24-.59-.17-.06-.29-.09-.41.09-.12.18-.47.58-.58.70-.11.12-.22.13-.4.04-.18-.09-.76-.28-1.44-.89-.53-.47-.88-1.05-.98-1.23-.10-.18-.01-.28.08-.37.09-.09.18-.22.27-.33.09-.11.12-.18.18-.30.06-.12.03-.23-.02-.32-.06-.09-.41-.98-.56-1.34-.15-.36-.30-.31-.41-.32-.11-.01-.23-.01-.36-.01-.12 0-.31.05-.47.23-.16.18-.62.61-.62 1.50 0 .89.63 1.74.71 1.86.09.12 1.25 2.02 3.13 2.76.44.15.79.23 1.06.29.45.10.86.08 1.18.05.36-.03 1.07-.44 1.22-.87.15-.43.15-.79.10-.87z"/></svg>
           </a>
         </div>
       </div>
@@ -338,15 +364,15 @@
       {iconHtml: '🎨', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%)', title: 'Beautifier & Minifier', desc: 'Beautify or compress HTML, CSS, JSON code. Upload, beautify, minify!', link: 'https://toolsvin.vinnesia.my.id/beautifier', category: 'text', keywords: 'beautifier minifier html css json beautify compress code'},
       {iconHtml: '📄', iconStyle: 'background: linear-gradient(135deg, #7c3aed 60%, #ffd700 100%)', title: 'Markdown to HTML', desc: 'Convert Markdown text to HTML ready for web/blog.', link: 'https://toolsvin.vinnesia.my.id/markdown-to-html', category: 'text', keywords: 'markdown html converter md to html'},
       {iconHtml: '🔧', iconStyle: 'background: linear-gradient(135deg, #42e39a 60%, #7c3aed 100%)', title: 'HTML Entity Encoder/Decoder', desc: 'Convert special characters to HTML entities or vice versa.', link: 'https://toolsvin.vinnesia.my.id/html-entity', category: 'text', keywords: 'html entity encoder decoder special characters'},
-      {iconHtml: '🔑', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%)', title: 'Password Generator', desc: 'Create strong and secure passwords with full character options and ambiguous character filter.', link: 'https://password.vinnesia.my.id', category: 'security', keywords: 'password generator secure password'},
+      {iconHtml: '🔑', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%)', title: 'Password Generator', desc: 'Create strong and secure passwords with full character options and ambiguous character filter.', link: 'https://password.vinnesia.my.id/', category: 'security', keywords: 'password generator secure password'},
       {iconHtml: '🔍', iconStyle: 'background: linear-gradient(135deg, #7c3aed 65%, #ffd700 100%)', title: 'QR / Barcode Scanner', desc: 'Scan QR codes and barcodes directly from your browser easily.', link: 'https://scan.vinnesia.my.id/', category: 'security', keywords: 'qr scanner barcode reader code'},
       {iconHtml: '🗜️', iconStyle: 'background: linear-gradient(135deg, #42e39a 65%, #ffd700 100%)', title: 'Image Compressor', desc: 'Compress and reduce image file size without losing visual quality.', link: 'https://image.vinnesia.my.id/', category: 'design-image', keywords: 'image compressor compress image jpg png webp'},
       {iconHtml: '🔲', iconStyle: 'background: linear-gradient(135deg, #ffd700 65%, #7c3aed 100%)', title: 'QR Code Generator', desc: 'Create free QR codes for links, text, files, and various needs.', link: 'https://qr.vinnesia.my.id/', category: 'design-image', keywords: 'qr code generator create barcode'},
-      {iconHtml: '✍️', iconStyle: 'background: linear-gradient(135deg, #7c3aed 65%, #42e39a 100%)', title: 'Text to Handwriting', desc: 'Turn your text into handwriting with various unique font styles.', link: 'https://handwriting.vinnesia.my.id', category: 'design-image', keywords: 'text to handwriting handwriting generator font'},
+      {iconHtml: '✍️', iconStyle: 'background: linear-gradient(135deg, #7c3aed 65%, #42e39a 100%)', title: 'Text to Handwriting', desc: 'Turn your text into handwriting with various unique font styles.', link: 'https://handwriting.vinnesia.my.id/', category: 'design-image', keywords: 'text to handwriting handwriting generator font'},
       {iconHtml: '💱', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%)', title: 'Currency Converter', desc: 'Convert world currencies with real-time rates & simple calculator.', link: 'https://currency.vinnesia.my.id/', category: 'converter', keywords: 'currency converter currency conversion calculator'},
       {iconHtml: '📝', iconStyle: 'background: linear-gradient(135deg, #7c3aed 65%, #ffd700 100%)', title: 'Meta Tag Generator', desc: 'Create basic meta tags (title, description, keywords) for SEO & website visibility.', link: 'https://seo.vinnesia.my.id/tools/metatag', category: 'developer', keywords: 'meta tag seo optimization'},
       {iconHtml: '📘', iconStyle: 'background: linear-gradient(135deg, #42e39a 65%, #7c3aed 100%)', title: 'OG Tag Generator', desc: 'Create OG tags to control link display on Facebook & social media.', link: 'https://seo.vinnesia.my.id/tools/ogtag', category: 'developer', keywords: 'og open graph facebook social share'},
-      {iconHtml: '🐦', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%)', title: 'Twitter Card Generator', desc: 'Create Twitter Card tags for optimal link display when shared on Twitter.', link: 'https://seo.vinnesia.my.id/tools/twittercard', category: 'developer', keywords: 'twitter card tag preview social media'},
+      {iconHtml: '🐦', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%)', title: 'Twitter Card Generator', desc: 'Create Twitter Card tags for optimal link display when shared on Twitter.', link: 'https://seo.vinnesia.my.id/tools/twittercar', category: 'developer', keywords: 'twitter card tag preview social media'},
       {iconHtml: '🔗', iconStyle: 'background: linear-gradient(135deg, #7c3aed 60%, #ffd700 100%)', title: 'Canonical URL Generator', desc: 'Get canonical tags to prevent duplicate content & maintain SEO.', link: 'https://seo.vinnesia.my.id/tools/canonical', category: 'developer', keywords: 'canonical url duplicate content seo'},
       {iconHtml: '🚫', iconStyle: 'background: linear-gradient(135deg, #42e39a 65%, #ffd700 100%)', title: 'Noindex/Nofollow Tool', desc: 'Create meta robots tags to control indexing & links by search engines.', link: 'https://seo.vinnesia.my.id/tools/noindexnofollow', category: 'developer', keywords: 'noindex nofollow robots control search engines'},
       {iconHtml: '🌟', iconStyle: 'background: linear-gradient(135deg, #ffd700 65%, #7c3aed 100%)', title: 'Favicon Tag Generator', desc: 'Create favicon tag code for branding & browser tab display of your site.', link: 'https://seo.vinnesia.my.id/tools/favicon', category: 'developer', keywords: 'favicon tag generator browser icon'}
@@ -356,7 +382,7 @@
     function shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j] = [array[j], array[i]];
+        [array[i], array[j]] = [array[j], array[i]];
       }
       return array;
     }
@@ -391,6 +417,41 @@
       paginatedTools.forEach(tool => {
         popularToolsGrid.appendChild(createToolCard(tool));
       });
+
+      // Populate all-tools section dynamically
+      const toolsCategories = document.getElementById('toolsCategories');
+      toolsCategories.innerHTML = `
+        <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="text" aria-label="Text Tools Category">
+          <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
+            <span class="cat-icon text-2xl" aria-hidden="true">📝</span>Text Tools
+          </div>
+          <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">${allToolsData.filter(t => t.category === 'text').map(createToolCard).join('')}</div>
+        </div>
+        <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="security" aria-label="Security Tools Category">
+          <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
+            <span class="cat-icon text-2xl" aria-hidden="true">🔒</span>Security Tools
+          </div>
+          <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">${allToolsData.filter(t => t.category === 'security').map(createToolCard).join('')}</div>
+        </div>
+        <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="design-image" aria-label="Design & Image Tools Category">
+          <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
+            <span class="cat-icon text-2xl" aria-hidden="true">🎨</span>Design & Image Tools
+          </div>
+          <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">${allToolsData.filter(t => t.category === 'design-image').map(createToolCard).join('')}</div>
+        </div>
+        <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="converter" aria-label="Converter Tools Category">
+          <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
+            <span class="cat-icon text-2xl" aria-hidden="true">🔄</span>Converter Tools
+          </div>
+          <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">${allToolsData.filter(t => t.category === 'converter').map(createToolCard).join('')}</div>
+        </div>
+        <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="developer" aria-label="Developer Tools Category">
+          <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
+            <span class="cat-icon text-2xl" aria-hidden="true">💻</span>Developer Tools
+          </div>
+          <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">${allToolsData.filter(t => t.category === 'developer').map(createToolCard).join('')}</div>
+        </div>
+      `;
     }
 
     function setupPagination(tools, paginationContainer) {
