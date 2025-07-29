@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Us - VIN NESIA</title>
-  <meta name="description" content="Get in touch with VIN NESIA for support, feedback, or collaboration. Contact us via email, phone, or social media." />
+  <meta name="description" content="Get in touch with VIN NESIA for support, feedback, or collaboration using our contact form powered by FormSubmit and Resend, or reach us via email, phone, or social media." />
   <meta name="robots" content="index, follow" />
-  <meta name="keywords" content="contact us, VIN NESIA, support, feedback, collaboration, help" />
+  <meta name="keywords" content="contact us, VIN NESIA, support, feedback, collaboration, FormSubmit, Resend, help" />
 
   <meta property="og:title" content="Contact Us - VIN NESIA" />
-  <meta property="og:description" content="Reach out to VIN NESIA for assistance or to collaborate on our free online tool platform." />
+  <meta property="og:description" content="Reach out to VIN NESIA for assistance or to collaborate on our free online tool platform using our secure contact form or other contact methods." />
   <meta property="og:image" content="https://vinnesia.my.id/images/vin-nesia-banner.jpg" />
   <meta property="og:url" content="https://vinnesia.my.id/contact.html" />
   <meta property="og:type" content="website" />
@@ -20,13 +20,13 @@
   <meta name="twitter:site" content="@VinNesiaID" />
   <meta name="twitter:creator" content="@VinNesiaID" />
   <meta name="twitter:title" content="Contact Us - VIN NESIA" />
-  <meta name="twitter:description" content="Reach out to VIN NESIA for assistance or to collaborate on our free online tool platform." />
+  <meta name="twitter:description" content="Reach out to VIN NESIA for assistance or to collaborate on our free online tool platform using our secure contact form or other contact methods." />
   <meta name="twitter:image" content="https://vinnesia.my.id/images/vin-nesia-banner.jpg" />
 
   <link rel="canonical" href="https://vinnesia.my.id/contact.html" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.json" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -103,7 +103,7 @@
 
   <main class="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8" role="main">
     <h1 class="text-3xl sm:text-4xl font-bold text-yellow-400 mb-6 text-center">Contact Us - VIN NESIA</h1>
-    <p class="text-gray-400 mb-4 text-center">Last updated: July 30, 2025, 02:04 AM WIB</p>
+    <p class="text-gray-400 mb-4 text-center">Last updated: July 30, 2025, 06:21 AM WIB</p>
 
     <section class="mb-8" aria-labelledby="contact-info">
       <h2 id="contact-info" class="text-2xl font-semibold text-purple-500 mb-4">Contact Information</h2>
@@ -114,7 +114,7 @@
           <li><a href="mailto:admin@vinnesia.my.id" class="text-green-400 underline">admin@vinnesia.my.id</a> (General Inquiries)</li>
           <li><a href="mailto:privacy@vinnesia.my.id" class="text-green-400 underline">privacy@vinnesia.my.id</a> (Privacy Concerns)</li>
         </ul>
-        <p class="text-gray-400 mb-2"><strong>Phone:</strong> <a href="tel:+6281234567890" class="text-green-400 underline">+62-812-3456-7890</a> (Available 9 AM - 5 PM WIB)</p>
+        <p class="text-gray-400 mb-2"><strong>Phone/WhatsApp:</strong> <a href="tel:+6281234567890" class="text-green-400 underline">+62-812-3456-7890</a> (Available 9 AM - 5 PM WIB)</p>
         <p class="text-gray-400 mb-2"><strong>Address:</strong> Virtual Office, Jakarta, Indonesia (Remote Team)</p>
       </div>
     </section>
@@ -134,7 +134,9 @@
     <section class="mb-8" aria-labelledby="contact-form">
       <h2 id="contact-form" class="text-2xl font-semibold text-purple-500 mb-4">Send Us a Message</h2>
       <div class="contact-card">
-        <form action="https://formspree.io/f/xnnvevpd" method="POST" class="space-y-4">
+        <form action="/api/contact" method="POST" class="space-y-4" id="contactForm" data-form>
+          <input type="hidden" name="type" value="contact">
+          <input type="hidden" name="source" value="contact-page">
           <div>
             <label for="name" class="block text-gray-400 mb-1">Full Name</label>
             <input type="text" id="name" name="name" required class="w-full p-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Enter your name">
@@ -147,9 +149,12 @@
             <label for="message" class="block text-gray-400 mb-1">Message</label>
             <textarea id="message" name="message" required class="w-full p-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" rows="4" placeholder="Your message here"></textarea>
           </div>
-          <button type="submit" class="bg-purple-500 text-white px-4 py-2 rounded-md hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-green-400">Send Message</button>
+          <button type="submit" class="bg-purple-500 text-white px-4 py-2 rounded-md hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-green-400" id="submitButton">Send Message</button>
+          <p id="formMessage" class="text-gray-400 mt-2 text-sm hidden"></p>
+          <p class="text-gray-400 mt-2 text-sm">
+            * We will respond within 24-48 hours. Your data is processed securely by <a href="https://formsubmit.co/privacy" class="text-green-400 underline" target="_blank" rel="noopener">FormSubmit</a> and <a href="https://resend.com/privacy-policy" class="text-green-400 underline" target="_blank" rel="noopener">Resend</a>. See our <a href="/privacy-policy.html" class="text-green-400 underline">Privacy Policy</a> for details.
+          </p>
         </form>
-        <p class="text-gray-400 mt-2 text-sm">* We will respond within 24-48 hours.</p>
       </div>
     </section>
   </main>
@@ -182,7 +187,7 @@
         <div class="footer-legal flex flex-col gap-2">
           <a href="privacy-policy.html" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Privacy Policy">Privacy Policy</a>
           <a href="terms-of-service.html" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Terms of Service">Terms of Service</a>
-          <a href="sitemap.html" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Sitemap">Sitemap</a>
+          <a href="sitemap.xml" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Sitemap">Sitemap</a>
         </div>
       </div>
       <div class="footer-group min-w-[180px]" id="contact-footer">
@@ -227,6 +232,46 @@
       mainNav.classList.toggle('h-screen', !isExpanded);
       mainNav.classList.toggle('flex-col', !isExpanded);
       mainNav.classList.toggle('p-4', !isExpanded);
+    });
+
+    // Form submission handling
+    const contactForm = document.getElementById('contactForm');
+    const submitButton = document.getElementById('submitButton');
+    const formMessage = document.getElementById('formMessage');
+
+    contactForm.addEventListener('submit', async function(event) {
+      event.preventDefault();
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+      formMessage.classList.add('hidden');
+
+      try {
+        const formData = new FormData(contactForm);
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          formMessage.classList.remove('hidden');
+          formMessage.classList.remove('text-red-400');
+          formMessage.classList.add('text-green-400');
+          formMessage.textContent = result.message || 'Message sent successfully!';
+          contactForm.reset();
+        } else {
+          throw new Error(result.error || 'Failed to send message.');
+        }
+      } catch (error) {
+        formMessage.classList.remove('hidden');
+        formMessage.classList.remove('text-green-400');
+        formMessage.classList.add('text-red-400');
+        formMessage.textContent = error.message || 'An error occurred. Please try again.';
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send Message';
+      }
     });
   </script>
 </body>
