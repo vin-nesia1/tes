@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VIN NESIA - Free & Professional Online Tools for Productivity</title>
-  <meta name="description" content="VIN NESIA offers over 17 free and professional online tools. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, and more for your productivity. Last updated: July 30, 2025, 12:50 AM WIB." />
+  <meta name="description" content="VIN NESIA offers over 17 free and professional online tools. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, and more for your productivity. Last updated: July 30, 2025, 12:56 AM WIB." />
   <meta name="robots" content="index, follow" />
   <meta name="keywords" content="online tools, QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, productivity" />
 
@@ -147,7 +147,7 @@
     </button>
     <nav id="mainNav" class="hidden sm:flex gap-4 sm:gap-6 items-center" role="navigation" aria-label="Main Navigation">
       <a href="/" class="active font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-current="page">Home</a>
-      <a href="#all-tools" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="View all tools">All Tools</a>
+      <a href="tools.html" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="View all tools">All Tools</a>
       <a href="/blog.html" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="Read blog">Blog</a>
       <a href="/about.html" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="About us">About Us</a>
       <a href="/user-guide.html" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="User guide">User Guide</a>
@@ -157,7 +157,7 @@
   <section class="hero py-16 sm:py-20 px-4 text-center text-white mb-10" role="region" aria-labelledby="hero-title">
     <h1 id="hero-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-yellow-400 mb-4">VIN NESIA — One Portal, All Free Online Tools!</h1>
     <p class="text-lg sm:text-xl max-w-2xl mx-auto mb-6">Discover over 17 free and professional tools to boost your daily productivity.</p>
-    <a href="#all-tools" aria-label="Explore all tools">
+    <a href="tools.html" aria-label="Explore all tools">
       <button class="bg-gradient-to-r from-purple-500 to-green-400 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg hover:from-green-400 hover:to-purple-500 focus:outline focus:outline-2 focus:outline-yellow-400 transform hover:-translate-y-0.5 focus:-translate-y-0.5 transition">Explore Tools</button>
     </a>
   </section>
@@ -176,11 +176,6 @@
     <h2 id="popular-tools-title" class="section-title text-2xl sm:text-3xl font-semibold text-purple-500 text-center mb-6">📈 Today's Popular Tools</h2>
     <div class="popular-tools-grid grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6" id="popularToolsGrid" role="list" aria-live="polite" aria-relevant="additions"></div>
     <nav class="pagination flex justify-center gap-2 mt-6 flex-wrap" id="popularToolsPagination" aria-label="Popular tools page navigation"></nav>
-  </section>
-
-  <section id="all-tools" class="max-w-6xl mx-auto px-4 mb-10" role="region" aria-labelledby="all-tools-title">
-    <h2 id="all-tools-title" class="section-title text-2xl sm:text-3xl font-semibold text-purple-500 text-center mb-6">All Online Tools by Category</h2>
-    <div class="tools-categories flex flex-wrap gap-6 justify-center" id="toolsCategories"></div>
   </section>
 
   <section class="newsletter max-w-md mx-auto px-4 mb-12 bg-gray-800 rounded-xl p-6 shadow-lg text-center" aria-labelledby="newsletter-title">
@@ -249,7 +244,7 @@
         <div class="footer-group-title font-semibold text-yellow-400 mb-2">🧭 Navigation:</div>
         <div class="footer-links flex flex-col gap-2">
           <a href="/" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Home">Home</a>
-          <a href="#all-tools" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="All Tools">All Tools</a>
+          <a href="tools.html" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="All Tools">All Tools</a>
           <a href="/blog.html" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Blog">Blog</a>
           <a href="/about.html" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="About Us">About Us</a>
           <a href="/user-guide.html" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="User Guide">User Guide</a>
@@ -347,7 +342,6 @@
 
     const popularToolsGrid = document.getElementById('popularToolsGrid');
     const popularToolsPagination = document.getElementById('popularToolsPagination');
-    const toolsCategories = document.getElementById('toolsCategories');
     const itemsPerPage = 8;
     let currentPage = 1;
     let popularToolsShuffled = [];
@@ -376,47 +370,6 @@
       paginatedTools.forEach(tool => {
         popularToolsGrid.appendChild(createToolCard(tool));
       });
-
-      // Populate all-tools section dynamically
-      toolsCategories.innerHTML = `
-        <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="text" aria-label="Text Tools Category">
-          <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
-            <span class="cat-icon text-2xl" aria-hidden="true">📝</span>Text Tools
-          </div>
-          <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list"></div>
-        </div>
-        <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="security" aria-label="Security Tools Category">
-          <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
-            <span class="cat-icon text-2xl" aria-hidden="true">🔒</span>Security Tools
-          </div>
-          <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list"></div>
-        </div>
-        <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="design-image" aria-label="Design & Image Tools Category">
-          <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
-            <span class="cat-icon text-2xl" aria-hidden="true">🎨</span>Design & Image Tools
-          </div>
-          <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list"></div>
-        </div>
-        <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="converter" aria-label="Converter Tools Category">
-          <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
-            <span class="cat-icon text-2xl" aria-hidden="true">🔄</span>Converter Tools
-          </div>
-          <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list"></div>
-        </div>
-        <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="developer" aria-label="Developer Tools Category">
-          <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
-            <span class="cat-icon text-2xl" aria-hidden="true">💻</span>Developer Tools
-          </div>
-          <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list"></div>
-        </div>
-      `;
-
-      const categoryGrids = toolsCategories.querySelectorAll('.tools-grid');
-      categoryGrids[0].append(...allToolsData.filter(t => t.category === 'text').map(createToolCard));
-      categoryGrids[1].append(...allToolsData.filter(t => t.category === 'security').map(createToolCard));
-      categoryGrids[2].append(...allToolsData.filter(t => t.category === 'design-image').map(createToolCard));
-      categoryGrids[3].append(...allToolsData.filter(t => t.category === 'converter').map(createToolCard));
-      categoryGrids[4].append(...allToolsData.filter(t => t.category === 'developer').map(createToolCard));
     }
 
     function setupPagination(tools, paginationContainer) {
@@ -540,7 +493,6 @@
 
       // Search functionality
       const searchInput = document.getElementById('searchInput');
-      const toolsCategoriesSection = document.getElementById('toolsCategories');
 
       searchInput.addEventListener('input', function() {
         const q = this.value.trim().toLowerCase();
@@ -551,20 +503,6 @@
         currentPage = 1;
         displayTools(filteredPopularTools, currentPage);
         setupPagination(filteredPopularTools, popularToolsPagination);
-
-        Array.from(toolsCategoriesSection.querySelectorAll('.tools-category')).forEach(cat => {
-          let categoryHasVisibleTools = false;
-          Array.from(cat.querySelectorAll('.tool-card')).forEach(card => {
-            const title = card.querySelector('.tool-title').textContent.toLowerCase();
-            const desc = card.querySelector('.tool-desc').textContent.toLowerCase();
-            const keyw = card.getAttribute('data-keywords');
-            const text = [title, desc, keyw].join(' ');
-            const isVisible = text.includes(q) || !q;
-            card.style.display = isVisible ? '' : 'none';
-            if (isVisible) categoryHasVisibleTools = true;
-          });
-          cat.style.display = categoryHasVisibleTools ? '' : 'none';
-        });
       });
 
       // Newsletter form handling
