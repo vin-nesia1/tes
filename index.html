@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VIN NESIA - Free & Professional Online Tools for Productivity</title>
-  <meta name="description" content="VIN NESIA offers over 17 free and professional online tools. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, and more for your productivity. Last updated: July 30, 2025, 12:44 AM WIB." />
+  <meta name="description" content="VIN NESIA offers over 17 free and professional online tools. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, and more for your productivity. Last updated: July 30, 2025, 12:50 AM WIB." />
   <meta name="robots" content="index, follow" />
   <meta name="keywords" content="online tools, QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, productivity" />
 
@@ -74,7 +74,6 @@
       min-height: 100%;
       scroll-behavior: smooth;
     }
-    /* Custom styles to complement Tailwind */
     .hero {
       background: linear-gradient(120deg, #7c3aed 0%, #42e39a 100%);
       background-size: 200% 200%;
@@ -87,14 +86,14 @@
       100% { background-position: 100% 50%; }
     }
     .tool-card {
-      min-height: 200px; /* Minimal height for consistency */
+      min-height: 200px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
     .tool-desc {
-      flex-grow: 1; /* Allow description to adjust height */
-      overflow-wrap: break-word; /* Ensure text doesn't break */
+      flex-grow: 1;
+      overflow-wrap: break-word;
     }
     .popular-tools-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columns for mobile */
@@ -181,48 +180,7 @@
 
   <section id="all-tools" class="max-w-6xl mx-auto px-4 mb-10" role="region" aria-labelledby="all-tools-title">
     <h2 id="all-tools-title" class="section-title text-2xl sm:text-3xl font-semibold text-purple-500 text-center mb-6">All Online Tools by Category</h2>
-    <div class="tools-categories flex flex-wrap gap-6 justify-center" id="toolsCategories">
-      <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="text" aria-label="Text Tools Category">
-        <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
-          <span class="cat-icon text-2xl" aria-hidden="true">📝</span>Text Tools
-        </div>
-        <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">
-          <!-- Tools will be populated dynamically -->
-        </div>
-      </div>
-      <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="security" aria-label="Security Tools Category">
-        <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
-          <span class="cat-icon text-2xl" aria-hidden="true">🔒</span>Security Tools
-        </div>
-        <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">
-          <!-- Tools will be populated dynamically -->
-        </div>
-      </div>
-      <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="design-image" aria-label="Design & Image Tools Category">
-        <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
-          <span class="cat-icon text-2xl" aria-hidden="true">🎨</span>Design & Image Tools
-        </div>
-        <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">
-          <!-- Tools will be populated dynamically -->
-        </div>
-      </div>
-      <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="converter" aria-label="Converter Tools Category">
-        <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
-          <span class="cat-icon text-2xl" aria-hidden="true">🔄</span>Converter Tools
-        </div>
-        <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">
-          <!-- Tools will be populated dynamically -->
-        </div>
-      </div>
-      <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="developer" aria-label="Developer Tools Category">
-        <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
-          <span class="cat-icon text-2xl" aria-hidden="true">💻</span>Developer Tools
-        </div>
-        <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">
-          <!-- Tools will be populated dynamically -->
-        </div>
-      </div>
-    </div>
+    <div class="tools-categories flex flex-wrap gap-6 justify-center" id="toolsCategories"></div>
   </section>
 
   <section class="newsletter max-w-md mx-auto px-4 mb-12 bg-gray-800 rounded-xl p-6 shadow-lg text-center" aria-labelledby="newsletter-title">
@@ -389,6 +347,7 @@
 
     const popularToolsGrid = document.getElementById('popularToolsGrid');
     const popularToolsPagination = document.getElementById('popularToolsPagination');
+    const toolsCategories = document.getElementById('toolsCategories');
     const itemsPerPage = 8;
     let currentPage = 1;
     let popularToolsShuffled = [];
@@ -419,39 +378,45 @@
       });
 
       // Populate all-tools section dynamically
-      const toolsCategories = document.getElementById('toolsCategories');
       toolsCategories.innerHTML = `
         <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="text" aria-label="Text Tools Category">
           <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
             <span class="cat-icon text-2xl" aria-hidden="true">📝</span>Text Tools
           </div>
-          <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">${allToolsData.filter(t => t.category === 'text').map(createToolCard).join('')}</div>
+          <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list"></div>
         </div>
         <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="security" aria-label="Security Tools Category">
           <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
             <span class="cat-icon text-2xl" aria-hidden="true">🔒</span>Security Tools
           </div>
-          <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">${allToolsData.filter(t => t.category === 'security').map(createToolCard).join('')}</div>
+          <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list"></div>
         </div>
         <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="design-image" aria-label="Design & Image Tools Category">
           <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
             <span class="cat-icon text-2xl" aria-hidden="true">🎨</span>Design & Image Tools
           </div>
-          <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">${allToolsData.filter(t => t.category === 'design-image').map(createToolCard).join('')}</div>
+          <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list"></div>
         </div>
         <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="converter" aria-label="Converter Tools Category">
           <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
             <span class="cat-icon text-2xl" aria-hidden="true">🔄</span>Converter Tools
           </div>
-          <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">${allToolsData.filter(t => t.category === 'converter').map(createToolCard).join('')}</div>
+          <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list"></div>
         </div>
         <div class="tools-category w-full max-w-lg bg-gray-800 rounded-xl p-6 shadow-lg" data-category="developer" aria-label="Developer Tools Category">
           <div class="cat-title flex items-center gap-2 text-xl font-bold text-green-400 mb-4">
             <span class="cat-icon text-2xl" aria-hidden="true">💻</span>Developer Tools
           </div>
-          <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">${allToolsData.filter(t => t.category === 'developer').map(createToolCard).join('')}</div>
+          <div class="tools-grid grid grid-cols-1 sm:grid-cols-2 gap-4" role="list"></div>
         </div>
       `;
+
+      const categoryGrids = toolsCategories.querySelectorAll('.tools-grid');
+      categoryGrids[0].append(...allToolsData.filter(t => t.category === 'text').map(createToolCard));
+      categoryGrids[1].append(...allToolsData.filter(t => t.category === 'security').map(createToolCard));
+      categoryGrids[2].append(...allToolsData.filter(t => t.category === 'design-image').map(createToolCard));
+      categoryGrids[3].append(...allToolsData.filter(t => t.category === 'converter').map(createToolCard));
+      categoryGrids[4].append(...allToolsData.filter(t => t.category === 'developer').map(createToolCard));
     }
 
     function setupPagination(tools, paginationContainer) {
@@ -594,7 +559,7 @@
             const desc = card.querySelector('.tool-desc').textContent.toLowerCase();
             const keyw = card.getAttribute('data-keywords');
             const text = [title, desc, keyw].join(' ');
-            const isVisible = (text.includes(q) || !q);
+            const isVisible = text.includes(q) || !q;
             card.style.display = isVisible ? '' : 'none';
             if (isVisible) categoryHasVisibleTools = true;
           });
