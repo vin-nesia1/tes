@@ -86,6 +86,16 @@
       0% { background-position: 0% 50%; }
       100% { background-position: 100% 50%; }
     }
+    .tool-card {
+      min-height: 200px; /* Minimal height untuk konsistensi */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .tool-desc {
+      flex-grow: 1; /* Membiarkan deskripsi menyesuaikan tinggi */
+      overflow-wrap: break-word; /* Memastikan teks tidak terpotong */
+    }
     .testimonial-slider {
       display: flex;
       overflow-x: auto;
@@ -357,14 +367,14 @@
 
     function createToolCard(tool) {
       const card = document.createElement('div');
-      card.className = 'tool-card bg-gray-700 rounded-lg p-4 shadow-md hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105 transition';
+      card.className = 'tool-card bg-gray-700 rounded-lg p-4 shadow-md hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105 transition max-w-full';
       card.setAttribute('data-keywords', tool.keywords);
       card.setAttribute('tabindex', '0');
       card.setAttribute('role', 'listitem');
       card.innerHTML = `
         <div class="tool-icon w-10 h-10 rounded-lg flex items-center justify-center text-white text-xl mb-3" style="${tool.iconStyle}" aria-hidden="true">${tool.iconHtml}</div>
-        <div class="tool-title font-semibold text-lg text-yellow-400">${tool.title}</div>
-        <div class="tool-desc text-sm text-gray-400">${tool.desc}</div>
+        <div class="tool-title font-semibold text-lg text-yellow-400 line-clamp-2">${tool.title}</div>
+        <div class="tool-desc text-sm text-gray-400 line-clamp-3">${tool.desc}</div>
         <a class="tool-link text-green-400 text-sm font-medium mt-2 inline-flex items-center hover:text-yellow-400 focus:text-yellow-400 focus:outline focus:outline-2 focus:outline-green-400" href="${tool.link}" target="_blank" rel="noopener" aria-label="Buka ${tool.title}">Buka Tool &rarr;</a>
       `;
       return card;
