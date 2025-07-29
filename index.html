@@ -3,9 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>VIN NESIA - All-in-One Free Online Tools</title>
-  <meta name="description" content="VIN NESIA: Lebih dari 15+ tools gratis online untuk produktivitas harian. QR Code Generator, Text Counter, Image Compressor, dan banyak lagi!">
+  <title>VIN NESIA — Satu Portal, Semua Tools Online Gratis!</title>
+  <meta name="description" content="VIN NESIA: Satu portal lebih dari 15+ tools online gratis untuk produktivitas harian. QR Code Generator, Word Counter, Image Compressor, dan banyak lagi!">
+  <!-- SEO & OG Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VIN NESIA — Satu Portal, Semua Tools Online Gratis!">
+  <meta property="og:description" content="Portal tools online lengkap: QR Code, Word Counter, Image Compressor, SEO generator, dan banyak lagi. Gratis, praktis, tanpa daftar!">
+  <meta property="og:url" content="https://vinnesia.my.id/">
+  <meta property="og:site_name" content="VIN NESIA">
+  <meta property="og:image" content="https://vinnesia.my.id/assets/vin-nesia-og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VIN NESIA — Satu Portal, Semua Tools Online Gratis!">
+  <meta name="twitter:description" content="Lebih dari 15+ tools online gratis dalam satu portal. Praktis, ringan, tanpa daftar.">
+  <meta name="twitter:image" content="https://vinnesia.my.id/assets/vin-nesia-og.png">
+  <!-- Robots & Canonical -->
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://vinnesia.my.id/">
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Schema.org Organization JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "VIN NESIA",
+    "url": "https://vinnesia.my.id",
+    "logo": "https://vinnesia.my.id/assets/vin-nesia-og.png",
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "email": "support@vinnesia.my.id",
+        "contactType": "customer support",
+        "areaServed": "ID"
+      }
+    ],
+    "sameAs": [
+      "https://instagram.com/vin.nesia.id"
+    ]
+  }
+  </script>
+  <!-- End SEO -->
   <meta name="google-site-verification" content="G-3PYZXZFNER">
   <style>
     :root {
@@ -56,6 +95,15 @@
       color: var(--primary-gold);
       letter-spacing: 1.5px;
       text-shadow: 0 2px 8px #7c3aed20;
+      display: flex;
+      align-items: center;
+      gap: 0.6em;
+    }
+    .logo-img {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: #fff;
+      object-fit: cover;
+      margin-right: 4px;
     }
     nav {
       display: flex;
@@ -162,6 +210,18 @@
       color: var(--primary-gold);
       transform: translateY(-2px) scale(1.04);
     }
+    /* Notifikasi keamanan data */
+    .notice-data {
+      background: #23253a;
+      color: var(--primary-gold);
+      text-align: center;
+      font-size: 1rem;
+      margin: 16px auto 0 auto;
+      border-radius: 12px;
+      padding: 8px 18px;
+      max-width: 520px;
+      box-shadow: 0 2px 10px #0002;
+    }
     /* Search */
     .search-section {
       margin: -36px auto 36px auto;
@@ -211,6 +271,51 @@
       color: var(--primary-purple);
       letter-spacing: 0.2px;
       text-align: center;
+    }
+    /* Popular Tools */
+    .popular-tools-section {
+      max-width: 1200px;
+      margin: 0 auto 2.2rem auto;
+      padding: 0 2vw;
+    }
+    .popular-tools-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary-gold);
+      margin-bottom: 0.7em;
+      text-align: center;
+    }
+    .popular-tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.22rem;
+      margin-bottom: 1.2em;
+    }
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 0.6em;
+      margin-bottom: 0.6em;
+    }
+    .pagination button {
+      padding: 6px 14px;
+      border-radius: 6px;
+      border: none;
+      background: var(--primary-purple);
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      margin: 0 2px;
+      transition: background var(--transition), color var(--transition);
+    }
+    .pagination button.active {
+      background: var(--primary-green);
+      color: #23253a;
+    }
+    .pagination button:disabled {
+      background: #44445a;
+      color: #aaa;
+      cursor: not-allowed;
     }
     /* Tools by Category */
     .tools-categories {
@@ -305,6 +410,9 @@
     .tool-card .tool-link:hover {
       color: var(--primary-gold);
     }
+    .hidden {
+      display: none !important;
+    }
     /* Footer */
     footer {
       background: #1a1c2a;
@@ -394,6 +502,53 @@
       letter-spacing: 0.04em;
       background: #191b2a;
     }
+    .footer-disclaimer {
+      text-align: center;
+      color: #ffd700;
+      font-size: 0.97rem;
+      padding: 0.5em 0.2em;
+      margin-bottom: 0.6em;
+      font-style: italic;
+      background: #23253a;
+      border-radius: 6px;
+      max-width: 600px;
+      margin-left: auto; margin-right: auto;
+    }
+    /* Cookie Consent */
+    .cookie-consent {
+      position: fixed;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #23253a;
+      color: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 18px #0005;
+      padding: 17px 25px 14px 25px;
+      font-size: 1rem;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 1.2em;
+      max-width: 95vw;
+      transition: opacity 0.2s;
+    }
+    .cookie-consent button {
+      background: var(--primary-green);
+      color: #23253a;
+      border: none;
+      padding: 7px 22px;
+      border-radius: 999px;
+      font-size: 1.07rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-left: 0.5em;
+      transition: background var(--transition), color var(--transition);
+    }
+    .cookie-consent button:hover {
+      background: var(--primary-gold);
+      color: #181926;
+    }
     /* Responsive */
     @media (max-width: 900px) {
       .footer-main { flex-direction: column; align-items: flex-start; }
@@ -408,172 +563,182 @@
       .footer-main { padding: 1.2rem 2vw 0.9rem 2vw;}
       .footer-cta { font-size: 1rem; padding: 1.1rem 2vw 1rem 2vw;}
       .footer-copy { font-size: 0.93rem; padding: 0.8rem 2vw 1rem 2vw;}
+      .cookie-consent { font-size: 0.97rem; padding: 13px 9vw 10px 9vw;}
     }
   </style>
 </head>
 <body>
   <!-- Header -->
   <header>
-    <div class="logo">VIN NESIA</div>
-    <div class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <div class="logo" aria-label="Logo VIN NESIA">
+      <img src="/assets/vin-nesia-og.png" alt="Logo VIN NESIA" class="logo-img" loading="lazy">
+      VIN NESIA
+    </div>
+    <div class="nav-toggle" id="navToggle" aria-label="Buka menu navigasi" tabindex="0">
       <span></span>
       <span></span>
       <span></span>
     </div>
-    <nav id="mainNav">
-      <a href="#" class="active">Home</a>
-      <a href="#all-tools">Semua Tools</a>
-      <a href="#blog">Blog</a>
-      <a href="#about">Tentang Kami</a>
+    <nav id="mainNav" aria-label="Menu utama">
+      <a href="#" class="active" aria-label="Beranda">Home</a>
+      <a href="#all-tools" aria-label="Semua Tools">Semua Tools</a>
+      <a href="#blog" aria-label="Blog">Blog</a>
+      <a href="#about" aria-label="Tentang Kami">Tentang Kami</a>
     </nav>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <h1 class="hero-title">All-in-One Free Online Tools</h1>
-    <p class="hero-sub">More than 15+ free tools for daily productivity</p>
-    <a href="#all-tools"><button class="hero-cta">Explore Tools</button></a>
-  </section>
-
-  <!-- Search Section -->
-  <div class="search-section">
-    <form class="search-box" autocomplete="off" onsubmit="return false;">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <circle cx="11" cy="11" r="7" stroke="currentColor"/>
-        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-3.8-3.8"/>
-      </svg>
-      <input type="text" placeholder="Cari tools seperti QR Code, Text Counter..." id="searchInput">
-    </form>
-  </div>
-
-  <!-- Tools Kategori Section -->
-  <section id="all-tools">
-    <h2 class="section-title">Semua Tools Online (By Kategori)</h2>
-    <div class="tools-categories" id="toolsCategories">
-
-      <!-- SEO Tools -->
-      <div class="tools-category" data-category="seo">
-        <div class="cat-title"><span class="cat-icon">🔍</span>SEO & Webmaster Tools</div>
-        <div class="tools-grid">
-          <div class="tool-card" data-keywords="meta tag seo optimasi">
-            <div class="tool-icon" style="background: linear-gradient(135deg, #7c3aed 65%, #ffd700 100%);"><span>📝</span></div>
-            <div class="tool-title">Meta Tag Generator</div>
-            <div class="tool-desc">Buat meta tag dasar (title, description, keywords) untuk SEO & visibilitas website.</div>
-            <a class="tool-link" href="https://seo.vinnesia.my.id/tools/metatag" target="_blank" rel="noopener">Buka Tool &rarr;</a>
-          </div>
-          <div class="tool-card" data-keywords="og open graph facebook sosial share">
-            <div class="tool-icon" style="background: linear-gradient(135deg, #42e39a 65%, #7c3aed 100%);"><span>📘</span></div>
-            <div class="tool-title">OG Tag Generator</div>
-            <div class="tool-desc">Buat OG tag untuk kontrol tampilan link di Facebook & media sosial.</div>
-            <a class="tool-link" href="https://seo.vinnesia.my.id/tools/ogtag" target="_blank" rel="noopener">Buka Tool &rarr;</a>
-          </div>
-          <div class="tool-card" data-keywords="twitter card tag preview sosial media">
-            <div class="tool-icon" style="background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%);"><span>🐦</span></div>
-            <div class="tool-title">Twitter Card Generator</div>
-            <div class="tool-desc">Buat tag Twitter Card agar link tampil optimal saat dibagikan di Twitter.</div>
-            <a class="tool-link" href="https://seo.vinnesia.my.id/tools/twittercard" target="_blank" rel="noopener">Buka Tool &rarr;</a>
-          </div>
-          <div class="tool-card" data-keywords="canonical url duplikat konten seo">
-            <div class="tool-icon" style="background: linear-gradient(135deg, #7c3aed 60%, #ffd700 100%);"><span>🔗</span></div>
-            <div class="tool-title">Canonical URL Generator</div>
-            <div class="tool-desc">Dapatkan tag canonical untuk mencegah duplikat konten & menjaga SEO.</div>
-            <a class="tool-link" href="https://seo.vinnesia.my.id/tools/canonical" target="_blank" rel="noopener">Buka Tool &rarr;</a>
-          </div>
-          <div class="tool-card" data-keywords="noindex nofollow robots kontrol mesin pencari">
-            <div class="tool-icon" style="background: linear-gradient(135deg, #42e39a 65%, #ffd700 100%);"><span>🚫</span></div>
-            <div class="tool-title">Noindex/Nofollow Tool</div>
-            <div class="tool-desc">Buat meta robots untuk kontrol pengindeksan & tautan oleh mesin pencari.</div>
-            <a class="tool-link" href="https://seo.vinnesia.my.id/tools/noindexnofollow" target="_blank" rel="noopener">Buka Tool &rarr;</a>
-          </div>
-          <div class="tool-card" data-keywords="favicon tag generator ikon browser">
-            <div class="tool-icon" style="background: linear-gradient(135deg, #ffd700 65%, #7c3aed 100%);"><span>🌟</span></div>
-            <div class="tool-title">Favicon Tag Generator</div>
-            <div class="tool-desc">Buat kode tag favicon untuk branding & tampilan tab browser situs Anda.</div>
-            <a class="tool-link" href="https://seo.vinnesia.my.id/tools/favicon" target="_blank" rel="noopener">Buka Tool &rarr;</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Text Tools -->
-      <div class="tools-category" data-category="text">
-        <div class="cat-title"><span class="cat-icon">🔤</span>Text & File Tools</div>
-        <div class="tools-grid">
-          <div class="tool-card" data-keywords="word counter hitung kata karakter file pdf docx html txt zip odt rtf">
-            <div class="tool-icon" style="background: linear-gradient(135deg, #7c3aed 60%, #42e39a 100%);"><span>🧮</span></div>
-            <div class="tool-title">Word Counter</div>
-            <div class="tool-desc">Hitung kata, karakter, kalimat, paragraf, bahkan file PDF/DOCX/ZIP/HTML!</div>
-            <a class="tool-link" href="https://word.vinnesia.my.id/" target="_blank" rel="noopener">Buka Tool &rarr;</a>
-          </div>
-          <div class="tool-card" data-keywords="json formatter json beautifier minifier validasi">
-            <div class="tool-icon" style="background: linear-gradient(135deg, #42e39a 60%, #ffd700 100%);"><span>🧩</span></div>
-            <div class="tool-title">JSON Formatter</div>
-            <div class="tool-desc">Format, minify, dan validasi JSON secara online, mudah & gratis.</div>
-            <a class="tool-link" href="https://json.vinnesia.my.id/" target="_blank" rel="noopener">Buka Tool &rarr;</a>
-          </div>
-          <div class="tool-card" data-keywords="beautifier minifier html css json rapikan kompres kode">
-            <div class="tool-icon" style="background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%);"><span>🎨</span></div>
-            <div class="tool-title">Beautifier & Minifier</div>
-            <div class="tool-desc">Rapikan atau kompres kode HTML, CSS, JSON. Upload, beautify, minify!</div>
-            <a class="tool-link" href="https://toolsvin.vinnesia.my.id/beautifier" target="_blank" rel="noopener">Buka Tool &rarr;</a>
-          </div>
-          <div class="tool-card" data-keywords="markdown html converter md to html">
-            <div class="tool-icon" style="background: linear-gradient(135deg, #7c3aed 60%, #ffd700 100%);"><span>📄</span></div>
-            <div class="tool-title">Markdown to HTML</div>
-            <div class="tool-desc">Ubah teks Markdown menjadi HTML siap pakai untuk web/blog.</div>
-            <a class="tool-link" href="https://toolsvin.vinnesia.my.id/markdown-to-html" target="_blank" rel="noopener">Buka Tool &rarr;</a>
-          </div>
-          <div class="tool-card" data-keywords="html entity encoder decoder karakter khusus">
-            <div class="tool-icon" style="background: linear-gradient(135deg, #42e39a 60%, #7c3aed 100%);"><span>🔧</span></div>
-            <div class="tool-title">HTML Entity Encoder/Decoder</div>
-            <div class="tool-desc">Konversi karakter khusus ke entitas HTML atau sebaliknya.</div>
-            <a class="tool-link" href="https://toolsvin.vinnesia.my.id/html-entity" target="_blank" rel="noopener">Buka Tool &rarr;</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- QR & Image Tools -->
-      <div class="tools-category" data-category="qr-image">
-        <div class="cat-title"><span class="cat-icon">🖼️</span>QR & Image Tools</div>
-        <div class="tools-grid">
-          <div class="tool-card" data-keywords="qr code generator pembuat barcode">
-            <div class="tool-icon" style="background: linear-gradient(135deg, #ffd700 65%, #7c3aed 100%);"><span>🔲</span></div>
-            <div class="tool-title">QR Code Generator</div>
-            <div class="tool-desc">Buat QR Code gratis untuk link, teks, file, dan berbagai kebutuhan.</div>
-            <a class="tool-link" href="https://qr.vinnesia.my.id/" target="_blank" rel="noopener">Buka Tool &rarr;</a>
-          </div>
-          <div class="tool-card" data-keywords="image compressor kompres gambar jpg png webp">
-            <div class="tool-icon" style="background: linear-gradient(135deg, #42e39a 65%, #ffd700 100%);"><span>🗜️</span></div>
-            <div class="tool-title">Image Compressor</div>
-            <div class="tool-desc">Kompres dan perkecil ukuran file gambar tanpa menurunkan kualitas visual.</div>
-            <a class="tool-link" href="https://image.vinnesia.my.id/" target="_blank" rel="noopener">Buka Tool &rarr;</a>
-          </div>
-          <div class="tool-card" data-keywords="scan qr barcode pembaca kode">
-            <div class="tool-icon" style="background: linear-gradient(135deg, #7c3aed 65%, #ffd700 100%);"><span>🔍</span></div>
-            <div class="tool-title">QR / Barcode Scanner</div>
-            <div class="tool-desc">Scan QR Code dan barcode langsung dari browser Anda.</div>
-            <a class="tool-link" href="https://scan.vinnesia.my.id/" target="_blank" rel="noopener">Buka Tool &rarr;</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Converter & Kalkulator -->
-      <div class="tools-category" data-category="converter">
-        <div class="cat-title"><span class="cat-icon">💱</span>Converter & Kalkulator</div>
-        <div class="tools-grid">
-          <div class="tool-card" data-keywords="currency converter konversi mata uang kalkulator">
-            <div class="tool-icon" style="background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%);"><span>💸</span></div>
-            <div class="tool-title">Currency Converter</div>
-            <div class="tool-desc">Konversi mata uang dunia dengan kurs real-time & kalkulator sederhana.</div>
-            <a class="tool-link" href="https://currency.vinnesia.my.id/" target="_blank" rel="noopener">Buka Tool &rarr;</a>
-          </div>
-        </div>
-      </div>
-
+  <section class="hero" aria-label="Hero VIN NESIA">
+    <h1 class="hero-title">VIN NESIA — Satu Portal, Semua Tools Online Gratis!</h1>
+    <p class="hero-sub">Lebih dari 15+ alat bantu online, ringan dan tanpa biaya untuk produktivitas harian Anda.</p>
+    <a href="#all-tools" aria-label="Jelajahi Semua Tools"><button class="hero-cta">Jelajahi Tools</button></a>
+    <div class="notice-data" aria-live="polite">
+      <strong>Privasi:</strong> Data Anda <u>tidak</u> disimpan di server kami. Setiap file atau input hanya diproses di browser Anda.
     </div>
   </section>
 
-  <!-- Footer Baru -->
-  <footer>
+  <!-- Search Section -->
+  <div class="search-section" aria-label="Cari Tools">
+    <form class="search-box" autocomplete="off" onsubmit="return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="11" cy="11" r="7" stroke="currentColor"/>
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-3.8-3.8"/>
+      </svg>
+      <input type="text" placeholder="Cari tools seperti QR Code, Text Counter..." id="searchInput" aria-label="Cari nama atau fitur tools">
+    </form>
+  </div>
+
+  <!-- Popular Tools Section: diacak & pagination -->
+  <section class="popular-tools-section" aria-label="Popular Tools">
+    <div class="popular-tools-title">📈 Popular Tools Hari Ini</div>
+    <div class="popular-tools-grid" id="popularToolsGrid"></div>
+    <div class="pagination" id="popularPagination"></div>
+  </section>
+
+  <!-- Tools Kategori Section -->
+  <section id="all-tools" aria-label="Semua Tools Online">
+    <h2 class="section-title">Semua Tools Online (By Kategori)</h2>
+    <div class="tools-categories" id="toolsCategories" aria-live="polite">
+
+      <!-- SEO Tools -->
+      <div class="tools-category" data-category="seo">
+        <div class="cat-title"><span class="cat-icon" aria-hidden="true">🔍</span>SEO & Webmaster Tools</div>
+        <div class="tools-grid">
+          <div class="tool-card" data-keywords="meta tag seo optimasi" tabindex="0">
+            <div class="tool-icon" style="background: linear-gradient(135deg, #7c3aed 65%, #ffd700 100%);"><span aria-label="Icon Meta Tag">📝</span></div>
+            <div class="tool-title">Meta Tag Generator</div>
+            <div class="tool-desc">Buat meta tag dasar (title, description, keywords) untuk SEO & visibilitas website.</div>
+            <a class="tool-link" href="https://seo.vinnesia.my.id/tools/metatag" target="_blank" rel="noopener" aria-label="Buka Meta Tag Generator">Buka Tool &rarr;</a>
+          </div>
+          <div class="tool-card" data-keywords="og open graph facebook sosial share" tabindex="0">
+            <div class="tool-icon" style="background: linear-gradient(135deg, #42e39a 65%, #7c3aed 100%);"><span aria-label="Icon OG Tag">📘</span></div>
+            <div class="tool-title">OG Tag Generator</div>
+            <div class="tool-desc">Buat OG tag untuk kontrol tampilan link di Facebook & media sosial.</div>
+            <a class="tool-link" href="https://seo.vinnesia.my.id/tools/ogtag" target="_blank" rel="noopener" aria-label="Buka OG Tag Generator">Buka Tool &rarr;</a>
+          </div>
+          <div class="tool-card" data-keywords="twitter card tag preview sosial media" tabindex="0">
+            <div class="tool-icon" style="background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%);"><span aria-label="Icon Twitter Card">🐦</span></div>
+            <div class="tool-title">Twitter Card Generator</div>
+            <div class="tool-desc">Buat tag Twitter Card agar link tampil optimal saat dibagikan di Twitter.</div>
+            <a class="tool-link" href="https://seo.vinnesia.my.id/tools/twittercard" target="_blank" rel="noopener" aria-label="Buka Twitter Card Generator">Buka Tool &rarr;</a>
+          </div>
+          <div class="tool-card" data-keywords="canonical url duplikat konten seo" tabindex="0">
+            <div class="tool-icon" style="background: linear-gradient(135deg, #7c3aed 60%, #ffd700 100%);"><span aria-label="Icon Canonical">🔗</span></div>
+            <div class="tool-title">Canonical URL Generator</div>
+            <div class="tool-desc">Dapatkan tag canonical untuk mencegah duplikat konten & menjaga SEO.</div>
+            <a class="tool-link" href="https://seo.vinnesia.my.id/tools/canonical" target="_blank" rel="noopener" aria-label="Buka Canonical URL Generator">Buka Tool &rarr;</a>
+          </div>
+          <div class="tool-card" data-keywords="noindex nofollow robots kontrol mesin pencari" tabindex="0">
+            <div class="tool-icon" style="background: linear-gradient(135deg, #42e39a 65%, #ffd700 100%);"><span aria-label="Icon Noindex">🚫</span></div>
+            <div class="tool-title">Noindex/Nofollow Tool</div>
+            <div class="tool-desc">Buat meta robots untuk kontrol pengindeksan & tautan oleh mesin pencari.</div>
+            <a class="tool-link" href="https://seo.vinnesia.my.id/tools/noindexnofollow" target="_blank" rel="noopener" aria-label="Buka Noindex Nofollow Tool">Buka Tool &rarr;</a>
+          </div>
+          <div class="tool-card" data-keywords="favicon tag generator ikon browser" tabindex="0">
+            <div class="tool-icon" style="background: linear-gradient(135deg, #ffd700 65%, #7c3aed 100%);"><span aria-label="Icon Favicon">🌟</span></div>
+            <div class="tool-title">Favicon Tag Generator</div>
+            <div class="tool-desc">Buat kode tag favicon untuk branding & tampilan tab browser situs Anda.</div>
+            <a class="tool-link" href="https://seo.vinnesia.my.id/tools/favicon" target="_blank" rel="noopener" aria-label="Buka Favicon Tag Generator">Buka Tool &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <!-- Text Tools -->
+      <div class="tools-category" data-category="text">
+        <div class="cat-title"><span class="cat-icon" aria-hidden="true">🔤</span>Text & File Tools</div>
+        <div class="tools-grid">
+          <div class="tool-card" data-keywords="word counter hitung kata karakter file pdf docx html txt zip odt rtf" tabindex="0">
+            <div class="tool-icon" style="background: linear-gradient(135deg, #7c3aed 60%, #42e39a 100%);"><span aria-label="Icon Word Counter">🧮</span></div>
+            <div class="tool-title">Word Counter</div>
+            <div class="tool-desc">Hitung kata, karakter, kalimat, paragraf, bahkan file PDF/DOCX/ZIP/HTML!</div>
+            <a class="tool-link" href="https://word.vinnesia.my.id/" target="_blank" rel="noopener" aria-label="Buka Word Counter">Buka Tool &rarr;</a>
+          </div>
+          <div class="tool-card" data-keywords="json formatter json beautifier minifier validasi" tabindex="0">
+            <div class="tool-icon" style="background: linear-gradient(135deg, #42e39a 60%, #ffd700 100%);"><span aria-label="Icon JSON">🧩</span></div>
+            <div class="tool-title">JSON Formatter</div>
+            <div class="tool-desc">Format, minify, dan validasi JSON secara online, mudah & gratis.</div>
+            <a class="tool-link" href="https://json.vinnesia.my.id/" target="_blank" rel="noopener" aria-label="Buka JSON Formatter">Buka Tool &rarr;</a>
+          </div>
+          <div class="tool-card" data-keywords="beautifier minifier html css json rapikan kompres kode" tabindex="0">
+            <div class="tool-icon" style="background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%);"><span aria-label="Icon Beautifier">🎨</span></div>
+            <div class="tool-title">Beautifier & Minifier</div>
+            <div class="tool-desc">Rapikan atau kompres kode HTML, CSS, JSON. Upload, beautify, minify!</div>
+            <a class="tool-link" href="https://toolsvin.vinnesia.my.id/beautifier" target="_blank" rel="noopener" aria-label="Buka Beautifier Minifier">Buka Tool &rarr;</a>
+          </div>
+          <div class="tool-card" data-keywords="markdown html converter md to html" tabindex="0">
+            <div class="tool-icon" style="background: linear-gradient(135deg, #7c3aed 60%, #ffd700 100%);"><span aria-label="Icon Markdown">📄</span></div>
+            <div class="tool-title">Markdown to HTML</div>
+            <div class="tool-desc">Ubah teks Markdown menjadi HTML siap pakai untuk web/blog.</div>
+            <a class="tool-link" href="https://toolsvin.vinnesia.my.id/markdown-to-html" target="_blank" rel="noopener" aria-label="Buka Markdown to HTML">Buka Tool &rarr;</a>
+          </div>
+          <div class="tool-card" data-keywords="html entity encoder decoder karakter khusus" tabindex="0">
+            <div class="tool-icon" style="background: linear-gradient(135deg, #42e39a 60%, #7c3aed 100%);"><span aria-label="Icon HTML Entity">🔧</span></div>
+            <div class="tool-title">HTML Entity Encoder/Decoder</div>
+            <div class="tool-desc">Konversi karakter khusus ke entitas HTML atau sebaliknya.</div>
+            <a class="tool-link" href="https://toolsvin.vinnesia.my.id/html-entity" target="_blank" rel="noopener" aria-label="Buka HTML Entity Encoder Decoder">Buka Tool &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <!-- QR & Image Tools -->
+      <div class="tools-category" data-category="qr-image">
+        <div class="cat-title"><span class="cat-icon" aria-hidden="true">🖼️</span>QR & Image Tools</div>
+        <div class="tools-grid">
+          <div class="tool-card" data-keywords="qr code generator pembuat barcode" tabindex="0">
+            <div class="tool-icon" style="background: linear-gradient(135deg, #ffd700 65%, #7c3aed 100%);"><span aria-label="Icon QR">🔲</span></div>
+            <div class="tool-title">QR Code Generator</div>
+            <div class="tool-desc">Buat QR Code gratis untuk link, teks, file, dan berbagai kebutuhan.</div>
+            <a class="tool-link" href="https://qr.vinnesia.my.id/" target="_blank" rel="noopener" aria-label="Buka QR Code Generator">Buka Tool &rarr;</a>
+          </div>
+          <div class="tool-card" data-keywords="image compressor kompres gambar jpg png webp" tabindex="0">
+            <div class="tool-icon" style="background: linear-gradient(135deg, #42e39a 65%, #ffd700 100%);"><span aria-label="Icon Image Compressor">🗜️</span></div>
+            <div class="tool-title">Image Compressor</div>
+            <div class="tool-desc">Kompres dan perkecil ukuran file gambar tanpa menurunkan kualitas visual.</div>
+            <a class="tool-link" href="https://image.vinnesia.my.id/" target="_blank" rel="noopener" aria-label="Buka Image Compressor">Buka Tool &rarr;</a>
+          </div>
+          <div class="tool-card" data-keywords="scan qr barcode pembaca kode" tabindex="0">
+            <div class="tool-icon" style="background: linear-gradient(135deg, #7c3aed 65%, #ffd700 100%);"><span aria-label="Icon QR Scan">🔍</span></div>
+            <div class="tool-title">QR / Barcode Scanner</div>
+            <div class="tool-desc">Scan QR Code dan barcode langsung dari browser Anda.</div>
+            <a class="tool-link" href="https://scan.vinnesia.my.id/" target="_blank" rel="noopener" aria-label="Buka QR Barcode Scanner">Buka Tool &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <!-- Converter & Kalkulator -->
+      <div class="tools-category" data-category="converter">
+        <div class="cat-title"><span class="cat-icon" aria-hidden="true">💱</span>Converter & Kalkulator</div>
+        <div class="tools-grid">
+          <div class="tool-card" data-keywords="currency converter konversi mata uang kalkulator" tabindex="0">
+            <div class="tool-icon" style="background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%);"><span aria-label="Icon Currency Converter">💸</span></div>
+            <div class="tool-title">Currency Converter</div>
+            <div class="tool-desc">Konversi mata uang dunia dengan kurs real-time & kalkulator sederhana.</div>
+            <a class="tool-link" href="https://currency.vinnesia.my.id/" target="_blank" rel="noopener" aria-label="Buka Currency Converter">Buka Tool &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer aria-label="Footer VIN NESIA">
     <div class="footer-cta">
       🚀 Temukan tools online favoritmu di VIN NESIA – Cepat, Gratis, dan Praktis!
     </div>
@@ -581,26 +746,27 @@
       <div class="footer-group">
         <div class="footer-group-title">🧭 Navigasi:</div>
         <div class="footer-links">
-          <a href="#">Home</a>
-          <a href="#all-tools">Semua Tools</a>
-          <a href="#blog">Blog</a>
-          <a href="#about">Tentang Kami</a>
+          <a href="#" aria-label="Home">Home</a>
+          <a href="#all-tools" aria-label="Semua Tools">Semua Tools</a>
+          <a href="#blog" aria-label="Blog">Blog</a>
+          <a href="#about" aria-label="Tentang Kami">Tentang Kami</a>
         </div>
       </div>
       <div class="footer-group">
         <div class="footer-group-title">📚 Bantuan:</div>
         <div class="footer-help">
-          <a href="#">Cara Pakai Tools</a>
-          <a href="#">FAQ</a>
-          <a href="#contact-footer">Kontak Kami</a>
+          <a href="#" aria-label="Cara Pakai Tools">Cara Pakai Tools</a>
+          <a href="#" aria-label="FAQ">FAQ</a>
+          <a href="#contact-footer" aria-label="Kontak Kami">Kontak Kami</a>
         </div>
       </div>
       <div class="footer-group">
         <div class="footer-group-title">⚖️ Legal:</div>
         <div class="footer-legal">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Sitemap</a>
+          <a href="/privacy-policy.html" aria-label="Kebijakan Privasi">Kebijakan Privasi</a>
+          <a href="/terms.html" aria-label="Syarat & Ketentuan">Syarat & Ketentuan</a>
+          <a href="/disclaimer.html" aria-label="Disclaimer">Disclaimer</a>
+          <a href="/sitemap.xml" aria-label="Sitemap">Sitemap</a>
         </div>
       </div>
       <div class="footer-group" id="contact-footer">
@@ -610,24 +776,35 @@
           <div>support@vinnesia.my.id</div>
           <div>privacy@vinnesia.my.id</div>
         </div>
+        <div class="footer-contact" style="margin-top:0.6em; color:#b5bacb;">
+          Lokasi: <span style="color:#ffd700;">Kota Malang, Indonesia</span>
+        </div>
         <div class="footer-group-title" style="margin-top:1.1em;">📱 Media Sosial:</div>
         <div class="footer-social">
           <a href="https://instagram.com/vin.nesia.id" aria-label="Instagram" target="_blank" rel="noopener">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37a4 4 0 1 1-4.63-4.63 4 4 0 0 1 4.63 4.63z"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37a4 4 0 1 1-4.63-4.63 4 4 0 0 1 4.63 4.63z"/><circle cx="17.5" cy="6.5" r="1"/></svg>
           </a>
-          <!-- WhatsApp -->
           <a href="https://wa.me/" aria-label="WhatsApp" target="_blank" rel="noopener">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 12A9.5 9.5 0 1 1 12 2.5a9.5 9.5 0 0 1 9.5 9.5z" /><path d="M12 22c-2.21 0-4.27-.72-5.94-1.97l-3.05.82.81-3.04A9.5 9.5 0 1 1 12 22z"/><path d="M16.29 14.12c-.18-.09-1.07-.53-1.24-.59-.17-.06-.29-.09-.41.09-.12.18-.47.58-.58.7-.11.12-.22.13-.4.04-.18-.09-.76-.28-1.44-.89-.53-.47-.88-1.05-.98-1.23-.1-.18-.01-.28.08-.37.09-.09.18-.22.27-.33.09-.11.12-.18.18-.3.06-.12.03-.23-.02-.32-.06-.09-.41-.98-.56-1.34-.15-.36-.3-.31-.41-.32-.11-.01-.23-.01-.36-.01-.12 0-.31.05-.47.23-.16.18-.62.61-.62 1.5 0 .89.63 1.74.71 1.86.09.12 1.25 2.02 3.13 2.76.44.15.79.23 1.06.29.45.1.86.08 1.18.05.36-.03 1.07-.44 1.22-.87.15-.43.15-.79.1-.87z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21.5 12A9.5 9.5 0 1 1 12 2.5a9.5 9.5 0 0 1 9.5 9.5z" /><path d="M12 22c-2.21 0-4.27-.72-5.94-1.97l-3.05.82.81-3.04A9.5 9.5 0 1 1 12 22z"/><path d="M16.29 14.12c-.18-.09-1.07-.53-1.24-.59-.17-.06-.29-.09-.41.09-.12.18-.47.58-.58.7-.11.12-.22.13-.4.04-.18-.09-.76-.28-1.44-.89-.53-.47-.88-1.05-.98-1.23-.1-.18-.01-.28.08-.37.09-.09.18-.22.27-.33.09-.11.12-.18.18-.3.06-.12.03-.23-.02-.32-.06-.09-.41-.98-.56-1.34-.15-.36-.3-.31-.41-.32-.11-.01-.23-.01-.36-.01-.12 0-.31.05-.47.23-.16.18-.62.61-.62 1.5 0 .89.63 1.74.71 1.86.09.12 1.25 2.02 3.13 2.76.44.15.79.23 1.06.29.45.1.86.08 1.18.05.36-.03 1.07-.44 1.22-.87.15-.43.15-.79.1-.87z"/></svg>
           </a>
         </div>
       </div>
     </div>
+    <div class="footer-disclaimer">
+      VIN NESIA tidak bertanggung jawab atas penyalahgunaan tools. Selalu gunakan secara bijak dan sesuai hukum yang berlaku.
+    </div>
     <div class="footer-copy">
-      © 2025 VIN NESIA. All rights reserved. Built with <span style="color:#ff6363;">❤️</span> for everyone.
+      © 2025 VIN NESIA. All rights reserved. Dibangun dengan <span style="color:#ff6363;">❤️</span> untuk semua.
     </div>
   </footer>
 
-  <!-- Minimal JS for Navigation & Search -->
+  <!-- Cookie Consent -->
+  <div class="cookie-consent" id="cookieConsent" role="dialog" aria-live="polite" aria-label="Cookie Consent" style="display:none;">
+    Situs ini menggunakan cookies untuk meningkatkan pengalaman Anda.
+    <button id="cookieConsentBtn" aria-label="Setuju Cookie">Setuju</button>
+  </div>
+
+  <!-- Minimal JS for Navigation, Search, Cookie, Popular Tools -->
   <script>
     // Hamburger menu
     const navToggle = document.getElementById('navToggle');
@@ -660,6 +837,70 @@
         const visible = Array.from(cat.querySelectorAll('.tool-card')).some(el => el.style.display !== 'none');
         cat.style.display = visible ? '' : 'none';
       });
+    });
+
+    // Cookie Consent
+    function cookieConsentInit() {
+      const consentDiv = document.getElementById('cookieConsent');
+      const consentBtn = document.getElementById('cookieConsentBtn');
+      if (!localStorage.getItem('vinnesia_cookie_consent')) {
+        consentDiv.style.display = 'flex';
+      }
+      consentBtn.onclick = function() {
+        localStorage.setItem('vinnesia_cookie_consent', 'yes');
+        consentDiv.style.display = 'none';
+      };
+    }
+    cookieConsentInit();
+
+    // --- Popular tools: acak otomatis + pagination ---
+    // Ambil semua tools dari .tool-card, acak dan tampilkan per 9 (pagination)
+    function getAllToolCards() {
+      return Array.from(document.querySelectorAll('.tool-card')).map(card => {
+        // Deep clone node agar tidak mengubah aslinya
+        return card.cloneNode(true);
+      });
+    }
+    function shuffleArray(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+    function renderPopularTools(page=1) {
+      const allTools = shuffleArray(getAllToolCards());
+      const toolsPerPage = 9;
+      const totalPages = Math.ceil(allTools.length / toolsPerPage);
+      page = Math.max(1, Math.min(page, totalPages));
+      const grid = document.getElementById('popularToolsGrid');
+      const pag = document.getElementById('popularPagination');
+      grid.innerHTML = '';
+      pag.innerHTML = '';
+      // Tampilkan tools
+      const slice = allTools.slice((page-1)*toolsPerPage, page*toolsPerPage);
+      slice.forEach(tool => grid.appendChild(tool));
+      // Pagination
+      for(let i=1;i<=totalPages;i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        btn.className = i===page ? 'active' : '';
+        btn.disabled = i===page;
+        btn.setAttribute('aria-label', 'Halaman ' + i);
+        btn.onclick = () => renderPopularTools(i);
+        pag.appendChild(btn);
+      }
+    }
+    renderPopularTools(1);
+
+    // Accessibility: tekan Enter pada .nav-toggle juga buka menu
+    navToggle.addEventListener('keydown', function(e) {
+      if(e.key === 'Enter' || e.key === ' ') navToggle.click();
+    });
+
+    // Fallback: logo alt jika gagal load
+    document.querySelector('.logo-img').addEventListener('error', function(){
+      this.style.display = 'none';
     });
   </script>
 </body>
