@@ -74,16 +74,20 @@
     @media (max-width: 640px) {
       .footer-main { flex-direction: column; align-items: center; }
       .footer-group { width: 100%; margin-bottom: 1rem; }
-      .nav-toggle { display: block; }
-      #mainNav { display: none; }
+      <button id="navToggle" class="sm:hidden flex flex-col gap-1.5 p-2" ...>...</button>
+<nav id="mainNav" class="hidden sm:flex gap-4 sm:gap-6 items-center">
+  ...
+</nav>
       main { padding: 1rem; }
       h1 { font-size: 1.875rem; }
       h2 { font-size: 1.5rem; }
       summary { font-size: 1rem; padding: 0.75rem; }
     }
     @media (min-width: 641px) {
-      .nav-toggle { display: none; }
-      #mainNav { display: flex; }
+      <button id="navToggle" class="sm:hidden flex flex-col gap-1.5 p-2" ...>...</button>
+<nav id="mainNav" class="hidden sm:flex gap-4 sm:gap-6 items-center">
+  ...
+</nav>
       main { padding: 2rem; }
     }
   </style>
