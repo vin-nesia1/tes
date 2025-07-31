@@ -84,19 +84,23 @@
 </head>
 <body>
   <header class="bg-gray-900/95 sticky top-0 z-50 px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 shadow-md border-b border-gray-800" role="banner">
-    <div class="text-2xl sm:text-3xl font-bold text-yellow-400" aria-label="Logo VIN NESIA">VIN NESIA</div>
-    <button class="nav-toggle sm:hidden flex flex-col gap-1.5 p-2" id="navToggle" aria-label="Open or close navigation menu" aria-expanded="false" aria-controls="mainNav">
-      <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
-      <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
-      <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
-    </button>
-    <nav id="mainNav" class="hidden sm:flex gap-4 sm:gap-6 items-center" role="navigation" aria-label="Main Navigation">
-      <a href="index.html" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-current="page">Home</a>
-      <a href="index.html#all-tools" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="View all tools">All Tools</a>
-      <a href="blog.html" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="Read blog">Blog</a>
-      <a href="about.html" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="About us">About Us</a>
-    </nav>
-  </header>
+  <div class="text-2xl sm:text-3xl font-bold text-yellow-400" aria-label="Logo VIN NESIA">VIN NESIA</div>
+  
+  <!-- Tombol Hamburger -->
+  <button id="navToggle" class="sm:hidden flex flex-col gap-1.5 p-2 z-50" aria-label="Open menu" aria-expanded="false">
+    <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
+    <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
+    <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
+  </button>
+  
+  <!-- Menu Utama -->
+  <nav id="mainNav" class="hidden sm:flex gap-4 sm:gap-6 items-center">
+    <a href="index.html" class="text-white hover:text-green-400">Home</a>
+    <a href="index.html#all-tools" class="text-white hover:text-green-400">All Tools</a>
+    <a href="blog.html" class="text-white hover:text-green-400">Blog</a>
+    <a href="about.html" class="text-white hover:text-green-400">About Us</a>
+  </nav>
+</header>
 
   <main class="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8" role="main">
     <h1 class="text-3xl sm:text-4xl font-bold text-yellow-400 mb-6 text-center">How to Use VIN NESIA</h1>
@@ -239,29 +243,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.getElementById('navToggle');
   const mainNav = document.getElementById('mainNav');
 
-  if (!navToggle || !mainNav) {
-    console.error('❌ navToggle atau mainNav tidak ditemukan!');
-    return;
-  }
-
   navToggle.addEventListener('click', () => {
-    console.log('✅ Tombol hamburger diklik'); // DEBUG
-
     const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', String(!isExpanded)); // perbaiki jadi string
+    navToggle.setAttribute('aria-expanded', String(!isExpanded));
 
     mainNav.classList.toggle('hidden');
-    mainNav.classList.toggle('flex', !isExpanded);
-    mainNav.classList.toggle('fixed', !isExpanded);
-    mainNav.classList.toggle('top-16', !isExpanded);
-    mainNav.classList.toggle('right-0', !isExpanded);
-    mainNav.classList.toggle('bg-gray-800/95', !isExpanded);
-    mainNav.classList.toggle('w-3/4', !isExpanded);
-    mainNav.classList.toggle('max-w-xs', !isExpanded);
-    mainNav.classList.toggle('h-screen', !isExpanded);
-    mainNav.classList.toggle('flex-col', !isExpanded);
-    mainNav.classList.toggle('p-4', !isExpanded);
-    mainNav.classList.toggle('z-50', !isExpanded); // tambahkan z-index biar terlihat
+    mainNav.classList.toggle('flex');
+    mainNav.classList.toggle('fixed');
+    mainNav.classList.toggle('top-16');
+    mainNav.classList.toggle('right-0');
+    mainNav.classList.toggle('bg-gray-800/95');
+    mainNav.classList.toggle('w-3/4');
+    mainNav.classList.toggle('max-w-xs');
+    mainNav.classList.toggle('h-screen');
+    mainNav.classList.toggle('flex-col');
+    mainNav.classList.toggle('p-4');
+    mainNav.classList.toggle('z-40');
   });
 });
 </script>
