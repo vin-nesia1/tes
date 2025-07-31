@@ -235,31 +235,35 @@
   </footer>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const navToggle = document.getElementById('navToggle');
-    const mainNav = document.getElementById('mainNav');
+document.addEventListener('DOMContentLoaded', () => {
+  const navToggle = document.getElementById('navToggle');
+  const mainNav = document.getElementById('mainNav');
 
-    if (navToggle && mainNav) {
-      navToggle.addEventListener('click', () => {
-        console.log('Tombol hamburger diklik'); // tes di console
+  if (!navToggle || !mainNav) {
+    console.error('❌ navToggle atau mainNav tidak ditemukan!');
+    return;
+  }
 
-        const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-        navToggle.setAttribute('aria-expanded', String(!isExpanded)); // FIX: string
+  navToggle.addEventListener('click', () => {
+    console.log('✅ Tombol hamburger diklik'); // DEBUG
 
-        mainNav.classList.toggle('hidden');
-        mainNav.classList.toggle('flex', !isExpanded);
-        mainNav.classList.toggle('fixed', !isExpanded);
-        mainNav.classList.toggle('top-16', !isExpanded);
-        mainNav.classList.toggle('right-0', !isExpanded);
-        mainNav.classList.toggle('bg-gray-800/95', !isExpanded);
-        mainNav.classList.toggle('w-3/4', !isExpanded);
-        mainNav.classList.toggle('max-w-xs', !isExpanded);
-        mainNav.classList.toggle('h-screen', !isExpanded);
-        mainNav.classList.toggle('flex-col', !isExpanded);
-        mainNav.classList.toggle('p-4', !isExpanded);
-      });
-    }
+    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', String(!isExpanded)); // perbaiki jadi string
+
+    mainNav.classList.toggle('hidden');
+    mainNav.classList.toggle('flex', !isExpanded);
+    mainNav.classList.toggle('fixed', !isExpanded);
+    mainNav.classList.toggle('top-16', !isExpanded);
+    mainNav.classList.toggle('right-0', !isExpanded);
+    mainNav.classList.toggle('bg-gray-800/95', !isExpanded);
+    mainNav.classList.toggle('w-3/4', !isExpanded);
+    mainNav.classList.toggle('max-w-xs', !isExpanded);
+    mainNav.classList.toggle('h-screen', !isExpanded);
+    mainNav.classList.toggle('flex-col', !isExpanded);
+    mainNav.classList.toggle('p-4', !isExpanded);
+    mainNav.classList.toggle('z-50', !isExpanded); // tambahkan z-index biar terlihat
   });
+});
 </script>
 </body>
 </html>
