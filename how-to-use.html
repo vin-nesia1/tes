@@ -234,25 +234,32 @@
     </div>
   </footer>
 
-  <script>
-    // Hamburger menu toggler with A11Y
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
     const navToggle = document.getElementById('navToggle');
     const mainNav = document.getElementById('mainNav');
-    navToggle.addEventListener('click', function() {
-      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', !isExpanded);
-      mainNav.classList.toggle('hidden');
-      mainNav.classList.toggle('flex', !isExpanded);
-      mainNav.classList.toggle('fixed', !isExpanded);
-      mainNav.classList.toggle('top-16', !isExpanded);
-      mainNav.classList.toggle('right-0', !isExpanded);
-      mainNav.classList.toggle('bg-gray-800/95', !isExpanded);
-      mainNav.classList.toggle('w-3/4', !isExpanded);
-      mainNav.classList.toggle('max-w-xs', !isExpanded);
-      mainNav.classList.toggle('h-screen', !isExpanded);
-      mainNav.classList.toggle('flex-col', !isExpanded);
-      mainNav.classList.toggle('p-4', !isExpanded);
-    });
-  </script>
+
+    if (navToggle && mainNav) {
+      navToggle.addEventListener('click', () => {
+        console.log('Tombol hamburger diklik'); // tes di console
+
+        const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!isExpanded)); // FIX: string
+
+        mainNav.classList.toggle('hidden');
+        mainNav.classList.toggle('flex', !isExpanded);
+        mainNav.classList.toggle('fixed', !isExpanded);
+        mainNav.classList.toggle('top-16', !isExpanded);
+        mainNav.classList.toggle('right-0', !isExpanded);
+        mainNav.classList.toggle('bg-gray-800/95', !isExpanded);
+        mainNav.classList.toggle('w-3/4', !isExpanded);
+        mainNav.classList.toggle('max-w-xs', !isExpanded);
+        mainNav.classList.toggle('h-screen', !isExpanded);
+        mainNav.classList.toggle('flex-col', !isExpanded);
+        mainNav.classList.toggle('p-4', !isExpanded);
+      });
+    }
+  });
+</script>
 </body>
 </html>
