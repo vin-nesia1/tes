@@ -11,7 +11,7 @@
   <meta property="og:title" content="Contact Us - VIN NESIA" />
   <meta property="og:description" content="Reach out to VIN NESIA for assistance or to collaborate on our free online tool platform." />
   <meta property="og:image" content="https://vinnesia.my.id/images/vin-nesia-banner.jpg" />
-  <meta property="og:url" content="https://vinnesia.my.id/contact.html" />
+  <meta property="og:url" content="https://vinnesia.my.id/contact" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="VIN NESIA" />
   <meta property="og:locale" content="en_US" />
@@ -24,9 +24,9 @@
   <meta name="twitter:image" content="https://vinnesia.my.id/images/vin-nesia-banner.jpg" />
 
   <link rel="canonical" href="https://vinnesia.my.id/contact" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="manifest" href="../manifest.json" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -69,40 +69,37 @@
     @media (max-width: 640px) {
       .footer-main { flex-direction: column; align-items: center; }
       .footer-group { width: 100%; margin-bottom: 1rem; }
-      <button id="navToggle" class="sm:hidden flex flex-col gap-1.5 p-2" ...>...</button>
-<nav id="mainNav" class="hidden sm:flex gap-4 sm:gap-6 items-center">
-  ...
-</nav>
+      button#navToggle { display: flex; }
+      nav#mainNav { display: none; }
+      nav#mainNav.flex { display: flex; }
       main { padding: 1rem; }
       h1 { font-size: 1.875rem; }
       h2 { font-size: 1.5rem; }
     }
     @media (min-width: 641px) {
-      <button id="navToggle" class="sm:hidden flex flex-col gap-1.5 p-2" ...>...</button>
-<nav id="mainNav" class="hidden sm:flex gap-4 sm:gap-6 items-center">
-  ...
-</nav>
+      button#navToggle { display: none; }
+      nav#mainNav { display: flex; }
       main { padding: 2rem; }
     }
   </style>
 </head>
 <body>
   <header class="bg-gray-900/95 sticky top-0 z-50 px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 shadow-md border-b border-gray-800" role="banner">
-    <img src="logo.png" alt="Logo VIN NESIA" class="h-10 w-10 rounded-lg shadow-md">
-<span class="text-2xl sm:text-3xl font-bold text-yellow-400">VIN NESIA</span>
+    <img src="../logo.png" alt="Logo VIN NESIA" class="h-10 w-10 rounded-lg shadow-md">
+    <span class="text-2xl sm:text-3xl font-bold text-yellow-400">VIN NESIA</span>
     <button class="nav-toggle sm:hidden flex flex-col gap-1.5 p-2" id="navToggle" aria-label="Open or close navigation menu" aria-expanded="false" aria-controls="mainNav">
       <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
       <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
       <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
     </button>
     <nav id="mainNav" class="hidden sm:flex gap-4 sm:gap-6 items-center" role="navigation" aria-label="Main Navigation">
-      <a href="index.html" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-current="page">Home</a>
-      <a href="tools.html" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="View all tools">All Tools</a>
-      <a href="blog.html" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="Read blog">Blog</a>
-      <a href="about.html" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="About us">About Us</a>
-      <a href="user-guide.html" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="User guide">User Guide</a>
-      <a href="how-to-use.html" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="How to use">How to Use</a>
-      <a href="faq.html" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="FAQ">FAQ</a>
+      <a href="../" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-current="page">Home</a>
+      <a href="../tools" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="View all tools">All Tools</a>
+      <a href="../blog" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="Read blog">Blog</a>
+      <a href="../about" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="About us">About Us</a>
+      <a href="../user-guide" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="User guide">User Guide</a>
+      <a href="../how-to-use" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="How to use">How to Use</a>
+      <a href="../faq" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="FAQ">FAQ</a>
     </nav>
   </header>
 
@@ -167,27 +164,27 @@
       <div class="footer-group min-w-[180px]">
         <div class="footer-group-title font-semibold text-yellow-400 mb-2">🧭 Navigation:</div>
         <div class="footer-links flex flex-col gap-2">
-          <a href="index.html" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Home">Home</a>
-          <a href="tools.html" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="All Tools">All Tools</a>
-          <a href="blog.html" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Blog">Blog</a>
-          <a href="about.html" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="About Us">About Us</a>
+          <a href="../" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Home">Home</a>
+          <a href="../tools" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="All Tools">All Tools</a>
+          <a href="../blog" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Blog">Blog</a>
+          <a href="../about" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="About Us">About Us</a>
         </div>
       </div>
       <div class="footer-group min-w-[180px]">
         <div class="footer-group-title font-semibold text-yellow-400 mb-2">📚 Help:</div>
         <div class="footer-help flex flex-col gap-2">
-          <a href="how-to-use.html" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="How to Use">How to Use</a>
-          <a href="user-guide.html" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="User Guide">User Guide</a>
-          <a href="faq.html" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="FAQ">FAQ</a>
-          <a href="contact.html" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Contact Us">Contact Us</a>
+          <a href="../how-to-use" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="How to Use">How to Use</a>
+          <a href="../user-guide" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="User Guide">User Guide</a>
+          <a href="../faq" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="FAQ">FAQ</a>
+          <a href="../contact" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Contact Us">Contact Us</a>
         </div>
       </div>
       <div class="footer-group min-w-[180px]">
         <div class="footer-group-title font-semibold text-yellow-400 mb-2">⚖️ Legal:</div>
         <div class="footer-legal flex flex-col gap-2">
-          <a href="privacy-policy.html" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Privacy Policy">Privacy Policy</a>
-          <a href="terms.html" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Terms of Service">Terms of Service</a>
-          <a href="sitemap.html" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Sitemap">Sitemap</a>
+          <a href="../privacy-policy" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Privacy Policy">Privacy Policy</a>
+          <a href="../terms-of-service" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Terms of Service">Terms of Service</a>
+          <a href="../sitemap" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Sitemap">Sitemap</a>
         </div>
       </div>
       <div class="footer-group min-w-[180px]" id="contact-footer">
