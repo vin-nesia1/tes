@@ -8,15 +8,15 @@
     <meta name="keywords" content="meta tag generator, seo tools, Vinnesia tools, web optimization, meta tags">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Vinnesia">
-    <link rel="canonical" href="https://www.vinnesia.my.id/articles-meta-tag-generator">
+    <link rel="canonical" href="https://www.vinnesia.my.id/blog/articles-meta-tag-generator">
     
     <!-- Open Graph Tags -->
     <meta property="og:title" content="The Ultimate Guide to Meta Tag Generators - Vinnesia">
     <meta property="og:description" content="Optimize your website with Vinnesia’s Meta Tag Generator. Learn to create effective meta tags with this comprehensive guide in 2025.">
-    <meta property="og:url" content="https://www.vinnesia.my.id/articles-meta-tag-generator.html">
+    <meta property="og:url" content="https://www.vinnesia.my.id/blog/articles-meta-tag-generator">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Vinnesia">
-    <meta property="og:image" content="https://www.vinnesia.my.id/images/meta-tag-generator.jpg">
+    <meta property="og:image" content="https://www.vinnesia.my.id/assets/images/meta-tag-generator.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
@@ -25,15 +25,15 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="The Ultimate Guide to Meta Tag Generators - Vinnesia">
     <meta name="twitter:description" content="Optimize your website with Vinnesia’s Meta Tag Generator. Learn to create effective meta tags with this comprehensive guide in 2025.">
-    <meta name="twitter:image" content="https://www.vinnesia.my.id/images/meta-tag-generator.jpg">
+    <meta name="twitter:image" content="https://www.vinnesia.my.id/assets/images/meta-tag-generator.jpg">
     <meta name="twitter:site" content="@vinnesia">
     <meta name="twitter:creator" content="@vinnesia">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="./favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     
     <!-- Google Analytics -->
@@ -57,8 +57,8 @@
         "@type": "BlogPosting",
         "headline": "The Ultimate Guide to Meta Tag Generators",
         "description": "Optimize your website with Vinnesia’s Meta Tag Generator. Learn to create effective meta tags with this comprehensive guide in 2025.",
-        "image": "https://www.vinnesia.my.id/images/meta-tag-generator.jpg",
-        "url": "https://www.vinnesia.my.id/articles-meta-tag-generator.html",
+        "image": "https://www.vinnesia.my.id/assets/images/meta-tag-generator.jpg",
+        "url": "https://www.vinnesia.my.id/blog/articles-meta-tag-generator",
         "datePublished": "2025-07-31",
         "author": {
             "@type": "Organization",
@@ -71,18 +71,442 @@
             "url": "https://www.vinnesia.my.id",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.vinnesia.my.id/images/logo.png"
+                "url": "https://www.vinnesia.my.id/assets/images/logo.png"
             }
         },
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://www.vinnesia.my.id/articles-meta-tag-generator.html"
+            "@id": "https://www.vinnesia.my.id/blog/articles-meta-tag-generator"
         }
     }
     </script>
     
     <style>
-        /* [CSS styles identical to previous articles, omitted for brevity; copy from earlier examples] */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 35%, #0f3460 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(45deg, #9d4edd, #06ffa5, #ffd60a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(45deg, #9d4edd, #06ffa5);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav a:hover {
+            color: #06ffa5;
+        }
+        
+        .nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+        
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #ffffff;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0 0 15px 15px;
+        }
+        
+        .mobile-nav.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .mobile-nav a {
+            display: block;
+            padding: 15px 20px;
+            color: #ffffff;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .mobile-nav a:hover {
+            background-color: rgba(6, 255, 165, 0.1);
+            color: #06ffa5;
+            padding-left: 30px;
+        }
+        
+        .mobile-nav a:last-child {
+            border-bottom: none;
+        }
+        
+        /* Article Content */
+        .main {
+            padding: 60px 0;
+        }
+        
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .article-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #9d4edd, #06ffa5, #ffd60a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .article-meta {
+            color: #999999;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        
+        .article-meta span {
+            margin-right: 15px;
+        }
+        
+        .article-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 15px;
+            margin: 0 auto 30px;
+            display: block;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #cccccc;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .article-content h2 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin: 30px 0 15px;
+        }
+        
+        .article-content h3 {
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin: 20px 0 10px;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        .article-content ul li, .article-content ol li {
+            margin-bottom: 10px;
+        }
+        
+        .article-content a {
+            color: #06ffa5;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .article-content a:hover {
+            color: #ffd60a;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(45deg, #9d4edd, #06ffa5);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(157, 78, 221, 0.3);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #111111;
+            padding: 60px 0 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .footer-section h4 {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-section ul li a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #06ffa5;
+            transform: translateX(5px);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+        
+        .social-icons a:hover {
+            background: linear-gradient(45deg, #9d4edd, #06ffa5);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(157, 78, 221, 0.3);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999999;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 767px) {
+            .nav {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .article-header h1 {
+                font-size: 2rem;
+            }
+            
+            .article-content {
+                font-size: 1rem;
+            }
+            
+            .article-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .article-content h3 {
+                font-size: 1.2rem;
+            }
+            
+            .article-image {
+                max-width: 100%;
+            }
+            
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .article-header h1 {
+                font-size: 3rem;
+            }
+            
+            .article-content {
+                font-size: 1.15rem;
+            }
+            
+            .article-content h2 {
+                font-size: 2rem;
+            }
+            
+            .article-content h3 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -90,24 +514,24 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo-container">
-                    <img src="./images/logo.png" alt="Vinnesia Logo" class="logo-img">
-                    <a href="./index.html" class="logo">Vinnesia</a>
+                    <img src="../assets/images/logo.png" alt="Vinnesia Logo" class="logo-img">
+                    <a href="../" class="logo">Vinnesia</a>
                 </div>
                 <nav class="nav">
-                    <a href="./index.html">Home</a>
-                    <a href="./tools.html">All Tools</a>
-                    <a href="./blog.html">Blog</a>
-                    <a href="./about.html">About</a>
+                    <a href="../">Home</a>
+                    <a href="../tools">All Tools</a>
+                    <a href="../blog">Blog</a>
+                    <a href="../about">About</a>
                 </nav>
                 <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
                     <span></span><span></span><span></span>
                 </div>
                 <div class="mobile-nav" id="mobileNav">
-                    <a href="./index.html">Home</a>
-                    <a href="./about.html">About Us</a>
-                    <a href="./terms.html">Terms Of Service</a>
-                    <a href="./privacy-policy.html">Privacy Policy</a>
-                    <a href="./contact.html">Contact Us</a>
+                    <a href="../">Home</a>
+                    <a href="../about">About Us</a>
+                    <a href="../terms-of-service">Terms Of Service</a>
+                    <a href="../privacy-policy">Privacy Policy</a>
+                    <a href="../contact">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -123,7 +547,7 @@
                         <span><i class="fas fa-user"></i> Vinnesia Team</span>
                         <span><i class="fas fa-folder"></i> Web Development</span>
                     </div>
-                    <img src="./images/meta-tag-generator.jpg" alt="Meta Tag Generator" class="article-image">
+                    <img src="../assets/images/meta-tag-generator.jpg" alt="Meta Tag Generator" class="article-image">
                 </header>
                 
                 <section class="article-content">
@@ -140,12 +564,12 @@
                         <li><strong>Free Access:</strong> Provides robust features at no cost.</li>
                         <li><strong>Cross-Platform:</strong> Accessible on all devices.</li>
                     </ul>
-                    <a href="./tools.html#meta-tag-generator" class="cta-button">Try Vinnesia’s Meta Tag Generator Now</a>
+                    <a href="../tools" class="cta-button">Try Vinnesia’s Meta Tag Generator Now</a>
                     
                     <h2>How to Use Vinnesia’s Meta Tag Generator</h2>
                     <p>Generating meta tags with Vinnesia’s tool is straightforward. Follow these steps:</p>
                     <ol>
-                        <li>Visit <a href="./tools.html#meta-tag-generator">Vinnesia’s Meta Tag Generator</a>.</li>
+                        <li>Visit <a href="../tools">Vinnesia’s Meta Tag Generator</a>.</li>
                         <li>Enter your page title, description, and URL.</li>
                         <li>Customize settings for keywords or social media tags.</li>
                         <li>Click “Generate” to create the meta tags.</li>
@@ -187,7 +611,7 @@
                     <p>From e-commerce to personal blogs, optimized meta tags are essential.</p>
                     
                     <h2>Understanding Meta Tags</h2>
-                    <p>Meta tags are HTML elements like `<meta name="description" content="...">` that provide metadata about a webpage. Vinnesia’s generator automates the creation of tags for description, keywords, and social media, ensuring compliance with SEO best practices.</p>
+                    <p>Meta tags are HTML elements like <code>&lt;meta name="description" content="..."&gt;</code> that provide metadata about a webpage. Vinnesia’s generator automates the creation of tags for description, keywords, and social media, ensuring compliance with SEO best practices.</p>
                     <p>Understanding tag types enhances their effective use.</p>
                     
                     <h3>Common Use Cases for Meta Tags</h3>
@@ -229,7 +653,7 @@
                     
                     <h2>Get Started Today</h2>
                     <p>Optimize your website with Vinnesia’s Meta Tag Generator. Start creating effective meta tags now to enhance your online presence.</p>
-                    <a href="./tools.html#meta-tag-generator" class="cta-button">Generate Meta Tags Now</a>
+                    <a href="../tools" class="cta-button">Generate Meta Tags Now</a>
                 </section>
             </article>
         </div>
@@ -241,27 +665,27 @@
                 <div class="footer-section">
                     <h4>🧭 Navigation</h4>
                     <ul>
-                        <li><a href="./index.html">Home</a></li>
-                        <li><a href="./tools.html">All Tools</a></li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./about.html">About Us</a></li>
-                        <li><a href="./user-guide.html">User Guide</a></li>
+                        <li><a href="../">Home</a></li>
+                        <li><a href="../tools">All Tools</a></li>
+                        <li><a href="../blog">Blog</a></li>
+                        <li><a href="../about">About Us</a></li>
+                        <li><a href="../user-guide">User Guide</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>📚 Help</h4>
                     <ul>
-                        <li><a href="./how-to-use.html">How to Use Tools</a></li>
-                        <li><a href="./faq.html">FAQ</a></li>
-                        <li><a href="./contact.html">Contact Us</a></li>
+                        <li><a href="../how-to-use">How to Use Tools</a></li>
+                        <li><a href="../faq">FAQ</a></li>
+                        <li><a href="../contact">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>⚖️ Legal</h4>
                     <ul>
-                        <li><a href="./privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="./terms.html">Terms of Service</a></li>
-                        <li><a href="./sitemap.html">Sitemap</a></li>
+                        <li><a href="../privacy-policy">Privacy Policy</a></li>
+                        <li><a href="../terms-of-service">Terms of Service</a></li>
+                        <li><a href="../sitemap">Sitemap</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -287,7 +711,36 @@
     </footer>
 
     <script>
-        // [JavaScript code identical to previous articles, omitted for brevity; copy from earlier examples]
+        // Mobile menu toggle function
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            mobileNav.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const mobileNav = document.getElementById('mobileNav');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (!toggle.contains(e.target) && !mobileNav.contains(e.target)) {
+                mobileNav.classList.remove('active');
+                toggle.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                const mobileNav = document.getElementById('mobileNav');
+                const toggle = document.querySelector('.mobile-menu-toggle');
+                
+                mobileNav.classList.remove('active');
+                toggle.classList.remove('active');
+            });
+        });
     </script>
 </body>
 </html>
