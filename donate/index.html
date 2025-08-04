@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Support VIN NESIA’s free online tools with a voluntary donation via Wise to SeaBank, Dana, GoPay, or ShopeePay. Your contribution helps us maintain and develop innovative tools for everyone!">
-  <meta name="keywords" content="donate VIN NESIA, donation Indonesia, Wise donation, free online tools, support VIN NESIA">
+  <meta name="description" content="Support VIN NESIA’s free online tools with a voluntary donation via Wise, Remitly, WorldRemit, DSGPAY, Western Union, SeaBank, Dana, GoPay, or ShopeePay. Your contribution helps us maintain and develop innovative tools for everyone!">
+  <meta name="keywords" content="donate VIN NESIA, donation Indonesia, Wise, Remitly, WorldRemit, DSGPAY, Western Union, free online tools, support VIN NESIA">
   <meta name="author" content="VIN NESIA">
   <link rel="canonical" href="https://www.vinnesia.my.id/donate">
   <title>DONATE VIN NESIA</title>
@@ -55,6 +55,7 @@
       margin: 20px 0;
       backdrop-filter: blur(5px);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      animation: fadeInUp 1s ease-in;
     }
 
     .donation-section h2 {
@@ -78,6 +79,12 @@
       margin-bottom: 10px;
       padding-left: 20px;
       position: relative;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .donation-details li:hover {
+      transform: translateX(5px);
+      background: rgba(255, 255, 255, 0.05);
     }
 
     .donation-details li::before {
@@ -114,6 +121,7 @@
       text-decoration: none;
       font-weight: bold;
       margin-top: 20px;
+      animation: pulse 2s infinite;
       transition: background 0.3s;
     }
 
@@ -136,11 +144,51 @@
       margin-bottom: 10px;
     }
 
+    .donation-form {
+      margin-top: 20px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+
+    .donation-form h3 {
+      font-size: 1.4rem;
+      color: #FFD700;
+      margin-bottom: 15px;
+    }
+
+    .donation-form input, .donation-form select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 5px;
+      background: #fff;
+      color: #2C003E;
+      font-size: 1rem;
+    }
+
+    .donation-form button {
+      background: #FFD700;
+      color: #2C003E;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    .donation-form button:hover {
+      background: #fff;
+    }
+
     footer {
       background: #2C003E;
       padding: 40px 20px;
       color: #fff;
       text-align: center;
+      animation: fadeInUp 1s ease-in;
     }
 
     .footer-section {
@@ -190,6 +238,18 @@
       color: #ccc;
     }
 
+    /* Animasi */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
     /* Responsif */
     @media (max-width: 768px) {
       header h1 {
@@ -205,6 +265,10 @@
       }
 
       .donation-section p, .donation-details li {
+        font-size: 0.9rem;
+      }
+
+      .donation-form input, .donation-form select {
         font-size: 0.9rem;
       }
 
@@ -227,20 +291,10 @@
         padding: 20px;
       }
 
-      .copy-btn {
+      .copy-btn, .donation-form button {
         font-size: 0.8rem;
         padding: 4px 8px;
       }
-    }
-
-    /* Animasi halus */
-    .donation-section, footer {
-      animation: fadeIn 1s ease-in;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -253,36 +307,65 @@
 
     <section class="donation-section">
       <h2>Donation Guide for International Donors</h2>
-      <p>We gladly accept voluntary donations from around the world via <a href="https://wise.com" target="_blank" style="color: #FFD700;">Wise</a>. Use the details below to send your contribution:</p>
+      <p>We accept voluntary donations from around the world via <a href="https://wise.com" target="_blank" style="color: #FFD700;">Wise</a>, <a href="https://www.remitly.com" target="_blank" style="color: #FFD700;">Remitly</a>, <a href="https://www.worldremit.com" target="_blank" style="color: #FFD700;">WorldRemit</a>, <a href="https://www.dsgpay.com" target="_blank" style="color: #FFD700;">DSGPAY</a>, or <a href="https://www.westernunion.com" target="_blank" style="color: #FFD700;">Western Union</a>. Use the details below to send your contribution:</p>
       <div class="donation-details">
         <ul>
           <li><strong>Bank: SeaBank</strong><br>Name: Sultan Andrian Fahirza<br>Account Number: 901040922850 <button class="copy-btn" onclick="copyText('901040922850')">Copy</button><br>SWIFT Code: SEAAIDJA <button class="copy-btn" onclick="copyText('SEAAIDJA')">Copy</button></li>
           <li><strong>E-Wallet (Dana/GoPay/ShopeePay)</strong><br>Name: Sultan Andrian Fahirza<br>Phone Number: +62895354511777 <button class="copy-btn" onclick="copyText('+62895354511777')">Copy</button></li>
+          <li><strong>Western Union</strong><br>Name: Sultan Andrian Fahirza<br>Location: Indonesia<br>Contact: +62895354511777 <button class="copy-btn" onclick="copyText('+62895354511777')">Copy</button> for cash pickup coordination</li>
         </ul>
-        <p><strong>How to Donate:</strong> Sign up or log in to <a href="https://wise.com" target="_blank" style="color: #FFD700;">Wise</a>, enter the amount, select IDR as the currency, and use the bank or e-wallet details above. Donations to SeaBank arrive in 1-2 business days, while e-wallet transfers are instant.</p>
+        <p><strong>How to Donate:</strong> Sign up or log in to your chosen platform (<a href="https://wise.com" target="_blank" style="color: #FFD700;">Wise</a>, <a href="https://www.remitly.com" target="_blank" style="color: #FFD700;">Remitly</a>, <a href="https://www.worldremit.com" target="_blank" style="color: #FFD700;">WorldRemit</a>, <a href="https://www.dsgpay.com" target="_blank" style="color: #FFD700;">DSGPAY</a>, or <a href="https://www.westernunion.com" target="_blank" style="color: #FFD700;">Western Union</a>), enter the amount, select IDR as the currency (if applicable), and use the bank, e-wallet, or Western Union details above. SeaBank transfers arrive in 1-5 days, e-wallet transfers are instant, and Western Union cash pickups require coordination.</p>
         <p><strong>Perks:</strong> All donors will receive a shout-out on our website as a token of gratitude!</p>
-        <a href="https://wise.com" target="_blank" class="cta-btn">Support Now via Wise</a>
+        <a href="https://www.vinnesia.my.id/donation-guide" class="cta-btn">View Detailed Donation Guide</a>
+      </div>
+      <div class="donation-form">
+        <h3>Plan Your Donation</h3>
+        <input type="text" id="donor-name" placeholder="Your Name (Optional)" required>
+        <input type="number" id="donation-amount" placeholder="Donation Amount (IDR)" min="1000" required>
+        <select id="donation-method">
+          <option value="wise">Wise</option>
+          <option value="remitly">Remitly</option>
+          <option value="worldremit">WorldRemit</option>
+          <option value="dsgpay">DSGPAY</option>
+          <option value="westernunion">Western Union</option>
+          <option value="direct">Direct Transfer (SeaBank/Dana/GoPay/ShopeePay)</option>
+        </select>
+        <button onclick="submitDonation()">Submit Donation Plan</button>
       </div>
     </section>
 
     <section class="donation-section">
       <h2>Donation Guide for Indonesian Donors</h2>
-      <p>You can support VIN NESIA voluntarily by transferring via <a href="https://wise.com" target="_blank" style="color: #FFD700;">Wise</a> or directly to our SeaBank account or e-wallets (Dana, GoPay, ShopeePay). Direct e-wallet transfers are faster!</p>
+      <p>You can support VIN NESIA voluntarily by transferring via <a href="https://wise.com" target="_blank" style="color: #FFD700;">Wise</a>, <a href="https://www.remitly.com" target="_blank" style="color: #FFD700;">Remitly</a>, <a href="https://www.worldremit.com" target="_blank" style="color: #FFD700;">WorldRemit</a>, <a href="https://www.dsgpay.com" target="_blank" style="color: #FFD700;">DSGPAY</a>, <a href="https://www.westernunion.com" target="_blank" style="color: #FFD700;">Western Union</a>, or directly to our SeaBank account or e-wallets (Dana, GoPay, ShopeePay). Direct e-wallet transfers are faster!</p>
       <div class="donation-details">
         <ul>
           <li><strong>SeaBank</strong>: Name: Sultan Andrian Fahirza, Account Number: 901040922850 <button class="copy-btn" onclick="copyText('901040922850')">Copy</button></li>
           <li><strong>E-Wallet (Dana/GoPay/ShopeePay)</strong>: Name: Sultan Andrian Fahirza, Phone Number: +62895354511777 <button class="copy-btn" onclick="copyText('+62895354511777')">Copy</button></li>
-          <li><strong>Via Wise</strong>: Use the same details above through <a href="https://wise.com" target="_blank" style="color: #FFD700;">Wise</a>.</li>
+          <li><strong>Via Wise/Remitly/WorldRemit/DSGPAY/Western Union</strong>: Use the same details above through your chosen platform.</li>
         </ul>
-        <p><strong>Note:</strong> For faster donations, transfer directly to Dana, GoPay, or ShopeePay using your app. Ensure your e-wallet is upgraded to premium for seamless transfers. Wise donations to e-wallets are instant, while SeaBank transfers take 1-2 business days.</p>
+        <p><strong>Note:</strong> For faster donations, transfer directly to Dana, GoPay, or ShopeePay using your app. Ensure your e-wallet is upgraded to premium for seamless transfers. International platform transfers to e-wallets are instant, while SeaBank transfers take 1-5 days. Western Union requires coordination for cash pickup.</p>
         <p><strong>Perks:</strong> All donors will receive a shout-out on our website as a token of gratitude!</p>
-        <a href="https://wise.com" target="_blank" class="cta-btn">Support Now via Wise</a>
+        <a href="https://www.vinnesia.my.id/donation-guide" class="cta-btn">View Detailed Donation Guide</a>
+      </div>
+      <div class="donation-form">
+        <h3>Plan Your Donation</h3>
+        <input type="text" id="donor-name-domestic" placeholder="Your Name (Optional)" required>
+        <input type="number" id="donation-amount-domestic" placeholder="Donation Amount (IDR)" min="1000" required>
+        <select id="donation-method-domestic">
+          <option value="wise">Wise</option>
+          <option value="remitly">Remitly</option>
+          <option value="worldremit">WorldRemit</option>
+          <option value="dsgpay">DSGPAY</option>
+          <option value="westernunion">Western Union</option>
+          <option value="direct">Direct Transfer (SeaBank/Dana/GoPay/ShopeePay)</option>
+        </select>
+        <button onclick="submitDonationDomestic()">Submit Donation Plan</button>
       </div>
       <div class="faq">
         <h3>Frequently Asked Questions</h3>
         <p><strong>Is donating mandatory?</strong> No, donations are completely voluntary and help us keep our tools free for everyone.</p>
         <p><strong>Where do the funds go?</strong> Your contributions cover hosting costs, domain maintenance, and the development of new features for VIN NESIA’s tools.</p>
-        <p><strong>How secure is my donation?</strong> We use trusted platforms like Wise, SeaBank, Dana, GoPay, and ShopeePay, all secured with HTTPS encryption.</p>
+        <p><strong>How secure is my donation?</strong> We use trusted platforms like Wise, Remitly, WorldRemit, DSGPAY, Western Union, SeaBank, Dana, GoPay, and ShopeePay, all secured with HTTPS encryption.</p>
         <p><strong>Can I donate any amount?</strong> Yes, every contribution, big or small, makes a difference!</p>
       </div>
     </section>
@@ -329,6 +412,42 @@
         alert('Copied to clipboard: ' + text);
       }).catch(err => {
         console.error('Failed to copy: ', err);
+      });
+    }
+
+    function submitDonation() {
+      const name = document.getElementById('donor-name').value || 'Anonymous';
+      const amount = document.getElementById('donation-amount').value;
+      const method = document.getElementById('donation-method').value;
+      const methodText = {
+        wise: 'Wise',
+        remitly: 'Remitly',
+        worldremit: 'WorldRemit',
+        dsgpay: 'DSGPAY',
+        westernunion: 'Western Union',
+        direct: 'Direct Transfer (SeaBank/Dana/GoPay/ShopeePay)'
+      }[method];
+      const message = `Donation Plan\nName: ${name}\nAmount: IDR ${amount}\nMethod: ${methodText}\n\nPlease proceed to your chosen platform or use the details on this page. Send confirmation to support@vinnesia.my.id or WhatsApp +62895354511777.`;
+      navigator.clipboard.writeText(message).then(() => {
+        alert('Donation plan copied to clipboard! Please proceed with the payment and send confirmation to support@vinnesia.my.id or WhatsApp +62895354511777.');
+      });
+    }
+
+    function submitDonationDomestic() {
+      const name = document.getElementById('donor-name-domestic').value || 'Anonymous';
+      const amount = document.getElementById('donation-amount-domestic').value;
+      const method = document.getElementById('donation-method-domestic').value;
+      const methodText = {
+        wise: 'Wise',
+        remitly: 'Remitly',
+        worldremit: 'WorldRemit',
+        dsgpay: 'DSGPAY',
+        westernunion: 'Western Union',
+        direct: 'Direct Transfer (SeaBank/Dana/GoPay/ShopeePay)'
+      }[method];
+      const message = `Donation Plan\nName: ${name}\nAmount: IDR ${amount}\nMethod: ${methodText}\n\nPlease proceed to your chosen platform or use the details on this page. Send confirmation to support@vinnesia.my.id or WhatsApp +62895354511777.`;
+      navigator.clipboard.writeText(message).then(() => {
+        alert('Donation plan copied to clipboard! Please proceed with the payment and send confirmation to support@vinnesia.my.id or WhatsApp +62895354511777.');
       });
     }
   </script>
