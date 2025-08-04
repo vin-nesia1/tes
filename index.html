@@ -312,274 +312,289 @@
     </div>
   </footer>
 
-  <script>
-    // Hamburger menu toggler with A11Y
-    const navToggle = document.getElementById('navToggle');
-    const mainNav = document.getElementById('mainNav');
-    if (navToggle && mainNav) {
-      navToggle.addEventListener('click', function() {
-        const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-        navToggle.setAttribute('aria-expanded', !isExpanded);
-        mainNav.classList.toggle('hidden');
-        mainNav.classList.toggle('flex', !isExpanded);
-        mainNav.classList.toggle('fixed', !isExpanded);
-        mainNav.classList.toggle('top-16', !isExpanded);
-        mainNav.classList.toggle('right-0', !isExpanded);
-        mainNav.classList.toggle('bg-gray-800/95', !isExpanded);
-        mainNav.classList.toggle('w-3/4', !isExpanded);
-        mainNav.classList.toggle('max-w-xs', !isExpanded);
-        mainNav.classList.toggle('h-screen', !isExpanded);
-        mainNav.classList.toggle('flex-col', !isExpanded);
-        mainNav.classList.toggle('p-4', !isExpanded);
-      });
+  // Hamburger menu toggler with A11Y
+const navToggle = document.getElementById('navToggle');
+const mainNav = document.getElementById('mainNav');
+if (navToggle && mainNav) {
+  navToggle.addEventListener('click', function() {
+    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', !isExpanded);
+    mainNav.classList.toggle('hidden');
+    mainNav.classList.toggle('flex', !isExpanded);
+    mainNav.classList.toggle('fixed', !isExpanded);
+    mainNav.classList.toggle('top-16', !isExpanded);
+    mainNav.classList.toggle('right-0', !isExpanded);
+    mainNav.classList.toggle('bg-gray-800/95', !isExpanded);
+    mainNav.classList.toggle('w-3/4', !isExpanded);
+    mainNav.classList.toggle('max-w-xs', !isExpanded);
+    mainNav.classList.toggle('h-screen', !isExpanded);
+    mainNav.classList.toggle('flex-col', !isExpanded);
+    mainNav.classList.toggle('p-4', !isExpanded);
+  });
+}
+
+// Data for all tools
+const allToolsData = [
+  {iconHtml: '🧮', iconStyle: 'background: linear-gradient(135deg, #7c3aed 60%, #42e39a 100%)', title: 'Word Counter', desc: 'Count words, characters, sentences, paragraphs, even PDF/DOCX/ZIP/HTML files!', link: 'https://word.vinnesia.my.id/', category: 'text', keywords: 'word counter count words characters file pdf docx html txt zip odt rtf'},
+  {iconHtml: '🧩', iconStyle: 'background: linear-gradient(135deg, #42e39a 60%, #ffd700 100%)', title: 'JSON Formatter', desc: 'Format, minify, and validate JSON online, easy & free.', link: 'https://json.vinnesia.my.id/', category: 'text', keywords: 'json formatter json beautifier minifier validation'},
+  {iconHtml: '🎨', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%)', title: 'Beautifier & Minifier', desc: 'Beautify or compress HTML, CSS, JSON code. Upload, beautify, minify!', link: 'https://toolsvin.vinnesia.my.id/beautifier', category: 'text', keywords: 'beautifier minifier html css json beautify compress code'},
+  {iconHtml: '📄', iconStyle: 'background: linear-gradient(135deg, #7c3aed 60%, #ffd700 100%)', title: 'Markdown to HTML', desc: 'Convert Markdown text to HTML ready for web/blog.', link: 'https://toolsvin.vinnesia.my.id/markdown-to-html', category: 'text', keywords: 'markdown html converter md to html'},
+  {iconHtml: '🔧', iconStyle: 'background: linear-gradient(135deg, #42e39a 60%, #7c3aed 100%)', title: 'HTML Entity Encoder/Decoder', desc: 'Convert special characters to HTML entities or vice versa.', link: 'https://toolsvin.vinnesia.my.id/html-entity', category: 'text', keywords: 'html entity encoder decoder special characters'},
+  {iconHtml: '🔑', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%)', title: 'Password Generator', desc: 'Create strong and secure passwords with full character options and ambiguous character filter.', link: 'https://password.vinnesia.my.id/', category: 'security', keywords: 'password generator secure password'},
+  {iconHtml: '🔍', iconStyle: 'background: linear-gradient(135deg, #7c3aed 65%, #ffd700 100%)', title: 'QR / Barcode Scanner', desc: 'Scan QR codes and barcodes directly from your browser easily.', link: 'https://scan.vinnesia.my.id/', category: 'security', keywords: 'qr scanner barcode reader code'},
+  {iconHtml: '🗜️', iconStyle: 'background: linear-gradient(135deg, #42e39a 65%, #ffd700 100%)', title: 'Image Compressor', desc: 'Compress and reduce image file size without losing visual quality.', link: 'https://image.vinnesia.my.id/', category: 'design-image', keywords: 'image compressor compress image jpg png webp'},
+  {iconHtml: '🔲', iconStyle: 'background: linear-gradient(135deg, #ffd700 65%, #7c3aed 100%)', title: 'QR Code Generator', desc: 'Create free QR codes for links, text, files, and various needs.', link: 'https://qr.vinnesia.my.id/', category: 'design-image', keywords: 'qr code generator create barcode'},
+  {iconHtml: '✍️', iconStyle: 'background: linear-gradient(135deg, #7c3aed 65%, #42e39a 100%)', title: 'Text to Handwriting', desc: 'Turn your text into handwriting with various unique font styles.', link: 'https://handwriting.vinnesia.my.id/', category: 'design-image', keywords: 'text to handwriting handwriting generator font'},
+  {iconHtml: '💱', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%)', title: 'Currency Converter', desc: 'Convert world currencies with real-time rates & simple calculator.', link: 'https://currency.vinnesia.my.id/', category: 'converter', keywords: 'currency converter currency conversion calculator'},
+  {iconHtml: '📝', iconStyle: 'background: linear-gradient(135deg, #7c3aed 65%, #ffd700 100%)', title: 'Meta Tag Generator', desc: 'Create basic meta tags (title, description, keywords) for SEO & website visibility.', link: 'https://seo.vinnesia.my.id/tools/metatag', category: 'developer', keywords: 'meta tag seo optimization'},
+  {iconHtml: '📘', iconStyle: 'background: linear-gradient(135deg, #42e39a 65%, #7c3aed 100%)', title: 'OG Tag Generator', desc: 'Create OG tags to control link display on Facebook & social media.', link: 'https://seo.vinnesia.my.id/tools/ogtag', category: 'developer', keywords: 'og open graph facebook social share'},
+  {iconHtml: '🐦', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%)', title: 'Twitter Card Generator', desc: 'Create Twitter Card tags for optimal link display when shared on Twitter.', link: 'https://seo.vinnesia.my.id/tools/twittercard', category: 'developer', keywords: 'twitter card tag preview social media'},
+  {iconHtml: '🔗', iconStyle: 'background: linear-gradient(135deg, #7c3aed 60%, #ffd700 100%)', title: 'Canonical URL Generator', desc: 'Get canonical tags to prevent duplicate content & maintain SEO.', link: 'https://seo.vinnesia.my.id/tools/canonical', category: 'developer', keywords: 'canonical url duplicate content seo'},
+  {iconHtml: '🚫', iconStyle: 'background: linear-gradient(135deg, #42e39a 65%, #ffd700 100%)', title: 'Noindex/Nofollow Tool', desc: 'Create meta robots tags to control indexing & links by search engines.', link: 'https://seo.vinnesia.my.id/tools/noindexnofollow', category: 'developer', keywords: 'noindex nofollow robots control search engines'},
+  {iconHtml: '🌟', iconStyle: 'background: linear-gradient(135deg, #ffd700 65%, #7c3aed 100%)', title: 'Favicon Tag Generator', desc: 'Create favicon tag code for branding & browser tab display of your site.', link: 'https://seo.vinnesia.my.id/tools/favicon', category: 'developer', keywords: 'favicon tag generator browser icon'}
+];
+
+// Shuffle function
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+const popularToolsGrid = document.getElementById('popularToolsGrid');
+const popularToolsPagination = document.getElementById('popularToolsPagination');
+const itemsPerPage = 6;
+let currentPage = 1;
+let popularToolsShuffled = [];
+
+// Persist currentPage in sessionStorage to maintain state on refresh
+if (sessionStorage.getItem('currentPage')) {
+  currentPage = parseInt(sessionStorage.getItem('currentPage'));
+}
+
+function createToolCard(tool) {
+  const card = document.createElement('div');
+  card.className = 'tool-card bg-gray-700 rounded-lg p-4 shadow-md hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105 transition max-w-full';
+  card.setAttribute('data-keywords', tool.keywords);
+  card.setAttribute('tabindex', '0');
+  card.setAttribute('role', 'listitem');
+  card.innerHTML = `
+    <div class="tool-icon w-10 h-10 rounded-lg flex items-center justify-center text-white text-xl mb-3" style="${tool.iconStyle}" aria-hidden="true">${tool.iconHtml}</div>
+    <h3 class="tool-title font-semibold text-lg text-yellow-400 line-clamp-2">${tool.title}</h3>
+    <p class="tool-desc text-sm text-gray-400 line-clamp-3">${tool.desc}</p>
+    <a class="tool-link text-green-400 text-sm font-medium mt-2 inline-flex items-center hover:text-yellow-400 focus:text-yellow-400 focus:outline focus:outline-2 focus:outline-green-400" href="${tool.link}" target="_blank" rel="noopener" aria-label="Open ${tool.title}">Open Tool &rarr;</a>
+  `;
+  return card;
+}
+
+function displayTools(tools, page) {
+  if (!popularToolsGrid) {
+    console.error('popularToolsGrid not found');
+    return;
+  }
+  popularToolsGrid.innerHTML = '';
+  const start = (page - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  const paginatedTools = tools.slice(start, end);
+
+  paginatedTools.forEach(tool => {
+    popularToolsGrid.appendChild(createToolCard(tool));
+  });
+}
+
+function setupPagination(tools, paginationContainer) {
+  if (!paginationContainer) {
+    console.error('popularToolsPagination not found');
+    return;
+  }
+  paginationContainer.innerHTML = '';
+  const pageCount = Math.ceil(tools.length / itemsPerPage);
+
+  if (pageCount <= 1) return;
+
+  const prevButton = document.createElement('button');
+  prevButton.textContent = 'Previous';
+  prevButton.className = 'bg-gray-800 text-green-400 border border-purple-500 px-4 py-2 rounded-md hover:bg-purple-500 hover:text-white focus:outline focus:outline-2 focus:outline-green-400 min-w-[44px]';
+  prevButton.setAttribute('aria-label', 'Previous page');
+  prevButton.disabled = currentPage === 1;
+  prevButton.addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage--;
+      sessionStorage.setItem('currentPage', currentPage);
+      displayTools(tools, currentPage);
+      updatePaginationButtons(tools, paginationContainer);
+      popularToolsGrid.scrollIntoView({ behavior: 'smooth' });
     }
+  });
+  paginationContainer.appendChild(prevButton);
 
-    // Data for all tools
-    const allToolsData = [
-      {iconHtml: '🧮', iconStyle: 'background: linear-gradient(135deg, #7c3aed 60%, #42e39a 100%)', title: 'Word Counter', desc: 'Count words, characters, sentences, paragraphs, even PDF/DOCX/ZIP/HTML files!', link: 'https://word.vinnesia.my.id/', category: 'text', keywords: 'word counter count words characters file pdf docx html txt zip odt rtf'},
-      {iconHtml: '🧩', iconStyle: 'background: linear-gradient(135deg, #42e39a 60%, #ffd700 100%)', title: 'JSON Formatter', desc: 'Format, minify, and validate JSON online, easy & free.', link: 'https://json.vinnesia.my.id/', category: 'text', keywords: 'json formatter json beautifier minifier validation'},
-      {iconHtml: '🎨', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%)', title: 'Beautifier & Minifier', desc: 'Beautify or compress HTML, CSS, JSON code. Upload, beautify, minify!', link: 'https://toolsvin.vinnesia.my.id/beautifier', category: 'text', keywords: 'beautifier minifier html css json beautify compress code'},
-      {iconHtml: '📄', iconStyle: 'background: linear-gradient(135deg, #7c3aed 60%, #ffd700 100%)', title: 'Markdown to HTML', desc: 'Convert Markdown text to HTML ready for web/blog.', link: 'https://toolsvin.vinnesia.my.id/markdown-to-html', category: 'text', keywords: 'markdown html converter md to html'},
-      {iconHtml: '🔧', iconStyle: 'background: linear-gradient(135deg, #42e39a 60%, #7c3aed 100%)', title: 'HTML Entity Encoder/Decoder', desc: 'Convert special characters to HTML entities or vice versa.', link: 'https://toolsvin.vinnesia.my.id/html-entity', category: 'text', keywords: 'html entity encoder decoder special characters'},
-      {iconHtml: '🔑', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%)', title: 'Password Generator', desc: 'Create strong and secure passwords with full character options and ambiguous character filter.', link: 'https://password.vinnesia.my.id/', category: 'security', keywords: 'password generator secure password'},
-      {iconHtml: '🔍', iconStyle: 'background: linear-gradient(135deg, #7c3aed 65%, #ffd700 100%)', title: 'QR / Barcode Scanner', desc: 'Scan QR codes and barcodes directly from your browser easily.', link: 'https://scan.vinnesia.my.id/', category: 'security', keywords: 'qr scanner barcode reader code'},
-      {iconHtml: '🗜️', iconStyle: 'background: linear-gradient(135deg, #42e39a 65%, #ffd700 100%)', title: 'Image Compressor', desc: 'Compress and reduce image file size without losing visual quality.', link: 'https://image.vinnesia.my.id/', category: 'design-image', keywords: 'image compressor compress image jpg png webp'},
-      {iconHtml: '🔲', iconStyle: 'background: linear-gradient(135deg, #ffd700 65%, #7c3aed 100%)', title: 'QR Code Generator', desc: 'Create free QR codes for links, text, files, and various needs.', link: 'https://qr.vinnesia.my.id/', category: 'design-image', keywords: 'qr code generator create barcode'},
-      {iconHtml: '✍️', iconStyle: 'background: linear-gradient(135deg, #7c3aed 65%, #42e39a 100%)', title: 'Text to Handwriting', desc: 'Turn your text into handwriting with various unique font styles.', link: 'https://handwriting.vinnesia.my.id/', category: 'design-image', keywords: 'text to handwriting handwriting generator font'},
-      {iconHtml: '💱', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%)', title: 'Currency Converter', desc: 'Convert world currencies with real-time rates & simple calculator.', link: 'https://currency.vinnesia.my.id/', category: 'converter', keywords: 'currency converter currency conversion calculator'},
-      {iconHtml: '📝', iconStyle: 'background: linear-gradient(135deg, #7c3aed 65%, #ffd700 100%)', title: 'Meta Tag Generator', desc: 'Create basic meta tags (title, description, keywords) for SEO & website visibility.', link: 'https://seo.vinnesia.my.id/tools/metatag', category: 'developer', keywords: 'meta tag seo optimization'},
-      {iconHtml: '📘', iconStyle: 'background: linear-gradient(135deg, #42e39a 65%, #7c3aed 100%)', title: 'OG Tag Generator', desc: 'Create OG tags to control link display on Facebook & social media.', link: 'https://seo.vinnesia.my.id/tools/ogtag', category: 'developer', keywords: 'og open graph facebook social share'},
-      {iconHtml: '🐦', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%)', title: 'Twitter Card Generator', desc: 'Create Twitter Card tags for optimal link display when shared on Twitter.', link: 'https://seo.vinnesia.my.id/tools/twittercard', category: 'developer', keywords: 'twitter card tag preview social media'},
-      {iconHtml: '🔗', iconStyle: 'background: linear-gradient(135deg, #7c3aed 60%, #ffd700 100%)', title: 'Canonical URL Generator', desc: 'Get canonical tags to prevent duplicate content & maintain SEO.', link: 'https://seo.vinnesia.my.id/tools/canonical', category: 'developer', keywords: 'canonical url duplicate content seo'},
-      {iconHtml: '🚫', iconStyle: 'background: linear-gradient(135deg, #42e39a 65%, #ffd700 100%)', title: 'Noindex/Nofollow Tool', desc: 'Create meta robots tags to control indexing & links by search engines.', link: 'https://seo.vinnesia.my.id/tools/noindexnofollow', category: 'developer', keywords: 'noindex nofollow robots control search engines'},
-      {iconHtml: '🌟', iconStyle: 'background: linear-gradient(135deg, #ffd700 65%, #7c3aed 100%)', title: 'Favicon Tag Generator', desc: 'Create favicon tag code for branding & browser tab display of your site.', link: 'https://seo.vinnesia.my.id/tools/favicon', category: 'developer', keywords: 'favicon tag generator browser icon'}
-    ];
+  for (let i = 1; i <= pageCount; i++) {
+    const button = document.createElement('button');
+    button.textContent = i;
+    button.className = `bg-gray-800 text-green-400 border border-purple-500 px-4 py-2 rounded-md hover:bg-purple-500 hover:text-white focus:outline focus:outline-2 focus:outline-green-400 min-w-[44px] ${i === currentPage ? 'bg-green-400 text-gray-900' : ''}`;
+    button.setAttribute('aria-label', `Page ${i}`);
+    button.addEventListener('click', () => {
+      currentPage = i;
+      sessionStorage.setItem('currentPage', currentPage);
+      displayTools(tools, currentPage);
+      updatePaginationButtons(tools, paginationContainer);
+      popularToolsGrid.scrollIntoView({ behavior: 'smooth' });
+    });
+    paginationContainer.appendChild(button);
+  }
 
-    // Shuffle function
-    function shuffleArray(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
+  const nextButton = document.createElement('button');
+  nextButton.textContent = 'Next';
+  nextButton.className = 'bg-gray-800 text-green-400 border border-purple-500 px-4 py-2 rounded-md hover:bg-purple-500 hover:text-white focus:outline focus:outline-2 focus:outline-green-400 min-w-[44px]';
+  nextButton.setAttribute('aria-label', 'Next page');
+  nextButton.disabled = currentPage === pageCount;
+  nextButton.addEventListener('click', () => {
+    if (currentPage < pageCount) {
+      currentPage++;
+      sessionStorage.setItem('currentPage', currentPage);
+      displayTools(tools, currentPage);
+      updatePaginationButtons(tools, paginationContainer);
+      popularToolsGrid.scrollIntoView({ behavior: 'smooth' });
     }
+  });
+  paginationContainer.appendChild(nextButton);
+}
 
-    const popularToolsGrid = document.getElementById('popularToolsGrid');
-    const popularToolsPagination = document.getElementById('popularToolsPagination');
-    const itemsPerPage = 6; // Adjusted to fit layout better
-    let currentPage = 1;
-    let popularToolsShuffled = [];
+function updatePaginationButtons(tools, paginationContainer) {
+  if (!paginationContainer) return;
+  const pageButtons = paginationContainer.querySelectorAll('button');
+  const pageCount = Math.ceil(tools.length / itemsPerPage);
 
-    function createToolCard(tool) {
-      const card = document.createElement('div');
-      card.className = 'tool-card bg-gray-700 rounded-lg p-4 shadow-md hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105 transition max-w-full';
-      card.setAttribute('data-keywords', tool.keywords);
-      card.setAttribute('tabindex', '0');
-      card.setAttribute('role', 'listitem');
-      card.innerHTML = `
-        <div class="tool-icon w-10 h-10 rounded-lg flex items-center justify-center text-white text-xl mb-3" style="${tool.iconStyle}" aria-hidden="true">${tool.iconHtml}</div>
-        <h3 class="tool-title font-semibold text-lg text-yellow-400 line-clamp-2">${tool.title}</h3>
-        <p class="tool-desc text-sm text-gray-400 line-clamp-3">${tool.desc}</p>
-        <a class="tool-link text-green-400 text-sm font-medium mt-2 inline-flex items-center hover:text-yellow-400 focus:text-yellow-400 focus:outline focus:outline-2 focus:outline-green-400" href="${tool.link}" target="_blank" rel="noopener" aria-label="Open ${tool.title}">Open Tool &rarr;</a>
-      `;
-      return card;
+  pageButtons.forEach(button => {
+    if (button.textContent === 'Previous') {
+      button.disabled = currentPage === 1;
+    } else if (button.textContent === 'Next') {
+      button.disabled = currentPage === pageCount;
+    } else {
+      const pageNum = parseInt(button.textContent);
+      button.classList.toggle('bg-green-400', pageNum === currentPage);
+      button.classList.toggle('text-gray-900', pageNum === currentPage);
+      button.classList.toggle('bg-gray-800', pageNum !== currentPage);
+      button.classList.toggle('text-green-400', pageNum !== currentPage);
     }
+  });
+}
 
-    function displayTools(tools, page) {
-      if (!popularToolsGrid) return;
-      popularToolsGrid.innerHTML = '';
-      const start = (page - 1) * itemsPerPage;
-      const end = start + itemsPerPage;
-      const paginatedTools = tools.slice(start, end);
+// Testimonial Slider Navigation
+function setupTestimonialSlider() {
+  const slider = document.querySelector('.testimonial-slider');
+  const prevButton = document.getElementById('prevTestimonial');
+  const nextButton = document.getElementById('nextTestimonial');
+  const items = slider?.querySelectorAll('.testimonial-item');
+  if (!items || items.length === 0) return;
 
-      paginatedTools.forEach(tool => {
-        popularToolsGrid.appendChild(createToolCard(tool));
-      });
-    }
+  let currentIndex = 0;
 
-    function setupPagination(tools, paginationContainer) {
-      if (!paginationContainer) return;
-      paginationContainer.innerHTML = '';
-      const pageCount = Math.ceil(tools.length / itemsPerPage);
+  function updateSlider() {
+    const itemWidth = items[0].offsetWidth + 16; // Including gap
+    slider.scrollTo({ left: currentIndex * itemWidth, behavior: 'smooth' });
+    prevButton.disabled = currentIndex === 0;
+    nextButton.disabled = currentIndex === items.length - 1;
+    items.forEach((item, index) => {
+      item.setAttribute('aria-hidden', index !== currentIndex);
+    });
+  }
 
-      if (pageCount <= 1) return;
-
-      const prevButton = document.createElement('button');
-      prevButton.textContent = 'Previous';
-      prevButton.className = 'bg-gray-800 text-green-400 border border-purple-500 px-4 py-2 rounded-md hover:bg-purple-500 hover:text-white focus:outline focus:outline-2 focus:outline-green-400 min-w-[44px]';
-      prevButton.setAttribute('aria-label', 'Previous page');
-      prevButton.disabled = currentPage === 1;
-      prevButton.addEventListener('click', () => {
-        if (currentPage > 1) {
-          currentPage--;
-          displayTools(tools, currentPage);
-          updatePaginationButtons(tools, paginationContainer);
-          popularToolsGrid.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-      paginationContainer.appendChild(prevButton);
-
-      for (let i = 1; i <= pageCount; i++) {
-        const button = document.createElement('button');
-        button.textContent = i;
-        button.className = `bg-gray-800 text-green-400 border border-purple-500 px-4 py-2 rounded-md hover:bg-purple-500 hover:text-white focus:outline focus:outline-2 focus:outline-green-400 min-w-[44px] ${i === currentPage ? 'bg-green-400 text-gray-900' : ''}`;
-        button.setAttribute('aria-label', `Page ${i}`);
-        button.addEventListener('click', () => {
-          currentPage = i;
-          displayTools(tools, currentPage);
-          updatePaginationButtons(tools, paginationContainer);
-          popularToolsGrid.scrollIntoView({ behavior: 'smooth' });
-        });
-        paginationContainer.appendChild(button);
-      }
-
-      const nextButton = document.createElement('button');
-      nextButton.textContent = 'Next';
-      nextButton.className = 'bg-gray-800 text-green-400 border border-purple-500 px-4 py-2 rounded-md hover:bg-purple-500 hover:text-white focus:outline focus:outline-2 focus:outline-green-400 min-w-[44px]';
-      nextButton.setAttribute('aria-label', 'Next page');
-      nextButton.disabled = currentPage === pageCount;
-      nextButton.addEventListener('click', () => {
-        if (currentPage < pageCount) {
-          currentPage++;
-          displayTools(tools, currentPage);
-          updatePaginationButtons(tools, paginationContainer);
-          popularToolsGrid.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-      paginationContainer.appendChild(nextButton);
-    }
-
-    function updatePaginationButtons(tools, paginationContainer) {
-      if (!paginationContainer) return;
-      const pageButtons = paginationContainer.querySelectorAll('button');
-      const pageCount = Math.ceil(tools.length / itemsPerPage);
-
-      pageButtons.forEach(button => {
-        if (button.textContent === 'Previous') {
-          button.disabled = currentPage === 1;
-        } else if (button.textContent === 'Next') {
-          button.disabled = currentPage === pageCount;
-        } else {
-          const pageNum = parseInt(button.textContent);
-          button.classList.toggle('bg-green-400', pageNum === currentPage);
-          button.classList.toggle('text-gray-900', pageNum === currentPage);
-          button.classList.toggle('bg-gray-800', pageNum !== currentPage);
-          button.classList.toggle('text-green-400', pageNum !== currentPage);
-        }
-      });
-    }
-
-    // Testimonial Slider Navigation
-    function setupTestimonialSlider() {
-      const slider = document.querySelector('.testimonial-slider');
-      const prevButton = document.getElementById('prevTestimonial');
-      const nextButton = document.getElementById('nextTestimonial');
-      const items = slider?.querySelectorAll('.testimonial-item');
-      if (!items) return;
-
-      let currentIndex = 0;
-
-      function updateSlider() {
-        const itemWidth = items[0].offsetWidth + 16; // Including gap
-        slider.scrollTo({ left: currentIndex * itemWidth, behavior: 'smooth' });
-        prevButton.disabled = currentIndex === 0;
-        nextButton.disabled = currentIndex === items.length - 1;
-        items.forEach((item, index) => {
-          item.setAttribute('aria-hidden', index !== currentIndex);
-        });
-      }
-
-      prevButton.addEventListener('click', () => {
-        if (currentIndex > 0) {
-          currentIndex--;
-          updateSlider();
-        }
-      });
-
-      nextButton.addEventListener('click', () => {
-        if (currentIndex < items.length - 1) {
-          currentIndex++;
-          updateSlider();
-        }
-      });
-
-      slider.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft' && currentIndex > 0) {
-          currentIndex--;
-          updateSlider();
-        } else if (e.key === 'ArrowRight' && currentIndex < items.length - 1) {
-          currentIndex++;
-          updateSlider();
-        }
-      });
-
+  prevButton.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
       updateSlider();
     }
+  });
 
-    document.addEventListener('DOMContentLoaded', () => {
-      // Initialize Popular Tools
-      popularToolsShuffled = shuffleArray([...allToolsData]);
-      displayTools(popularToolsShuffled, currentPage);
-      setupPagination(popularToolsShuffled, popularToolsPagination);
+  nextButton.addEventListener('click', () => {
+    if (currentIndex < items.length - 1) {
+      currentIndex++;
+      updateSlider();
+    }
+  });
 
-      // Search functionality
-      const searchInput = document.getElementById('searchInput');
-      if (searchInput) {
-        searchInput.addEventListener('input', function() {
-          const q = this.value.trim().toLowerCase();
-          const filteredPopularTools = popularToolsShuffled.filter(tool => {
-            const text = [tool.title, tool.desc, tool.keywords].join(' ').toLowerCase();
-            return text.includes(q);
-          });
-          currentPage = 1;
-          displayTools(filteredPopularTools, currentPage);
-          setupPagination(filteredPopularTools, popularToolsPagination);
-        });
+  slider.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft' && currentIndex > 0) {
+      currentIndex--;
+      updateSlider();
+    } else if (e.key === 'ArrowRight' && currentIndex < items.length - 1) {
+      currentIndex++;
+      updateSlider();
+    }
+  });
+
+  updateSlider();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize Popular Tools with state persistence
+  popularToolsShuffled = shuffleArray([...allToolsData]); // Shuffle once on load
+  if (popularToolsGrid && popularToolsPagination) {
+    displayTools(popularToolsShuffled, currentPage);
+    setupPagination(popularToolsShuffled, popularToolsPagination);
+  } else {
+    console.error('Required elements (popularToolsGrid or popularToolsPagination) not found');
+  }
+
+  // Search functionality
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      const q = this.value.trim().toLowerCase();
+      const filteredPopularTools = popularToolsShuffled.filter(tool => {
+        const text = [tool.title, tool.desc, tool.keywords].join(' ').toLowerCase();
+        return text.includes(q);
+      });
+      currentPage = 1; // Reset to first page on search
+      sessionStorage.setItem('currentPage', currentPage);
+      if (popularToolsGrid && popularToolsPagination) {
+        displayTools(filteredPopularTools, currentPage);
+        setupPagination(filteredPopularTools, popularToolsPagination);
       }
-
-      // Newsletter form handling
-      const newsletterForm = document.getElementById('newsletterForm');
-      const newsletterEmail = document.getElementById('newsletterEmail');
-      const newsletterMessage = document.getElementById('newsletterMessage');
-      if (newsletterForm && newsletterEmail && newsletterMessage) {
-        newsletterForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          const email = newsletterEmail.value.trim();
-          if (!email) {
-            newsletterMessage.style.color = 'var(--color-error)';
-            newsletterMessage.textContent = 'Email cannot be empty.';
-            return;
-          }
-          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            newsletterMessage.style.color = 'var(--color-error)';
-            newsletterMessage.textContent = 'Please enter a valid email.';
-            return;
-          }
-          newsletterMessage.style.color = 'var(--color-success)';
-          newsletterMessage.textContent = 'Thank you for subscribing!';
-          newsletterForm.reset();
-        });
-      }
-
-      // Cookie Consent Logic
-      const cookieBanner = document.getElementById('cookie-consent-banner');
-      const acceptCookiesBtn = document.getElementById('accept-cookies');
-      if (cookieBanner && acceptCookiesBtn) {
-        const hasAcceptedCookies = localStorage.getItem('cookieConsent');
-        if (!hasAcceptedCookies) {
-          cookieBanner.classList.remove('hidden');
-        }
-        acceptCookiesBtn.addEventListener('click', () => {
-          localStorage.setItem('cookieConsent', 'true');
-          cookieBanner.classList.add('hidden');
-        });
-      }
-
-      // Initialize Testimonial Slider
-      setupTestimonialSlider();
-
-      // Remove unused lazy load logic since no lazy-loaded images are present
     });
-  </script>
-</body>
-</html>
+  }
+
+  // Newsletter form handling
+  const newsletterForm = document.getElementById('newsletterForm');
+  const newsletterEmail = document.getElementById('newsletterEmail');
+  const newsletterMessage = document.getElementById('newsletterMessage');
+  if (newsletterForm && newsletterEmail && newsletterMessage) {
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = newsletterEmail.value.trim();
+      if (!email) {
+        newsletterMessage.style.color = 'var(--color-error)';
+        newsletterMessage.textContent = 'Email cannot be empty.';
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        newsletterMessage.style.color = 'var(--color-error)';
+        newsletterMessage.textContent = 'Please enter a valid email.';
+        return;
+      }
+      newsletterMessage.style.color = 'var(--color-success)';
+      newsletterMessage.textContent = 'Thank you for subscribing!';
+      newsletterForm.reset();
+    });
+  }
+
+  // Cookie Consent Logic
+  const cookieBanner = document.getElementById('cookie-consent-banner');
+  const acceptCookiesBtn = document.getElementById('accept-cookies');
+  if (cookieBanner && acceptCookiesBtn) {
+    const hasAcceptedCookies = localStorage.getItem('cookieConsent');
+    if (!hasAcceptedCookies) {
+      cookieBanner.classList.remove('hidden');
+    }
+    acceptCookiesBtn.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'true');
+      cookieBanner.classList.add('hidden');
+    });
+  }
+
+  // Initialize Testimonial Slider
+  setupTestimonialSlider();
+});
