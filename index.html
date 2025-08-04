@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VIN NESIA - Free & Professional Online Tools for Productivity</title>
-  <meta name="description" content="VIN NESIA offers over 17 free and professional online tools. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, and more for your productivity. Last updated: July 30, 2025, 01:31 AM WIB." />
+  <meta name="description" content="VIN NESIA offers 6 free and professional online tools. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, and more for your productivity. Last updated: July 30, 2025, 01:31 AM WIB." />
   <meta name="robots" content="index, follow" />
   <meta name="keywords" content="online tools, QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, productivity" />
 
   <meta property="og:title" content="VIN NESIA - Free & Professional Online Tools for Productivity" />
-  <meta property="og:description" content="Over 17 free online tools for daily productivity. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, and more." />
+  <meta property="og:description" content="6 free online tools for daily productivity. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, and more." />
   <meta property="og:image" content="https://vinnesia.my.id/images/logo-vinnesia.png" />
   <meta property="og:url" content="https://vinnesia.my.id/" />
   <meta property="og:type" content="website" />
@@ -20,7 +20,7 @@
   <meta name="twitter:site" content="@VinNesiaID" />
   <meta name="twitter:creator" content="@VinNesiaID" />
   <meta name="twitter:title" content="VIN NESIA - Free & Professional Online Tools for Productivity" />
-  <meta name="twitter:description" content="Over 17 free online tools for daily productivity. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, and more." />
+  <meta name="twitter:description" content="6 free online tools for daily productivity. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, and more." />
   <meta name="twitter:image" content="https://vinnesia.my.id/images/logo-vinnesia.png" />
 
   <link rel="canonical" href="https://vinnesia.my.id/" />
@@ -169,7 +169,7 @@
 
   <section class="hero py-16 sm:py-20 px-4 text-center text-white mb-10" role="region" aria-labelledby="hero-title">
     <h1 id="hero-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-yellow-400 mb-4">VIN NESIA — One Portal, All Free Online Tools!</h1>
-    <p class="text-lg sm:text-xl max-w-2xl mx-auto mb-6">Discover over 17 free and professional tools to boost your daily productivity.</p>
+    <p class="text-lg sm:text-xl max-w-2xl mx-auto mb-6">Discover 6 free and professional tools to boost your daily productivity.</p>
     <a href="/tools" aria-label="Explore all tools">
       <button class="bg-gradient-to-r from-purple-500 to-green-400 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg hover:from-green-400 hover:to-purple-500 focus:outline focus:outline-2 focus:outline-yellow-400 transform hover:-translate-y-0.5 focus:-translate-y-0.5 transition">Explore Tools</button>
     </a>
@@ -334,25 +334,14 @@
       });
     }
 
-    // Data for all tools
+    // Data for all tools (reduced to 6)
     const allToolsData = [
       {iconHtml: '🧮', iconStyle: 'background: linear-gradient(135deg, #7c3aed 60%, #42e39a 100%)', title: 'Word Counter', desc: 'Count words, characters, sentences, paragraphs, even PDF/DOCX/ZIP/HTML files!', link: 'https://word.vinnesia.my.id/', category: 'text', keywords: 'word counter count words characters file pdf docx html txt zip odt rtf'},
       {iconHtml: '🧩', iconStyle: 'background: linear-gradient(135deg, #42e39a 60%, #ffd700 100%)', title: 'JSON Formatter', desc: 'Format, minify, and validate JSON online, easy & free.', link: 'https://json.vinnesia.my.id/', category: 'text', keywords: 'json formatter json beautifier minifier validation'},
-      {iconHtml: '🎨', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%)', title: 'Beautifier & Minifier', desc: 'Beautify or compress HTML, CSS, JSON code. Upload, beautify, minify!', link: 'https://toolsvin.vinnesia.my.id/beautifier', category: 'text', keywords: 'beautifier minifier html css json beautify compress code'},
-      {iconHtml: '📄', iconStyle: 'background: linear-gradient(135deg, #7c3aed 60%, #ffd700 100%)', title: 'Markdown to HTML', desc: 'Convert Markdown text to HTML ready for web/blog.', link: 'https://toolsvin.vinnesia.my.id/markdown-to-html', category: 'text', keywords: 'markdown html converter md to html'},
-      {iconHtml: '🔧', iconStyle: 'background: linear-gradient(135deg, #42e39a 60%, #7c3aed 100%)', title: 'HTML Entity Encoder/Decoder', desc: 'Convert special characters to HTML entities or vice versa.', link: 'https://toolsvin.vinnesia.my.id/html-entity', category: 'text', keywords: 'html entity encoder decoder special characters'},
       {iconHtml: '🔑', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%)', title: 'Password Generator', desc: 'Create strong and secure passwords with full character options and ambiguous character filter.', link: 'https://password.vinnesia.my.id/', category: 'security', keywords: 'password generator secure password'},
-      {iconHtml: '🔍', iconStyle: 'background: linear-gradient(135deg, #7c3aed 65%, #ffd700 100%)', title: 'QR / Barcode Scanner', desc: 'Scan QR codes and barcodes directly from your browser easily.', link: 'https://scan.vinnesia.my.id/', category: 'security', keywords: 'qr scanner barcode reader code'},
       {iconHtml: '🗜️', iconStyle: 'background: linear-gradient(135deg, #42e39a 65%, #ffd700 100%)', title: 'Image Compressor', desc: 'Compress and reduce image file size without losing visual quality.', link: 'https://image.vinnesia.my.id/', category: 'design-image', keywords: 'image compressor compress image jpg png webp'},
       {iconHtml: '🔲', iconStyle: 'background: linear-gradient(135deg, #ffd700 65%, #7c3aed 100%)', title: 'QR Code Generator', desc: 'Create free QR codes for links, text, files, and various needs.', link: 'https://qr.vinnesia.my.id/', category: 'design-image', keywords: 'qr code generator create barcode'},
-      {iconHtml: '✍️', iconStyle: 'background: linear-gradient(135deg, #7c3aed 65%, #42e39a 100%)', title: 'Text to Handwriting', desc: 'Turn your text into handwriting with various unique font styles.', link: 'https://handwriting.vinnesia.my.id/', category: 'design-image', keywords: 'text to handwriting handwriting generator font'},
-      {iconHtml: '💱', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%)', title: 'Currency Converter', desc: 'Convert world currencies with real-time rates & simple calculator.', link: 'https://currency.vinnesia.my.id/', category: 'converter', keywords: 'currency converter currency conversion calculator'},
-      {iconHtml: '📝', iconStyle: 'background: linear-gradient(135deg, #7c3aed 65%, #ffd700 100%)', title: 'Meta Tag Generator', desc: 'Create basic meta tags (title, description, keywords) for SEO & website visibility.', link: 'https://seo.vinnesia.my.id/tools/metatag', category: 'developer', keywords: 'meta tag seo optimization'},
-      {iconHtml: '📘', iconStyle: 'background: linear-gradient(135deg, #42e39a 65%, #7c3aed 100%)', title: 'OG Tag Generator', desc: 'Create OG tags to control link display on Facebook & social media.', link: 'https://seo.vinnesia.my.id/tools/ogtag', category: 'developer', keywords: 'og open graph facebook social share'},
-      {iconHtml: '🐦', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%)', title: 'Twitter Card Generator', desc: 'Create Twitter Card tags for optimal link display when shared on Twitter.', link: 'https://seo.vinnesia.my.id/tools/twittercard', category: 'developer', keywords: 'twitter card tag preview social media'},
-      {iconHtml: '🔗', iconStyle: 'background: linear-gradient(135deg, #7c3aed 60%, #ffd700 100%)', title: 'Canonical URL Generator', desc: 'Get canonical tags to prevent duplicate content & maintain SEO.', link: 'https://seo.vinnesia.my.id/tools/canonical', category: 'developer', keywords: 'canonical url duplicate content seo'},
-      {iconHtml: '🚫', iconStyle: 'background: linear-gradient(135deg, #42e39a 65%, #ffd700 100%)', title: 'Noindex/Nofollow Tool', desc: 'Create meta robots tags to control indexing & links by search engines.', link: 'https://seo.vinnesia.my.id/tools/noindexnofollow', category: 'developer', keywords: 'noindex nofollow robots control search engines'},
-      {iconHtml: '🌟', iconStyle: 'background: linear-gradient(135deg, #ffd700 65%, #7c3aed 100%)', title: 'Favicon Tag Generator', desc: 'Create favicon tag code for branding & browser tab display of your site.', link: 'https://seo.vinnesia.my.id/tools/favicon', category: 'developer', keywords: 'favicon tag generator browser icon'}
+      {iconHtml: '💱', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%)', title: 'Currency Converter', desc: 'Convert world currencies with real-time rates & simple calculator.', link: 'https://currency.vinnesia.my.id/', category: 'converter', keywords: 'currency converter currency conversion calculator'}
     ];
 
     // Shuffle function
