@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Complete guide to donating to VIN NESIA using Wise, Remitly, WorldRemit, DSGPAY, Western Union, SeaBank, Dana, GoPay, or ShopeePay. Support our free online tools with your voluntary contribution!">
-  <meta name="keywords" content="VIN NESIA donation guide, donate with Wise, Remitly, WorldRemit, DSGPAY, Western Union, SeaBank donation, e-wallet donation, support free online tools">
+  <meta name="description" content="Complete guide to donating to VIN NESIA using Wise, Remitly, WorldRemit, DSGPAY, Western Union, SeaBank, Dana, GoPay, or ShopeePay.">
+  <meta name="keywords" content="VIN NESIA donation guide, donate with Wise, Remitly, WorldRemit, DSGPAY, Western Union, SeaBank donation, e-wallet donation">
   <meta name="author" content="VIN NESIA">
   <meta name="robots" content="index, follow">
   <meta property="og:title" content="Donation Guide - VIN NESIA">
@@ -34,7 +34,7 @@
       --card-dark: #23253a;
       --text-main: #f1f1f5;
       --text-muted: #b5bacb;
-      --border-radius: 1.1rem;
+      --border-radius: 0.75rem;
       --transition: 0.2s cubic-bezier(.4,0,.2,1);
     }
     html, body {
@@ -42,368 +42,284 @@
       background: var(--bg-dark);
       color: var(--text-main);
       scroll-behavior: smooth;
+      margin: 0;
+      padding: 0;
     }
     .footer-cta {
       background: linear-gradient(120deg, #7c3aed 0%, #42e39a 100%);
       background-size: 200% 200%;
       animation: heroGradient 8s ease-in-out infinite alternate;
     }
-    @keyframes heroGradient {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
-    }
-    details { margin-bottom: 1rem; }
-    summary {
-      background: var(--card-dark);
-      padding: 1rem;
-      border-radius: var(--border-radius);
-      cursor: pointer;
-      font-weight: 600;
-      color: var(--primary-gold);
-    }
-    details[open] summary { background: #2a2e4a; }
-    .content { padding: 1rem; background: #1e1f2e; border-radius: var(--border-radius); }
-    .guide-details li {
-      transition: transform var(--transition);
-    }
-    .guide-details li:hover {
-      transform: translateX(5px);
-      background: #2a2e4a;
-    }
-    .cta-btn {
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-    .fade-in-up {
-      animation: fadeInUp 1s ease-in;
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes heroGradient { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
+    .guide-details li:hover { transform: translateX(5px); background: #2a2e4a; }
+    .cta-btn { animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+    .fade-in-up { animation: fadeInUp 1s ease-in; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     @media (max-width: 640px) {
-      .footer-main { flex-direction: column; align-items: center; }
-      .footer-group { width: 100%; margin-bottom: 1rem; }
+      .footer-main { grid-template-columns: 1fr; }
+      .footer-group { margin-bottom: 1rem; }
       button#navToggle { display: flex; }
       nav#mainNav { display: none; }
       nav#mainNav.flex { display: flex; }
-      main { padding: 1rem; }
-      h1 { font-size: 1.875rem; }
-      h2 { font-size: 1.5rem; }
-      summary { font-size: 1rem; padding: 0.75rem; }
     }
     @media (min-width: 641px) {
       button#navToggle { display: none; }
       nav#mainNav { display: flex; }
-      main { padding: 2rem; }
     }
   </style>
 </head>
-<body>
-  <header class="bg-gray-900/95 sticky top-0 z-50 px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 shadow-md border-b border-gray-800" role="banner">
-    <img src="../logo.png" alt="Logo VIN NESIA" class="h-10 w-10 rounded-lg shadow-md">
-    <span class="text-2xl sm:text-3xl font-bold text-yellow-400">VIN NESIA</span>
-    <button class="nav-toggle sm:hidden flex flex-col gap-1.5 p-2" id="navToggle" aria-label="Open or close navigation menu" aria-expanded="false" aria-controls="mainNav">
+<body class="min-h-screen flex flex-col">
+  <header class="bg-gray-900/95 sticky top-0 z-50 px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 shadow-md border-b border-gray-800">
+    <div class="flex items-center gap-2">
+      <img src="../logo.png" alt="Logo VIN NESIA" class="h-10 w-10 rounded-lg shadow-md">
+      <span class="text-2xl sm:text-3xl font-bold text-yellow-400">VIN NESIA</span>
+    </div>
+    <button class="nav-toggle sm:hidden flex flex-col gap-1.5 p-2" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mainNav">
       <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
       <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
       <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
     </button>
-    <nav id="mainNav" class="hidden sm:flex gap-4 sm:gap-6 items-center" role="navigation" aria-label="Main Navigation">
-      <a href="../" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-current="page">Home</a>
-      <a href="../tools" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="View all tools">All Tools</a>
-      <a href="../blog" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="Read blog">Blog</a>
-      <a href="../about" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="About us">About Us</a>
-      <a href="../user-guide" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="User guide">User Guide</a>
-      <a href="../how-to-use" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="How to use">How to Use</a>
-      <a href="../faq" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="FAQ">FAQ</a>
+    <nav id="mainNav" class="hidden sm:flex gap-4 sm:gap-6 items-center">
+      <a href="../" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md">Home</a>
+      <a href="../tools" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md">All Tools</a>
+      <a href="../blog" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md">Blog</a>
+      <a href="../about" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md">About Us</a>
+      <a href="../user-guide" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md">User Guide</a>
+      <a href="../how-to-use" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md">How to Use</a>
+      <a href="../faq" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md">FAQ</a>
     </nav>
   </header>
 
-  <main class="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8" role="main">
-    <h1 class="text-3xl sm:text-4xl font-bold text-yellow-400 mb-6 text-center fade-in-up">Donation Guide - VIN NESIA</h1>
-    <p class="text-gray-400 mb-4 text-center fade-in-up">Your voluntary support keeps VIN NESIA’s free online tools accessible to everyone! This guide explains how to donate using Wise, Remitly, WorldRemit, DSGPAY, Western Union, or direct transfers to SeaBank, Dana, GoPay, or ShopeePay. Your contributions help us cover hosting costs, maintain our domain, and develop new features for our productivity and creative tools.</p>
-
-    <section class="mb-8 bg-card-dark p-6 rounded-xl shadow-lg fade-in-up" aria-labelledby="international-guide">
-      <h2 id="international-guide" class="text-2xl font-semibold text-purple-500 mb-4">Donating from Outside Indonesia (International Donors)</h2>
-      <p class="text-gray-400 mb-4">We accept voluntary donations from around the world via <a href="https://wise.com" target="_blank" class="text-green-400 underline">Wise</a>, <a href="https://www.remitly.com" target="_blank" class="text-green-400 underline">Remitly</a>, <a href="https://www.worldremit.com" target="_blank" class="text-green-400 underline">WorldRemit</a>, <a href="https://www.dsgpay.com" target="_blank" class="text-green-400 underline">DSGPAY</a>, or <a href="https://www.westernunion.com" target="_blank" class="text-green-400 underline">Western Union</a>. Follow the steps below to contribute:</p>
-      <details>
-        <summary>Using Wise</summary>
-        <div class="content">
-          <ol class="guide-details list-decimal ml-6 mb-4">
-            <li class="p-2">Visit <a href="https://wise.com" target="_blank" class="text-green-400 underline">wise.com</a> and sign up or log in.</li>
-            <li class="p-2">Enter the donation amount and select IDR (Indonesian Rupiah) as the recipient currency.</li>
-            <li class="p-2">Choose “Bank Transfer” or “E-Wallet” and enter:</li>
-            <ul class="list-none ml-6">
-              <li class="p-2"><strong>SeaBank</strong>: Name: Sultan Andrian Fahirza, Account Number: 901040922850 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('901040922850')">Copy</button>, SWIFT Code: SEAAIDJA <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('SEAAIDJA')">Copy</button></li>
-              <li class="p-2"><strong>E-Wallet (Dana/GoPay/ShopeePay)</strong>: Name: Sultan Andrian Fahirza, Phone Number: +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('+62895354511777')">Copy</button></li>
-            </ul>
-            <li class="p-2">Complete the payment using bank transfer, card, or other methods.</li>
-            <li class="p-2">Donations arrive in 1-5 days for SeaBank or instantly for e-wallets.</li>
-          </ol>
-        </div>
-      </details>
-      <details>
-        <summary>Using Remitly</summary>
-        <div class="content">
-          <ol class="guide-details list-decimal ml-6 mb-4">
-            <li class="p-2">Visit <a href="https://www.remitly.com" target="_blank" class="text-green-400 underline">remitly.com</a> or download the Remitly app and sign up or log in.</li>
-            <li class="p-2">Enter the donation amount and select Indonesia as the destination.</li>
-            <li class="p-2">Choose “Bank Deposit” or “Mobile Money” and enter:</li>
-            <ul class="list-none ml-6">
-              <li class="p-2"><strong>SeaBank</strong>: Name: Sultan Andrian Fahirza, Account Number: 901040922850 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('901040922850')">Copy</button>, SWIFT Code: SEAAIDJA <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('SEAAIDJA')">Copy</button></li>
-              <li class="p-2"><strong>E-Wallet (GoPay)</strong>: Name: Sultan Andrian Fahirza, Phone Number: +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('+62895354511777')">Copy</button></li>
-            </ul>
-            <li class="p-2">Choose Economy (1-5 days, lower fees) or Express (minutes, higher fees) and pay via bank transfer or card.</li>
-            <li class="p-2">Donations arrive in 1-5 days for SeaBank or instantly for GoPay.</li>
-          </ol>
-        </div>
-      </details>
-      <details>
-        <summary>Using WorldRemit</summary>
-        <div class="content">
-          <ol class="guide-details list-decimal ml-6 mb-4">
-            <li class="p-2">Visit <a href="https://www.worldremit.com" target="_blank" class="text-green-400 underline">worldremit.com</a> or download the WorldRemit app and sign up or log in.</li>
-            <li class="p-2">Enter the donation amount and select Indonesia as the destination.</li>
-            <li class="p-2">Choose “Bank Transfer” or “Mobile Money” and enter:</li>
-            <ul class="list-none ml-6">
-              <li class="p-2"><strong>SeaBank</strong>: Name: Sultan Andrian Fahirza, Account Number: 901040922850 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('901040922850')">Copy</button>, SWIFT Code: SEAAIDJA <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('SEAAIDJA')">Copy</button></li>
-              <li class="p-2"><strong>E-Wallet (GoPay)</strong>: Name: Sultan Andrian Fahirza, Phone Number: +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('+62895354511777')">Copy</button></li>
-            </ul>
-            <li class="p-2">Pay via bank transfer, card, or other methods (e.g., Apple Pay, Trustly).</li>
-            <li class="p-2">Donations arrive in 1-5 days for SeaBank or instantly for GoPay.</li>
-          </ol>
-        </div>
-      </details>
-      <details>
-        <summary>Using DSGPAY</summary>
-        <div class="content">
-          <ol class="guide-details list-decimal ml-6 mb-4">
-            <li class="p-2">Visit <a href="https://www.dsgpay.com" target="_blank" class="text-green-400 underline">dsgpay.com</a> or download the DSGPAY app and sign up or log in.</li>
-            <li class="p-2">Enter the donation amount and select Indonesia as the destination.</li>
-            <li class="p-2">Choose “Bank Transfer” or “Mobile Wallet” and enter:</li>
-            <ul class="list-none ml-6">
-              <li class="p-2"><strong>SeaBank</strong>: Name: Sultan Andrian Fahirza, Account Number: 901040922850 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('901040922850')">Copy</button>, SWIFT Code: SEAAIDJA <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('SEAAIDJA')">Copy</button></li>
-              <li class="p-2"><strong>E-Wallet (Dana/GoPay/ShopeePay)</strong>: Name: Sultan Andrian Fahirza, Phone Number: +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('+62895354511777')">Copy</button></li>
-            </ul>
-            <li class="p-2">Pay via bank transfer, card, or digital payment methods.</li>
-            <li class="p-2">Donations arrive in 1-5 days for SeaBank or instantly for e-wallets.</li>
-          </ol>
-        </div>
-      </details>
-      <details>
-        <summary>Using Western Union</summary>
-        <div class="content">
-          <ol class="guide-details list-decimal ml-6 mb-4">
-            <li class="p-2">Visit <a href="https://www.westernunion.com" target="_blank" class="text-green-400 underline">westernunion.com</a>, download the Western Union app, or visit a local agent.</li>
-            <li class="p-2">Enter the donation amount and select Indonesia as the destination.</li>
-            <li class="p-2">Choose “Bank Transfer” or “Cash Pickup” and enter:</li>
-            <ul class="list-none ml-6">
-              <li class="p-2"><strong>SeaBank</strong>: Name: Sultan Andrian Fahirza, Account Number: 901040922850 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('901040922850')">Copy</button>, SWIFT Code: SEAAIDJA <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('SEAAIDJA')">Copy</button></li>
-              <li class="p-2"><strong>Cash Pickup</strong>: Name: Sultan Andrian Fahirza, Location: Indonesia, Contact: +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('+62895354511777')">Copy</button></li>
-            </ul>
-            <li class="p-2">Pay via bank transfer, card, or cash at an agent. Contact <a href="https://wa.me/+62895354511777" class="text-green-400 underline">+62895354511777</a> via WhatsApp for cash pickup coordination.</li>
-            <li class="p-2">Donations arrive in 1-5 days for SeaBank or instantly for cash pickup (after coordination).</li>
-          </ol>
-        </div>
-      </details>
-      <p class="text-gray-400 mb-4"><strong>Perks:</strong> All donors will receive a shout-out on our website as a token of gratitude!</p>
-      <a href="../donate" class="cta-btn inline-block bg-yellow-400 text-gray-900 font-bold px-4 py-2 rounded-md hover:bg-white">Go to Donation Page</a>
+  <main class="flex-1 max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+    <section class="text-center mb-8 fade-in-up">
+      <h1 class="text-3xl sm:text-4xl font-bold text-yellow-400 mb-4">Donation Guide</h1>
+      <p class="text-gray-400 max-w-2xl mx-auto">Learn how to support VIN NESIA’s free tools with donations via Wise, Remitly, WorldRemit, DSGPAY, Western Union, or direct transfers to SeaBank, Dana, GoPay, and ShopeePay.</p>
     </section>
 
-    <section class="mb-8 bg-card-dark p-6 rounded-xl shadow-lg fade-in-up" aria-labelledby="domestic-guide">
-      <h2 id="domestic-guide" class="text-2xl font-semibold text-purple-500 mb-4">Donating from Indonesia (Domestic Donors)</h2>
-      <p class="text-gray-400 mb-4">You can support VIN NESIA voluntarily through <a href="https://wise.com" target="_blank" class="text-green-400 underline">Wise</a>, <a href="https://www.remitly.com" target="_blank" class="text-green-400 underline">Remitly</a>, <a href="https://www.worldremit.com" target="_blank" class="text-green-400 underline">WorldRemit</a>, <a href="https://www.dsgpay.com" target="_blank" class="text-green-400 underline">DSGPAY</a>, <a href="https://www.westernunion.com" target="_blank" class="text-green-400 underline">Western Union</a>, or direct transfers to our SeaBank account or e-wallets (Dana, GoPay, ShopeePay). Direct e-wallet transfers are the fastest option!</p>
-      <details>
-        <summary>Using Wise</summary>
-        <div class="content">
-          <ol class="guide-details list-decimal ml-6 mb-4">
-            <li class="p-2">Visit <a href="https://wise.com" target="_blank" class="text-green-400 underline">wise.com</a> and sign up or log in.</li>
-            <li class="p-2">Enter the donation amount in IDR.</li>
-            <li class="p-2">Choose “Bank Transfer” or “E-Wallet” and enter:</li>
-            <ul class="list-none ml-6">
-              <li class="p-2"><strong>SeaBank</strong>: Name: Sultan Andrian Fahirza, Account Number: 901040922850 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('901040922850')">Copy</button></li>
-              <li class="p-2"><strong>E-Wallet (Dana/GoPay/ShopeePay)</strong>: Name: Sultan Andrian Fahirza, Phone Number: +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('+62895354511777')">Copy</button></li>
-            </ul>
-            <li class="p-2">Complete the payment via bank transfer or card.</li>
-            <li class="p-2">Donations to e-wallets are instant, while SeaBank transfers take 1-5 days.</li>
+    <section class="bg-card-dark p-6 rounded-xl shadow-lg mb-6 fade-in-up" aria-labelledby="international-guide">
+      <h2 id="international-guide" class="text-2xl font-semibold text-purple-500 mb-4">International Donors</h2>
+      <details class="mb-4">
+        <summary class="p-3 rounded-lg bg-gray-800 font-medium">Wise</summary>
+        <div class="content p-4 bg-gray-700 rounded-lg">
+          <ol class="guide-details list-decimal ml-6 space-y-2">
+            <li>Visit <a href="https://wise.com" target="_blank" class="text-green-400 underline">wise.com</a> and log in.</li>
+            <li>Enter amount and select IDR.</li>
+            <li>Use: <br><strong>SeaBank</strong>: Account 901040922850, SWIFT SEAAIDJA <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('901040922850')">Copy</button><button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('SEAAIDJA')">Copy</button><br><strong>E-Wallet</strong>: Phone +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('+62895354511777')">Copy</button></li>
+            <li>Pay via bank or card.</li>
+            <li>Arrives in 1-5 days (SeaBank) or instantly (e-wallet).</li>
           </ol>
         </div>
       </details>
-      <details>
-        <summary>Using Remitly</summary>
-        <div class="content">
-          <ol class="guide-details list-decimal ml-6 mb-4">
-            <li class="p-2">Visit <a href="https://www.remitly.com" target="_blank" class="text-green-400 underline">remitly.com</a> or download the Remitly app and sign up or log in.</li>
-            <li class="p-2">Enter the donation amount and select Indonesia.</li>
-            <li class="p-2">Choose “Bank Deposit” or “Mobile Money” and enter:</li>
-            <ul class="list-none ml-6">
-              <li class="p-2"><strong>SeaBank</strong>: Name: Sultan Andrian Fahirza, Account Number: 901040922850 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('901040922850')">Copy</button></li>
-              <li class="p-2"><strong>E-Wallet (GoPay)</strong>: Name: Sultan Andrian Fahirza, Phone Number: +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('+62895354511777')">Copy</button></li>
-            </ul>
-            <li class="p-2">Pay via bank transfer or card.</li>
-            <li class="p-2">Donations to GoPay are instant, while SeaBank transfers take 1-5 days.</li>
+      <details class="mb-4">
+        <summary class="p-3 rounded-lg bg-gray-800 font-medium">Remitly</summary>
+        <div class="content p-4 bg-gray-700 rounded-lg">
+          <ol class="guide-details list-decimal ml-6 space-y-2">
+            <li>Visit <a href="https://www.remitly.com" target="_blank" class="text-green-400 underline">remitly.com</a> and log in.</li>
+            <li>Enter amount and select Indonesia.</li>
+            <li>Use: <br><strong>SeaBank</strong>: Account 901040922850, SWIFT SEAAIDJA <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('901040922850')">Copy</button><button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('SEAAIDJA')">Copy</button><br><strong>GoPay</strong>: Phone +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('+62895354511777')">Copy</button></li>
+            <li>Pay via bank or card (Economy/Express).</li>
+            <li>Arrives in 1-5 days (SeaBank) or instantly (GoPay).</li>
           </ol>
         </div>
       </details>
-      <details>
-        <summary>Using WorldRemit</summary>
-        <div class="content">
-          <ol class="guide-details list-decimal ml-6 mb-4">
-            <li class="p-2">Visit <a href="https://www.worldremit.com" target="_blank" class="text-green-400 underline">worldremit.com</a> or download the WorldRemit app and sign up or log in.</li>
-            <li class="p-2">Enter the donation amount and select Indonesia.</li>
-            <li class="p-2">Choose “Bank Transfer” or “Mobile Money” and enter:</li>
-            <ul class="list-none ml-6">
-              <li class="p-2"><strong>SeaBank</strong>: Name: Sultan Andrian Fahirza, Account Number: 901040922850 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('901040922850')">Copy</button></li>
-              <li class="p-2"><strong>E-Wallet (GoPay)</strong>: Name: Sultan Andrian Fahirza, Phone Number: +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('+62895354511777')">Copy</button></li>
-            </ul>
-            <li class="p-2">Pay via bank transfer, card, or other methods.</li>
-            <li class="p-2">Donations to GoPay are instant, while SeaBank transfers take 1-5 days.</li>
+      <details class="mb-4">
+        <summary class="p-3 rounded-lg bg-gray-800 font-medium">WorldRemit</summary>
+        <div class="content p-4 bg-gray-700 rounded-lg">
+          <ol class="guide-details list-decimal ml-6 space-y-2">
+            <li>Visit <a href="https://www.worldremit.com" target="_blank" class="text-green-400 underline">worldremit.com</a> and log in.</li>
+            <li>Enter amount and select Indonesia.</li>
+            <li>Use: <br><strong>SeaBank</strong>: Account 901040922850, SWIFT SEAAIDJA <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('901040922850')">Copy</button><button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('SEAAIDJA')">Copy</button><br><strong>GoPay</strong>: Phone +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('+62895354511777')">Copy</button></li>
+            <li>Pay via bank or card.</li>
+            <li>Arrives in 1-5 days (SeaBank) or instantly (GoPay).</li>
           </ol>
         </div>
       </details>
-      <details>
-        <summary>Using DSGPAY</summary>
-        <div class="content">
-          <ol class="guide-details list-decimal ml-6 mb-4">
-            <li class="p-2">Visit <a href="https://www.dsgpay.com" target="_blank" class="text-green-400 underline">dsgpay.com</a> or download the DSGPAY app and sign up or log in.</li>
-            <li class="p-2">Enter the donation amount and select Indonesia.</li>
-            <li class="p-2">Choose “Bank Transfer” or “Mobile Wallet” and enter:</li>
-            <ul class="list-none ml-6">
-              <li class="p-2"><strong>SeaBank</strong>: Name: Sultan Andrian Fahirza, Account Number: 901040922850 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('901040922850')">Copy</button></li>
-              <li class="p-2"><strong>E-Wallet (Dana/GoPay/ShopeePay)</strong>: Name: Sultan Andrian Fahirza, Phone Number: +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('+62895354511777')">Copy</button></li>
-            </ul>
-            <li class="p-2">Pay via bank transfer, card, or digital methods.</li>
-            <li class="p-2">Donations to e-wallets are instant, while SeaBank transfers take 1-5 days.</li>
+      <details class="mb-4">
+        <summary class="p-3 rounded-lg bg-gray-800 font-medium">DSGPAY</summary>
+        <div class="content p-4 bg-gray-700 rounded-lg">
+          <ol class="guide-details list-decimal ml-6 space-y-2">
+            <li>Visit <a href="https://www.dsgpay.com" target="_blank" class="text-green-400 underline">dsgpay.com</a> and log in.</li>
+            <li>Enter amount and select Indonesia.</li>
+            <li>Use: <br><strong>SeaBank</strong>: Account 901040922850, SWIFT SEAAIDJA <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('901040922850')">Copy</button><button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('SEAAIDJA')">Copy</button><br><strong>E-Wallet</strong>: Phone +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('+62895354511777')">Copy</button></li>
+            <li>Pay via bank or card.</li>
+            <li>Arrives in 1-5 days (SeaBank) or instantly (e-wallet).</li>
           </ol>
         </div>
       </details>
-      <details>
-        <summary>Using Western Union</summary>
-        <div class="content">
-          <ol class="guide-details list-decimal ml-6 mb-4">
-            <li class="p-2">Visit <a href="https://www.westernunion.com" target="_blank" class="text-green-400 underline">westernunion.com</a>, download the Western Union app, or visit a local agent.</li>
-            <li class="p-2">Enter the donation amount and select Indonesia.</li>
-            <li class="p-2">Choose “Bank Transfer” or “Cash Pickup” and enter:</li>
-            <ul class="list-none ml-6">
-              <li class="p-2"><strong>SeaBank</strong>: Name: Sultan Andrian Fahirza, Account Number: 901040922850 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('901040922850')">Copy</button></li>
-              <li class="p-2"><strong>Cash Pickup</strong>: Name: Sultan Andrian Fahirza, Location: Indonesia, Contact: +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('+62895354511777')">Copy</button></li>
-            </ul>
-            <li class="p-2">Pay via bank transfer, card, or cash at an agent. Contact <a href="https://wa.me/+62895354511777" class="text-green-400 underline">+62895354511777</a> via WhatsApp for cash pickup coordination.</li>
-            <li class="p-2">Donations to SeaBank take 1-5 days, cash pickups are instant after coordination.</li>
+      <details class="mb-4">
+        <summary class="p-3 rounded-lg bg-gray-800 font-medium">Western Union</summary>
+        <div class="content p-4 bg-gray-700 rounded-lg">
+          <ol class="guide-details list-decimal ml-6 space-y-2">
+            <li>Visit <a href="https://www.westernunion.com" target="_blank" class="text-green-400 underline">westernunion.com</a> or an agent.</li>
+            <li>Enter amount and select Indonesia.</li>
+            <li>Use: <br><strong>SeaBank</strong>: Account 901040922850, SWIFT SEAAIDJA <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('901040922850')">Copy</button><button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('SEAAIDJA')">Copy</button><br><strong>Cash Pickup</strong>: Contact +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('+62895354511777')">Copy</button></li>
+            <li>Pay via bank, card, or cash; coordinate pickup via WhatsApp.</li>
+            <li>Arrives in 1-5 days (SeaBank) or instantly (cash).</li>
           </ol>
         </div>
       </details>
-      <details>
-        <summary>Direct Transfers</summary>
-        <div class="content">
-          <ol class="guide-details list-decimal ml-6 mb-4">
-            <li class="p-2">Open your banking app (e.g., SeaBank, BCA, Mandiri) or e-wallet app (Dana, GoPay, ShopeePay).</li>
-            <li class="p-2">Select “Transfer” and enter:</li>
-            <ul class="list-none ml-6">
-              <li class="p-2"><strong>SeaBank</strong>: Name: Sultan Andrian Fahirza, Account Number: 901040922850 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('901040922850')">Copy</button></li>
-              <li class="p-2"><strong>E-Wallet</strong>: Phone Number: +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white" onclick="copyText('+62895354511777')">Copy</button></li>
-            </ul>
-            <li class="p-2">Enter the donation amount and confirm the transfer.</li>
-            <li class="p-2">Direct transfers to e-wallets are instant, and SeaBank transfers are usually instant or same-day.</li>
+      <p class="text-gray-400 mb-4">All donors get a shout-out on our site!</p>
+      <a href="../donate" class="cta-btn inline-block bg-yellow-400 text-gray-900 font-bold px-4 py-2 rounded-md hover:bg-white">Donate Now</a>
+    </section>
+
+    <section class="bg-card-dark p-6 rounded-xl shadow-lg mb-6 fade-in-up" aria-labelledby="domestic-guide">
+      <h2 id="domestic-guide" class="text-2xl font-semibold text-purple-500 mb-4">Domestic Donors</h2>
+      <details class="mb-4">
+        <summary class="p-3 rounded-lg bg-gray-800 font-medium">Wise</summary>
+        <div class="content p-4 bg-gray-700 rounded-lg">
+          <ol class="guide-details list-decimal ml-6 space-y-2">
+            <li>Visit <a href="https://wise.com" target="_blank" class="text-green-400 underline">wise.com</a> and log in.</li>
+            <li>Enter amount in IDR.</li>
+            <li>Use: <br><strong>SeaBank</strong>: Account 901040922850 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('901040922850')">Copy</button><br><strong>E-Wallet</strong>: Phone +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('+62895354511777')">Copy</button></li>
+            <li>Pay via bank or card.</li>
+            <li>Instant for e-wallets, 1-5 days for SeaBank.</li>
           </ol>
         </div>
       </details>
-      <p class="text-gray-400 mb-4"><strong>Note:</strong> Ensure your e-wallet (Dana, GoPay, ShopeePay) is upgraded to premium for seamless transfers. Direct e-wallet transfers are recommended for speed and convenience.</p>
-      <p class="text-gray-400 mb-4"><strong>Perks:</strong> All donors will receive a shout-out on our website as a token of gratitude!</p>
-      <a href="../donate" class="cta-btn inline-block bg-yellow-400 text-gray-900 font-bold px-4 py-2 rounded-md hover:bg-white">Go to Donation Page</a>
+      <details class="mb-4">
+        <summary class="p-3 rounded-lg bg-gray-800 font-medium">Remitly</summary>
+        <div class="content p-4 bg-gray-700 rounded-lg">
+          <ol class="guide-details list-decimal ml-6 space-y-2">
+            <li>Visit <a href="https://www.remitly.com" target="_blank" class="text-green-400 underline">remitly.com</a> and log in.</li>
+            <li>Enter amount and select Indonesia.</li>
+            <li>Use: <br><strong>SeaBank</strong>: Account 901040922850 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('901040922850')">Copy</button><br><strong>GoPay</strong>: Phone +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('+62895354511777')">Copy</button></li>
+            <li>Pay via bank or card.</li>
+            <li>Instant for GoPay, 1-5 days for SeaBank.</li>
+          </ol>
+        </div>
+      </details>
+      <details class="mb-4">
+        <summary class="p-3 rounded-lg bg-gray-800 font-medium">WorldRemit</summary>
+        <div class="content p-4 bg-gray-700 rounded-lg">
+          <ol class="guide-details list-decimal ml-6 space-y-2">
+            <li>Visit <a href="https://www.worldremit.com" target="_blank" class="text-green-400 underline">worldremit.com</a> and log in.</li>
+            <li>Enter amount and select Indonesia.</li>
+            <li>Use: <br><strong>SeaBank</strong>: Account 901040922850 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('901040922850')">Copy</button><br><strong>GoPay</strong>: Phone +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('+62895354511777')">Copy</button></li>
+            <li>Pay via bank or card.</li>
+            <li>Instant for GoPay, 1-5 days for SeaBank.</li>
+          </ol>
+        </div>
+      </details>
+      <details class="mb-4">
+        <summary class="p-3 rounded-lg bg-gray-800 font-medium">DSGPAY</summary>
+        <div class="content p-4 bg-gray-700 rounded-lg">
+          <ol class="guide-details list-decimal ml-6 space-y-2">
+            <li>Visit <a href="https://www.dsgpay.com" target="_blank" class="text-green-400 underline">dsgpay.com</a> and log in.</li>
+            <li>Enter amount and select Indonesia.</li>
+            <li>Use: <br><strong>SeaBank</strong>: Account 901040922850 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('901040922850')">Copy</button><br><strong>E-Wallet</strong>: Phone +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('+62895354511777')">Copy</button></li>
+            <li>Pay via bank or card.</li>
+            <li>Instant for e-wallets, 1-5 days for SeaBank.</li>
+          </ol>
+        </div>
+      </details>
+      <details class="mb-4">
+        <summary class="p-3 rounded-lg bg-gray-800 font-medium">Western Union</summary>
+        <div class="content p-4 bg-gray-700 rounded-lg">
+          <ol class="guide-details list-decimal ml-6 space-y-2">
+            <li>Visit <a href="https://www.westernunion.com" target="_blank" class="text-green-400 underline">westernunion.com</a> or an agent.</li>
+            <li>Enter amount and select Indonesia.</li>
+            <li>Use: <br><strong>SeaBank</strong>: Account 901040922850 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('901040922850')">Copy</button><br><strong>Cash Pickup</strong>: Contact +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('+62895354511777')">Copy</button></li>
+            <li>Pay via bank, card, or cash; coordinate via WhatsApp.</li>
+            <li>1-5 days for SeaBank, instant for cash.</li>
+          </ol>
+        </div>
+      </details>
+      <details class="mb-4">
+        <summary class="p-3 rounded-lg bg-gray-800 font-medium">Direct Transfers</summary>
+        <div class="content p-4 bg-gray-700 rounded-lg">
+          <ol class="guide-details list-decimal ml-6 space-y-2">
+            <li>Open your bank (e.g., SeaBank) or e-wallet (Dana, GoPay, ShopeePay) app.</li>
+            <li>Use: <br><strong>SeaBank</strong>: Account 901040922850 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('901040922850')">Copy</button><br><strong>E-Wallet</strong>: Phone +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('+62895354511777')">Copy</button></li>
+            <li>Enter amount and confirm.</li>
+            <li>Instant for e-wallets, same-day for SeaBank.</li>
+          </ol>
+        </div>
+      </details>
+      <p class="text-gray-400 mb-4">Ensure e-wallets are premium for smooth transfers. All donors get a shout-out!</p>
+      <a href="../donate" class="cta-btn inline-block bg-yellow-400 text-gray-900 font-bold px-4 py-2 rounded-md hover:bg-white">Donate Now</a>
+
       <div class="faq mt-6">
-        <h3 class="text-xl font-semibold text-yellow-400 mb-4">Frequently Asked Questions</h3>
-        <details>
-          <summary class="p-3 rounded-lg">Is donating mandatory?</summary>
-          <div class="content p-3 bg-gray-800 rounded-lg text-gray-400">No, donations are completely voluntary and help us keep our tools free for everyone.</div>
+        <h3 class="text-xl font-semibold text-yellow-400 mb-4">FAQs</h3>
+        <details class="mb-2">
+          <summary class="p-3 rounded-lg bg-gray-800">Is donating mandatory?</summary>
+          <div class="content p-3 bg-gray-700 rounded-lg text-gray-400">No, it’s voluntary to support our free tools.</div>
         </details>
-        <details>
-          <summary class="p-3 rounded-lg">Where do the funds go?</summary>
-          <div class="content p-3 bg-gray-800 rounded-lg text-gray-400">Your contributions cover hosting costs, domain maintenance, and the development of new features for VIN NESIA’s tools.</div>
+        <details class="mb-2">
+          <summary class="p-3 rounded-lg bg-gray-800">Where do funds go?</summary>
+          <div class="content p-3 bg-gray-700 rounded-lg text-gray-400">To hosting, domain, and new feature development.</div>
         </details>
-        <details>
-          <summary class="p-3 rounded-lg">How secure is my donation?</summary>
-          <div class="content p-3 bg-gray-800 rounded-lg text-gray-400">We use trusted platforms like Wise, Remitly, WorldRemit, DSGPAY, Western Union, SeaBank, Dana, GoPay, and ShopeePay, all secured with HTTPS encryption.</div>
+        <details class="mb-2">
+          <summary class="p-3 rounded-lg bg-gray-800">How secure is it?</summary>
+          <div class="content p-3 bg-gray-700 rounded-lg text-gray-400">Uses trusted platforms with HTTPS encryption.</div>
         </details>
-        <details>
-          <summary class="p-3 rounded-lg">Can I donate any amount?</summary>
-          <div class="content p-3 bg-gray-800 rounded-lg text-gray-400">Yes, every contribution, big or small, makes a difference!</div>
+        <details class="mb-2">
+          <summary class="p-3 rounded-lg bg-gray-800">Any amount?</summary>
+          <div class="content p-3 bg-gray-700 rounded-lg text-gray-400">Yes, every bit helps!</div>
         </details>
       </div>
     </section>
   </main>
 
-  <footer class="bg-gray-900 border-t-2 border-gray-800 text-gray-400" role="contentinfo">
-    <div class="footer-cta bg-gradient-to-r from-purple-500 to-green-400 text-gray-900 font-bold text-center py-6 px-4 rounded-b-3xl shadow-lg">
-      🚀 Support VIN NESIA’s free tools with a donation – Keep us growing!
+  <footer class="bg-gray-900 border-t border-gray-800 text-gray-400 mt-auto">
+    <div class="footer-cta text-center py-4 px-4 rounded-b-3xl shadow-lg">
+      🚀 Support VIN NESIA’s free tools with a donation!
     </div>
-    <div class="footer-main max-w-6xl mx-auto px-4 py-6 flex flex-wrap gap-6 justify-between">
-      <div class="footer-group min-w-[180px]">
-        <div class="footer-group-title font-semibold text-yellow-400 mb-2">🧭 Navigation:</div>
-        <div class="footer-links flex flex-col gap-2">
-          <a href="../" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Home">Home</a>
-          <a href="../tools" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="All Tools">All Tools</a>
-          <a href="../blog" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Blog">Blog</a>
-          <a href="../about" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="About Us">About Us</a>
-        </div>
+    <div class="footer-main max-w-6xl mx-auto px-4 py-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="footer-group">
+        <h4 class="font-semibold text-yellow-400 mb-2">Navigation</h4>
+        <ul class="space-y-2">
+          <li><a href="../" class="text-purple-400 hover:text-green-400">Home</a></li>
+          <li><a href="../tools" class="text-purple-400 hover:text-green-400">All Tools</a></li>
+          <li><a href="../blog" class="text-purple-400 hover:text-green-400">Blog</a></li>
+          <li><a href="../about" class="text-purple-400 hover:text-green-400">About Us</a></li>
+        </ul>
       </div>
-      <div class="footer-group min-w-[180px]">
-        <div class="footer-group-title font-semibold text-yellow-400 mb-2">📚 Help:</div>
-        <div class="footer-help flex flex-col gap-2">
-          <a href="../how-to-use" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="How to Use">How to Use</a>
-          <a href="../user-guide" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="User Guide">User Guide</a>
-          <a href="../faq" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="FAQ">FAQ</a>
-          <a href="../contact" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Contact Us">Contact Us</a>
-        </div>
+      <div class="footer-group">
+        <h4 class="font-semibold text-yellow-400 mb-2">Help</h4>
+        <ul class="space-y-2">
+          <li><a href="../how-to-use" class="text-purple-400 hover:text-green-400">How to Use</a></li>
+          <li><a href="../user-guide" class="text-purple-400 hover:text-green-400">User Guide</a></li>
+          <li><a href="../faq" class="text-purple-400 hover:text-green-400">FAQ</a></li>
+          <li><a href="../contact" class="text-purple-400 hover:text-green-400">Contact Us</a></li>
+        </ul>
       </div>
-      <div class="footer-group min-w-[180px]">
-        <div class="footer-group-title font-semibold text-yellow-400 mb-2">⚖️ Legal:</div>
-        <div class="footer-legal flex flex-col gap-2">
-          <a href="../privacy" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Privacy Policy">Privacy Policy</a>
-          <a href="../terms" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Terms of Service">Terms of Service</a>
-          <a href="../sitemap" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Sitemap">Sitemap</a>
-        </div>
+      <div class="footer-group">
+        <h4 class="font-semibold text-yellow-400 mb-2">Legal</h4>
+        <ul class="space-y-2">
+          <li><a href="../privacy" class="text-purple-400 hover:text-green-400">Privacy Policy</a></li>
+          <li><a href="../terms" class="text-purple-400 hover:text-green-400">Terms of Service</a></li>
+          <li><a href="../sitemap" class="text-purple-400 hover:text-green-400">Sitemap</a></li>
+        </ul>
       </div>
-      <div class="footer-group min-w-[180px]">
-        <div class="footer-group-title font-semibold text-yellow-400 mb-2">📧 Email:</div>
-        <div class="footer-contact flex flex-col gap-2">
-          <a href="mailto:admin@vinnesia.my.id" class="text-green-400 underline" aria-label="Email admin@vinnesia.my.id">admin@vinnesia.my.id</a>
-          <a href="mailto:support@vinnesia.my.id" class="text-green-400 underline" aria-label="Email support@vinnesia.my.id">support@vinnesia.my.id</a>
-          <a href="mailto:privacy@vinnesia.my.id" class="text-green-400 underline" aria-label="Email privacy@vinnesia.my.id">privacy@vinnesia.my.id</a>
-        </div>
-        <div class="footer-group-title font-semibold text-yellow-400 mt-4 mb-2">📱 Social Media:</div>
-        <div class="footer-social flex gap-4 items-center">
-          <a href="https://instagram.com/vin.nesia.id" class="text-yellow-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Instagram VIN NESIA" target="_blank" rel="noopener">
+      <div class="footer-group">
+        <h4 class="font-semibold text-yellow-400 mb-2">Contact</h4>
+        <ul class="space-y-2">
+          <li><a href="mailto:admin@vinnesia.my.id" class="text-green-400 underline">admin@vinnesia.my.id</a></li>
+          <li><a href="mailto:support@vinnesia.my.id" class="text-green-400 underline">support@vinnesia.my.id</a></li>
+          <li><a href="mailto:privacy@vinnesia.my.id" class="text-green-400 underline">privacy@vinnesia.my.id</a></li>
+        </ul>
+        <h4 class="font-semibold text-yellow-400 mt-4 mb-2">Social</h4>
+        <div class="flex gap-4">
+          <a href="https://instagram.com/vin.nesia.id" class="text-yellow-400 hover:text-green-400" target="_blank" rel="noopener">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37a4 4 0 1 1-4.63-4.63 4 4 0 0 1 4.63 4.63z"/><circle cx="17.5" cy="6.5" r="1"/></svg>
           </a>
-          <a href="https://wa.me/+62895354511777" class="text-yellow-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="WhatsApp VIN NESIA" target="_blank" rel="noopener">
+          <a href="https://wa.me/+62895354511777" class="text-yellow-400 hover:text-green-400" target="_blank" rel="noopener">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 12A9.5 9.5 0 1 1 12 2.5a9.5 9.5 0 0 1 9.5 9.5z"/><path d="M12 22c-2.21 0-4.27-.72-5.94-1.97l-3.05.82.81-3.04A9.5 9.5 0 1 1 12 22z"/><path d="M16.29 14.12c-.18-.09-1.07-.53-1.24-.59-.17-.06-.29-.09-.41.09-.12.18-.47.58-.58.70-.11.12-.22.13-.40.04-.18-.09-.76-.28-1.44-.89-.53-.47-.88-1.05-.98-1.23-.10-.18-.01-.28.08-.37.09-.09.18-.22.27-.33.09-.11.12-.18.18-.30.06-.12.03-.23-.02-.32-.06-.09-.41-.98-.56-1.34-.15-.36-.30-.31-.41-.32-.11-.01-.23-.01-.36-.01-.12 0-.31.05-.47.23-.16.18-.62.61-.62 1.50 0 .89.63 1.74.71 1.86.09.12 1.25 2.02 3.13 2.76.44.15.79.23 1.06.29.45.10.86.08 1.18.05.36-.03 1.07-.44 1.22-.87.15-.43.15-.79.10-.87z"/></svg>
           </a>
         </div>
       </div>
     </div>
-    <div class="footer-copy text-center text-sm py-4 border-t border-gray-800 bg-gray-950">
-      © 2025 <span class="text-yellow-400 font-bold">VIN NESIA</span>. All rights reserved. Built with <span class="text-red-400">❤️</span> for everyone.<br />
-      VIN NESIA is not responsible for the misuse of tools.
+    <div class="footer-copy text-center text-sm py-4 bg-gray-950">
+      © 2025 <span class="text-yellow-400 font-bold">VIN NESIA</span>. All rights reserved. Built with <span class="text-red-400">❤️</span>.
     </div>
   </footer>
 
   <script>
-    function copyText(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        alert('Copied to clipboard: ' + text);
-      }).catch(err => {
-        console.error('Failed to copy: ', err);
-      });
-    }
-
+    function copyText(text) { navigator.clipboard.writeText(text).then(() => alert('Copied: ' + text)).catch(err => console.error('Copy failed:', err)); }
     const navToggle = document.getElementById('navToggle');
     const mainNav = document.getElementById('mainNav');
-    navToggle.addEventListener('click', function() {
+    navToggle.addEventListener('click', () => {
       const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
       navToggle.setAttribute('aria-expanded', !isExpanded);
       mainNav.classList.toggle('hidden');
