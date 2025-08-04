@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Support VIN NESIA’s free online tools with a voluntary donation via Wise to SeaBank, Dana, GoPay, or ShopeePay. Your contribution helps us maintain and develop innovative tools for everyone!">
+  <meta name="keywords" content="donate VIN NESIA, donation Indonesia, Wise donation, free online tools, support VIN NESIA">
+  <meta name="author" content="VIN NESIA">
+  <link rel="canonical" href="https://www.vinnesia.my.id/donate">
+  <title>DONATE VIN NESIA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #2C003E, #4B0082, #9370DB);
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .donation-section {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 30px;
+      margin: 20px 0;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .donation-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #FFD700;
+    }
+
+    .donation-section p {
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+
+    .donation-details ul {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .donation-details li {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .donation-details li::before {
+      content: '\f0da';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      color: #FFD700;
+      position: absolute;
+      left: 0;
+    }
+
+    .copy-btn {
+      background: #FFD700;
+      color: #2C003E;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      margin-left: 10px;
+      transition: background 0.3s;
+    }
+
+    .copy-btn:hover {
+      background: #fff;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: #FFD700;
+      color: #2C003E;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 20px;
+      transition: background 0.3s;
+    }
+
+    .cta-btn:hover {
+      background: #fff;
+    }
+
+    .faq {
+      margin-top: 30px;
+    }
+
+    .faq h3 {
+      font-size: 1.5rem;
+      color: #FFD700;
+      margin-bottom: 15px;
+    }
+
+    .faq p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: #2C003E;
+      padding: 40px 20px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .footer-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+
+    .footer-section div {
+      flex: 1;
+      min-width: 200px;
+      margin: 10px;
+    }
+
+    .footer-section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #9370DB;
+    }
+
+    .footer-section a {
+      color: #FFD700;
+      text-decoration: none;
+      display: block;
+      margin: 5px 0;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: #fff;
+    }
+
+    .footer-section .email a {
+      color: #00FF00;
+      text-decoration: underline;
+    }
+
+    .footer-section .social a {
+      font-size: 1.5rem;
+      margin: 0 10px;
+    }
+
+    .footer-bottom {
+      font-size: 0.9rem;
+      margin-top: 20px;
+      color: #ccc;
+    }
+
+    /* Responsif */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      .donation-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .donation-section p, .donation-details li {
+        font-size: 0.9rem;
+      }
+
+      .footer-section {
+        flex-direction: column;
+        text-align: left;
+      }
+
+      .footer-section div {
+        margin: 10px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 20px 10px;
+      }
+
+      .donation-section {
+        padding: 20px;
+      }
+
+      .copy-btn {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+      }
+    }
+
+    /* Animasi halus */
+    .donation-section, footer {
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>DONATE VIN NESIA</h1>
+      <p>Your voluntary support keeps VIN NESIA’s online tools free for everyone! Your donations help us cover hosting costs, maintain our domain, and develop new features to enhance your experience with our productivity and creative tools. Every contribution, big or small, makes a difference in our mission to empower the global community!</p>
+    </header>
+
+    <section class="donation-section">
+      <h2>Donation Guide for International Donors</h2>
+      <p>We gladly accept voluntary donations from around the world via <a href="https://wise.com" target="_blank" style="color: #FFD700;">Wise</a>. Use the details below to send your contribution:</p>
+      <div class="donation-details">
+        <ul>
+          <li><strong>Bank: SeaBank</strong><br>Name: Sultan Andrian Fahirza<br>Account Number: 901040922850 <button class="copy-btn" onclick="copyText('901040922850')">Copy</button><br>SWIFT Code: SEAAIDJA <button class="copy-btn" onclick="copyText('SEAAIDJA')">Copy</button></li>
+          <li><strong>E-Wallet (Dana/GoPay/ShopeePay)</strong><br>Name: Sultan Andrian Fahirza<br>Phone Number: +62895354511777 <button class="copy-btn" onclick="copyText('+62895354511777')">Copy</button></li>
+        </ul>
+        <p><strong>How to Donate:</strong> Sign up or log in to <a href="https://wise.com" target="_blank" style="color: #FFD700;">Wise</a>, enter the amount, select IDR as the currency, and use the bank or e-wallet details above. Donations to SeaBank arrive in 1-2 business days, while e-wallet transfers are instant.</p>
+        <p><strong>Perks:</strong> All donors will receive a shout-out on our website as a token of gratitude!</p>
+        <a href="https://wise.com" target="_blank" class="cta-btn">Support Now via Wise</a>
+      </div>
+    </section>
+
+    <section class="donation-section">
+      <h2>Donation Guide for Indonesian Donors</h2>
+      <p>You can support VIN NESIA voluntarily by transferring via <a href="https://wise.com" target="_blank" style="color: #FFD700;">Wise</a> or directly to our SeaBank account or e-wallets (Dana, GoPay, ShopeePay). Direct e-wallet transfers are faster!</p>
+      <div class="donation-details">
+        <ul>
+          <li><strong>SeaBank</strong>: Name: Sultan Andrian Fahirza, Account Number: 901040922850 <button class="copy-btn" onclick="copyText('901040922850')">Copy</button></li>
+          <li><strong>E-Wallet (Dana/GoPay/ShopeePay)</strong>: Name: Sultan Andrian Fahirza, Phone Number: +62895354511777 <button class="copy-btn" onclick="copyText('+62895354511777')">Copy</button></li>
+          <li><strong>Via Wise</strong>: Use the same details above through <a href="https://wise.com" target="_blank" style="color: #FFD700;">Wise</a>.</li>
+        </ul>
+        <p><strong>Note:</strong> For faster donations, transfer directly to Dana, GoPay, or ShopeePay using your app. Ensure your e-wallet is upgraded to premium for seamless transfers. Wise donations to e-wallets are instant, while SeaBank transfers take 1-2 business days.</p>
+        <p><strong>Perks:</strong> All donors will receive a shout-out on our website as a token of gratitude!</p>
+        <a href="https://wise.com" target="_blank" class="cta-btn">Support Now via Wise</a>
+      </div>
+      <div class="faq">
+        <h3>Frequently Asked Questions</h3>
+        <p><strong>Is donating mandatory?</strong> No, donations are completely voluntary and help us keep our tools free for everyone.</p>
+        <p><strong>Where do the funds go?</strong> Your contributions cover hosting costs, domain maintenance, and the development of new features for VIN NESIA’s tools.</p>
+        <p><strong>How secure is my donation?</strong> We use trusted platforms like Wise, SeaBank, Dana, GoPay, and ShopeePay, all secured with HTTPS encryption.</p>
+        <p><strong>Can I donate any amount?</strong> Yes, every contribution, big or small, makes a difference!</p>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-section">
+        <div class="navigation">
+          <h3><i class="fas fa-compass"></i> Navigation</h3>
+          <a href="https://www.vinnesia.my.id">Homepage</a>
+          <a href="https://www.vinnesia.my.id/donation-guide">Donation Guide</a>
+        </div>
+        <div class="help">
+          <h3><i class="fas fa-book"></i> Help</h3>
+          <a href="https://www.vinnesia.my.id/help">How to Use Tools</a>
+        </div>
+        <div class="legal">
+          <h3><i class="fas fa-balance-scale"></i> Legal</h3>
+          <a href="https://www.vinnesia.my.id/privacy.html">Privacy Policy</a>
+          <a href="https://www.vinnesia.my.id/terms.html">Terms of Service</a>
+        </div>
+        <div class="email">
+          <h3><i class="fas fa-envelope"></i> Contact Us</h3>
+          <a href="mailto:admin@vinnesia.my.id">admin@vinnesia.my.id</a>
+          <a href="mailto:support@vinnesia.my.id">support@vinnesia.my.id</a>
+          <a href="mailto:privacy@vinnesia.my.id">privacy@vinnesia.my.id</a>
+        </div>
+        <div class="social">
+          <h3><i class="fas fa-share-alt"></i> Follow Us</h3>
+          <a href="https://www.instagram.com/vinnesia" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/+62895354511777" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 VIN NESIA. All rights reserved. Built with ❤️ for everyone.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Copied to clipboard: ' + text);
+      }).catch(err => {
+        console.error('Failed to copy: ', err);
+      });
+    }
+  </script>
+</body>
+</html>
