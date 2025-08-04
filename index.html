@@ -10,7 +10,7 @@
 
   <meta property="og:title" content="VIN NESIA - Free & Professional Online Tools for Productivity" />
   <meta property="og:description" content="Over 17 free online tools for daily productivity. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, and more." />
-  <meta property="og:image" content="logo.png" />
+  <meta property="og:image" content="https://vinnesia.my.id/images/logo-vinnesia.png" />
   <meta property="og:url" content="https://vinnesia.my.id/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="VIN NESIA" />
@@ -21,14 +21,14 @@
   <meta name="twitter:creator" content="@VinNesiaID" />
   <meta name="twitter:title" content="VIN NESIA - Free & Professional Online Tools for Productivity" />
   <meta name="twitter:description" content="Over 17 free online tools for daily productivity. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, and more." />
-  <meta name="twitter:image" content="logo.png" />
+  <meta name="twitter:image" content="https://vinnesia.my.id/images/logo-vinnesia.png" />
 
   <link rel="canonical" href="https://vinnesia.my.id/" />
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.json" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.tailwindcss.com" rel="stylesheet" />
 
   <script type="application/ld+json">
   {
@@ -44,9 +44,9 @@
       "email": "admin@vinnesia.my.id"
     },
     "sameAs": [
-      "https://instagram.com/vin.nesia.id",
-      "https://twitter.com/VinNesiaID",
-      "https://facebook.com/VinNesiaID"
+      "https://www.instagram.com/vin.nesia.id",
+      "https://x.com/VinNesiaID",
+      "https://www.facebook.com/VinNesiaID"
     ]
   }
   </script>
@@ -71,7 +71,7 @@
       font-family: 'Poppins', sans-serif;
       background: var(--bg-dark);
       color: var(--text-main);
-      min-height: 100%;
+      min-height: 100vh;
       scroll-behavior: smooth;
     }
     .hero {
@@ -96,12 +96,9 @@
       overflow-wrap: break-word;
     }
     .popular-tools-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    @media (min-width: 768px) {
-      .popular-tools-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
     }
     .testimonial-slider {
       display: flex;
@@ -139,100 +136,105 @@
 </head>
 <body>
   <header class="bg-gray-900/95 sticky top-0 z-50 px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 shadow-md border-b border-gray-800" role="banner">
-    <img src="logo.png" alt="Logo VIN NESIA" class="h-10 w-10 rounded-lg shadow-md" />
-    <span class="text-2xl sm:text-3xl font-bold text-yellow-400">VIN NESIA</span>
-    <button class="nav-toggle sm:hidden flex flex-col gap-1.5 p-2" id="navToggle" aria-label="Open or close navigation menu" aria-expanded="false" aria-controls="mainNav">
+    <div class="flex items-center gap-3">
+      <img src="/images/logo-vinnesia.png" alt="VIN NESIA Logo" class="h-10 w-10 rounded-lg shadow-md" loading="lazy" />
+      <span class="text-2xl sm:text-3xl font-bold text-yellow-400">VIN NESIA</span>
+    </div>
+    <button class="nav-toggle sm:hidden flex flex-col gap-1.5 p-2" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav">
       <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
       <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
       <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
     </button>
-    <nav id="mainNav" class="hidden sm:flex gap-4 sm:gap-6 items-center" role="navigation" aria-label="Main Navigation">
-      <a href="/" class="active font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-current="page">Home</a>
-      <a href="donate" class="active font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-current="page">Donate</a>
-      <a href="tools" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="View all tools">All Tools</a>
-      <a href="blog" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="Read blog">Blog</a>
-      <a href="about" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="About us">About Us</a>
-      <a href="user-guide" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="User guide">User Guide</a>
+    <nav id="mainNav" class="hidden sm:flex gap-4 sm:gap-6 items-center" role="navigation" aria-label="Main navigation">
+      <a href="/" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-current="page">Home</a>
+      <a href="/donate" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md">Donate</a>
+      <a href="/tools" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="View all tools">All Tools</a>
+      <a href="/blog" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="Read blog">Blog</a>
+      <a href="/about" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="About us">About Us</a>
+      <a href="/user-guide" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="User guide">User Guide</a>
     </nav>
   </header>
 
-  <section class="hero py-16 sm:py-20 px-4 text-center text-white mb-10" role="region" aria-labelledby="hero-title">
-    <h1 id="hero-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-yellow-400 mb-4">VIN NESIA — One Portal, All Free Online Tools!</h1>
-    <p class="text-lg sm:text-xl max-w-2xl mx-auto mb-6">Discover over 17 free and professional tools to boost your daily productivity.</p>
-    <a href="tools" aria-label="Explore all tools">
-      <button class="bg-gradient-to-r from-purple-500 to-green-400 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg hover:from-green-400 hover:to-purple-500 focus:outline focus:outline-2 focus:outline-yellow-400 transform hover:-translate-y-0.5 focus:-translate-y-0.5 transition">Explore Tools</button>
-    </a>
-  </section>
+  <main>
+    <section class="hero py-16 sm:py-20 px-4 text-center text-white mb-10" role="region" aria-labelledby="hero-title">
+      <h1 id="hero-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-yellow-400 mb-4">VIN NESIA — One Portal, All Free Online Tools!</h1>
+      <p class="text-lg sm:text-xl max-w-2xl mx-auto mb-6">Discover over 17 free and professional tools to boost your daily productivity.</p>
+      <a href="/tools" class="inline-block" aria-label="Explore all tools">
+        <button class="bg-gradient-to-r from-purple-500 to-green-400 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg hover:from-green-400 hover:to-purple-500 focus:outline focus:outline-2 focus:outline-yellow-400 transform hover:-translate-y-0.5 focus:-translate-y-0.5 transition">Explore Tools</button>
+      </a>
+    </section>
 
-  <div class="search-section flex justify-center -mt-10 mb-10 px-4" role="search" aria-label="Search tools">
-    <form class="search-box flex items-center w-full max-w-md bg-gray-800 rounded-full p-2.5 shadow-lg border border-gray-700 focus-within:border-purple-500" autocomplete="off" onsubmit="return false;">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6 mr-3 text-green-400" aria-hidden="true" focusable="false">
-        <circle cx="11" cy="11" r="7" />
-        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-3.8-3.8" />
-      </svg>
-      <input type="search" id="searchInput" placeholder="Search tools like QR Code, Text Counter..." class="w-full bg-transparent outline-none text-white text-base sm:text-lg" aria-label="Search online tools" />
-    </form>
-  </div>
-
-  <section class="popular-tools-section max-w-6xl mx-auto px-4 mb-10" aria-labelledby="popular-tools-title">
-    <h2 id="popular-tools-title" class="section-title text-2xl sm:text-3xl font-semibold text-purple-500 text-center mb-6">📈 Today's Popular Tools</h2>
-    <div class="popular-tools-grid grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6" id="popularToolsGrid" role="list" aria-live="polite" aria-relevant="additions"></div>
-    <nav class="pagination flex justify-center gap-2 mt-6 flex-wrap" id="popularToolsPagination" aria-label="Popular tools page navigation"></nav>
-  </section>
-
-  <section class="newsletter max-w-md mx-auto px-4 mb-12 bg-gray-800 rounded-xl p-6 shadow-lg text-center" aria-labelledby="newsletter-title">
-    <h2 id="newsletter-title" class="text-2xl font-bold text-purple-500 mb-4">Subscribe to Newsletter</h2>
-    <p class="text-gray-400 mb-6">Get tips and the latest tool updates straight to your email.</p>
-    <form class="newsletter-form flex flex-col sm:flex-row gap-4 justify-center" id="newsletterForm" aria-label="Newsletter subscription form">
-      <input type="email" id="newsletterEmail" name="email" placeholder="Enter your email" required aria-required="true" aria-describedby="newsletterHelp" class="flex-1 p-3 rounded-full border border-gray-700 bg-transparent text-white focus:border-green-400 focus:outline focus:outline-2 focus:outline-green-400" />
-      <button type="submit" class="bg-green-400 text-gray-900 font-bold py-3 px-6 rounded-full hover:bg-yellow-400 focus:outline focus:outline-2 focus:outline-purple-500 transition" aria-label="Subscribe to newsletter">Subscribe</button>
-    </form>
-    <div id="newsletterMessage" class="newsletter-message mt-4 text-sm min-h-[1.3em] text-green-400" role="alert" aria-live="polite"></div>
-  </section>
-
-  <section class="testimonial-section max-w-4xl mx-auto px-4 mb-12 bg-gray-800 rounded-xl p-6 shadow-lg" aria-labelledby="testimonial-title">
-    <h2 id="testimonial-title" class="text-2xl sm:text-3xl font-bold text-purple-500 text-center mb-6">User Testimonials</h2>
-    <div class="testimonial-slider flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4" tabindex="0" aria-roledescription="carousel" aria-label="User testimonials slider">
-      <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 1 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4">"The tools on VIN NESIA are very helpful for my daily work, fast and easy to use!"</p>
-        <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">- Rina, Freelancer</div>
-      </article>
-      <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 2 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4">"The QR Code Generator is very accurate and visually appealing. Highly recommended."</p>
-        <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">- Budi, Developer</div>
-      </article>
-      <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 3 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4">"The Password Generator helps me create strong passwords without hassle. Thank you VIN NESIA!"</p>
-        <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">- Sari, Student</div>
-      </article>
-      <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 4 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4">"The responsive interface and ease of use make these tools a must-have!"</p>
-        <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">- Andi, Blogger</div>
-      </article>
-      <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 5 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4">"Image Compressor is fast and maintains quality. Great for my website."</p>
-        <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">- Lestari, Designer</div>
-      </article>
-      <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 6 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4">"JSON Formatter makes debugging my code so much easier. Very intuitive!"</p>
-        <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">- Dika, Programmer</div>
-      </article>
-      <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 7 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4">"Text to Handwriting adds a creative touch to my documents."</p>
-        <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">- Maya, Teacher</div>
-      </article>
-      <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 8 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4">"Currency Converter helps me track exchange rates quickly and accurately."</p>
-        <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">- Arif, Business Owner</div>
-      </article>
+    <div class="search-section flex justify-center -mt-10 mb-10 px-4" role="search" aria-label="Search tools">
+      <form class="search-box flex items-center w-full max-w-md bg-gray-800 rounded-full p-2.5 shadow-lg border border-gray-700 focus-within:border-purple-500" autocomplete="off" onsubmit="return false;">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6 mr-3 text-green-400" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-3.8-3.8" />
+        </svg>
+        <input type="search" id="searchInput" placeholder="Search tools like QR Code, Text Counter..." class="w-full bg-transparent outline-none text-white text-base sm:text-lg" aria-label="Search online tools" />
+      </form>
     </div>
-    <div class="testimonial-nav flex justify-center gap-4 mt-4">
-      <button id="prevTestimonial" class="bg-purple-500 text-white p-3 rounded-md hover:bg-green-400 focus:outline focus:outline-2 focus:outline-yellow-400 min-w-[44px]" aria-label="Previous testimonial">Previous</button>
-      <button id="nextTestimonial" class="bg-purple-500 text-white p-3 rounded-md hover:bg-green-400 focus:outline focus:outline-2 focus:outline-yellow-400 min-w-[44px]" aria-label="Next testimonial">Next</button>
-    </div>
-  </section>
 
-  <div id="cookie-consent-banner" class="hidden fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4 flex flex-col sm:flex-row gap-4 justify-center items-center shadow-lg z-[9999]" role="alertdialog" aria-live="assertive" aria-modal="true" aria-label="Cookie consent">
+    <section class="popular-tools-section max-w-6xl mx-auto px-4 mb-10" aria-labelledby="popular-tools-title">
+      <h2 id="popular-tools-title" class="section-title text-2xl sm:text-3xl font-semibold text-purple-500 text-center mb-6">📈 Today's Popular Tools</h2>
+      <div class="popular-tools-grid" id="popularToolsGrid" role="list" aria-live="polite"></div>
+      <nav class="pagination flex justify-center gap-2 mt-6 flex-wrap" id="popularToolsPagination" aria-label="Popular tools pagination"></nav>
+    </section>
+
+    <section class="newsletter max-w-md mx-auto px-4 mb-12 bg-gray-800 rounded-xl p-6 shadow-lg text-center" aria-labelledby="newsletter-title">
+      <h2 id="newsletter-title" class="text-2xl font-bold text-purple-500 mb-4">Subscribe to Newsletter</h2>
+      <p class="text-gray-400 mb-6">Get tips and the latest tool updates straight to your email.</p>
+      <form class="newsletter-form flex flex-col sm:flex-row gap-4 justify-center" id="newsletterForm" aria-label="Newsletter subscription form">
+        <input type="email" id="newsletterEmail" name="email" placeholder="Enter your email" required aria-required="true" aria-describedby="newsletterHelp" class="flex-1 p-3 rounded-full border border-gray-700 bg-transparent text-white focus:border-green-400 focus:outline focus:outline-2 focus:outline-green-400" />
+        <button type="submit" class="bg-green-400 text-gray-900 font-bold py-3 px-6 rounded-full hover:bg-yellow-400 focus:outline focus:outline-2 focus:outline-purple-500 transition">Subscribe</button>
+      </form>
+      <div id="newsletterHelp" class="sr-only">Enter a valid email address to subscribe to the newsletter.</div>
+      <div id="newsletterMessage" class="newsletter-message mt-4 text-sm min-h-[1.3em]" role="alert" aria-live="polite"></div>
+    </section>
+
+    <section class="testimonial-section max-w-4xl mx-auto px-4 mb-12 bg-gray-800 rounded-xl p-6 shadow-lg" aria-labelledby="testimonial-title">
+      <h2 id="testimonial-title" class="text-2xl sm:text-3xl font-bold text-purple-500 text-center mb-6">User Testimonials</h2>
+      <div class="testimonial-slider flex gap-4 pb-4" tabindex="0" aria-roledescription="carousel" aria-label="User testimonials">
+        <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 1 of 8">
+          <p class="testimonial-text italic text-base text-white mb-4">"The tools on VIN NESIA are very helpful for my daily work, fast and easy to use!"</p>
+          <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">— Rina, Freelancer</div>
+        </article>
+        <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 2 of 8">
+          <p class="testimonial-text italic text-base text-white mb-4">"The QR Code Generator is very accurate and visually appealing. Highly recommended."</p>
+          <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">— Budi, Developer</div>
+        </article>
+        <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 3 of 8">
+          <p class="testimonial-text italic text-base text-white mb-4">"The Password Generator helps me create strong passwords without hassle. Thank you VIN NESIA!"</p>
+          <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">— Sari, Student</div>
+        </article>
+        <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 4 of 8">
+          <p class="testimonial-text italic text-base text-white mb-4">"The responsive interface and ease of use make these tools a must-have!"</p>
+          <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">— Andi, Blogger</div>
+        </article>
+        <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 5 of 8">
+          <p class="testimonial-text italic text-base text-white mb-4">"Image Compressor is fast and maintains quality. Great for my website."</p>
+          <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">— Lestari, Designer</div>
+        </article>
+        <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 6 of 8">
+          <p class="testimonial-text italic text-base text-white mb-4">"JSON Formatter makes debugging my code so much easier. Very intuitive!"</p>
+          <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">— Dika, Programmer</div>
+        </article>
+        <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 7 of 8">
+          <p class="testimonial-text italic text-base text-white mb-4">"Text to Handwriting adds a creative touch to my documents."</p>
+          <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">— Maya, Teacher</div>
+        </article>
+        <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 8 of 8">
+          <p class="testimonial-text italic text-base text-white mb-4">"Currency Converter helps me track exchange rates quickly and accurately."</p>
+          <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">— Arif, Business Owner</div>
+        </article>
+      </div>
+      <div class="testimonial-nav flex justify-center gap-4 mt-4">
+        <button id="prevTestimonial" class="bg-purple-500 text-white p-3 rounded-md hover:bg-green-400 focus:outline focus:outline-2 focus:outline-yellow-400 min-w-[44px]" aria-label="Previous testimonial">Previous</button>
+        <button id="nextTestimonial" class="bg-purple-500 text-white p-3 rounded-md hover:bg-green-400 focus:outline focus:outline-2 focus:outline-yellow-400 min-w-[44px]" aria-label="Next testimonial">Next</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="cookie-consent-banner" class="hidden fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4 flex flex-col sm:flex-row gap-4 justify-center items-center shadow-lg z-[9999]" role="dialog" aria-label="Cookie consent">
     <span>This site uses cookies to enhance your experience. <a href="/privacy-policy" class="text-green-400 underline" aria-label="Read privacy policy">Learn more</a>.</span>
     <button id="accept-cookies" class="bg-purple-500 text-white p-2 rounded-md hover:bg-green-400 focus:outline focus:outline-2 focus:outline-yellow-400" aria-label="Accept cookies">Accept</button>
   </div>
@@ -246,54 +248,63 @@
         <div class="footer-group-title font-semibold text-yellow-400 mb-2">🧭 Navigation:</div>
         <div class="footer-links flex flex-col gap-2">
           <a href="/" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Home">Home</a>
-          <a href="donate" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="donate">Donate</a>
-          <a href="tools" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="All Tools">All Tools</a>
-          <a href="blog" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Blog">Blog</a>
-          <a href="about" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="About Us">About Us</a>
-          <a href="user-guide" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="User Guide">User Guide</a>
+          <a href="/donate" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Donate">Donate</a>
+          <a href="/tools" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="All Tools">All Tools</a>
+          <a href="/blog" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Blog">Blog</a>
+          <a href="/about" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="About Us">About Us</a>
+          <a href="/user-guide" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="User Guide">User Guide</a>
         </div>
       </div>
       <div class="footer-group min-w-[180px]">
         <div class="footer-group-title font-semibold text-yellow-400 mb-2">📚 Help:</div>
         <div class="footer-help flex flex-col gap-2">
-          <a href="how-to-use" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="How to Use Tools">How to Use Tools</a>
-          <a href="faq" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="FAQ">FAQ</a>
-          <a href="contact" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Contact Us">Contact Us</a>
+          <a href="/how-to-use" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="How to Use Tools">How to Use Tools</a>
+          <a href="/faq" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="FAQ">FAQ</a>
+          <a href="/contact" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Contact Us">Contact Us</a>
         </div>
       </div>
       <div class="footer-group min-w-[180px]">
         <div class="footer-group-title font-semibold text-yellow-400 mb-2">⚖️ Legal:</div>
         <div class="footer-legal flex flex-col gap-2">
-          <a href="privacy-policy" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Privacy Policy">Privacy Policy</a>
-          <a href="terms-of-service" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Terms of Service">Terms of Service</a>
-          <a href="sitemap" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Sitemap">Sitemap</a>
+          <a href="/privacy-policy" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Privacy Policy">Privacy Policy</a>
+          <a href="/terms-of-service" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Terms of Service">Terms of Service</a>
+          <a href="/sitemap" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Sitemap">Sitemap</a>
         </div>
       </div>
-      <div class="footer-group min-w-[180px]" id="contact-footer">
+      <div class="footer-group min-w-[180px]">
         <div class="footer-group-title font-semibold text-yellow-400 mb-2">📧 Email:</div>
         <div class="footer-contact flex flex-col gap-2 text-white">
-          <div><a href="mailto:admin@vinnesia.my.id" class="text-green-400 underline" aria-label="Send email to admin@vinnesia.my.id">admin@vinnesia.my.id</a></div>
-          <div><a href="mailto:support@vinnesia.my.id" class="text-green-400 underline" aria-label="Send email to support@vinnesia.my.id">support@vinnesia.my.id</a></div>
-          <div><a href="mailto:privacy@vinnesia.my.id" class="text-green-400 underline" aria-label="Send email to privacy@vinnesia.my.id">privacy@vinnesia.my.id</a></div>
+          <a href="mailto:admin@vinnesia.my.id" class="text-green-400 underline" aria-label="Email admin">admin@vinnesia.my.id</a>
+          <a href="mailto:support@vinnesia.my.id" class="text-green-400 underline" aria-label="Email support">support@vinnesia.my.id</a>
+          <a href="mailto:privacy@vinnesia.my.id" class="text-green-400 underline" aria-label="Email privacy">privacy@vinnesia.my.id</a>
         </div>
         <div class="footer-group-title font-semibold text-yellow-400 mt-4 mb-2">📱 Social Media:</div>
         <div class="footer-social flex gap-4 items-center">
-          <a href="https://instagram.com/vin.nesia.id" class="text-yellow-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Instagram VIN NESIA" target="_blank" rel="noopener">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37a4 4 0 1 1-4.63-4.63 4 4 0 0 1 4.63 4.63z"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          <a href="https://www.instagram.com/vin.nesia.id" class="text-yellow-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Follow VIN NESIA on Instagram" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <path d="M16 11.37a4 4 0 1 1-4.63-4.63 4 4 0 0 1 4.63 4.63z"/>
+              <circle cx="17.5" cy="6.5" r="1"/>
+            </svg>
           </a>
-          <a href="https://wa.me/6281234567890" class="text-yellow-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="WhatsApp VIN NESIA" target="_blank" rel="noopener">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 12A9.5 9.5 0 1 1 12 2.5a9.5 9.5 0 0 1 9.5 9.5z" /><path d="M12 22c-2.21 0-4.27-.72-5.94-1.97l-3.05.82.81-3.04A9.5 9.5 0 1 1 12 22z"/><path d="M16.29 14.12c-.18-.09-1.07-.53-1.24-.59-.17-.06-.29.09-.41.09-.12.18-.47.58-.58.70-.11.12-.22.13-.40.04-.18-.09-.76-.28-1.44-.89-.53-.47-.88-1.05-.98-1.23-.10-.18-.01-.28.08-.37.09-.09.18-.22.27-.33.09-.11.12-.18.18-.30.06-.12.03-.23-.02-.32-.06-.09-.41-.98-.56-1.34-.15-.36-.30-.31-.41-.32-.11-.01-.23-.01-.36-.01-.12 0-.31.05-.47.23-.16.18-.62.61-.62 1.50 0 .89.63 1.74.71 1.86.09.12 1.25 2.02 3.13 2.76.44.15.79.23 1.06.29.45.10.86.08 1.18.05.36-.03 1.07-.44 1.22-.87.15-.43.15-.79.10-.87z"/></svg>
+          <a href="https://wa.me/6281234567890" class="text-yellow-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Contact VIN NESIA on WhatsApp" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21.5 12A9.5 9.5 0 1 1 12 2.5a9.5 9.5 0 0 1 9.5 9.5z" />
+              <path d="M12 22c-2.21 0-4.27-.72-5.94-1.97l-3.05.82.81-3.04A9.5 9.5 0 1 1 12 22z"/>
+              <path d="M16.29 14.12c-.18-.09-1.07-.53-1.24-.59-.17-.06-.29.09-.41.09-.12.18-.47.58-.58.70-.11.12-.22.13-.40.04-.18-.09-.76-.28-1.44-.89-.53-.47-.88-1.05-.98-1.23-.10-.18-.01-.28.08-.37.09-.09.18-.22.27-.33.09-.11.12-.18.18-.30.06-.12.03-.23-.02-.32-.06-.09-.41-.98-.56-1.34-.15-.36-.30-.31-.41-.32-.11-.01-.23-.01-.36-.01-.12 0-.31.05-.47.23-.16.18-.62.61-.62 1.50 0 .89.63 1.74.71 1.86.09.12 1.25 2.02 3.13 2.76.44.15.79.23 1.06.29.45.10.86.08 1.18.05.36-.03 1.07-.44 1.22-.87.15-.43.15-.79.10-.87z"/>
+            </svg>
           </a>
         </div>
       </div>
     </div>
     <div class="footer-copy text-center text-sm py-4 border-t border-gray-800 bg-gray-950">
-      © 2025 VIN NESIA. All rights reserved. Built with <span class="text-red-400">❤️</span> for everyone.<br />
+      © 2025 VIN NESIA. All rights reserved. Built with <span class="text-red-400">❤️</span> for everyone.<br>
       VIN NESIA is not responsible for the misuse of tools.
     </div>
   </footer>
 
   <script>
+    // Navigation toggle
     const navToggle = document.getElementById('navToggle');
     const mainNav = document.getElementById('mainNav');
     navToggle.addEventListener('click', () => {
@@ -312,6 +323,7 @@
       mainNav.classList.toggle('p-4', !isExpanded);
     });
 
+    // Tool data
     const allToolsData = [
       {iconHtml: '🧮', iconStyle: 'background: linear-gradient(135deg, #7c3aed 60%, #42e39a 100%)', title: 'Word Counter', desc: 'Count words, characters, sentences, paragraphs, even PDF/DOCX/ZIP/HTML files!', link: 'https://word.vinnesia.my.id/', category: 'text', keywords: 'word counter count words characters file pdf docx html txt zip odt rtf'},
       {iconHtml: '🧩', iconStyle: 'background: linear-gradient(135deg, #42e39a 60%, #ffd700 100%)', title: 'JSON Formatter', desc: 'Format, minify, and validate JSON online, easy & free.', link: 'https://json.vinnesia.my.id/', category: 'text', keywords: 'json formatter json beautifier minifier validation'},
@@ -332,6 +344,29 @@
       {iconHtml: '🌟', iconStyle: 'background: linear-gradient(135deg, #ffd700 65%, #7c3aed 100%)', title: 'Favicon Tag Generator', desc: 'Create favicon tag code for branding & browser tab display of your site.', link: 'https://seo.vinnesia.my.id/tools/favicon', category: 'developer', keywords: 'favicon tag generator browser icon'}
     ];
 
+    // Tool card creation
+    function createToolCard(tool) {
+      const card = document.createElement('div');
+      card.className = 'tool-card bg-gray-700 rounded-lg p-4 shadow-md hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105 transition';
+      card.setAttribute('data-keywords', tool.keywords);
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'listitem');
+      card.innerHTML = `
+        <div class="tool-icon w-10 h-10 rounded-lg flex items-center justify-center text-white text-xl mb-3" style="${tool.iconStyle}" aria-hidden="true">${tool.iconHtml}</div>
+        <h3 class="tool-title font-semibold text-lg text-yellow-400 line-clamp-2">${tool.title}</h3>
+        <p class="tool-desc text-sm text-gray-400 line-clamp-3">${tool.desc}</p>
+        <a class="tool-link text-green-400 text-sm font-medium mt-2 inline-flex items-center hover:text-yellow-400 focus:text-yellow-400 focus:outline focus:outline-2 focus:outline-green-400" href="${tool.link}" target="_blank" rel="noopener" aria-label="Open ${tool.title}">Open Tool &rarr;</a>
+      `;
+      return card;
+    }
+
+    // Pagination setup
+    const popularToolsGrid = document.getElementById('popularToolsGrid');
+    const popularToolsPagination = document.getElementById('popularToolsPagination');
+    const itemsPerPage = 8;
+    let currentPage = 1;
+    let popularToolsShuffled = [];
+
     function shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -340,41 +375,16 @@
       return array;
     }
 
-    const popularToolsGrid = document.getElementById('popularToolsGrid');
-    const popularToolsPagination = document.getElementById('popularToolsPagination');
-    const itemsPerPage = 8;
-    let currentPage = 1;
-    let popularToolsShuffled = [];
-
-    function createToolCard(tool) {
-      const card = document.createElement('div');
-      card.className = 'tool-card bg-gray-700 rounded-lg p-4 shadow-md hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105 transition max-w-full';
-      card.setAttribute('data-keywords', tool.keywords);
-      card.setAttribute('tabindex', '0');
-      card.setAttribute('role', 'listitem');
-      card.innerHTML = `
-        <div class="tool-icon w-10 h-10 rounded-lg flex items-center justify-center text-white text-xl mb-3" style="${tool.iconStyle}" aria-hidden="true">${tool.iconHtml}</div>
-        <div class="tool-title font-semibold text-lg text-yellow-400 line-clamp-2">${tool.title}</div>
-        <div class="tool-desc text-sm text-gray-400 line-clamp-3">${tool.desc}</div>
-        <a class="tool-link text-green-400 text-sm font-medium mt-2 inline-flex items-center hover:text-yellow-400 focus:text-yellow-400 focus:outline focus:outline-2 focus:outline-green-400" href="${tool.link}" target="_blank" rel="noopener" aria-label="Open ${tool.title}">Open Tool &rarr;</a>
-      `;
-      return card;
-    }
-
     function displayTools(tools, page) {
       popularToolsGrid.innerHTML = '';
       const start = (page - 1) * itemsPerPage;
       const paginatedTools = tools.slice(start, start + itemsPerPage);
-
-      paginatedTools.forEach(tool => {
-        popularToolsGrid.appendChild(createToolCard(tool));
-      });
+      paginatedTools.forEach(tool => popularToolsGrid.appendChild(createToolCard(tool)));
     }
 
     function setupPagination(tools, paginationContainer) {
       paginationContainer.innerHTML = '';
       const pageCount = Math.ceil(tools.length / itemsPerPage);
-
       if (pageCount <= 1) return;
 
       const prevButton = document.createElement('button');
@@ -387,7 +397,7 @@
           currentPage--;
           displayTools(tools, currentPage);
           updatePaginationButtons(tools, paginationContainer);
-          window.scrollTo({ top: popularToolsGrid.offsetTop, behavior: 'smooth' });
+          popularToolsGrid.scrollIntoView({ behavior: 'smooth' });
         }
       });
       paginationContainer.appendChild(prevButton);
@@ -401,7 +411,7 @@
           currentPage = i;
           displayTools(tools, currentPage);
           updatePaginationButtons(tools, paginationContainer);
-          window.scrollTo({ top: popularToolsGrid.offsetTop, behavior: 'smooth' });
+          popularToolsGrid.scrollIntoView({ behavior: 'smooth' });
         });
         paginationContainer.appendChild(button);
       }
@@ -416,7 +426,7 @@
           currentPage++;
           displayTools(tools, currentPage);
           updatePaginationButtons(tools, paginationContainer);
-          window.scrollTo({ top: popularToolsGrid.offsetTop, behavior: 'smooth' });
+          popularToolsGrid.scrollIntoView({ behavior: 'smooth' });
         }
       });
       paginationContainer.appendChild(nextButton);
@@ -425,7 +435,6 @@
     function updatePaginationButtons(tools, paginationContainer) {
       const pageButtons = paginationContainer.querySelectorAll('button');
       const pageCount = Math.ceil(tools.length / itemsPerPage);
-
       pageButtons.forEach(button => {
         if (button.textContent === 'Previous') {
           button.disabled = currentPage === 1;
@@ -441,6 +450,7 @@
       });
     }
 
+    // Testimonial slider
     function setupTestimonialSlider() {
       const slider = document.querySelector('.testimonial-slider');
       const prevButton = document.getElementById('prevTestimonial');
@@ -453,6 +463,9 @@
         slider.scrollTo({ left: currentIndex * itemWidth, behavior: 'smooth' });
         prevButton.disabled = currentIndex === 0;
         nextButton.disabled = currentIndex === items.length - 1;
+        items.forEach((item, index) => {
+          item.setAttribute('aria-hidden', index !== currentIndex);
+        });
       }
 
       prevButton.addEventListener('click', () => {
@@ -482,23 +495,25 @@
       updateSlider();
     }
 
+    // Initialize on DOM load
     document.addEventListener('DOMContentLoaded', () => {
       popularToolsShuffled = shuffleArray([...allToolsData]);
       displayTools(popularToolsShuffled, currentPage);
       setupPagination(popularToolsShuffled, popularToolsPagination);
 
+      // Search functionality
       const searchInput = document.getElementById('searchInput');
       searchInput.addEventListener('input', function() {
         const q = this.value.trim().toLowerCase();
-        const filteredPopularTools = popularToolsShuffled.filter(tool => {
-          const text = [tool.title, tool.desc, tool.keywords].join(' ').toLowerCase();
-          return text.includes(q);
-        });
+        const filteredTools = allToolsData.filter(tool =>
+          [tool.title, tool.desc, tool.keywords].join(' ').toLowerCase().includes(q)
+        );
         currentPage = 1;
-        displayTools(filteredPopularTools, currentPage);
-        setupPagination(filteredPopularTools, popularToolsPagination);
+        displayTools(filteredTools, currentPage);
+        setupPagination(filteredTools, popularToolsPagination);
       });
 
+      // Newsletter form
       const newsletterForm = document.getElementById('newsletterForm');
       const newsletterEmail = document.getElementById('newsletterEmail');
       const newsletterMessage = document.getElementById('newsletterMessage');
@@ -521,36 +536,18 @@
         newsletterForm.reset();
       });
 
+      // Cookie consent
       const cookieBanner = document.getElementById('cookie-consent-banner');
       const acceptCookiesBtn = document.getElementById('accept-cookies');
-      const hasAcceptedCookies = localStorage.getItem('cookieConsent');
-
-      if (!hasAcceptedCookies) {
-        cookieBanner.style.display = 'flex';
+      if (!localStorage.getItem('cookieConsent')) {
+        cookieBanner.classList.remove('hidden');
       }
-
       acceptCookiesBtn.addEventListener('click', () => {
         localStorage.setItem('cookieConsent', 'true');
-        cookieBanner.style.display = 'none';
+        cookieBanner.classList.add('hidden');
       });
 
       setupTestimonialSlider();
-
-      const images = document.querySelectorAll('img[loading="lazy"]');
-      if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const img = entry.target;
-              img.src = img.dataset.src;
-              observer.unobserve(img);
-            }
-          });
-        });
-        images.forEach(img => observer.observe(img));
-      } else {
-        images.forEach(img => img.src = img.dataset.src);
-      }
     });
   </script>
 </body>
