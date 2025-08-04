@@ -180,13 +180,25 @@
     <nav class="pagination flex justify-center gap-2 mt-6 flex-wrap" id="popularToolsPagination" aria-label="Popular tools page navigation"></nav>
   </section>
 
-  <section class="newsletter max-w-md mx-auto px-4 mb-12 bg-gray-800 rounded-xl p-6 shadow-lg text-center" aria-labelledby="newsletter-title">
-    <h2 id="newsletter-title" class="text-2xl font-bold text-purple-500 mb-4">Subscribe to Newsletter</h2>
-    <p class="text-gray-400 mb-6">Get tips and the latest tool updates straight to your email.</p>
-    <form class="newsletter-form flex flex-col sm:flex-row gap-4 justify-center" id="newsletterForm" aria-label="Newsletter subscription form">
-      <input type="email" id="newsletterEmail" name="email" placeholder="Enter your email" required aria-required="true" aria-describedby="newsletterHelp" class="flex-1 p-3 rounded-full border border-gray-700 bg-transparent text-white focus:border-green-400 focus:outline focus:outline-2 focus:outline-green-400" />
-      <button type="submit" class="bg-green-400 text-gray-900 font-bold py-3 px-6 rounded-full hover:bg-yellow-400 focus:outline focus:outline-2 focus:outline-purple-500 transition" aria-label="Subscribe to newsletter">Subscribe</button>
-    </form>
+  <form class="newsletter-form w-full flex flex-col sm:flex-row gap-4 justify-center items-stretch">
+  <input
+    type="email"
+    id="newsletterEmail"
+    name="email"
+    placeholder="Enter your email"
+    required
+    aria-required="true"
+    aria-describedby="newsletterHelp"
+    class="w-full sm:w-auto sm:flex-grow p-3 rounded-full border border-gray-700 bg-transparent text-white focus:border-green-400 focus:outline focus:outline-2 focus:outline-green-400"
+  />
+  <button
+    type="submit"
+    class="bg-green-400 text-gray-900 font-bold py-3 px-6 rounded-full hover:bg-yellow-400 focus:outline focus:outline-2 focus:outline-purple-500 transition"
+    aria-label="Subscribe to newsletter"
+  >
+    Subscribe
+  </button>
+</form>
     <div id="newsletterMessage" class="newsletter-message mt-4 text-sm min-h-[1.3em] text-green-400" role="alert" aria-live="polite"></div>
   </section>
 
@@ -233,7 +245,7 @@
   </section>
 
   <div id="cookie-consent-banner" class="hidden fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4 flex flex-col sm:flex-row gap-4 justify-center items-center shadow-lg z-[9999]" role="alertdialog" aria-live="assertive" aria-modal="true" aria-label="Cookie consent">
-    <span>This site uses cookies to enhance your experience. <a href="/privacy-policy" class="text-green-400 underline" aria-label="Read privacy policy">Learn more</a>.</span>
+    <span>This site uses cookies to enhance your experience. <a href="privacy-policy" class="text-green-400 underline" aria-label="Read privacy policy">Learn more</a>.</span>
     <button id="accept-cookies" class="bg-purple-500 text-white p-2 rounded-md hover:bg-green-400 focus:outline focus:outline-2 focus:outline-yellow-400" aria-label="Accept cookies">Accept</button>
   </div>
 
