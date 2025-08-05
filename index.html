@@ -219,6 +219,10 @@
       transform: translateX(0);
     }
 
+    .error-notification {
+      background: #ef4444;
+    }
+
     @media (max-width: 768px) {
       .donation-methods-grid {
         grid-template-columns: 1fr;
@@ -450,7 +454,6 @@
             </div>
 
             <!-- DSGPAY -->
-            <!-- DSGPAY -->
             <div class="donation-method card-hover">
               <div class="flex items-center gap-3 mb-4">
                 <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center">
@@ -502,7 +505,8 @@
           </div>
           <div>
             <label class="block text-gray-300 mb-2 font-medium">Donation Amount (IDR)</label>
-            <input type="number" id="donationAmount" placeholder="Any amount - your choice ❤️" min="1" max="999999999" class="form-input" required>
+            <input type="text" id="donationAmount" placeholder="Any amount - your choice ❤️" class="form-input" required>
+            <div class="text-xs text-gray-400 mt-1">Maximum: Rp 999,999,999</div>
           </div>
           <div>
             <label class="block text-gray-300 mb-2 font-medium">Donation Method</label>
@@ -561,7 +565,7 @@
           <details class="faq-item">
             <summary>What if I face issues with the donation process?</summary>
             <div class="faq-content">
-              <p>Please contact us via WhatsApp at +62895354511777 or email at support@vinnesia.my.id. We’ll assist you promptly.</p>
+              <p>Please contact us via WhatsApp at +62895354511777 or email at support@vinnesia.my.id. We'll assist you promptly.</p>
             </div>
           </details>
         </div>
@@ -592,32 +596,71 @@
     // Copy to Clipboard Function
     function copyToClipboard(text) {
       navigator.clipboard.writeText(text).then(() => {
-        const notification = document.getElementById('successNotification');
-        const notificationText = document.getElementById('notificationText');
-        notificationText.textContent = 'Copied successfully!';
-        notification.classList.add('show');
-        setTimeout(() => notification.classList.remove('show'), 3000);
-      }).catch(err => console.error('Failed to copy: ', err));
+        showNotification('Copied successfully!', 'success');
+      }).catch(err => {
+        console.error('Failed to copy: ', err);
+        showNotification('Failed to copy', 'error');
+      });
     }
 
-    // Donation Amount Input Handling
+    // Show Notification Function
+    function showNotification(message, type) {
+      const notification = document.getElementById('successNotification');
+      const notificationText = document.getElementById('notificationText');
+      
+      // Reset classes
+      notification.className = 'success-notification';
+      if (type === 'error') {
+        notification.classList.add('error-notification');
+      }
+      
+      notificationText.textContent = message;
+      notification.classList.add('show');
+      setTimeout(() => notification.classList.remove('show'), 3000);
+    }
+
+    // Format number with Indonesian number format
+    function formatNumber(num) {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
+    // Remove formatting and get raw number
+    function getRawNumber(str) {
+      return str.replace(/[^\d]/g, '');
+    }
+
+    // Donation Amount Input Handling with improved 9-digit support
     const amountInput = document.getElementById('donationAmount');
     if (amountInput) {
-      amountInput.addEventListener('input', function() {
-        let value = this.value.replace(/[^\d]/g, ''); // Remove non-numeric characters
-        const maxAmount = 999999999; // Maximum 9 digits
+      let isFormatted = false;
 
-        if (value > maxAmount) {
-          value = maxAmount.toString();
-          showNotification('Maximum donation amount is Rp999,999,999', 'error');
+      amountInput.addEventListener('input', function(e) {
+        if (isFormatted) return; // Prevent infinite loop
+        
+        let value = getRawNumber(this.value);
+        const maxAmount = 999999999; // Maximum 9 digits
+        
+        // Limit to 9 digits
+        if (value.length > 9) {
+          value = value.substring(0, 9);
+          showNotification('Maximum 9 digits allowed (Rp999,999,999)', 'error');
         }
 
         if (value) {
+          const numValue = parseInt(value);
+          if (numValue > maxAmount) {
+            value = maxAmount.toString();
+            showNotification('Maximum donation amount is Rp999,999,999', 'error');
+          }
+          
+          // Store raw value and format display
           this.setAttribute('data-raw-value', value);
-          this.value = parseInt(value).toLocaleString('en-ID'); // Format with thousands separator
+          
+          isFormatted = true;
+          this.value = formatNumber(value);
+          isFormatted = false;
         } else {
           this.setAttribute('data-raw-value', '');
-          this.value = '';
         }
       });
 
@@ -626,40 +669,52 @@
         const rawValue = this.getAttribute('data-raw-value');
         if (rawValue) {
           this.value = rawValue;
+          // Select all text for easier editing
+          setTimeout(() => this.select(), 0);
         }
       });
 
       // On blur, format the display again
       amountInput.addEventListener('blur', function() {
-        let value = this.value.replace(/[^\d]/g, '');
-        if (value) {
-          this.setAttribute('data-raw-value', value);
-          this.value = parseInt(value).toLocaleString('en-ID');
-        } else {
-          this.setAttribute('data-raw-value', '');
-          this.value = '';
+        const rawValue = this.getAttribute('data-raw-value');
+        if (rawValue) {
+          isFormatted = true;
+          this.value = formatNumber(rawValue);
+          isFormatted = false;
         }
       });
-    }
 
-    // Show Notification Function
-    function showNotification(message, type) {
-      const notification = document.getElementById('successNotification');
-      const notificationText = document.getElementById('notificationText');
-      notificationText.textContent = message;
-      notification.classList.add('show');
-      setTimeout(() => notification.classList.remove('show'), 3000);
+      // Handle paste events
+      amountInput.addEventListener('paste', function(e) {
+        e.preventDefault();
+        const paste = (e.clipboardData || window.clipboardData).getData('text');
+        const rawValue = getRawNumber(paste);
+        
+        if (rawValue.length <= 9) {
+          this.setAttribute('data-raw-value', rawValue);
+          if (rawValue) {
+            isFormatted = true;
+            this.value = formatNumber(rawValue);
+            isFormatted = false;
+          } else {
+            this.value = '';
+          }
+        } else {
+          showNotification('Maximum 9 digits allowed', 'error');
+        }
+      });
     }
 
     // Send to WhatsApp Function
     function sendToWhatsApp() {
       const name = document.getElementById('donorName').value.trim();
       const amountInput = document.getElementById('donationAmount');
-      const rawAmount = amountInput.getAttribute('data-raw-value') || amountInput.value.replace(/[^\d]/g, '');
+      const rawAmount = amountInput.getAttribute('data-raw-value') || getRawNumber(amountInput.value);
       const amount = parseInt(rawAmount) || 0;
       const method = document.getElementById('donationMethod').value;
       const message = document.getElementById('donationMessage').value.trim();
 
+      // Validation
       if (!name) {
         showNotification('Please enter your name', 'error');
         document.getElementById('donorName').focus();
@@ -669,6 +724,12 @@
       if (amount < 1) {
         showNotification('Please enter a valid donation amount', 'error');
         amountInput.focus();
+        return;
+      }
+
+      if (!method) {
+        showNotification('Please select a donation method', 'error');
+        document.getElementById('donationMethod').focus();
         return;
       }
 
@@ -684,11 +745,13 @@
         'shopeepay': 'ShopeePay E-Wallet'
       };
 
-      const formattedAmount = amount.toLocaleString('en-ID', { style: 'currency', currency: 'IDR' }).replace('IDR', 'Rp');
+      const formattedAmount = 'Rp' + formatNumber(amount.toString());
       let whatsappMessage = `Hello, I am ${name} and I would like to donate ${formattedAmount} via ${methodNames[method]}.`;
+      
       if (message) {
         whatsappMessage += `\n\nAdditional message: ${message}`;
       }
+      
       whatsappMessage += `\n\nPlease confirm and provide further guidance. Thank you! 🙏`;
 
       const encodedMessage = encodeURIComponent(whatsappMessage);
@@ -696,6 +759,7 @@
       window.open(whatsappURL, '_blank');
       showNotification('Redirecting to WhatsApp...', 'success');
 
+      // Clear form after sending
       setTimeout(() => {
         document.getElementById('donorName').value = '';
         amountInput.value = '';
@@ -704,6 +768,14 @@
         document.getElementById('donationMethod').selectedIndex = 0;
       }, 2000);
     }
+
+    // Form validation on enter key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && e.target.closest('#donationForm')) {
+        e.preventDefault();
+        sendToWhatsApp();
+      }
+    });
   </script>
 </body>
 </html>
