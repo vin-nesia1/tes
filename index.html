@@ -94,26 +94,6 @@
       box-shadow: 0 10px 20px rgba(251, 191, 36, 0.3);
     }
 
-    .btn-whatsapp {
-      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-      color: white;
-      font-weight: 600;
-      padding: 12px 24px;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .btn-whatsapp:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-      background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
-    }
-
     .btn-copy {
       background: var(--primary-green);
       color: white;
@@ -219,10 +199,6 @@
       transform: translateX(0);
     }
 
-    .error-notification {
-      background: #ef4444;
-    }
-
     @media (max-width: 768px) {
       .donation-methods-grid {
         grid-template-columns: 1fr;
@@ -246,12 +222,10 @@
 </head>
 
 <body class="min-h-screen flex flex-col">
-  <!-- Success Notification -->
   <div id="successNotification" class="success-notification">
     <span id="notificationText">Copied successfully!</span>
   </div>
 
-  <!-- Header -->
   <header class="bg-gray-900/95 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
@@ -279,9 +253,7 @@
     </div>
   </header>
 
-  <!-- Main Content -->
   <main class="flex-1">
-    <!-- Hero Section -->
     <section class="hero-gradient text-center py-16 px-4">
       <div class="max-w-4xl mx-auto">
         <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Support VIN NESIA</h1>
@@ -299,7 +271,71 @@
       </div>
     </section>
 
-    <!-- Donation Methods Section -->
+    <section class="py-16 px-4" id="donation-plan">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-white mb-4">Plan Your Donation</h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            Fill out this form to get a summary that you can send to us for confirmation
+          </p>
+        </div>
+        
+        <div class="bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-700">
+          <form id="donationForm" class="space-y-6">
+            <div class="form-grid grid gap-6">
+              <div>
+                <label for="donorName" class="block text-sm font-medium text-gray-300 mb-2">Your Name (Optional)</label>
+                <input type="text" id="donorName" class="form-input" placeholder="e.g., John Doe">
+              </div>
+              <div>
+                <label for="donationAmount" class="block text-sm font-medium text-gray-300 mb-2">Donation Amount</label>
+                <input type="number" id="donationAmount" class="form-input" placeholder="e.g., 50000" required>
+              </div>
+            </div>
+            
+            <div>
+              <label for="donationMethod" class="block text-sm font-medium text-gray-300 mb-2">Donation Method</label>
+              <select id="donationMethod" class="form-input" required>
+                <option value="">Select a method...</option>
+                <option value="Wise Transfer">Wise Transfer</option>
+                <option value="Remitly">Remitly</option>
+                <option value="WorldRemit">WorldRemit</option>
+                <option value="DSGPAY">DSGPAY</option>
+                <option value="Western Union">Western Union</option>
+                <option value="SeaBank Direct">SeaBank Direct</option>
+                <option value="Dana">Dana</option>
+                <option value="GoPay">GoPay</option>
+                <option value="ShopeePay">ShopeePay</option>
+              </select>
+            </div>
+            
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message (Optional)</label>
+              <textarea id="message" rows="4" class="form-input" placeholder="e.g., Keep up the good work!"></textarea>
+            </div>
+            
+            <div>
+              <button type="submit" class="btn-primary w-full flex items-center justify-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-check"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M15 2H9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"/><path d="m9 14 2 2 4-4"/></svg>
+                <span>Generate Donation Plan</span>
+              </button>
+            </div>
+          </form>
+          
+          <div id="result" class="mt-8 hidden">
+            <h3 class="text-xl font-bold text-yellow-400 mb-4">Your Donation Plan Summary</h3>
+            <div class="bg-gray-700 p-6 rounded-lg border border-gray-600 space-y-3">
+              <pre id="summaryOutput" class="text-gray-200 font-mono text-sm whitespace-pre-wrap"></pre>
+              <button onclick="copyToClipboard(document.getElementById('summaryOutput').textContent)" class="btn-copy w-full mt-4">Copy to Clipboard & Send via WhatsApp</button>
+            </div>
+            <p class="text-center text-gray-400 mt-4 text-sm">
+              After copying, you can send the summary to us for confirmation via our WhatsApp contact.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="donation-methods" class="py-16 px-4">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
@@ -309,12 +345,10 @@
           </p>
         </div>
 
-        <!-- International Donors -->
         <div class="mb-16">
           <h3 class="text-2xl font-semibold text-purple-400 mb-8 text-center">🌍 International Donors</h3>
           
           <div class="donation-methods-grid grid gap-6 mb-8">
-            <!-- SeaBank -->
             <div class="donation-method card-hover">
               <div class="flex items-center gap-3 mb-4">
                 <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
@@ -354,7 +388,6 @@
               </div>
             </div>
 
-            <!-- E-Wallets -->
             <div class="donation-method card-hover">
               <div class="flex items-center gap-3 mb-4">
                 <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
@@ -385,7 +418,6 @@
               </div>
             </div>
 
-            <!-- Western Union -->
             <div class="donation-method card-hover" style="grid-column: 1 / -1;">
               <div class="flex items-center gap-3 mb-4">
                 <div class="w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center">
@@ -422,12 +454,10 @@
           </div>
         </div>
 
-        <!-- Domestic Donors -->
         <div class="mb-16">
           <h3 class="text-2xl font-semibold text-purple-400 mb-8 text-center">🇮🇩 Indonesian Donors</h3>
           
           <div class="donation-methods-grid grid gap-6">
-            <!-- Direct SeaBank -->
             <div class="donation-method card-hover">
               <div class="flex items-center gap-3 mb-4">
                 <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
@@ -435,7 +465,7 @@
                 </div>
                 <div>
                   <h4 class="text-lg font-semibold text-white">SeaBank Direct</h4>
-                  <p class="text-gray-400 text-sm">Instant bank transfer</p>
+                  <p class="text-gray-400 text-sm">Direct bank transfer (1-5 days)</p>
                 </div>
               </div>
               <div class="space-y-3">
@@ -453,15 +483,14 @@
               </div>
             </div>
 
-            <!-- DSGPAY -->
             <div class="donation-method card-hover">
               <div class="flex items-center gap-3 mb-4">
-                <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center">
-                  <span class="text-white font-bold">DS</span>
+                <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
+                  <span class="text-white font-bold">📱</span>
                 </div>
                 <div>
-                  <h4 class="text-lg font-semibold text-white">DSGPAY</h4>
-                  <p class="text-gray-400 text-sm">Instant payment gateway</p>
+                  <h4 class="text-lg font-semibold text-white">E-Wallet Direct</h4>
+                  <p class="text-gray-400 text-sm">Instant transfer</p>
                 </div>
               </div>
               <div class="space-y-3">
@@ -470,310 +499,233 @@
                   <span class="text-white font-medium">Sultan Andrian Fahirza</span>
                 </div>
                 <div class="flex justify-between items-center">
-                  <span class="text-gray-400">Account ID:</span>
+                  <span class="text-gray-400">Phone Number:</span>
                   <div class="flex items-center gap-2">
-                    <span class="text-white font-mono">VIN123456</span>
-                    <button class="btn-copy" onclick="copyToClipboard('VIN123456')">Copy</button>
+                    <span class="text-white font-mono">+62895354511777</span>
+                    <button class="btn-copy" onclick="copyToClipboard('+62895354511777')">Copy</button>
                   </div>
                 </div>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Dana</span>
+                  <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">GoPay</span>
+                  <span class="bg-orange-600 text-white px-3 py-1 rounded-full text-sm">ShopeePay</span>
+                </div>
               </div>
-              <div class="mt-4 pt-4 border-t border-gray-600">
-                <p class="text-sm text-gray-400">
-                  💡 Visit <a href="https://dsgpay.com" target="_blank" class="text-green-400 hover:underline">DSGPAY</a> for more details.
-                </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-16">
+          <h3 class="text-2xl font-semibold text-yellow-400 mb-8 text-center">❓ Frequently Asked Questions</h3>
+          
+          <div class="max-w-4xl mx-auto space-y-4">
+            <details class="faq-item">
+              <summary>Is donating mandatory to use VIN NESIA tools?</summary>
+              <div class="faq-content">
+                <p>No, absolutely not! All our tools are completely free to use. Donations are entirely voluntary and help us maintain and improve our services.</p>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+            </details>
 
-    <!-- Donation Form Section -->
-    <section class="py-16 px-4 bg-gray-900/50">
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-white mb-4">Submit Your Donation</h2>
-          <p class="text-gray-400 max-w-2xl mx-auto">
-            Fill out the form below to notify us of your donation. We'll confirm your contribution via WhatsApp.
-          </p>
-        </div>
+            <details class="faq-item">
+              <summary>Where do the donated funds go?</summary>
+              <div class="faq-content">
+                <p>Your donations help us cover hosting costs, domain renewals, server maintenance, and development of new features. We're committed to keeping our tools free for everyone.</p>
+              </div>
+            </details>
 
-        <form class="form-grid grid gap-6" id="donationForm">
-          <div>
-            <label class="block text-gray-300 mb-2 font-medium">Your Name</label>
-            <input type="text" id="donorName" placeholder="Enter your full name" class="form-input" required>
-          </div>
-          <div>
-            <label class="block text-gray-300 mb-2 font-medium">Donation Amount (IDR)</label>
-            <input type="text" id="donationAmount" placeholder="Any amount - your choice ❤️" class="form-input" required>
-            <div class="text-xs text-gray-400 mt-1">Maximum: Rp 999,999,999</div>
-          </div>
-          <div>
-            <label class="block text-gray-300 mb-2 font-medium">Donation Method</label>
-            <select id="donationMethod" class="form-input" required>
-              <option value="" disabled selected>Select a method</option>
-              <option value="wise">Wise Transfer</option>
-              <option value="remitly">Remitly</option>
-              <option value="worldremit">WorldRemit</option>
-              <option value="dsgpay">DSGPAY</option>
-              <option value="westernunion">Western Union</option>
-              <option value="seabank">SeaBank Direct Transfer</option>
-              <option value="dana">Dana E-Wallet</option>
-              <option value="gopay">GoPay E-Wallet</option>
-              <option value="shopeepay">ShopeePay E-Wallet</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-gray-300 mb-2 font-medium">Additional Message (Optional)</label>
-            <textarea id="donationMessage" placeholder="Add a note or message (e.g., donation purpose)" class="form-input h-24 resize-none"></textarea>
-          </div>
-          <div class="col-span-full text-center mt-6">
-            <button type="button" class="btn-whatsapp" onclick="sendToWhatsApp()">
-              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.031-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.174.198-.347.297-.521.099-.174-.148-.297-.347-.446-.25-.149-.674-.391-.926-1.465-.189-.773-.326-1.349-.297-1.532.03-.184.114-.391.242-.605.128-.214.258-.373.442-.518.186-.149.446-.197.701-.197h.15c.161 0 .306.044.435.133.501.348 1.037 1.074 1.202 1.258.164.184.173.391.117.606-.056.214-.373.773-.452 1.017-.079.236-.026.465.07.598.104.133.296.297.558.446.751.341 1.489.682 2.126.935.649.259 1.15.417 1.459.561.308.145.614.204.875.204.307 0 .605-.074.85-.23.245-.156.43-.37.548-.608.117-.237.185-.472.235-.706.05-.233.081-.456.081-.682 0-.742-.373-1.373-1.055-1.863-.69-.489-1.686-.749-2.73-.749-1.99 0-3.614 1.257-3.614 2.803 0 .645.233 1.243.614 1.702.383.46.872.703 1.406.703.304 0 .593-.064.85-.183.257-.12.497-.258.703-.428.033-.024.066-.05.099-.074.256-.125.538-.193.825-.193.416 0 .773.13 1.058.389.285.259.43.604.43.956 0 .752-.512 1.374-1.207 1.865-.691.489-1.686.749-2.73.749zm-10.863-4.979c-.918-.005-1.668-.75-1.668-1.668 0-.918.75-1.667 1.668-1.667.916 0 1.668.75 1.668 1.667 0 .918-.75 1.663-1.668 1.668zm13.962 1.883c-1.077 0-2.12-.257-3.043-.749-.924-.492-1.667-1.216-2.305-2.005-.639-.789-1.054-1.745-1.223-2.705-.169-.96-.027-1.925.472-2.749.5-.824 1.203-1.412 2.005-1.623.802-.211 1.686-.134 2.54.211.854.345 1.583.994 2.028 1.826.446.832.702 1.734.702 2.698 0 1.066-.272 2.073-.752 2.95-.48.877-1.181 1.582-2.034 2.116z"/>
-              </svg>
-              Contact via WhatsApp
-            </button>
-          </div>
-        </form>
-      </div>
-    </section>
+            <details class="faq-item">
+              <summary>How secure are these donation methods?</summary>
+              <div class="faq-content">
+                <p>All recommended platforms (Wise, Remitly, WorldRemit, etc.) use bank-level security with HTTPS encryption. We never store your payment information.</p>
+              </div>
+            </details>
 
-    <!-- FAQ Section -->
-    <section class="py-16 px-4">
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-white mb-4">Frequently Asked Questions</h2>
-          <p class="text-gray-400 max-w-2xl mx-auto">
-            Find answers to common questions about donating to VIN NESIA.
-          </p>
-        </div>
+            <details class="faq-item">
+              <summary>Is there a minimum donation amount?</summary>
+              <div class="faq-content">
+                <p>There's no minimum amount! Every contribution, no matter how small, helps us keep the lights on. Even 1,000 IDR makes a difference.</p>
+              </div>
+            </details>
 
-        <div class="space-y-4">
-          <details class="faq-item">
-            <summary>Is my donation tax-deductible?</summary>
-            <div class="faq-content">
-              <p>Currently, VIN NESIA does not have tax-exempt status, so donations are not tax-deductible. We are working towards this goal in the future.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>How will my donation be used?</summary>
-            <div class="faq-content">
-              <p>Your donation will support server costs, development of new tools, and maintenance of existing services to keep them free for everyone.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>What if I face issues with the donation process?</summary>
-            <div class="faq-content">
-              <p>Please contact us via WhatsApp at +62895354511777 or email at support@vinnesia.my.id. We'll assist you promptly.</p>
-            </div>
-          </details>
+            <details class="faq-item">
+              <summary>How will I know my donation was received?</summary>
+              <div class="faq-content">
+                <p>Send your donation confirmation to <strong>support@vinnesia.my.id</strong>. We'll confirm receipt within 24 hours.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>Can I get a receipt for tax purposes?</summary>
+              <div class="faq-content">
+                <p>As we're not a registered charity organization, we can't provide tax-deductible receipts. However, we can provide a simple donation confirmation for your records.</p>
+              </div>
+            </details>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 border-t border-gray-800 py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-gray-400 text-sm">© 2025 VIN NESIA. All rights reserved. Built with ❤️ for everyone.</p>
-      <p class="text-gray-400 text-sm mt-2">VIN NESIA is not responsible for the misuse of tools.</p>
+  <footer class="bg-gray-900 border-t border-gray-800">
+    <div class="hero-gradient text-center py-6">
+      <p class="text-white font-medium">🚀 Support VIN NESIA's free tools with a donation!</p>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <h4 class="font-semibold text-yellow-400 mb-4">Navigation</h4>
+          <ul class="space-y-2">
+            <li><a href="../" class="text-gray-400 hover:text-green-400 transition-colors">Home</a></li>
+            <li><a href="../tools" class="text-gray-400 hover:text-green-400 transition-colors">All Tools</a></li>
+            <li><a href="../blog" class="text-gray-400 hover:text-green-400 transition-colors">Blog</a></li>
+            <li><a href="../about" class="text-gray-400 hover:text-green-400 transition-colors">About Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-yellow-400 mb-4">Help & Support</h4>
+          <ul class="space-y-2">
+            <li><a href="../how-to-use" class="text-gray-400 hover:text-green-400 transition-colors">How to Use</a></li>
+            <li><a href="../user-guide" class="text-gray-400 hover:text-green-400 transition-colors">User Guide</a></li>
+            <li><a href="../faq" class="text-gray-400 hover:text-green-400 transition-colors">FAQ</a></li>
+            <li><a href="../contact" class="text-gray-400 hover:text-green-400 transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-yellow-400 mb-4">Legal</h4>
+          <ul class="space-y-2">
+            <li><a href="../privacy" class="text-gray-400 hover:text-green-400 transition-colors">Privacy Policy</a></li>
+            <li><a href="../terms" class="text-gray-400 hover:text-green-400 transition-colors">Terms of Service</a></li>
+            <li><a href="../sitemap" class="text-gray-400 hover:text-green-400 transition-colors">Sitemap</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-yellow-400 mb-4">Contact</h4>
+          <ul class="space-y-2">
+            <li><a href="mailto:admin@vinnesia.my.id" class="text-green-400 hover:text-green-300 transition-colors">admin@vinnesia.my.id</a></li>
+            <li><a href="mailto:support@vinnesia.my.id" class="text-green-400 hover:text-green-300 transition-colors">support@vinnesia.my.id</a></li>
+            <li><a href="mailto:privacy@vinnesia.my.id" class="text-green-400 hover:text-green-300 transition-colors">privacy@vinnesia.my.id</a></li>
+          </ul>
+          
+          <h4 class="font-semibold text-yellow-400 mt-6 mb-4">Social Media</h4>
+          <div class="flex gap-4">
+            <a href="https://instagram.com/vin.nesia.id" class="text-gray-400 hover:text-pink-400 transition-colors" target="_blank" rel="noopener">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <path d="M16 11.37a4 4 0 1 1-4.63-4.63 4 4 0 0 1 4.63 4.63z"/>
+                <circle cx="17.5" cy="6.5" r="1"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-gray-950 text-center py-4 px-4">
+      <p class="text-gray-400">
+        © 2025 <span class="text-yellow-400 font-bold">VIN NESIA</span>. All rights reserved. Built with <span class="text-red-400">❤️</span> in Indonesia.
+      </p>
     </div>
   </footer>
 
-  <!-- JavaScript -->
   <script>
-    // Navigation Toggle
+    // Mobile Navigation Toggle
     const navToggle = document.getElementById('navToggle');
     const mainNav = document.getElementById('mainNav');
-    if (navToggle && mainNav) {
-      navToggle.addEventListener('click', () => {
-        mainNav.classList.toggle('hidden');
-        navToggle.classList.toggle('active');
-      });
-    }
+
+    navToggle.addEventListener('click', () => {
+      const isHidden = mainNav.classList.contains('hidden');
+      
+      if (isHidden) {
+        mainNav.classList.remove('hidden', 'md:flex');
+        mainNav.classList.add('fixed', 'top-16', 'right-0', 'bg-gray-900/95', 'backdrop-blur-sm', 'w-64', 'h-screen', 'flex', 'flex-col', 'p-6', 'space-y-4', 'border-l', 'border-gray-800');
+      } else {
+        mainNav.classList.add('hidden');
+        mainNav.classList.remove('fixed', 'top-16', 'right-0', 'bg-gray-900/95', 'backdrop-blur-sm', 'w-64', 'h-screen', 'flex', 'flex-col', 'p-6', 'space-y-4', 'border-l', 'border-gray-800');
+      }
+    });
 
     // Copy to Clipboard Function
     function copyToClipboard(text) {
       navigator.clipboard.writeText(text).then(() => {
-        showNotification('Copied successfully!', 'success');
+        showNotification(`Copied: ${text}`);
       }).catch(err => {
-        console.error('Failed to copy: ', err);
-        showNotification('Failed to copy', 'error');
+        console.error('Copy failed:', err);
+        showNotification('Copy failed. Please try again.', 'error');
       });
     }
 
-    // Show Notification Function
-    function showNotification(message, type) {
+    // Show Notification
+    function showNotification(message, type = 'success') {
       const notification = document.getElementById('successNotification');
       const notificationText = document.getElementById('notificationText');
       
-      // Reset classes
-      notification.className = 'success-notification';
-      if (type === 'error') {
-        notification.classList.add('error-notification');
-      }
-      
       notificationText.textContent = message;
+      
+      if (type === 'error') {
+        notification.style.background = '#ef4444';
+      } else {
+        notification.style.background = '#10b981';
+      }
+      
       notification.classList.add('show');
-      setTimeout(() => notification.classList.remove('show'), 3000);
-    }
-
-    // Format number with Indonesian number format
-    function formatNumber(num) {
-      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    }
-
-    // Remove formatting and get raw number
-    function getRawNumber(str) {
-      return str.replace(/[^\d]/g, '');
-    }
-
-    // Donation Amount Input Handling with improved 9-digit support
-    const amountInput = document.getElementById('donationAmount');
-    if (amountInput) {
-      let isFormatted = false;
-
-      amountInput.addEventListener('input', function(e) {
-        if (isFormatted) return; // Prevent infinite loop
-        
-        let value = getRawNumber(this.value);
-        const maxAmount = 999999999; // Maximum 9 digits
-        
-        // Limit to 9 digits
-        if (value.length > 9) {
-          value = value.substring(0, 9);
-          showNotification('Maximum 9 digits allowed (Rp999,999,999)', 'error');
-        }
-
-        if (value) {
-          const numValue = parseInt(value);
-          if (numValue > maxAmount) {
-            value = maxAmount.toString();
-            showNotification('Maximum donation amount is Rp999,999,999', 'error');
-          }
-          
-          // Store raw value and format display
-          this.setAttribute('data-raw-value', value);
-          
-          isFormatted = true;
-          this.value = formatNumber(value);
-          isFormatted = false;
-        } else {
-          this.setAttribute('data-raw-value', '');
-        }
-      });
-
-      // On focus, show raw number for easier editing
-      amountInput.addEventListener('focus', function() {
-        const rawValue = this.getAttribute('data-raw-value');
-        if (rawValue) {
-          this.value = rawValue;
-          // Select all text for easier editing
-          setTimeout(() => this.select(), 0);
-        }
-      });
-
-      // On blur, format the display again
-      amountInput.addEventListener('blur', function() {
-        const rawValue = this.getAttribute('data-raw-value');
-        if (rawValue) {
-          isFormatted = true;
-          this.value = formatNumber(rawValue);
-          isFormatted = false;
-        }
-      });
-
-      // Handle paste events
-      amountInput.addEventListener('paste', function(e) {
-        e.preventDefault();
-        const paste = (e.clipboardData || window.clipboardData).getData('text');
-        const rawValue = getRawNumber(paste);
-        
-        if (rawValue.length <= 9) {
-          this.setAttribute('data-raw-value', rawValue);
-          if (rawValue) {
-            isFormatted = true;
-            this.value = formatNumber(rawValue);
-            isFormatted = false;
-          } else {
-            this.value = '';
-          }
-        } else {
-          showNotification('Maximum 9 digits allowed', 'error');
-        }
-      });
-    }
-
-    // Send to WhatsApp Function
-    function sendToWhatsApp() {
-      const name = document.getElementById('donorName').value.trim();
-      const amountInput = document.getElementById('donationAmount');
-      const rawAmount = amountInput.getAttribute('data-raw-value') || getRawNumber(amountInput.value);
-      const amount = parseInt(rawAmount) || 0;
-      const method = document.getElementById('donationMethod').value;
-      const message = document.getElementById('donationMessage').value.trim();
-
-      // Validation
-      if (!name) {
-        showNotification('Please enter your name', 'error');
-        document.getElementById('donorName').focus();
-        return;
-      }
-
-      if (amount < 1) {
-        showNotification('Please enter a valid donation amount', 'error');
-        amountInput.focus();
-        return;
-      }
-
-      if (!method) {
-        showNotification('Please select a donation method', 'error');
-        document.getElementById('donationMethod').focus();
-        return;
-      }
-
-      const methodNames = {
-        'wise': 'Wise Transfer',
-        'remitly': 'Remitly',
-        'worldremit': 'WorldRemit',
-        'dsgpay': 'DSGPAY',
-        'westernunion': 'Western Union',
-        'seabank': 'SeaBank Direct Transfer',
-        'dana': 'Dana E-Wallet',
-        'gopay': 'GoPay E-Wallet',
-        'shopeepay': 'ShopeePay E-Wallet'
-      };
-
-      const formattedAmount = 'Rp' + formatNumber(amount.toString());
-      let whatsappMessage = `Hello, I am ${name} and I would like to donate ${formattedAmount} via ${methodNames[method]}.`;
       
-      if (message) {
-        whatsappMessage += `\n\nAdditional message: ${message}`;
-      }
-      
-      whatsappMessage += `\n\nPlease confirm and provide further guidance. Thank you! 🙏`;
-
-      const encodedMessage = encodeURIComponent(whatsappMessage);
-      const whatsappURL = `https://wa.me/62895354511777?text=${encodedMessage}`;
-      window.open(whatsappURL, '_blank');
-      showNotification('Redirecting to WhatsApp...', 'success');
-
-      // Clear form after sending
       setTimeout(() => {
-        document.getElementById('donorName').value = '';
-        amountInput.value = '';
-        amountInput.setAttribute('data-raw-value', '');
-        document.getElementById('donationMessage').value = '';
-        document.getElementById('donationMethod').selectedIndex = 0;
-      }, 2000);
+        notification.classList.remove('show');
+      }, 3000);
     }
+    
+    // Donation Form Logic
+    document.getElementById('donationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const donorName = document.getElementById('donorName').value || 'Anonymous';
+      const donationAmount = document.getElementById('donationAmount').value;
+      const donationMethod = document.getElementById('donationMethod').value;
+      const message = document.getElementById('message').value || '(No message)';
+      
+      const summary = `📋 Donation Plan Summary:
+==========================
+👤 Donor Name  : ${donorName}
+💰 Amount      : ${donationAmount}
+💳 Method      : ${donationMethod}
+💬 Message     : ${message}
+==========================
+Please confirm your donation by sending this summary. Thank you!`;
+      
+      document.getElementById('summaryOutput').textContent = summary;
+      document.getElementById('result').classList.remove('hidden');
 
-    // Form validation on enter key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' && e.target.closest('#donationForm')) {
+      // Scroll to the result section
+      document.getElementById('result').scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+
+    // Smooth Scroll for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        sendToWhatsApp();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!navToggle.contains(e.target) && !mainNav.contains(e.target)) {
+        if (!mainNav.classList.contains('hidden')) {
+          mainNav.classList.add('hidden');
+          mainNav.classList.remove('fixed', 'top-16', 'right-0', 'bg-gray-900/95', 'backdrop-blur-sm', 'w-64', 'h-screen', 'flex', 'flex-col', 'p-6', 'space-y-4', 'border-l', 'border-gray-800');
+        }
       }
     });
   </script>
