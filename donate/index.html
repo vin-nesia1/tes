@@ -705,68 +705,71 @@
 
     // Send to WhatsApp Function
     function sendToWhatsApp() {
-      const name = document.getElementById('donorName').value.trim();
-      const amount = document.getElementById('donationAmount').value;
-      const method = document.getElementById('donationMethod').value;
-      const message = document.getElementById('donationMessage').value.trim();
+  const name = document.getElementById('donorName').value.trim();
+  const amountInput = document.getElementById('donationAmount');
+  const rawAmount = amountInput.getAttribute('data-raw-value') || amountInput.value.replace(/[^\d]/g, ''); // Ambil nilai mentah
+  const amount = parseInt(rawAmount) || 0; // Konversi ke angka
+  const method = document.getElementById('donationMethod').value;
+  const message = document.getElementById('donationMessage').value.trim();
 
-      // Validation
-      if (!name) {
-        showNotification('Please enter your name', 'error');
-        document.getElementById('donorName').focus();
-        return;
-      }
+  // Validation
+  if (!name) {
+    showNotification('Please enter your name', 'error');
+    document.getElementById('donorName').focus();
+    return;
+  }
 
-      if (!amount || amount < 1) {
-        showNotification('Please enter a valid donation amount', 'error');
-        document.getElementById('donationAmount').focus();
-        return;
-      }
+  if (amount < 1) {
+    showNotification('Please enter a valid donation amount', 'error');
+    amountInput.focus();
+    return;
+  }
 
-      const methodNames = {
-        'wise': 'Wise Transfer',
-        'remitly': 'Remitly',
-        'worldremit': 'WorldRemit',
-        'dsgpay': 'DSGPAY',
-        'westernunion': 'Western Union',
-        'seabank': 'SeaBank Direct Transfer',
-        'dana': 'Dana E-Wallet',
-        'gopay': 'GoPay E-Wallet',
-        'shopeepay': 'ShopeePay E-Wallet'
-      };
+  const methodNames = {
+    'wise': 'Wise Transfer',
+    'remitly': 'Remitly',
+    'worldremit': 'WorldRemit',
+    'dsgpay': 'DSGPAY',
+    'westernunion': 'Western Union',
+    'seabank': 'SeaBank Direct Transfer',
+    'dana': 'Dana E-Wallet',
+    'gopay': 'GoPay E-Wallet',
+    'shopeepay': 'ShopeePay E-Wallet'
+  };
 
-      // Format the amount with thousands separator
-      const formattedAmount = parseInt(amount).toLocaleString('id-ID');
-      
-      // Create WhatsApp message
-      let whatsappMessage = `Halo, saya ${name} ingin berdonasi Rp ${formattedAmount} via ${methodNames[method]}.`;
-      
-      if (message) {
-        whatsappMessage += `\n\nPesan tambahan: ${message}`;
-      }
-      
-      whatsappMessage += `\n\nMohon konfirmasi dan panduan selanjutnya ya. Terima kasih! 🙏`;
+  // Format amount with thousands separator for the message
+  const formattedAmount = amount.toLocaleString('en-ID', { style: 'currency', currency: 'IDR' }).replace('IDR', 'Rp');
+  
+  // Create WhatsApp message in English
+  let whatsappMessage = `Hello, I am ${name} and I would like to donate ${formattedAmount} via ${methodNames[method]}.`;
+  
+  if (message) {
+    whatsappMessage += `\n\nAdditional message: ${message}`;
+  }
+  
+  whatsappMessage += `\n\nPlease confirm and provide further guidance. Thank you! 🙏`;
 
-      // Encode the message for URL
-      const encodedMessage = encodeURIComponent(whatsappMessage);
-      
-      // Create WhatsApp URL
-      const whatsappURL = `https://wa.me/62895354511777?text=${encodedMessage}`;
-      
-      // Open WhatsApp
-      window.open(whatsappURL, '_blank');
-      
-      // Show success notification
-      showNotification('Redirecting to WhatsApp...', 'success');
-      
-      // Optional: Clear form after a successful submission
-      setTimeout(() => {
-        document.getElementById('donorName').value = '';
-        document.getElementById('donationAmount').value = '';
-        document.getElementById('donationMessage').value = '';
-        document.getElementById('donationMethod').selectedIndex = 0;
-      }, 2000);
-    }
+  // Encode the message for URL
+  const encodedMessage = encodeURIComponent(whatsappMessage);
+  
+  // Create WhatsApp URL
+  const whatsappURL = `https://wa.me/62895354511777?text=${encodedMessage}`;
+  
+  // Open WhatsApp
+  window.open(whatsappURL, '_blank');
+  
+  // Show success notification
+  showNotification('Redirecting to WhatsApp...', 'success');
+  
+  // Clear form after a successful submission
+  setTimeout(() => {
+    document.getElementById('donorName').value = '';
+    amountInput.value = '';
+    amountInput.setAttribute('data-raw-value', '');
+    document.getElementById('donationMessage').value = '';
+    document.getElementById('donationMethod').selectedIndex = 0;
+  }, 2000);
+}
 
     // Smooth Scroll for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
