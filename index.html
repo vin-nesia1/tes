@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VIN NESIA - Free & Professional Online Tools for Productivity</title>
-  <meta name="description" content="VIN NESIA offers 6 free and professional online tools. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, and more for your productivity. Last updated: July 30, 2025, 01:31 AM WIB." />
+  <title data-lang="metaTitle">VIN NESIA - Free & Professional Online Tools for Productivity</title>
+  <meta name="description" data-lang="metaDescription" content="VIN NESIA offers 6 free and professional online tools. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, and more for your productivity. Last updated: July 30, 2025, 01:31 AM WIB." />
   <meta name="robots" content="index, follow" />
-  <meta name="keywords" content="online tools, QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, productivity" />
+  <meta name="keywords" content="online tools, QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, productivity, alat online, generator kode qr, kompres gambar, penghitung kata" />
 
-  <meta property="og:title" content="VIN NESIA - Free & Professional Online Tools for Productivity" />
-  <meta property="og:description" content="6 free online tools for daily productivity. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, and more." />
+  <meta property="og:title" data-lang="ogTitle" content="VIN NESIA - Free & Professional Online Tools for Productivity" />
+  <meta property="og:description" data-lang="ogDescription" content="6 free online tools for daily productivity. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, and more." />
   <meta property="og:image" content="https://vinnesia.my.id/images/logo-vinnesia.png" />
   <meta property="og:url" content="https://vinnesia.my.id/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="VIN NESIA" />
-  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale" data-lang="ogLocale" content="en_US" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@VinNesiaID" />
   <meta name="twitter:creator" content="@VinNesiaID" />
-  <meta name="twitter:title" content="VIN NESIA - Free & Professional Online Tools for Productivity" />
-  <meta name="twitter:description" content="6 free online tools for daily productivity. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, and more." />
+  <meta name="twitter:title" data-lang="twitterTitle" content="VIN NESIA - Free & Professional Online Tools for Productivity" />
+  <meta name="twitter:description" data-lang="twitterDescription" content="6 free online tools for daily productivity. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, and more." />
   <meta name="twitter:image" content="https://vinnesia.my.id/images/logo-vinnesia.png" />
 
   <link rel="canonical" href="https://vinnesia.my.id/" />
@@ -53,17 +53,17 @@
 
   <style>
     :root {
-      --primary-purple: #7c3aed;
-      --primary-green: #42e39a;
+      --primary-purple: #3e0c4a;
+      --primary-green: #e34242;
       --primary-gold: #ffd700;
-      --bg-dark: #181926;
-      --card-dark: #23253a;
+      --bg-dark: #120a16;
+      --card-dark: #1e1123;
       --text-main: #f1f1f5;
       --text-muted: #b5bacb;
       --border-radius: 1.1rem;
       --transition: 0.2s cubic-bezier(.4,0,.2,1);
       --color-error: #ff4d4d;
-      --color-success: #42e39a;
+      --color-success: #e34242;
     }
     html, body {
       margin: 0;
@@ -75,7 +75,7 @@
       scroll-behavior: smooth;
     }
     .hero {
-      background: linear-gradient(120deg, #7c3aed 0%, #42e39a 100%);
+      background: linear-gradient(120deg, #3e0c4a 0%, #1e1123 100%);
       background-size: 200% 200%;
       animation: heroGradient 8s ease-in-out infinite alternate;
       border-bottom-left-radius: 48px;
@@ -144,159 +144,182 @@
     .search-box input:focus {
       outline: none;
     }
+    .lang-switcher {
+      position: relative;
+    }
+    .lang-switcher button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      color: #e34242;
+      border: 2px solid #e34242;
+      border-radius: 9999px;
+      padding: 0.5rem 1rem;
+    }
   </style>
 </head>
 <body>
   <header class="bg-gray-900/95 sticky top-0 z-50 px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 shadow-md border-b border-gray-800" role="banner">
     <div class="flex items-center gap-3">
       <img src="/images/logo-vinnesia.png" alt="VIN NESIA Logo" class="h-10 w-10 rounded-lg shadow-md" loading="lazy">
-      <span class="text-2xl sm:text-3xl font-bold text-yellow-400">VIN NESIA</span>
+      <span class="text-2xl sm:text-3xl font-bold text-red-400">VIN NESIA</span>
     </div>
-    <button class="nav-toggle sm:hidden flex flex-col gap-1.5 p-2" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav">
-      <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
-      <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
-      <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
-    </button>
+    <div class="flex items-center gap-4 sm:gap-6">
+      <div class="lang-switcher">
+        <button id="langSwitcher" aria-label="Toggle language menu" aria-haspopup="true" aria-expanded="false" class="focus:outline focus:outline-2 focus:outline-yellow-400">
+          <span id="currentLang">EN</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </div>
+      <button class="nav-toggle sm:hidden flex flex-col gap-1.5 p-2" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav">
+        <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
+        <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
+        <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
+      </button>
+    </div>
     <nav id="mainNav" class="hidden sm:flex gap-4 sm:gap-6 items-center" role="navigation" aria-label="Main navigation">
-      <a href="/" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-current="page">Home</a>
-      <a href="/donate" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md">Donate</a>
-      <a href="/tools" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="View all tools">All Tools</a>
-      <a href="/blog" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="Read blog">Blog</a>
-      <a href="/about" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="About us">About Us</a>
-      <a href="/user-guide" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md" aria-label="User guide">User Guide</a>
+      <a href="/" class="font-medium text-white hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400 px-3 py-1.5 rounded-md" aria-current="page" data-lang="navHome">Home</a>
+      <a href="/donate" class="font-medium text-white hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400 px-3 py-1.5 rounded-md" data-lang="navDonate">Donate</a>
+      <a href="/tools" class="font-medium text-white hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400 px-3 py-1.5 rounded-md" aria-label="View all tools" data-lang="navAllTools">All Tools</a>
+      <a href="/blog" class="font-medium text-white hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400 px-3 py-1.5 rounded-md" aria-label="Read blog" data-lang="navBlog">Blog</a>
+      <a href="/about" class="font-medium text-white hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400 px-3 py-1.5 rounded-md" aria-label="About us" data-lang="navAbout">About Us</a>
+      <a href="/user-guide" class="font-medium text-white hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400 px-3 py-1.5 rounded-md" aria-label="User guide" data-lang="navUserGuide">User Guide</a>
     </nav>
   </header>
 
   <section class="hero py-16 sm:py-20 px-4 text-center text-white mb-10" role="region" aria-labelledby="hero-title">
-    <h1 id="hero-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-yellow-400 mb-4">VIN NESIA — One Portal, All Free Online Tools!</h1>
-    <p class="text-lg sm:text-xl max-w-2xl mx-auto mb-6">Discover 6 free and professional tools to boost your daily productivity.</p>
+    <h1 id="hero-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-red-400 mb-4" data-lang="heroTitle">VIN NESIA — One Portal, All Free Online Tools!</h1>
+    <p class="text-lg sm:text-xl max-w-2xl mx-auto mb-6" data-lang="heroDescription">Discover 6 free and professional tools to boost your daily productivity.</p>
     <a href="/tools" aria-label="Explore all tools">
-      <button class="bg-gradient-to-r from-purple-500 to-green-400 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg hover:from-green-400 hover:to-purple-500 focus:outline focus:outline-2 focus:outline-yellow-400 transform hover:-translate-y-0.5 focus:-translate-y-0.5 transition">Explore Tools</button>
+      <button class="bg-gradient-to-r from-purple-900 to-red-600 text-gray-100 font-bold py-3 px-8 rounded-full shadow-lg hover:from-red-600 hover:to-purple-900 focus:outline focus:outline-2 focus:outline-yellow-400 transform hover:-translate-y-0.5 focus:-translate-y-0.5 transition" data-lang="heroButton">Explore Tools</button>
     </a>
   </section>
 
   <div class="search-section flex justify-center -mt-10 mb-10 px-4" role="search" aria-label="Search tools">
-    <form class="search-box flex items-center w-full max-w-md bg-gray-800 rounded-full p-2.5 shadow-lg border border-gray-700 focus-within:border-purple-500" autocomplete="off" onsubmit="return false;">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6 mr-3 text-green-400" aria-hidden="true">
+    <form class="search-box flex items-center w-full max-w-md bg-gray-800 rounded-full p-2.5 shadow-lg border border-gray-700 focus-within:border-red-500" autocomplete="off" onsubmit="return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6 mr-3 text-red-400" aria-hidden="true">
         <circle cx="11" cy="11" r="7" />
         <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-3.8-3.8" />
       </svg>
-      <input type="search" id="searchInput" placeholder="Search tools like QR Code, Text Counter..." class="w-full bg-transparent outline-none text-white text-base sm:text-lg" aria-label="Search online tools" />
+      <input type="search" id="searchInput" placeholder="Search tools like QR Code, Text Counter..." class="w-full bg-transparent outline-none text-white text-base sm:text-lg" aria-label="Search online tools" data-lang="searchPlaceholder" />
     </form>
   </div>
 
   <section class="popular-tools-section max-w-6xl mx-auto px-4 mb-10" aria-labelledby="popular-tools-title">
-    <h2 id="popular-tools-title" class="text-2xl sm:text-3xl font-semibold text-purple-500 text-center mb-6">📈 Today's Popular Tools</h2>
+    <h2 id="popular-tools-title" class="text-2xl sm:text-3xl font-semibold text-red-500 text-center mb-6" data-lang="popularToolsTitle">📈 Today's Popular Tools</h2>
     <div class="popular-tools-grid grid gap-6" id="popularToolsGrid" role="list" aria-live="polite"></div>
     <nav class="pagination flex justify-center gap-2 mt-6 flex-wrap" id="popularToolsPagination" aria-label="Popular tools page navigation"></nav>
   </section>
 
   <section class="newsletter max-w-md mx-auto px-4 mb-12 bg-gray-800 rounded-xl p-6 shadow-lg text-center" aria-labelledby="newsletter-title">
-    <h2 id="newsletter-title" class="text-2xl font-bold text-purple-500 mb-4">Subscribe to Newsletter</h2>
-    <p class="text-gray-400 mb-6">Get tips and the latest tool updates straight to your email.</p>
+    <h2 id="newsletter-title" class="text-2xl font-bold text-red-500 mb-4" data-lang="newsletterTitle">Subscribe to Newsletter</h2>
+    <p class="text-gray-400 mb-6" data-lang="newsletterDescription">Get tips and the latest tool updates straight to your email.</p>
     <form class="newsletter-form flex flex-col sm:flex-row gap-4 justify-center" id="newsletterForm" aria-label="Newsletter subscription form">
-      <input type="email" id="newsletterEmail" name="email" placeholder="Enter your email" required aria-required="true" class="flex-1 p-3 rounded-full border border-gray-700 bg-transparent text-white focus:border-green-400 focus:outline focus:outline-2 focus:outline-green-400" />
-      <button type="submit" class="bg-green-400 text-gray-900 font-bold py-3 px-6 rounded-full hover:bg-yellow-400 focus:outline focus:outline-2 focus:outline-purple-500 transition" aria-label="Subscribe to newsletter">Subscribe</button>
+      <input type="email" id="newsletterEmail" name="email" placeholder="Enter your email" required aria-required="true" class="flex-1 p-3 rounded-full border border-gray-700 bg-transparent text-white focus:border-red-400 focus:outline focus:outline-2 focus:outline-red-400" data-lang="emailPlaceholder" />
+      <button type="submit" class="bg-red-400 text-gray-900 font-bold py-3 px-6 rounded-full hover:bg-red-600 focus:outline focus:outline-2 focus:outline-purple-500 transition" aria-label="Subscribe to newsletter" data-lang="subscribeButton">Subscribe</button>
     </form>
     <div id="newsletterMessage" class="newsletter-message mt-4 text-sm min-h-[1.3em]" role="alert" aria-live="polite"></div>
   </section>
 
   <section class="testimonial-section max-w-4xl mx-auto px-4 mb-12 bg-gray-800 rounded-xl p-6 shadow-lg" aria-labelledby="testimonial-title">
-    <h2 id="testimonial-title" class="text-2xl sm:text-3xl font-bold text-purple-500 text-center mb-6">User Testimonials</h2>
+    <h2 id="testimonial-title" class="text-2xl sm:text-3xl font-bold text-red-500 text-center mb-6" data-lang="testimonialsTitle">User Testimonials</h2>
     <div class="testimonial-slider flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4" tabindex="0" aria-roledescription="carousel" aria-label="User testimonials slider">
       <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 1 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4">"The tools on VIN NESIA are very helpful for my daily work, fast and easy to use!"</p>
-        <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">- Rina, Freelancer</div>
+        <p class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial1Text">"The tools on VIN NESIA are very helpful for my daily work, fast and easy to use!"</p>
+        <div class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial1Author">- Rina, Freelancer</div>
       </article>
       <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 2 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4">"The QR Code Generator is very accurate and visually appealing. Highly recommended."</p>
-        <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">- Budi, Developer</div>
+        <p class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial2Text">"The QR Code Generator is very accurate and visually appealing. Highly recommended."</p>
+        <div class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial2Author">- Budi, Developer</div>
       </article>
       <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 3 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4">"The Password Generator helps me create strong passwords without hassle. Thank you VIN NESIA!"</p>
-        <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">- Sari, Student</div>
+        <p class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial3Text">"The Password Generator helps me create strong passwords without hassle. Thank you VIN NESIA!"</p>
+        <div class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial3Author">- Sari, Student</div>
       </article>
       <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 4 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4">"The responsive interface and ease of use make these tools a must-have!"</p>
-        <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">- Andi, Blogger</div>
+        <p class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial4Text">"The responsive interface and ease of use make these tools a must-have!"</p>
+        <div class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial4Author">- Andi, Blogger</div>
       </article>
       <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 5 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4">"Image Compressor is fast and maintains quality. Great for my website."</p>
-        <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">- Lestari, Designer</div>
+        <p class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial5Text">"Image Compressor is fast and maintains quality. Great for my website."</p>
+        <div class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial5Author">- Lestari, Designer</div>
       </article>
       <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 6 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4">"JSON Formatter makes debugging my code so much easier. Very intuitive!"</p>
-        <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">- Dika, Programmer</div>
+        <p class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial6Text">"JSON Formatter makes debugging my code so much easier. Very intuitive!"</p>
+        <div class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial6Author">- Dika, Programmer</div>
       </article>
       <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 7 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4">"Text to Handwriting adds a creative touch to my documents."</p>
-        <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">- Maya, Teacher</div>
+        <p class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial7Text">"Text to Handwriting adds a creative touch to my documents."</p>
+        <div class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial7Author">- Maya, Teacher</div>
       </article>
       <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 8 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4">"Currency Converter helps me track exchange rates quickly and accurately."</p>
-        <div class="testimonial-author font-semibold text-yellow-400 text-right text-base">- Arif, Business Owner</div>
+        <p class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial8Text">"Currency Converter helps me track exchange rates quickly and accurately."</p>
+        <div class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial8Author">- Arif, Business Owner</div>
       </article>
     </div>
     <div class="testimonial-nav flex justify-center gap-4 mt-4">
-      <button id="prevTestimonial" class="bg-purple-500 text-white p-3 rounded-md hover:bg-green-400 focus:outline focus:outline-2 focus:outline-yellow-400 min-w-[44px]" aria-label="Previous testimonial">Previous</button>
-      <button id="nextTestimonial" class="bg-purple-500 text-white p-3 rounded-md hover:bg-green-400 focus:outline focus:outline-2 focus:outline-yellow-400 min-w-[44px]" aria-label="Next testimonial">Next</button>
+      <button id="prevTestimonial" class="bg-red-500 text-white p-3 rounded-md hover:bg-red-600 focus:outline focus:outline-2 focus:outline-yellow-400 min-w-[44px]" aria-label="Previous testimonial" data-lang="prevButton">Previous</button>
+      <button id="nextTestimonial" class="bg-red-500 text-white p-3 rounded-md hover:bg-red-600 focus:outline focus:outline-2 focus:outline-yellow-400 min-w-[44px]" aria-label="Next testimonial" data-lang="nextButton">Next</button>
     </div>
   </section>
 
   <div id="cookie-consent-banner" class="hidden fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4 flex flex-col sm:flex-row gap-4 justify-center items-center shadow-lg z-[9999]" role="dialog" aria-label="Cookie consent">
-    <span>This site uses cookies to enhance your experience. <a href="/privacy-policy" class="text-green-400 underline" aria-label="Read privacy policy">Learn more</a>.</span>
-    <button id="accept-cookies" class="bg-purple-500 text-white p-2 rounded-md hover:bg-green-400 focus:outline focus:outline-2 focus:outline-yellow-400" aria-label="Accept cookies">Accept</button>
+    <span data-lang="cookieConsentText">This site uses cookies to enhance your experience. <a href="/privacy-policy" class="text-red-400 underline" aria-label="Read privacy policy" data-lang="cookieConsentLink">Learn more</a>.</span>
+    <button id="accept-cookies" class="bg-red-500 text-white p-2 rounded-md hover:bg-red-600 focus:outline focus:outline-2 focus:outline-yellow-400" aria-label="Accept cookies" data-lang="cookieAcceptButton">Accept</button>
   </div>
 
   <footer class="bg-gray-900 border-t-2 border-gray-800 text-gray-400" role="contentinfo">
-    <div class="footer-cta bg-gradient-to-r from-purple-500 to-green-400 text-gray-900 font-bold text-center py-6 px-4 rounded-b-3xl shadow-lg">
+    <div class="footer-cta bg-gradient-to-r from-red-500 to-purple-900 text-gray-100 font-bold text-center py-6 px-4 rounded-b-3xl shadow-lg" data-lang="footerCta">
       🚀 Discover your favorite online tools at VIN NESIA – Fast, Free, and Practical!
     </div>
     <div class="footer-main max-w-6xl mx-auto px-4 py-6 flex flex-wrap gap-6 justify-between">
       <div class="footer-group min-w-[180px]">
-        <div class="footer-group-title font-semibold text-yellow-400 mb-2">🧭 Navigation:</div>
+        <div class="footer-group-title font-semibold text-red-400 mb-2" data-lang="footerNavTitle">🧭 Navigation:</div>
         <div class="footer-links flex flex-col gap-2">
-          <a href="/" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Home">Home</a>
-          <a href="/donate" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Donate">Donate</a>
-          <a href="/tools" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="All Tools">All Tools</a>
-          <a href="/blog" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Blog">Blog</a>
-          <a href="/about" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="About Us">About Us</a>
-          <a href="/user-guide" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="User Guide">User Guide</a>
+          <a href="/" class="text-purple-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="Home" data-lang="footerNavHome">Home</a>
+          <a href="/donate" class="text-purple-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="Donate" data-lang="footerNavDonate">Donate</a>
+          <a href="/tools" class="text-purple-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="All Tools" data-lang="footerNavAllTools">All Tools</a>
+          <a href="/blog" class="text-purple-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="Blog" data-lang="footerNavBlog">Blog</a>
+          <a href="/about" class="text-purple-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="About Us" data-lang="footerNavAbout">About Us</a>
+          <a href="/user-guide" class="text-purple-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="User Guide" data-lang="footerNavUserGuide">User Guide</a>
         </div>
       </div>
       <div class="footer-group min-w-[180px]">
-        <div class="footer-group-title font-semibold text-yellow-400 mb-2">📚 Help:</div>
+        <div class="footer-group-title font-semibold text-red-400 mb-2" data-lang="footerHelpTitle">📚 Help:</div>
         <div class="footer-help flex flex-col gap-2">
-          <a href="/how-to-use" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="How to Use Tools">How to Use Tools</a>
-          <a href="/faq" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="FAQ">FAQ</a>
-          <a href="/contact" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Contact Us">Contact Us</a>
+          <a href="/how-to-use" class="text-purple-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="How to Use Tools" data-lang="footerHelpHowTo">How to Use Tools</a>
+          <a href="/faq" class="text-purple-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="FAQ" data-lang="footerHelpFaq">FAQ</a>
+          <a href="/contact" class="text-purple-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="Contact Us" data-lang="footerHelpContact">Contact Us</a>
         </div>
       </div>
       <div class="footer-group min-w-[180px]">
-        <div class="footer-group-title font-semibold text-yellow-400 mb-2">⚖️ Legal:</div>
+        <div class="footer-group-title font-semibold text-red-400 mb-2" data-lang="footerLegalTitle">⚖️ Legal:</div>
         <div class="footer-legal flex flex-col gap-2">
-          <a href="/privacy-policy" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Privacy Policy">Privacy Policy</a>
-          <a href="/terms-of-service" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Terms of Service">Terms of Service</a>
-          <a href="/sitemap" class="text-purple-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Sitemap">Sitemap</a>
+          <a href="/privacy-policy" class="text-purple-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="Privacy Policy" data-lang="footerLegalPrivacy">Privacy Policy</a>
+          <a href="/terms-of-service" class="text-purple-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="Terms of Service" data-lang="footerLegalTerms">Terms of Service</a>
+          <a href="/sitemap" class="text-purple-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="Sitemap" data-lang="footerLegalSitemap">Sitemap</a>
         </div>
       </div>
       <div class="footer-group min-w-[180px]">
-        <div class="footer-group-title font-semibold text-yellow-400 mb-2">📧 Email:</div>
+        <div class="footer-group-title font-semibold text-red-400 mb-2" data-lang="footerEmailTitle">📧 Email:</div>
         <div class="footer-contact flex flex-col gap-2 text-white">
-          <a href="mailto:admin@vinnesia.my.id" class="text-green-400 underline" aria-label="Email admin">admin@vinnesia.my.id</a>
-          <a href="mailto:support@vinnesia.my.id" class="text-green-400 underline" aria-label="Email support">support@vinnesia.my.id</a>
-          <a href="mailto:privacy@vinnesia.my.id" class="text-green-400 underline" aria-label="Email privacy">privacy@vinnesia.my.id</a>
+          <a href="mailto:admin@vinnesia.my.id" class="text-red-400 underline" aria-label="Email admin">admin@vinnesia.my.id</a>
+          <a href="mailto:support@vinnesia.my.id" class="text-red-400 underline" aria-label="Email support">support@vinnesia.my.id</a>
+          <a href="mailto:privacy@vinnesia.my.id" class="text-red-400 underline" aria-label="Email privacy">privacy@vinnesia.my.id</a>
         </div>
-        <div class="footer-group-title font-semibold text-yellow-400 mt-4 mb-2">📱 Social Media:</div>
+        <div class="footer-group-title font-semibold text-red-400 mt-4 mb-2" data-lang="footerSocialTitle">📱 Social Media:</div>
         <div class="footer-social flex gap-4 items-center">
-          <a href="https://www.instagram.com/vin.nesia.id" class="text-yellow-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Follow VIN NESIA on Instagram" target="_blank" rel="noopener">
+          <a href="https://www.instagram.com/vin.nesia.id" class="text-red-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="Follow VIN NESIA on Instagram" target="_blank" rel="noopener">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="2" y="2" width="20" height="20" rx="5"/>
               <path d="M16 11.37a4 4 0 1 1-4.63-4.63 4 4 0 0 1 4.63 4.63z"/>
               <circle cx="17.5" cy="6.5" r="1"/>
             </svg>
           </a>
-          <a href="https://wa.me/6281234567890" class="text-yellow-400 hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400" aria-label="Contact VIN NESIA on WhatsApp" target="_blank" rel="noopener">
+          <a href="https://wa.me/6281234567890" class="text-red-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="Contact VIN NESIA on WhatsApp" target="_blank" rel="noopener">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M21.5 12A9.5 9.5 0 1 1 12 2.5a9.5 9.5 0 0 1 9.5 9.5z" />
               <path d="M12 22c-2.21 0-4.27-.72-5.94-1.97l-3.05.82.81-3.04A9.5 9.5 0 1 1 12 22z"/>
@@ -307,12 +330,172 @@
       </div>
     </div>
     <div class="footer-copy text-center text-sm py-4 border-t border-gray-800 bg-gray-950">
-      © 2025 VIN NESIA. All rights reserved. Built with <span class="text-red-400">❤️</span> for everyone.<br />
-      VIN NESIA is not responsible for the misuse of tools.
+      <span data-lang="copyright">© 2025 VIN NESIA. All rights reserved. Built with <span class="text-red-400">❤️</span> for everyone.<br />
+      VIN NESIA is not responsible for the misuse of tools.</span>
     </div>
   </footer>
 
   <script>
+    // Object containing translations
+    const translations = {
+      en: {
+        metaTitle: "VIN NESIA - Free & Professional Online Tools for Productivity",
+        metaDescription: "VIN NESIA offers 6 free and professional online tools. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, and more for your productivity. Last updated: July 30, 2025, 01:31 AM WIB.",
+        ogTitle: "VIN NESIA - Free & Professional Online Tools for Productivity",
+        ogDescription: "6 free online tools for daily productivity. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, and more.",
+        ogLocale: "en_US",
+        twitterTitle: "VIN NESIA - Free & Professional Online Tools for Productivity",
+        twitterDescription: "6 free online tools for daily productivity. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, and more.",
+        navHome: "Home",
+        navDonate: "Donate",
+        navAllTools: "All Tools",
+        navBlog: "Blog",
+        navAbout: "About Us",
+        navUserGuide: "User Guide",
+        heroTitle: "VIN NESIA — One Portal, All Free Online Tools!",
+        heroDescription: "Discover 6 free and professional tools to boost your daily productivity.",
+        heroButton: "Explore Tools",
+        searchPlaceholder: "Search tools like QR Code, Text Counter...",
+        popularToolsTitle: "📈 Today's Popular Tools",
+        toolWordCounterTitle: "Word Counter",
+        toolWordCounterDesc: "Count words, characters, sentences, paragraphs, even PDF/DOCX/ZIP/HTML files!",
+        toolJsonFormatterTitle: "JSON Formatter",
+        toolJsonFormatterDesc: "Format, minify, and validate JSON online, easy & free.",
+        toolPasswordGeneratorTitle: "Password Generator",
+        toolPasswordGeneratorDesc: "Create strong and secure passwords with full character options and ambiguous character filter.",
+        toolImageCompressorTitle: "Image Compressor",
+        toolImageCompressorDesc: "Compress and reduce image file size without losing visual quality.",
+        toolQrCodeGeneratorTitle: "QR Code Generator",
+        toolQrCodeGeneratorDesc: "Create free QR codes for links, text, files, and various needs.",
+        toolCurrencyConverterTitle: "Currency Converter",
+        toolCurrencyConverterDesc: "Convert world currencies with real-time rates & simple calculator.",
+        toolLink: "Open Tool &rarr;",
+        newsletterTitle: "Subscribe to Newsletter",
+        newsletterDescription: "Get tips and the latest tool updates straight to your email.",
+        emailPlaceholder: "Enter your email",
+        subscribeButton: "Subscribe",
+        testimonialsTitle: "User Testimonials",
+        testimonial1Text: '"The tools on VIN NESIA are very helpful for my daily work, fast and easy to use!"',
+        testimonial1Author: "- Rina, Freelancer",
+        testimonial2Text: '"The QR Code Generator is very accurate and visually appealing. Highly recommended."',
+        testimonial2Author: "- Budi, Developer",
+        testimonial3Text: '"The Password Generator helps me create strong passwords without hassle. Thank you VIN NESIA!"',
+        testimonial3Author: "- Sari, Student",
+        testimonial4Text: '"The responsive interface and ease of use make these tools a must-have!"',
+        testimonial4Author: "- Andi, Blogger",
+        testimonial5Text: '"Image Compressor is fast and maintains quality. Great for my website."',
+        testimonial5Author: "- Lestari, Designer",
+        testimonial6Text: '"JSON Formatter makes debugging my code so much easier. Very intuitive!"',
+        testimonial6Author: "- Dika, Programmer",
+        testimonial7Text: '"Text to Handwriting adds a creative touch to my documents."',
+        testimonial7Author: "- Maya, Teacher",
+        testimonial8Text: '"Currency Converter helps me track exchange rates quickly and accurately."',
+        testimonial8Author: "- Arif, Business Owner",
+        prevButton: "Previous",
+        nextButton: "Next",
+        cookieConsentText: "This site uses cookies to enhance your experience. <a href='/privacy-policy' class='text-red-400 underline' aria-label='Read privacy policy' data-lang='cookieConsentLink'>Learn more</a>.",
+        cookieConsentLink: "Learn more",
+        cookieAcceptButton: "Accept",
+        footerCta: "🚀 Discover your favorite online tools at VIN NESIA – Fast, Free, and Practical!",
+        footerNavTitle: "🧭 Navigation:",
+        footerNavHome: "Home",
+        footerNavDonate: "Donate",
+        footerNavAllTools: "All Tools",
+        footerNavBlog: "Blog",
+        footerNavAbout: "About Us",
+        footerNavUserGuide: "User Guide",
+        footerHelpTitle: "📚 Help:",
+        footerHelpHowTo: "How to Use Tools",
+        footerHelpFaq: "FAQ",
+        footerHelpContact: "Contact Us",
+        footerLegalTitle: "⚖️ Legal:",
+        footerLegalPrivacy: "Privacy Policy",
+        footerLegalTerms: "Terms of Service",
+        footerLegalSitemap: "Sitemap",
+        footerEmailTitle: "📧 Email:",
+        footerSocialTitle: "📱 Social Media:",
+        copyright: "© 2025 VIN NESIA. All rights reserved. Built with ❤️ for everyone.<br />VIN NESIA is not responsible for the misuse of tools.",
+      },
+      id: {
+        metaTitle: "VIN NESIA - Alat Online Gratis & Profesional untuk Produktivitas",
+        metaDescription: "VIN NESIA menawarkan 6 alat online gratis dan profesional. Generator Kode QR, Pembuat Kata Sandi, Kompresor Gambar, JSON Formatter, Penghitung Kata, dan lainnya untuk produktivitas Anda. Terakhir diperbarui: 30 Juli 2025, 01:31 WIB.",
+        ogTitle: "VIN NESIA - Alat Online Gratis & Profesional untuk Produktivitas",
+        ogDescription: "6 alat online gratis untuk produktivitas harian. Generator Kode QR, Pembuat Kata Sandi, Kompresor Gambar, JSON Formatter, dan lainnya.",
+        ogLocale: "id_ID",
+        twitterTitle: "VIN NESIA - Alat Online Gratis & Profesional untuk Produktivitas",
+        twitterDescription: "6 alat online gratis untuk produktivitas harian. Generator Kode QR, Pembuat Kata Sandi, Kompresor Gambar, JSON Formatter, dan lainnya.",
+        navHome: "Beranda",
+        navDonate: "Donasi",
+        navAllTools: "Semua Alat",
+        navBlog: "Blog",
+        navAbout: "Tentang Kami",
+        navUserGuide: "Panduan Pengguna",
+        heroTitle: "VIN NESIA — Satu Portal, Semua Alat Online Gratis!",
+        heroDescription: "Temukan 6 alat gratis dan profesional untuk meningkatkan produktivitas harian Anda.",
+        heroButton: "Jelajahi Alat",
+        searchPlaceholder: "Cari alat seperti Kode QR, Penghitung Teks...",
+        popularToolsTitle: "📈 Alat Populer Hari Ini",
+        toolWordCounterTitle: "Penghitung Kata",
+        toolWordCounterDesc: "Hitung kata, karakter, kalimat, paragraf, bahkan file PDF/DOCX/ZIP/HTML!",
+        toolJsonFormatterTitle: "JSON Formatter",
+        toolJsonFormatterDesc: "Format, minify, dan validasi JSON secara online, mudah & gratis.",
+        toolPasswordGeneratorTitle: "Pembuat Kata Sandi",
+        toolPasswordGeneratorDesc: "Buat kata sandi yang kuat dan aman dengan opsi karakter lengkap dan filter karakter ambigu.",
+        toolImageCompressorTitle: "Kompresor Gambar",
+        toolImageCompressorDesc: "Kompres dan kurangi ukuran file gambar tanpa kehilangan kualitas visual.",
+        toolQrCodeGeneratorTitle: "Generator Kode QR",
+        toolQrCodeGeneratorDesc: "Buat kode QR gratis untuk tautan, teks, file, dan berbagai kebutuhan.",
+        toolCurrencyConverterTitle: "Konverter Mata Uang",
+        toolCurrencyConverterDesc: "Konversi mata uang dunia dengan nilai tukar real-time & kalkulator sederhana.",
+        toolLink: "Buka Alat &rarr;",
+        newsletterTitle: "Berlangganan Newsletter",
+        newsletterDescription: "Dapatkan tips dan pembaruan alat terbaru langsung ke email Anda.",
+        emailPlaceholder: "Masukkan email Anda",
+        subscribeButton: "Berlangganan",
+        testimonialsTitle: "Testimoni Pengguna",
+        testimonial1Text: '"Alat-alat di VIN NESIA sangat membantu pekerjaan sehari-hari saya, cepat dan mudah digunakan!"',
+        testimonial1Author: "- Rina, Freelancer",
+        testimonial2Text: '"Generator Kode QR-nya sangat akurat dan menarik secara visual. Sangat direkomendasikan."',
+        testimonial2Author: "- Budi, Developer",
+        testimonial3Text: '"Pembuat Kata Sandi membantu saya membuat kata sandi yang kuat tanpa repot. Terima kasih VIN NESIA!"',
+        testimonial3Author: "- Sari, Mahasiswi",
+        testimonial4Text: '"Antarmuka yang responsif dan kemudahan penggunaan membuat alat-alat ini wajib dimiliki!"',
+        testimonial4Author: "- Andi, Blogger",
+        testimonial5Text: '"Kompresor Gambar cepat dan mempertahankan kualitas. Bagus untuk website saya."',
+        testimonial5Author: "- Lestari, Desainer",
+        testimonial6Text: '"JSON Formatter membuat debugging kode saya jauh lebih mudah. Sangat intuitif!"',
+        testimonial6Author: "- Dika, Programmer",
+        testimonial7Text: '"Text to Handwriting menambahkan sentuhan kreatif pada dokumen saya."',
+        testimonial7Author: "- Maya, Guru",
+        testimonial8Text: '"Konverter Mata Uang membantu saya melacak nilai tukar dengan cepat dan akurat."',
+        testimonial8Author: "- Arif, Pengusaha",
+        prevButton: "Sebelumnya",
+        nextButton: "Berikutnya",
+        cookieConsentText: "Situs ini menggunakan cookie untuk meningkatkan pengalaman Anda. <a href='/privacy-policy' class='text-red-400 underline' aria-label='Baca kebijakan privasi' data-lang='cookieConsentLink'>Pelajari lebih lanjut</a>.",
+        cookieConsentLink: "Pelajari lebih lanjut",
+        cookieAcceptButton: "Terima",
+        footerCta: "🚀 Temukan alat online favorit Anda di VIN NESIA – Cepat, Gratis, dan Praktis!",
+        footerNavTitle: "🧭 Navigasi:",
+        footerNavHome: "Beranda",
+        footerNavDonate: "Donasi",
+        footerNavAllTools: "Semua Alat",
+        footerNavBlog: "Blog",
+        footerNavAbout: "Tentang Kami",
+        footerNavUserGuide: "Panduan Pengguna",
+        footerHelpTitle: "📚 Bantuan:",
+        footerHelpHowTo: "Cara Menggunakan Alat",
+        footerHelpFaq: "FAQ",
+        footerHelpContact: "Hubungi Kami",
+        footerLegalTitle: "⚖️ Hukum:",
+        footerLegalPrivacy: "Kebijakan Privasi",
+        footerLegalTerms: "Ketentuan Layanan",
+        footerLegalSitemap: "Peta Situs",
+        footerEmailTitle: "📧 Email:",
+        footerSocialTitle: "📱 Media Sosial:",
+        copyright: "© 2025 VIN NESIA. Semua hak dilindungi. Dibuat dengan ❤️ untuk semua orang.<br />VIN NESIA tidak bertanggung jawab atas penyalahgunaan alat.",
+      }
+    };
+
     // Hamburger menu toggler with A11Y
     const navToggle = document.getElementById('navToggle');
     const mainNav = document.getElementById('mainNav');
@@ -334,14 +517,65 @@
       });
     }
 
+    // Language Switcher
+    const langSwitcher = document.getElementById('langSwitcher');
+    const currentLangEl = document.getElementById('currentLang');
+    let currentLang = 'en';
+
+    function setLanguage(lang) {
+      if (lang === 'en' || lang === 'id') {
+        currentLang = lang;
+        currentLangEl.textContent = lang.toUpperCase();
+        document.documentElement.lang = lang;
+        localStorage.setItem('lang', lang);
+
+        // Update all elements with data-lang attribute
+        document.querySelectorAll('[data-lang]').forEach(el => {
+          const key = el.getAttribute('data-lang');
+          if (translations[lang][key]) {
+            if (el.tagName === 'INPUT' && el.type === 'search') {
+              el.placeholder = translations[lang][key];
+            } else if (key === 'cookieConsentText') {
+              el.innerHTML = translations[lang][key];
+            } else {
+              el.textContent = translations[lang][key];
+            }
+          }
+        });
+        
+        // Update meta tags dynamically
+        document.querySelector('title').textContent = translations[lang].metaTitle;
+        document.querySelector('meta[name="description"]').content = translations[lang].metaDescription;
+        document.querySelector('meta[property="og:title"]').content = translations[lang].ogTitle;
+        document.querySelector('meta[property="og:description"]').content = translations[lang].ogDescription;
+        document.querySelector('meta[property="og:locale"]').content = translations[lang].ogLocale;
+        document.querySelector('meta[name="twitter:title"]').content = translations[lang].twitterTitle;
+        document.querySelector('meta[name="twitter:description"]').content = translations[lang].twitterDescription;
+
+        // Re-render tools with translated descriptions
+        displayTools(popularToolsShuffled, currentPage);
+      }
+    }
+
+    langSwitcher.addEventListener('click', () => {
+      setLanguage(currentLang === 'en' ? 'id' : 'en');
+    });
+
+    // Check for saved language preference
+    const savedLang = localStorage.getItem('lang');
+    if (savedLang) {
+      setLanguage(savedLang);
+    }
+
+
     // Data for all tools (reduced to 6)
     const allToolsData = [
-      {iconHtml: '🧮', iconStyle: 'background: linear-gradient(135deg, #7c3aed 60%, #42e39a 100%)', title: 'Word Counter', desc: 'Count words, characters, sentences, paragraphs, even PDF/DOCX/ZIP/HTML files!', link: 'https://word.vinnesia.my.id/', category: 'text', keywords: 'word counter count words characters file pdf docx html txt zip odt rtf'},
-      {iconHtml: '🧩', iconStyle: 'background: linear-gradient(135deg, #42e39a 60%, #ffd700 100%)', title: 'JSON Formatter', desc: 'Format, minify, and validate JSON online, easy & free.', link: 'https://json.vinnesia.my.id/', category: 'text', keywords: 'json formatter json beautifier minifier validation'},
-      {iconHtml: '🔑', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%)', title: 'Password Generator', desc: 'Create strong and secure passwords with full character options and ambiguous character filter.', link: 'https://password.vinnesia.my.id/', category: 'security', keywords: 'password generator secure password'},
-      {iconHtml: '🗜️', iconStyle: 'background: linear-gradient(135deg, #42e39a 65%, #ffd700 100%)', title: 'Image Compressor', desc: 'Compress and reduce image file size without losing visual quality.', link: 'https://image.vinnesia.my.id/', category: 'design-image', keywords: 'image compressor compress image jpg png webp'},
-      {iconHtml: '🔲', iconStyle: 'background: linear-gradient(135deg, #ffd700 65%, #7c3aed 100%)', title: 'QR Code Generator', desc: 'Create free QR codes for links, text, files, and various needs.', link: 'https://qr.vinnesia.my.id/', category: 'design-image', keywords: 'qr code generator create barcode'},
-      {iconHtml: '💱', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #42e39a 100%)', title: 'Currency Converter', desc: 'Convert world currencies with real-time rates & simple calculator.', link: 'https://currency.vinnesia.my.id/', category: 'converter', keywords: 'currency converter currency conversion calculator'}
+      {iconHtml: '🧮', iconStyle: 'background: linear-gradient(135deg, #3e0c4a 60%, #e34242 100%)', title: {en: 'Word Counter', id: 'Penghitung Kata'}, desc: {en: 'Count words, characters, sentences, paragraphs, even PDF/DOCX/ZIP/HTML files!', id: 'Hitung kata, karakter, kalimat, paragraf, bahkan file PDF/DOCX/ZIP/HTML!'}, link: 'https://word.vinnesia.my.id/', category: 'text', keywords: 'word counter count words characters file pdf docx html txt zip odt rtf penghitung kata hitung kata karakter file pdf docx html txt zip odt rtf'},
+      {iconHtml: '🧩', iconStyle: 'background: linear-gradient(135deg, #e34242 60%, #ffd700 100%)', title: {en: 'JSON Formatter', id: 'JSON Formatter'}, desc: {en: 'Format, minify, and validate JSON online, easy & free.', id: 'Format, minify, dan validasi JSON secara online, mudah & gratis.'}, link: 'https://json.vinnesia.my.id/', category: 'text', keywords: 'json formatter json beautifier minifier validation json beautifier minifier validasi'},
+      {iconHtml: '🔑', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #e34242 100%)', title: {en: 'Password Generator', id: 'Pembuat Kata Sandi'}, desc: {en: 'Create strong and secure passwords with full character options and ambiguous character filter.', id: 'Buat kata sandi yang kuat dan aman dengan opsi karakter lengkap dan filter karakter ambigu.'}, link: 'https://password.vinnesia.my.id/', category: 'security', keywords: 'password generator secure password pembuat kata sandi kata sandi aman'},
+      {iconHtml: '🗜️', iconStyle: 'background: linear-gradient(135deg, #e34242 65%, #ffd700 100%)', title: {en: 'Image Compressor', id: 'Kompresor Gambar'}, desc: {en: 'Compress and reduce image file size without losing visual quality.', id: 'Kompres dan kurangi ukuran file gambar tanpa kehilangan kualitas visual.'}, link: 'https://image.vinnesia.my.id/', category: 'design-image', keywords: 'image compressor compress image jpg png webp kompresor gambar kompres gambar jpg png webp'},
+      {iconHtml: '🔲', iconStyle: 'background: linear-gradient(135deg, #ffd700 65%, #3e0c4a 100%)', title: {en: 'QR Code Generator', id: 'Generator Kode QR'}, desc: {en: 'Create free QR codes for links, text, files, and various needs.', id: 'Buat kode QR gratis untuk tautan, teks, file, dan berbagai kebutuhan.'}, link: 'https://qr.vinnesia.my.id/', category: 'design-image', keywords: 'qr code generator create barcode generator kode qr buat kode batang'},
+      {iconHtml: '💱', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #e34242 100%)', title: {en: 'Currency Converter', id: 'Konverter Mata Uang'}, desc: {en: 'Convert world currencies with real-time rates & simple calculator.', id: 'Konversi mata uang dunia dengan nilai tukar real-time & kalkulator sederhana.'}, link: 'https://currency.vinnesia.my.id/', category: 'converter', keywords: 'currency converter currency conversion calculator konverter mata uang konversi kalkulator'}
     ];
 
     // Shuffle function
@@ -372,9 +606,9 @@
       card.setAttribute('role', 'listitem');
       card.innerHTML = `
         <div class="tool-icon w-10 h-10 rounded-lg flex items-center justify-center text-white text-xl mb-3" style="${tool.iconStyle}" aria-hidden="true">${tool.iconHtml}</div>
-        <h3 class="tool-title font-semibold text-lg text-yellow-400 line-clamp-2">${tool.title}</h3>
-        <p class="tool-desc text-sm text-gray-400 line-clamp-3">${tool.desc}</p>
-        <a class="tool-link text-green-400 text-sm font-medium mt-2 inline-flex items-center hover:text-yellow-400 focus:text-yellow-400 focus:outline focus:outline-2 focus:outline-green-400" href="${tool.link}" target="_blank" rel="noopener" aria-label="Open ${tool.title}">Open Tool &rarr;</a>
+        <h3 class="tool-title font-semibold text-lg text-red-400 line-clamp-2">${tool.title[currentLang]}</h3>
+        <p class="tool-desc text-sm text-gray-400 line-clamp-3">${tool.desc[currentLang]}</p>
+        <a class="tool-link text-red-400 text-sm font-medium mt-2 inline-flex items-center hover:text-yellow-400 focus:text-yellow-400 focus:outline focus:outline-2 focus:outline-red-400" href="${tool.link}" target="_blank" rel="noopener" aria-label="Open ${tool.title[currentLang]}">${translations[currentLang].toolLink}</a>
       `;
       return card;
     }
@@ -405,9 +639,9 @@
       if (pageCount <= 1) return;
 
       const prevButton = document.createElement('button');
-      prevButton.textContent = 'Previous';
-      prevButton.className = 'bg-gray-800 text-green-400 border border-purple-500 px-4 py-2 rounded-md hover:bg-purple-500 hover:text-white focus:outline focus:outline-2 focus:outline-green-400 min-w-[44px]';
-      prevButton.setAttribute('aria-label', 'Previous page');
+      prevButton.textContent = translations[currentLang].prevButton;
+      prevButton.className = 'bg-gray-800 text-red-400 border border-purple-500 px-4 py-2 rounded-md hover:bg-purple-500 hover:text-white focus:outline focus:outline-2 focus:outline-red-400 min-w-[44px]';
+      prevButton.setAttribute('aria-label', translations[currentLang].prevButton + ' page');
       prevButton.disabled = currentPage === 1;
       prevButton.addEventListener('click', () => {
         if (currentPage > 1) {
@@ -423,7 +657,7 @@
       for (let i = 1; i <= pageCount; i++) {
         const button = document.createElement('button');
         button.textContent = i;
-        button.className = `bg-gray-800 text-green-400 border border-purple-500 px-4 py-2 rounded-md hover:bg-purple-500 hover:text-white focus:outline focus:outline-2 focus:outline-green-400 min-w-[44px] ${i === currentPage ? 'bg-green-400 text-gray-900' : ''}`;
+        button.className = `bg-gray-800 text-red-400 border border-purple-500 px-4 py-2 rounded-md hover:bg-purple-500 hover:text-white focus:outline focus:outline-2 focus:outline-red-400 min-w-[44px] ${i === currentPage ? 'bg-red-400 text-gray-900' : ''}`;
         button.setAttribute('aria-label', `Page ${i}`);
         button.addEventListener('click', () => {
           currentPage = i;
@@ -436,9 +670,9 @@
       }
 
       const nextButton = document.createElement('button');
-      nextButton.textContent = 'Next';
-      nextButton.className = 'bg-gray-800 text-green-400 border border-purple-500 px-4 py-2 rounded-md hover:bg-purple-500 hover:text-white focus:outline focus:outline-2 focus:outline-green-400 min-w-[44px]';
-      nextButton.setAttribute('aria-label', 'Next page');
+      nextButton.textContent = translations[currentLang].nextButton;
+      nextButton.className = 'bg-gray-800 text-red-400 border border-purple-500 px-4 py-2 rounded-md hover:bg-purple-500 hover:text-white focus:outline focus:outline-2 focus:outline-red-400 min-w-[44px]';
+      nextButton.setAttribute('aria-label', translations[currentLang].nextButton + ' page');
       nextButton.disabled = currentPage === pageCount;
       nextButton.addEventListener('click', () => {
         if (currentPage < pageCount) {
@@ -458,16 +692,18 @@
       const pageCount = Math.ceil(tools.length / itemsPerPage);
 
       pageButtons.forEach(button => {
-        if (button.textContent === 'Previous') {
+        if (button.textContent === translations.en.prevButton || button.textContent === translations.id.prevButton) {
           button.disabled = currentPage === 1;
-        } else if (button.textContent === 'Next') {
+          button.textContent = translations[currentLang].prevButton;
+        } else if (button.textContent === translations.en.nextButton || button.textContent === translations.id.nextButton) {
           button.disabled = currentPage === pageCount;
+          button.textContent = translations[currentLang].nextButton;
         } else {
           const pageNum = parseInt(button.textContent);
-          button.classList.toggle('bg-green-400', pageNum === currentPage);
+          button.classList.toggle('bg-red-400', pageNum === currentPage);
           button.classList.toggle('text-gray-900', pageNum === currentPage);
           button.classList.toggle('bg-gray-800', pageNum !== currentPage);
-          button.classList.toggle('text-green-400', pageNum !== currentPage);
+          button.classList.toggle('text-red-400', pageNum !== currentPage);
         }
       });
     }
@@ -535,7 +771,7 @@
         searchInput.addEventListener('input', function() {
           const q = this.value.trim().toLowerCase();
           const filteredPopularTools = popularToolsShuffled.filter(tool => {
-            const text = [tool.title, tool.desc, tool.keywords].join(' ').toLowerCase();
+            const text = `${tool.title.en} ${tool.title.id} ${tool.desc.en} ${tool.desc.id} ${tool.keywords}`.toLowerCase();
             return text.includes(q);
           });
           currentPage = 1; // Reset to first page on search
@@ -587,6 +823,9 @@
 
       // Initialize Testimonial Slider
       setupTestimonialSlider();
+
+      // Apply initial language based on preference
+      setLanguage(localStorage.getItem('lang') || 'en');
     });
   </script>
 </body>
