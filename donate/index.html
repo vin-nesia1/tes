@@ -198,23 +198,41 @@
     .nav-hamburger {
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
       cursor: pointer;
-      padding: 8px;
-      border-radius: 6px;
-      transition: background-color 0.2s ease;
+      padding: 12px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      background: rgba(124, 58, 237, 0.1);
+      border: 1px solid rgba(124, 58, 237, 0.2);
+      width: 48px;
+      height: 48px;
     }
 
     .nav-hamburger:hover {
-      background-color: rgba(124, 58, 237, 0.1);
+      background-color: rgba(124, 58, 237, 0.2);
+      border-color: rgba(124, 58, 237, 0.4);
+      transform: scale(1.05);
     }
 
     .nav-hamburger span {
       width: 24px;
-      height: 2px;
+      height: 3px;
       background: #7c3aed;
-      margin: 3px 0;
-      transition: 0.3s;
-      border-radius: 2px;
+      margin: 2px 0;
+      transition: all 0.3s ease;
+      border-radius: 3px;
+      display: block;
+    }
+
+    .nav-hamburger.active {
+      background-color: rgba(220, 38, 38, 0.1);
+      border-color: rgba(220, 38, 38, 0.3);
+    }
+
+    .nav-hamburger.active span {
+      background: #dc2626;
     }
 
     .nav-hamburger.active span:nth-child(1) {
@@ -223,6 +241,7 @@
 
     .nav-hamburger.active span:nth-child(2) {
       opacity: 0;
+      transform: translateX(-20px);
     }
 
     .nav-hamburger.active span:nth-child(3) {
@@ -238,10 +257,11 @@
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-color);
       transform: translateY(-100%);
-      transition: transform 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       z-index: 40;
       max-height: calc(100vh - 64px);
       overflow-y: auto;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
 
     .mobile-nav.active {
@@ -249,22 +269,51 @@
     }
 
     .mobile-nav-item {
-      display: block;
-      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      padding: 20px 24px;
       color: var(--text-muted);
       text-decoration: none;
       border-bottom: 1px solid var(--border-color);
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      font-size: 16px;
+      gap: 12px;
     }
 
     .mobile-nav-item:hover {
-      background-color: var(--card-dark);
+      background: linear-gradient(90deg, rgba(16, 185, 129, 0.1) 0%, transparent 100%);
       color: var(--primary-green);
-      padding-left: 32px;
+      padding-left: 36px;
+      border-left: 4px solid var(--primary-green);
     }
 
     .mobile-nav-item:last-child {
       border-bottom: none;
+    }
+
+    .mobile-nav-item:active {
+      background: rgba(16, 185, 129, 0.2);
+      transform: scale(0.98);
+    }
+
+    /* Mobile nav backdrop */
+    .mobile-nav-backdrop {
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 35;
+    }
+
+    .mobile-nav-backdrop.active {
+      opacity: 1;
+      visibility: visible;
     }
 
     /* Responsive optimizations */
@@ -385,6 +434,9 @@
   <div id="successNotification" class="success-notification">
     <span id="notificationText">Copied successfully!</span>
   </div>
+
+  <!-- Mobile Navigation Backdrop -->
+  <div id="mobileNavBackdrop" class="mobile-nav-backdrop"></div>
 
   <!-- Header -->
   <header class="bg-gray-900/95 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-800">
@@ -799,38 +851,82 @@
     // Mobile Navigation Toggle
     const navToggle = document.getElementById('navToggle');
     const mobileNav = document.getElementById('mobileNav');
+    const mobileNavBackdrop = document.getElementById('mobileNavBackdrop');
     
-    if (navToggle && mobileNav) {
-      navToggle.addEventListener('click', function() {
-        this.classList.toggle('active');
-        mobileNav.classList.toggle('active');
-        
-        // Prevent body scroll when mobile nav is open
-        if (mobileNav.classList.contains('active')) {
-          document.body.style.overflow = 'hidden';
-        } else {
-          document.body.style.overflow = '';
-        }
+    if (navToggle && mobileNav && mobileNavBackdrop) {
+      // Toggle mobile navigation
+      navToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleMobileNav();
+      });
+
+      // Close mobile nav when clicking backdrop
+      mobileNavBackdrop.addEventListener('click', function() {
+        closeMobileNav();
       });
 
       // Close mobile nav when clicking on nav items
       const mobileNavItems = mobileNav.querySelectorAll('.mobile-nav-item');
       mobileNavItems.forEach(item => {
         item.addEventListener('click', () => {
-          navToggle.classList.remove('active');
-          mobileNav.classList.remove('active');
-          document.body.style.overflow = '';
+          closeMobileNav();
         });
       });
 
-      // Close mobile nav when clicking outside
-      document.addEventListener('click', function(event) {
-        if (!navToggle.contains(event.target) && !mobileNav.contains(event.target)) {
-          navToggle.classList.remove('active');
-          mobileNav.classList.remove('active');
-          document.body.style.overflow = '';
+      // Close mobile nav when pressing Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+          closeMobileNav();
         }
       });
+
+      function toggleMobileNav() {
+        const isActive = mobileNav.classList.contains('active');
+        if (isActive) {
+          closeMobileNav();
+        } else {
+          openMobileNav();
+        }
+      }
+
+      function openMobileNav() {
+        navToggle.classList.add('active');
+        mobileNav.classList.add('active');
+        mobileNavBackdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // Add ARIA attributes for accessibility
+        navToggle.setAttribute('aria-expanded', 'true');
+        mobileNav.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeMobileNav() {
+        navToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        mobileNavBackdrop.classList.remove('active');
+        document.body.style.overflow = '';
+        
+        // Update ARIA attributes
+        navToggle.setAttribute('aria-expanded', 'false');
+        mobileNav.setAttribute('aria-hidden', 'true');
+      }
+
+      // Close mobile nav on window resize to desktop
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          if (window.innerWidth >= 768 && mobileNav.classList.contains('active')) {
+            closeMobileNav();
+          }
+        }, 150);
+      });
+
+      // Initialize ARIA attributes
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-controls', 'mobileNav');
+      navToggle.setAttribute('aria-label', 'Toggle mobile navigation');
+      mobileNav.setAttribute('aria-hidden', 'true');
     }
 
     // Copy to Clipboard Function with improved UX
@@ -929,13 +1025,14 @@
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
-        // Close mobile nav on resize to larger screen
-        if (window.innerWidth >= 768) {
-          if (navToggle && mobileNav) {
-            navToggle.classList.remove('active');
-            mobileNav.classList.remove('active');
-            document.body.style.overflow = '';
-          }
+        // Mobile nav resize is handled in the mobile nav section above
+        // This is for other resize optimizations
+        if (window.innerWidth < 768) {
+          // Mobile optimizations
+          document.body.classList.add('mobile-view');
+        } else {
+          // Desktop optimizations
+          document.body.classList.remove('mobile-view');
         }
       }, 150);
     });
