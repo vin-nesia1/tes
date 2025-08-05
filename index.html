@@ -24,6 +24,8 @@
   <meta name="twitter:image" content="https://vinnesia.my.id/images/logo-vinnesia.png" />
 
   <link rel="canonical" href="https://vinnesia.my.id/" />
+  <link rel="alternate" hreflang="id" href="https://vinnesia.my.id/?lang=id" />
+  <link rel="alternate" hreflang="en" href="https://vinnesia.my.id/?lang=en" />
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.json" />
@@ -226,39 +228,39 @@
 
   <section class="testimonial-section max-w-4xl mx-auto px-4 mb-12 bg-gray-800 rounded-xl p-6 shadow-lg" aria-labelledby="testimonial-title">
     <h2 id="testimonial-title" class="text-2xl sm:text-3xl font-bold text-red-500 text-center mb-6" data-lang="testimonialsTitle">User Testimonials</h2>
-    <div class="testimonial-slider flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4" tabindex="0" aria-roledescription="carousel" aria-label="User testimonials slider">
-      <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 1 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial1Text">"The tools on VIN NESIA are very helpful for my daily work, fast and easy to use!"</p>
-        <div class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial1Author">- Rina, Freelancer</div>
-      </article>
-      <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 2 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial2Text">"The QR Code Generator is very accurate and visually appealing. Highly recommended."</p>
-        <div class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial2Author">- Budi, Developer</div>
-      </article>
-      <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 3 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial3Text">"The Password Generator helps me create strong passwords without hassle. Thank you VIN NESIA!"</p>
-        <div class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial3Author">- Sari, Student</div>
-      </article>
-      <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 4 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial4Text">"The responsive interface and ease of use make these tools a must-have!"</p>
-        <div class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial4Author">- Andi, Blogger</div>
-      </article>
-      <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 5 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial5Text">"Image Compressor is fast and maintains quality. Great for my website."</p>
-        <div class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial5Author">- Lestari, Designer</div>
-      </article>
-      <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 6 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial6Text">"JSON Formatter makes debugging my code so much easier. Very intuitive!"</p>
-        <div class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial6Author">- Dika, Programmer</div>
-      </article>
-      <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 7 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial7Text">"Text to Handwriting adds a creative touch to my documents."</p>
-        <div class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial7Author">- Maya, Teacher</div>
-      </article>
-      <article class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 8 of 8">
-        <p class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial8Text">"Currency Converter helps me track exchange rates quickly and accurately."</p>
-        <div class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial8Author">- Arif, Business Owner</div>
-      </article>
+    <div class="testimonial-slider flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4" id="testimonialSlider" tabindex="0" role="group" aria-roledescription="carousel" aria-live="polite" aria-label="User testimonials slider">
+      <figure class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 1 of 8">
+        <blockquote class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial1Text">"The tools on VIN NESIA are very helpful for my daily work, fast and easy to use!"</blockquote>
+        <figcaption class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial1Author">- Rina, Freelancer</figcaption>
+      </figure>
+      <figure class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 2 of 8">
+        <blockquote class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial2Text">"The QR Code Generator is very accurate and visually appealing. Highly recommended."</blockquote>
+        <figcaption class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial2Author">- Budi, Developer</figcaption>
+      </figure>
+      <figure class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 3 of 8">
+        <blockquote class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial3Text">"The Password Generator helps me create strong passwords without hassle. Thank you VIN NESIA!"</blockquote>
+        <figcaption class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial3Author">- Sari, Student</figcaption>
+      </figure>
+      <figure class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 4 of 8">
+        <blockquote class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial4Text">"The responsive interface and ease of use make these tools a must-have!"</blockquote>
+        <figcaption class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial4Author">- Andi, Blogger</figcaption>
+      </figure>
+      <figure class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 5 of 8">
+        <blockquote class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial5Text">"Image Compressor is fast and maintains quality. Great for my website."</blockquote>
+        <figcaption class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial5Author">- Lestari, Designer</figcaption>
+      </figure>
+      <figure class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 6 of 8">
+        <blockquote class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial6Text">"JSON Formatter makes debugging my code so much easier. Very intuitive!"</blockquote>
+        <figcaption class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial6Author">- Dika, Programmer</figcaption>
+      </figure>
+      <figure class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 7 of 8">
+        <blockquote class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial7Text">"Text to Handwriting adds a creative touch to my documents."</blockquote>
+        <figcaption class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial7Author">- Maya, Teacher</figcaption>
+      </figure>
+      <figure class="testimonial-item bg-gray-700 rounded-lg p-4 shadow-md snap-start" role="group" aria-roledescription="slide" aria-label="Testimonial 8 of 8">
+        <blockquote class="testimonial-text italic text-base text-white mb-4" data-lang="testimonial8Text">"Currency Converter helps me track exchange rates quickly and accurately."</blockquote>
+        <figcaption class="testimonial-author font-semibold text-red-400 text-right text-base" data-lang="testimonial8Author">- Arif, Business Owner</figcaption>
+      </figure>
     </div>
     <div class="testimonial-nav flex justify-center gap-4 mt-4">
       <button id="prevTestimonial" class="bg-red-500 text-white p-3 rounded-md hover:bg-red-600 focus:outline focus:outline-2 focus:outline-yellow-400 min-w-[44px]" aria-label="Previous testimonial" data-lang="prevButton">Previous</button>
@@ -579,13 +581,13 @@
     ];
 
     // Shuffle function
-    function shuffleArray(array) {
+    const shuffleArray = (array) => {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
       }
       return array;
-    }
+    };
 
     const popularToolsGrid = document.getElementById('popularToolsGrid');
     const popularToolsPagination = document.getElementById('popularToolsPagination');
@@ -598,7 +600,7 @@
       currentPage = parseInt(sessionStorage.getItem('currentPage'));
     }
 
-    function createToolCard(tool) {
+    const createToolCard = (tool) => {
       const card = document.createElement('div');
       card.className = 'tool-card bg-gray-700 rounded-lg p-4 shadow-md hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105 transition max-w-full';
       card.setAttribute('data-keywords', tool.keywords);
@@ -611,9 +613,9 @@
         <a class="tool-link text-red-400 text-sm font-medium mt-2 inline-flex items-center hover:text-yellow-400 focus:text-yellow-400 focus:outline focus:outline-2 focus:outline-red-400" href="${tool.link}" target="_blank" rel="noopener" aria-label="Open ${tool.title[currentLang]}">${translations[currentLang].toolLink}</a>
       `;
       return card;
-    }
+    };
 
-    function displayTools(tools, page) {
+    const displayTools = (tools, page) => {
       if (!popularToolsGrid) {
         console.error('popularToolsGrid not found');
         return;
@@ -626,9 +628,9 @@
       paginatedTools.forEach(tool => {
         popularToolsGrid.appendChild(createToolCard(tool));
       });
-    }
+    };
 
-    function setupPagination(tools, paginationContainer) {
+    const setupPagination = (tools, paginationContainer) => {
       if (!paginationContainer) {
         console.error('popularToolsPagination not found');
         return;
@@ -684,9 +686,9 @@
         }
       });
       paginationContainer.appendChild(nextButton);
-    }
+    };
 
-    function updatePaginationButtons(tools, paginationContainer) {
+    const updatePaginationButtons = (tools, paginationContainer) => {
       if (!paginationContainer) return;
       const pageButtons = paginationContainer.querySelectorAll('button');
       const pageCount = Math.ceil(tools.length / itemsPerPage);
@@ -706,27 +708,28 @@
           button.classList.toggle('text-red-400', pageNum !== currentPage);
         }
       });
-    }
+    };
 
     // Testimonial Slider Navigation
-    function setupTestimonialSlider() {
-      const slider = document.querySelector('.testimonial-slider');
+    const setupTestimonialSlider = () => {
+      const slider = document.getElementById('testimonialSlider');
       const prevButton = document.getElementById('prevTestimonial');
       const nextButton = document.getElementById('nextTestimonial');
       const items = slider?.querySelectorAll('.testimonial-item');
-      if (!items || items.length === 0) return;
+      if (!items || items.length === 0 || !slider) return;
 
       let currentIndex = 0;
 
-      function updateSlider() {
+      const updateSlider = () => {
         const itemWidth = items[0].offsetWidth + 16; // Including gap
-        slider.scrollTo({ left: currentIndex * itemWidth, behavior: 'smooth' });
+        slider.scrollLeft = currentIndex * itemWidth; // Set the scroll position directly
         prevButton.disabled = currentIndex === 0;
-        nextButton.disabled = currentIndex === items.length - 1;
+        nextButton.disabled = currentIndex >= items.length - Math.floor(slider.offsetWidth / itemWidth); // Logic to disable 'next' at the end
         items.forEach((item, index) => {
-          item.setAttribute('aria-hidden', index !== currentIndex);
+          // Hide items not in view for screen readers
+          item.setAttribute('aria-hidden', index < currentIndex || index >= currentIndex + Math.floor(slider.offsetWidth / itemWidth));
         });
-      }
+      };
 
       prevButton.addEventListener('click', () => {
         if (currentIndex > 0) {
@@ -752,8 +755,9 @@
         }
       });
 
-      updateSlider();
-    }
+      window.addEventListener('resize', updateSlider); // Recalculate on resize
+      updateSlider(); // Initial call
+    };
 
     document.addEventListener('DOMContentLoaded', () => {
       // Initialize Popular Tools with state persistence
