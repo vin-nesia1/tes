@@ -98,27 +98,6 @@
       box-shadow: 0 10px 20px rgba(251, 191, 36, 0.3);
     }
 
-    .btn-whatsapp {
-      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-      color: white;
-      font-weight: 600;
-      padding: 12px 24px;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      will-change: transform;
-    }
-
-    .btn-whatsapp:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-      background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
-    }
-
     .btn-copy {
       background: var(--primary-green);
       color: white;
@@ -288,30 +267,6 @@
       border-bottom: none;
     }
 
-    /* Contact WhatsApp Button */
-    .contact-whatsapp {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-      color: white;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 32px rgba(37, 211, 102, 0.3);
-      transition: all 0.3s ease;
-      z-index: 50;
-      will-change: transform;
-    }
-
-    .contact-whatsapp:hover {
-      transform: scale(1.1);
-      box-shadow: 0 12px 40px rgba(37, 211, 102, 0.4);
-    }
-
     /* Responsive optimizations */
     @media (max-width: 768px) {
       .donation-methods-grid {
@@ -333,13 +288,6 @@
       
       .donation-method {
         padding: 16px;
-      }
-      
-      .contact-whatsapp {
-        bottom: 16px;
-        right: 16px;
-        width: 48px;
-        height: 48px;
       }
     }
 
@@ -372,10 +320,62 @@
         transform: none;
       }
       
-      .btn-primary:hover,
-      .btn-whatsapp:hover {
+      .btn-primary:hover {
         transform: none;
       }
+    }
+
+    /* Contact section styling */
+    .contact-section {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      border: 1px solid var(--primary-green);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      margin: 32px 0;
+    }
+
+    .contact-section h3 {
+      color: var(--primary-green);
+      margin-bottom: 16px;
+    }
+
+    .contact-section p {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .contact-methods {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+
+    .contact-method {
+      background: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px 24px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .contact-method:hover {
+      border-color: var(--primary-green);
+      background: var(--card-dark);
+      transform: translateY(-2px);
     }
   </style>
 </head>
@@ -585,7 +585,7 @@
                 </div>
                 <div>
                   <h4 class="text-lg font-semibold text-white">SeaBank Direct</h4>
-                  <p class="text-gray-400 text-sm">Instant bank transfer</p>
+                  <p class="text-gray-400 text-sm">Direct bank transfer (1-5 days)</p>
                 </div>
               </div>
               <div class="space-y-3">
@@ -603,15 +603,15 @@
               </div>
             </div>
 
-            <!-- DSGPAY -->
+            <!-- Direct E-Wallets -->
             <div class="donation-method card-hover">
               <div class="flex items-center gap-3 mb-4">
-                <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center">
-                  <span class="text-white font-bold">DS</span>
+                <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
+                  <span class="text-white font-bold">📱</span>
                 </div>
                 <div>
-                  <h4 class="text-lg font-semibold text-white">DSGPAY</h4>
-                  <p class="text-gray-400 text-sm">Instant payment gateway</p>
+                  <h4 class="text-lg font-semibold text-white">E-Wallet Direct</h4>
+                  <p class="text-gray-400 text-sm">Instant transfer</p>
                 </div>
               </div>
               <div class="space-y-3">
@@ -620,106 +620,181 @@
                   <span class="text-white font-medium">Sultan Andrian Fahirza</span>
                 </div>
                 <div class="flex justify-between items-center">
-                  <span class="text-gray-400">Account ID:</span>
+                  <span class="text-gray-400">Phone Number:</span>
                   <div class="flex items-center gap-2">
-                    <span class="text-white font-mono">VIN123456</span>
-                    <button class="btn-copy" onclick="copyToClipboard('VIN123456')">Copy</button>
+                    <span class="text-white font-mono">+62895354511777</span>
+                    <button class="btn-copy" onclick="copyToClipboard('+62895354511777')">Copy</button>
                   </div>
                 </div>
-              </div>
-              <div class="mt-4 pt-4 border-t border-gray-600">
-                <p class="text-sm text-gray-400">
-                  💡 Visit <a href="https://dsgpay.com" target="_blank" class="text-green-400 hover:underline">DSGPAY</a> for more details.
-                </p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Dana</span>
+                  <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">GoPay</span>
+                  <span class="bg-orange-600 text-white px-3 py-1 rounded-full text-sm">ShopeePay</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Contact Section -->
-        <div class="text-center mt-16">
-          <h3 class="text-2xl font-semibold text-white mb-4">Ready to Donate?</h3>
-          <p class="text-gray-400 mb-6 max-w-2xl mx-auto">
-            Contact us via WhatsApp to confirm your donation or if you need assistance with the donation process.
-          </p>
-          <a href="https://wa.me/62895354511777?text=Hello, I would like to make a donation to VIN NESIA. Please assist me with the process. Thank you!" target="_blank" class="btn-whatsapp">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.031-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.174.198-.347.297-.521.099-.174.05-.347-.025-.521-.075-.198-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-            </svg>
-            Contact via WhatsApp
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="py-16 px-4">
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-white mb-4">Frequently Asked Questions</h2>
-          <p class="text-gray-400 max-w-2xl mx-auto">
-            Find answers to common questions about donating to VIN NESIA.
-          </p>
+        <div class="contact-section">
+          <h3 class="text-2xl font-semibold">Need Help with Donation?</h3>
+          <p>If you need assistance with the donation process or have questions, please contact our support team.</p>
+          <div class="contact-methods">
+            <a href="mailto:support@vinnesia.my.id" class="contact-method">
+              <span class="text-2xl">📧</span>
+              <div>
+                <div class="font-medium">Email Support</div>
+                <div class="text-sm text-gray-400">support@vinnesia.my.id</div>
+              </div>
+            </a>
+            <a href="mailto:admin@vinnesia.my.id" class="contact-method">
+              <span class="text-2xl">📮</span>
+              <div>
+                <div class="font-medium">Admin Contact</div>
+                <div class="text-sm text-gray-400">admin@vinnesia.my.id</div>
+              </div>
+            </a>
+          </div>
         </div>
 
-        <div class="space-y-4">
-          <details class="faq-item">
-            <summary>Is my donation tax-deductible?</summary>
-            <div class="faq-content">
-              <p>Currently, VIN NESIA does not have tax-exempt status, so donations are not tax-deductible. We are working towards this goal in the future.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>How will my donation be used?</summary>
-            <div class="faq-content">
-              <p>Your donation will support server costs, development of new tools, and maintenance of existing services to keep them free for everyone.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>What if I face issues with the donation process?</summary>
-            <div class="faq-content">
-              <p>Please contact us via WhatsApp at +62895354511777 or email at support@vinnesia.my.id. We'll assist you promptly.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>Is there a minimum donation amount?</summary>
-            <div class="faq-content">
-              <p>No, there is no minimum donation amount. Every contribution, no matter how small, is greatly appreciated and helps us maintain our free services.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>Can I donate from outside Indonesia?</summary>
-            <div class="faq-content">
-              <p>Yes! We accept international donations through Wise, Remitly, WorldRemit, Western Union, and other international transfer services to our SeaBank account.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>Will I receive a receipt for my donation?</summary>
-            <div class="faq-content">
-              <p>Yes, we will send you a confirmation receipt via WhatsApp or email once we receive your donation. This helps us keep track of our supporters.</p>
-            </div>
-          </details>
+        <!-- FAQ Section -->
+        <div class="mb-16">
+          <h3 class="text-2xl font-semibold text-yellow-400 mb-8 text-center">❓ Frequently Asked Questions</h3>
+          
+          <div class="max-w-4xl mx-auto space-y-4">
+            <details class="faq-item">
+              <summary>Is donating mandatory to use VIN NESIA tools?</summary>
+              <div class="faq-content">
+                <p>No, absolutely not! All our tools are completely free to use. Donations are entirely voluntary and help us maintain and improve our services.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>Where do the donated funds go?</summary>
+              <div class="faq-content">
+                <p>Your donations help us cover hosting costs, domain renewals, server maintenance, and development of new features. We're committed to keeping our tools free for everyone.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>How secure are these donation methods?</summary>
+              <div class="faq-content">
+                <p>All recommended platforms (Wise, Remitly, WorldRemit, etc.) use bank-level security with HTTPS encryption. We never store your payment information.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>Is there a minimum donation amount?</summary>
+              <div class="faq-content">
+                <p>There's no minimum amount! Every contribution, no matter how small, helps us keep the lights on. Even 1,000 IDR makes a difference.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>How will I know my donation was received?</summary>
+              <div class="faq-content">
+                <p>Send your donation confirmation to <strong>support@vinnesia.my.id</strong> or <strong>admin@vinnesia.my.id</strong>. We'll confirm receipt within 24 hours.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>Can I get a receipt for tax purposes?</summary>
+              <div class="faq-content">
+                <p>As we're not a registered charity organization, we can't provide tax-deductible receipts. However, we can provide a simple donation confirmation for your records.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>What currencies do you accept?</summary>
+              <div class="faq-content">
+                <p>We primarily accept Indonesian Rupiah (IDR) and US Dollars (USD). Other currencies can be converted through international transfer services like Wise or Remitly.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>Can I donate from outside Indonesia?</summary>
+              <div class="faq-content">
+                <p>Yes! We accept international donations through Wise, Remitly, WorldRemit, Western Union, and other international transfer services to our SeaBank account.</p>
+              </div>
+            </details>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Fixed WhatsApp Contact Button -->
-  <a href="https://wa.me/62895354511777?text=Hello, I would like to make a donation to VIN NESIA. Please assist me with the process. Thank you!" target="_blank" class="contact-whatsapp" aria-label="Contact via WhatsApp">
-    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.031-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.174.198-.347.297-.521.099-.174.05-.347-.025-.521-.075-.198-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-    </svg>
-  </a>
-
   <!-- Footer -->
-  <footer class="bg-gray-900 border-t border-gray-800 py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-gray-400 text-sm">© 2025 VIN NESIA. All rights reserved. Built with ❤️ for everyone.</p>
-      <p class="text-gray-400 text-sm mt-2">VIN NESIA is not responsible for the misuse of tools.</p>
+  <footer class="bg-gray-900 border-t border-gray-800">
+    <div class="hero-gradient text-center py-6">
+      <p class="text-white font-medium">🚀 Support VIN NESIA's free tools with a donation!</p>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <h4 class="font-semibold text-yellow-400 mb-4">Navigation</h4>
+          <ul class="space-y-2">
+            <li><a href="../" class="text-gray-400 hover:text-green-400 transition-colors">Home</a></li>
+            <li><a href="../tools" class="text-gray-400 hover:text-green-400 transition-colors">All Tools</a></li>
+            <li><a href="../blog" class="text-gray-400 hover:text-green-400 transition-colors">Blog</a></li>
+            <li><a href="../about" class="text-gray-400 hover:text-green-400 transition-colors">About Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-yellow-400 mb-4">Help & Support</h4>
+          <ul class="space-y-2">
+            <li><a href="../how-to-use" class="text-gray-400 hover:text-green-400 transition-colors">How to Use</a></li>
+            <li><a href="../user-guide" class="text-gray-400 hover:text-green-400 transition-colors">User Guide</a></li>
+            <li><a href="../faq" class="text-gray-400 hover:text-green-400 transition-colors">FAQ</a></li>
+            <li><a href="../contact" class="text-gray-400 hover:text-green-400 transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-yellow-400 mb-4">Legal</h4>
+          <ul class="space-y-2">
+            <li><a href="../privacy" class="text-gray-400 hover:text-green-400 transition-colors">Privacy Policy</a></li>
+            <li><a href="../terms" class="text-gray-400 hover:text-green-400 transition-colors">Terms of Service</a></li>
+            <li><a href="../sitemap" class="text-gray-400 hover:text-green-400 transition-colors">Sitemap</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-yellow-400 mb-4">Contact</h4>
+          <ul class="space-y-2">
+            <li><a href="mailto:admin@vinnesia.my.id" class="text-green-400 hover:text-green-300 transition-colors">admin@vinnesia.my.id</a></li>
+            <li><a href="mailto:support@vinnesia.my.id" class="text-green-400 hover:text-green-300 transition-colors">support@vinnesia.my.id</a></li>
+            <li><a href="mailto:privacy@vinnesia.my.id" class="text-green-400 hover:text-green-300 transition-colors">privacy@vinnesia.my.id</a></li>
+          </ul>
+          
+          <h4 class="font-semibold text-yellow-400 mt-6 mb-4">Social Media</h4>
+          <div class="flex gap-4">
+            <a href="https://instagram.com/vin.nesia.id" class="text-gray-400 hover:text-pink-400 transition-colors" target="_blank" rel="noopener">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <path d="M16 11.37a4 4 0 1 1-4.63-4.63 4 4 0 0 1 4.63 4.63z"/>
+                <circle cx="17.5" cy="6.5" r="1"/>
+              </svg>
+            </a>
+            <a href="https://x.com/VinNesiaID" class="text-gray-400 hover:text-blue-400 transition-colors" target="_blank" rel="noopener">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-gray-950 text-center py-4 px-4">
+      <p class="text-gray-400">
+        © 2025 <span class="text-yellow-400 font-bold">VIN NESIA</span>. All rights reserved. Built with <span class="text-red-400">❤️</span> in Indonesia.
+      </p>
     </div>
   </footer>
 
-  <!-- JavaScript -->
   <script>
     // Mobile Navigation Toggle
     const navToggle = document.getElementById('navToggle');
@@ -783,7 +858,7 @@
       }
 
       navigator.clipboard.writeText(text).then(() => {
-        showNotification('Copied successfully!', 'success');
+        showNotification(`Copied: ${text}`, 'success');
       }).catch(err => {
         console.error('Failed to copy: ', err);
         showNotification('Failed to copy', 'error');
@@ -830,9 +905,11 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             const img = entry.target;
-            img.src = img.dataset.src;
-            img.classList.remove('lazy');
-            imageObserver.unobserve(img);
+            if (img.dataset.src) {
+              img.src = img.dataset.src;
+              img.classList.remove('lazy');
+              imageObserver.unobserve(img);
+            }
           }
         });
       });
@@ -847,14 +924,41 @@
       document.documentElement.style.setProperty('--animation-duration', '0.01ms');
     }
 
-    // Preload critical resources
-    function preloadResource(href, as) {
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.href = href;
-      link.as = as;
-      document.head.appendChild(link);
-    }
+    // Handle window resize for mobile optimization
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        // Close mobile nav on resize to larger screen
+        if (window.innerWidth >= 768) {
+          if (navToggle && mobileNav) {
+            navToggle.classList.remove('active');
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        }
+      }, 150);
+    });
+
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', () => {
+      // Add loading state removal
+      document.body.classList.add('loaded');
+      
+      // Initialize performance optimizations
+      const cards = document.querySelectorAll('.card-hover');
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.willChange = 'transform';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.style.willChange = 'auto';
+        });
+      });
+      
+      console.log('VIN NESIA Donation Page loaded successfully');
+    });
 
     // Service Worker registration for better caching (optional)
     if ('serviceWorker' in navigator) {
@@ -869,27 +973,32 @@
       });
     }
 
-    // Handle window resize for mobile optimization
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        // Close mobile nav on resize to larger screen
-        if (window.innerWidth >= 768) {
-          navToggle.classList.remove('active');
-          mobileNav.classList.remove('active');
-          document.body.style.overflow = '';
-        }
-      }, 150);
+    // Add hover effects for better UX
+    const buttons = document.querySelectorAll('.btn-copy, .btn-primary');
+    buttons.forEach(button => {
+      button.addEventListener('mouseenter', function() {
+        this.style.willChange = 'transform';
+      });
+      
+      button.addEventListener('mouseleave', function() {
+        this.style.willChange = 'auto';
+      });
     });
 
-    // Initialize page
-    document.addEventListener('DOMContentLoaded', () => {
-      // Add loading state removal
-      document.body.classList.add('loaded');
-      
-      // Initialize any other components here
-      console.log('VIN NESIA Donation Page loaded successfully');
+    // Enhanced FAQ functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const summary = item.querySelector('summary');
+      summary.addEventListener('click', function(e) {
+        // Close other FAQ items when one is opened (accordion style)
+        if (!item.hasAttribute('open')) {
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item && otherItem.hasAttribute('open')) {
+              otherItem.removeAttribute('open');
+            }
+          });
+        }
+      });
     });
   </script>
 </body>
