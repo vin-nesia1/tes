@@ -94,6 +94,26 @@
       box-shadow: 0 10px 20px rgba(251, 191, 36, 0.3);
     }
 
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: white;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+      background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
+    }
+
     .btn-copy {
       background: var(--primary-green);
       color: white;
@@ -465,16 +485,16 @@
         <!-- Donation Planning Form -->
         <div class="bg-gray-800 rounded-xl p-8 mb-16">
           <h3 class="text-2xl font-semibold text-yellow-400 mb-6 text-center">📋 Plan Your Donation</h3>
-          <p class="text-gray-300 text-center mb-8">Fill out this form to get a summary that you can send to us for confirmation</p>
+          <p class="text-gray-300 text-center mb-8">Fill out this form and we'll help you connect directly via WhatsApp</p>
           
           <div class="form-grid grid gap-6">
             <div>
-              <label class="block text-gray-300 mb-2 font-medium">Your Name (Optional)</label>
-              <input type="text" id="donorName" placeholder="Enter your name" class="form-input">
+              <label class="block text-gray-300 mb-2 font-medium">Your Name</label>
+              <input type="text" id="donorName" placeholder="Enter your name" class="form-input" required>
             </div>
             <div>
-              <label class="block text-gray-300 mb-2 font-medium">Donation Amount</label>
-              <input type="number" id="donationAmount" placeholder="Amount in IDR" min="1000" class="form-input">
+              <label class="block text-gray-300 mb-2 font-medium">Donation Amount (IDR)</label>
+              <input type="number" id="donationAmount" placeholder="Amount in IDR" min="1000" class="form-input" required>
             </div>
             <div>
               <label class="block text-gray-300 mb-2 font-medium">Donation Method</label>
@@ -491,15 +511,24 @@
               </select>
             </div>
             <div>
-              <label class="block text-gray-300 mb-2 font-medium">Message (Optional)</label>
+              <label class="block text-gray-300 mb-2 font-medium">Additional Message (Optional)</label>
               <textarea id="donationMessage" placeholder="Any message for us?" class="form-input" rows="3"></textarea>
             </div>
           </div>
           
           <div class="text-center mt-8">
-            <button onclick="generateDonationPlan()" class="btn-primary text-lg px-8 py-4">
-              📋 Generate Donation Plan
+            <button onclick="sendToWhatsApp()" class="btn-whatsapp text-lg px-8 py-4">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.785"/>
+              </svg>
+              Contact via WhatsApp
             </button>
+          </div>
+          
+          <div class="mt-6 p-4 bg-green-900/20 border border-green-600 rounded-lg">
+            <p class="text-green-200 text-sm text-center">
+              💬 <strong>Instant Support:</strong> Click the button above to send your donation plan directly to our WhatsApp for immediate assistance!
+            </p>
           </div>
         </div>
 
@@ -674,15 +703,23 @@
       }, 3000);
     }
 
-    // Generate Donation Plan
-    function generateDonationPlan() {
-      const name = document.getElementById('donorName').value || 'Anonymous';
+    // Send to WhatsApp Function
+    function sendToWhatsApp() {
+      const name = document.getElementById('donorName').value.trim();
       const amount = document.getElementById('donationAmount').value;
       const method = document.getElementById('donationMethod').value;
-      const message = document.getElementById('donationMessage').value;
+      const message = document.getElementById('donationMessage').value.trim();
+
+      // Validation
+      if (!name) {
+        showNotification('Please enter your name', 'error');
+        document.getElementById('donorName').focus();
+        return;
+      }
 
       if (!amount || amount < 1000) {
-        showNotification('Please enter a valid donation amount (minimum 1,000 IDR)', 'error');
+        showNotification('Please enter a valid donation amount (minimum IDR 1,000)', 'error');
+        document.getElementById('donationAmount').focus();
         return;
       }
 
@@ -698,32 +735,37 @@
         'shopeepay': 'ShopeePay E-Wallet'
       };
 
-      const donationPlan = `DONATION PLAN - VIN NESIA
+      // Format the amount with thousands separator
+      const formattedAmount = parseInt(amount).toLocaleString('id-ID');
+      
+      // Create WhatsApp message
+      let whatsappMessage = `Halo, saya ${name} ingin berdonasi Rp ${formattedAmount} via ${methodNames[method]}.`;
+      
+      if (message) {
+        whatsappMessage += `\n\nPesan tambahan: ${message}`;
+      }
+      
+      whatsappMessage += `\n\nMohon konfirmasi dan panduan selanjutnya ya. Terima kasih! 🙏`;
 
-👤 Donor Name: ${name}
-💰 Amount: IDR ${parseInt(amount).toLocaleString('id-ID')}
-🔄 Method: ${methodNames[method]}
-💬 Message: ${message || 'No additional message'}
-
-📧 Send confirmation to: support@vinnesia.my.id
-📱 WhatsApp: +62895354511777
-
-Thank you for supporting VIN NESIA! 🙏
-
----
-Generated on: ${new Date().toLocaleString('id-ID')}`;
-
-      navigator.clipboard.writeText(donationPlan).then(() => {
-        showNotification('Donation plan copied! Please send it to our support team.');
-        
-        // Clear form
+      // Encode the message for URL
+      const encodedMessage = encodeURIComponent(whatsappMessage);
+      
+      // Create WhatsApp URL
+      const whatsappURL = `https://wa.me/62895354511777?text=${encodedMessage}`;
+      
+      // Open WhatsApp
+      window.open(whatsappURL, '_blank');
+      
+      // Show success notification
+      showNotification('Redirecting to WhatsApp...', 'success');
+      
+      // Optional: Clear form after a successful submission
+      setTimeout(() => {
         document.getElementById('donorName').value = '';
         document.getElementById('donationAmount').value = '';
         document.getElementById('donationMessage').value = '';
-      }).catch(err => {
-        console.error('Copy failed:', err);
-        showNotification('Failed to copy. Please try again.', 'error');
-      });
+        document.getElementById('donationMethod').selectedIndex = 0;
+      }, 2000);
     }
 
     // Smooth Scroll for Anchor Links
@@ -762,20 +804,64 @@ Generated on: ${new Date().toLocaleString('id-ID')}`;
       });
     });
 
-    // Format number input for donation amount
-    const amountInputs = document.querySelectorAll('#donationAmount');
-    amountInputs.forEach(input => {
-      input.addEventListener('input', function() {
-        let value = this.value.replace(/[^\d]/g, '');
-        if (value) {
-          this.value = parseInt(value).toLocaleString('id-ID');
+    // Format number input for donation amount (display with thousands separator while typing)
+    const amountInput = document.getElementById('donationAmount');
+    amountInput.addEventListener('input', function() {
+      let value = this.value.replace(/[^\d]/g, '');
+      if (value) {
+        // Store the raw value for form submission
+        this.setAttribute('data-raw-value', value);
+        // Display formatted value
+        this.value = parseInt(value).toLocaleString('id-ID');
+      }
+    });
+
+    // On focus, show raw number for easier editing
+    amountInput.addEventListener('focus', function() {
+      const rawValue = this.getAttribute('data-raw-value');
+      if (rawValue) {
+        this.value = rawValue;
+      }
+    });
+
+    // On blur, format the display again
+    amountInput.addEventListener('blur', function() {
+      let value = this.value.replace(/[^\d]/g, '');
+      if (value) {
+        this.setAttribute('data-raw-value', value);
+        this.value = parseInt(value).toLocaleString('id-ID');
+      }
+    });
+
+    // Handle Enter key press on form inputs
+    document.querySelectorAll('.form-input').forEach(input => {
+      input.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          sendToWhatsApp();
         }
       });
-      
-      input.addEventListener('blur', function() {
-        let value = this.value.replace(/[^\d]/g, '');
-        this.value = value;
-      });
+    });
+
+    // Add form validation styling
+    function validateInput(input, isValid) {
+      if (isValid) {
+        input.style.borderColor = '#10b981';
+        input.style.boxShadow = '0 0 0 3px rgba(16, 185, 129, 0.1)';
+      } else {
+        input.style.borderColor = '#ef4444';
+        input.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
+      }
+    }
+
+    // Real-time validation
+    document.getElementById('donorName').addEventListener('input', function() {
+      validateInput(this, this.value.trim().length > 0);
+    });
+
+    document.getElementById('donationAmount').addEventListener('input', function() {
+      const rawValue = this.value.replace(/[^\d]/g, '');
+      validateInput(this, rawValue && parseInt(rawValue) >= 1000);
     });
   </script>
 </body>
