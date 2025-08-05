@@ -809,32 +809,43 @@
 
     // Format number input for donation amount (display with thousands separator while typing)
     const amountInput = document.getElementById('donationAmount');
-    amountInput.addEventListener('input', function() {
-      let value = this.value.replace(/[^\d]/g, '');
-      if (value) {
-        // Store the raw value for form submission
-        this.setAttribute('data-raw-value', value);
-        // Display formatted value
-        this.value = parseInt(value).toLocaleString('id-ID');
-      }
-    });
+amountInput.addEventListener('input', function() {
+  let value = this.value.replace(/[^\d]/g, ''); // Hapus semua karakter selain angka
+  const maxAmount = 999999999; // Batas maksimum 9 digit
 
-    // On focus, show raw number for easier editing
-    amountInput.addEventListener('focus', function() {
-      const rawValue = this.getAttribute('data-raw-value');
-      if (rawValue) {
-        this.value = rawValue;
-      }
-    });
+  if (value > maxAmount) {
+    value = maxAmount.toString(); // Batasi jika melebihi
+    showNotification('Maximum donation amount is Rp999,999,999', 'error');
+  }
 
-    // On blur, format the display again
-    amountInput.addEventListener('blur', function() {
-      let value = this.value.replace(/[^\d]/g, '');
-      if (value) {
-        this.setAttribute('data-raw-value', value);
-        this.value = parseInt(value).toLocaleString('id-ID');
-      }
-    });
+  if (value) {
+    this.setAttribute('data-raw-value', value);
+    this.value = parseInt(value).toLocaleString('en-ID'); // Format dengan pemisah ribuan
+  } else {
+    this.setAttribute('data-raw-value', '');
+    this.value = '';
+  }
+});
+
+// On focus, show raw number for easier editing
+amountInput.addEventListener('focus', function() {
+  const rawValue = this.getAttribute('data-raw-value');
+  if (rawValue) {
+    this.value = rawValue;
+  }
+});
+
+// On blur, format the display again
+amountInput.addEventListener('blur', function() {
+  let value = this.value.replace(/[^\d]/g, '');
+  if (value) {
+    this.setAttribute('data-raw-value', value);
+    this.value = parseInt(value).toLocaleString('en-ID');
+  } else {
+    this.setAttribute('data-raw-value', '');
+    this.value = '';
+  }
+});
 
     // Handle Enter key press on form inputs
     document.querySelectorAll('.form-input').forEach(input => {
