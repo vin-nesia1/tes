@@ -811,7 +811,7 @@
     const amountInput = document.getElementById('donationAmount');
 amountInput.addEventListener('input', function() {
   let value = this.value.replace(/[^\d]/g, ''); // Hapus semua karakter selain angka
-  const maxAmount = 999999999; // Batas maksimum 9 digit
+  const maxAmount = 9999999999999; // Batas maksimum 9 digit
 
   if (value > maxAmount) {
     value = maxAmount.toString(); // Batasi jika melebihi
