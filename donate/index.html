@@ -23,8 +23,6 @@
   <link rel="icon" href="../favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
   <link rel="manifest" href="../manifest.json">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -72,7 +70,6 @@
     .card-hover {
       transition: all 0.3s ease;
       border: 1px solid var(--border-color);
-      will-change: transform;
     }
 
     .card-hover:hover {
@@ -90,7 +87,6 @@
       transition: all 0.3s ease;
       border: none;
       cursor: pointer;
-      will-change: transform;
     }
 
     .btn-primary:hover {
@@ -108,7 +104,6 @@
       transition: all 0.2s ease;
       border: none;
       cursor: pointer;
-      will-change: transform;
     }
 
     .btn-copy:hover {
@@ -123,12 +118,28 @@
       padding: 20px;
       margin-bottom: 16px;
       transition: all 0.3s ease;
-      will-change: transform;
     }
 
     .donation-method:hover {
       border-color: var(--primary-green);
       background: #334155;
+    }
+
+    .form-input {
+      background: #334155;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 12px 16px;
+      border-radius: 8px;
+      width: 100%;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary-green);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
     }
 
     .faq-item {
@@ -147,11 +158,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: background-color 0.2s ease;
-    }
-
-    .faq-item summary:hover {
-      background-color: #334155;
     }
 
     .faq-item summary::-webkit-details-marker {
@@ -187,277 +193,54 @@
       transform: translateX(100%);
       transition: transform 0.3s ease;
       z-index: 1000;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     .success-notification.show {
       transform: translateX(0);
     }
 
-    /* Mobile Navigation */
-    .nav-hamburger {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      padding: 12px;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      background: rgba(124, 58, 237, 0.1);
-      border: 1px solid rgba(124, 58, 237, 0.2);
-      width: 48px;
-      height: 48px;
-    }
-
-    .nav-hamburger:hover {
-      background-color: rgba(124, 58, 237, 0.2);
-      border-color: rgba(124, 58, 237, 0.4);
-      transform: scale(1.05);
-    }
-
-    .nav-hamburger span {
-      width: 24px;
-      height: 3px;
-      background: #7c3aed;
-      margin: 2px 0;
-      transition: all 0.3s ease;
-      border-radius: 3px;
-      display: block;
-    }
-
-    .nav-hamburger.active {
-      background-color: rgba(220, 38, 38, 0.1);
-      border-color: rgba(220, 38, 38, 0.3);
-    }
-
-    .nav-hamburger.active span {
-      background: #dc2626;
-    }
-
-    .nav-hamburger.active span:nth-child(1) {
-      transform: rotate(-45deg) translate(-5px, 6px);
-    }
-
-    .nav-hamburger.active span:nth-child(2) {
-      opacity: 0;
-      transform: translateX(-20px);
-    }
-
-    .nav-hamburger.active span:nth-child(3) {
-      transform: rotate(45deg) translate(-5px, -6px);
-    }
-
-    .mobile-nav {
-      position: fixed;
-      top: 64px;
-      left: 0;
-      right: 0;
-      background: rgba(15, 23, 42, 0.98);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border-color);
-      transform: translateY(-100%);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: 40;
-      max-height: calc(100vh - 64px);
-      overflow-y: auto;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    }
-
-    .mobile-nav.active {
-      transform: translateY(0);
-    }
-
-    .mobile-nav-item {
-      display: flex;
-      align-items: center;
-      padding: 20px 24px;
-      color: var(--text-muted);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border-color);
-      transition: all 0.3s ease;
-      font-weight: 500;
-      font-size: 16px;
-      gap: 12px;
-    }
-
-    .mobile-nav-item:hover {
-      background: linear-gradient(90deg, rgba(16, 185, 129, 0.1) 0%, transparent 100%);
-      color: var(--primary-green);
-      padding-left: 36px;
-      border-left: 4px solid var(--primary-green);
-    }
-
-    .mobile-nav-item:last-child {
-      border-bottom: none;
-    }
-
-    .mobile-nav-item:active {
-      background: rgba(16, 185, 129, 0.2);
-      transform: scale(0.98);
-    }
-
-    /* Mobile nav backdrop */
-    .mobile-nav-backdrop {
-      position: fixed;
-      top: 64px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      z-index: 35;
-    }
-
-    .mobile-nav-backdrop.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    /* Responsive optimizations */
     @media (max-width: 768px) {
       .donation-methods-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
       }
       
-      .hero-gradient {
-        padding: 48px 16px;
-      }
-      
-      .hero-gradient h1 {
-        font-size: 2rem;
-      }
-      
-      .hero-gradient p {
-        font-size: 1rem;
-      }
-      
-      .donation-method {
-        padding: 16px;
+      .form-grid {
+        grid-template-columns: 1fr;
       }
     }
 
     @media (min-width: 769px) {
       .donation-methods-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .donation-methods-grid {
-        gap: 32px;
-      }
-    }
-
-    /* Performance optimizations */
-    .img-optimized {
-      will-change: auto;
-      transform: translateZ(0);
-    }
-
-    /* Reduce animations on mobile for better performance */
-    @media (prefers-reduced-motion: reduce) {
-      .hero-gradient {
-        animation: none;
       }
       
-      .card-hover:hover {
-        transform: none;
+      .form-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
-      
-      .btn-primary:hover {
-        transform: none;
-      }
-    }
-
-    /* Contact section styling */
-    .contact-section {
-      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-      border: 1px solid var(--primary-green);
-      border-radius: 16px;
-      padding: 32px;
-      text-align: center;
-      margin: 32px 0;
-    }
-
-    .contact-section h3 {
-      color: var(--primary-green);
-      margin-bottom: 16px;
-    }
-
-    .contact-section p {
-      color: var(--text-muted);
-      margin-bottom: 24px;
-    }
-
-    .contact-methods {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      align-items: center;
-    }
-
-    @media (min-width: 768px) {
-      .contact-methods {
-        flex-direction: row;
-        justify-content: center;
-      }
-    }
-
-    .contact-method {
-      background: var(--bg-dark);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 16px 24px;
-      transition: all 0.2s ease;
-      text-decoration: none;
-      color: var(--text-main);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .contact-method:hover {
-      border-color: var(--primary-green);
-      background: var(--card-dark);
-      transform: translateY(-2px);
     }
   </style>
 </head>
 
 <body class="min-h-screen flex flex-col">
-  <!-- Success Notification -->
   <div id="successNotification" class="success-notification">
     <span id="notificationText">Copied successfully!</span>
   </div>
 
-  <!-- Mobile Navigation Backdrop -->
-  <div id="mobileNavBackdrop" class="mobile-nav-backdrop"></div>
-
-  <!-- Header -->
   <header class="bg-gray-900/95 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center gap-3">
-          <img src="../logo.png" alt="VIN NESIA Logo" class="h-10 w-10 rounded-lg shadow-lg img-optimized">
+          <img src="../logo.png" alt="VIN NESIA Logo" class="h-10 w-10 rounded-lg shadow-lg">
           <span class="text-2xl font-bold text-yellow-400">VIN NESIA</span>
         </div>
         
-        <!-- Mobile Navigation Toggle -->
-        <div class="md:hidden">
-          <div class="nav-hamburger" id="navToggle" aria-label="Toggle navigation">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
+        <button class="md:hidden flex flex-col gap-1 p-2" id="navToggle" aria-label="Toggle navigation">
+          <span class="w-6 h-0.5 bg-purple-500 rounded transition-all"></span>
+          <span class="w-6 h-0.5 bg-purple-500 rounded transition-all"></span>
+          <span class="w-6 h-0.5 bg-purple-500 rounded transition-all"></span>
+        </button>
 
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center gap-6">
+        <nav id="mainNav" class="hidden md:flex items-center gap-6">
           <a href="../" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-lg transition-colors">Home</a>
           <a href="../tools" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-lg transition-colors">All Tools</a>
           <a href="../blog" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-lg transition-colors">Blog</a>
@@ -468,22 +251,9 @@
         </nav>
       </div>
     </div>
-
-    <!-- Mobile Navigation Menu -->
-    <nav id="mobileNav" class="mobile-nav">
-      <a href="../" class="mobile-nav-item">🏠 Home</a>
-      <a href="../tools" class="mobile-nav-item">🛠️ All Tools</a>
-      <a href="../blog" class="mobile-nav-item">📝 Blog</a>
-      <a href="../about" class="mobile-nav-item">ℹ️ About Us</a>
-      <a href="../user-guide" class="mobile-nav-item">📖 User Guide</a>
-      <a href="../how-to-use" class="mobile-nav-item">❓ How to Use</a>
-      <a href="../faq" class="mobile-nav-item">❓ FAQ</a>
-    </nav>
   </header>
 
-  <!-- Main Content -->
   <main class="flex-1">
-    <!-- Hero Section -->
     <section class="hero-gradient text-center py-16 px-4">
       <div class="max-w-4xl mx-auto">
         <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Support VIN NESIA</h1>
@@ -501,7 +271,6 @@
       </div>
     </section>
 
-    <!-- Donation Methods Section -->
     <section id="donation-methods" class="py-16 px-4">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
@@ -511,12 +280,10 @@
           </p>
         </div>
 
-        <!-- International Donors -->
         <div class="mb-16">
           <h3 class="text-2xl font-semibold text-purple-400 mb-8 text-center">🌍 International Donors</h3>
           
           <div class="donation-methods-grid grid gap-6 mb-8">
-            <!-- SeaBank -->
             <div class="donation-method card-hover">
               <div class="flex items-center gap-3 mb-4">
                 <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
@@ -556,7 +323,6 @@
               </div>
             </div>
 
-            <!-- E-Wallets -->
             <div class="donation-method card-hover">
               <div class="flex items-center gap-3 mb-4">
                 <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
@@ -587,7 +353,6 @@
               </div>
             </div>
 
-            <!-- Western Union -->
             <div class="donation-method card-hover" style="grid-column: 1 / -1;">
               <div class="flex items-center gap-3 mb-4">
                 <div class="w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center">
@@ -624,12 +389,10 @@
           </div>
         </div>
 
-        <!-- Domestic Donors -->
         <div class="mb-16">
           <h3 class="text-2xl font-semibold text-purple-400 mb-8 text-center">🇮🇩 Indonesian Donors</h3>
           
           <div class="donation-methods-grid grid gap-6">
-            <!-- Direct SeaBank -->
             <div class="donation-method card-hover">
               <div class="flex items-center gap-3 mb-4">
                 <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
@@ -655,7 +418,6 @@
               </div>
             </div>
 
-            <!-- Direct E-Wallets -->
             <div class="donation-method card-hover">
               <div class="flex items-center gap-3 mb-4">
                 <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
@@ -688,29 +450,6 @@
           </div>
         </div>
 
-        <!-- Contact Section -->
-        <div class="contact-section">
-          <h3 class="text-2xl font-semibold">Need Help with Donation?</h3>
-          <p>If you need assistance with the donation process or have questions, please contact our support team.</p>
-          <div class="contact-methods">
-            <a href="mailto:support@vinnesia.my.id" class="contact-method">
-              <span class="text-2xl">📧</span>
-              <div>
-                <div class="font-medium">Email Support</div>
-                <div class="text-sm text-gray-400">support@vinnesia.my.id</div>
-              </div>
-            </a>
-            <a href="mailto:admin@vinnesia.my.id" class="contact-method">
-              <span class="text-2xl">📮</span>
-              <div>
-                <div class="font-medium">Admin Contact</div>
-                <div class="text-sm text-gray-400">admin@vinnesia.my.id</div>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <!-- FAQ Section -->
         <div class="mb-16">
           <h3 class="text-2xl font-semibold text-yellow-400 mb-8 text-center">❓ Frequently Asked Questions</h3>
           
@@ -746,7 +485,7 @@
             <details class="faq-item">
               <summary>How will I know my donation was received?</summary>
               <div class="faq-content">
-                <p>Send your donation confirmation to <strong>support@vinnesia.my.id</strong> or <strong>admin@vinnesia.my.id</strong>. We'll confirm receipt within 24 hours.</p>
+                <p>Send your donation confirmation to <strong>support@vinnesia.my.id</strong>. We'll confirm receipt within 24 hours.</p>
               </div>
             </details>
 
@@ -756,27 +495,12 @@
                 <p>As we're not a registered charity organization, we can't provide tax-deductible receipts. However, we can provide a simple donation confirmation for your records.</p>
               </div>
             </details>
-
-            <details class="faq-item">
-              <summary>What currencies do you accept?</summary>
-              <div class="faq-content">
-                <p>We primarily accept Indonesian Rupiah (IDR) and US Dollars (USD). Other currencies can be converted through international transfer services like Wise or Remitly.</p>
-              </div>
-            </details>
-
-            <details class="faq-item">
-              <summary>Can I donate from outside Indonesia?</summary>
-              <div class="faq-content">
-                <p>Yes! We accept international donations through Wise, Remitly, WorldRemit, Western Union, and other international transfer services to our SeaBank account.</p>
-              </div>
-            </details>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="bg-gray-900 border-t border-gray-800">
     <div class="hero-gradient text-center py-6">
       <p class="text-white font-medium">🚀 Support VIN NESIA's free tools with a donation!</p>
@@ -830,11 +554,6 @@
                 <circle cx="17.5" cy="6.5" r="1"/>
               </svg>
             </a>
-            <a href="https://x.com/VinNesiaID" class="text-gray-400 hover:text-blue-400 transition-colors" target="_blank" rel="noopener">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
-              </svg>
-            </a>
           </div>
         </div>
       </div>
@@ -850,138 +569,51 @@
   <script>
     // Mobile Navigation Toggle
     const navToggle = document.getElementById('navToggle');
-    const mobileNav = document.getElementById('mobileNav');
-    const mobileNavBackdrop = document.getElementById('mobileNavBackdrop');
-    
-    if (navToggle && mobileNav && mobileNavBackdrop) {
-      // Toggle mobile navigation
-      navToggle.addEventListener('click', function(e) {
-        e.stopPropagation();
-        toggleMobileNav();
-      });
+    const mainNav = document.getElementById('mainNav');
 
-      // Close mobile nav when clicking backdrop
-      mobileNavBackdrop.addEventListener('click', function() {
-        closeMobileNav();
-      });
-
-      // Close mobile nav when clicking on nav items
-      const mobileNavItems = mobileNav.querySelectorAll('.mobile-nav-item');
-      mobileNavItems.forEach(item => {
-        item.addEventListener('click', () => {
-          closeMobileNav();
-        });
-      });
-
-      // Close mobile nav when pressing Escape key
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
-          closeMobileNav();
-        }
-      });
-
-      function toggleMobileNav() {
-        const isActive = mobileNav.classList.contains('active');
-        if (isActive) {
-          closeMobileNav();
-        } else {
-          openMobileNav();
-        }
+    navToggle.addEventListener('click', () => {
+      const isHidden = mainNav.classList.contains('hidden');
+      
+      if (isHidden) {
+        mainNav.classList.remove('hidden');
+        mainNav.classList.add('fixed', 'top-16', 'right-0', 'bg-gray-900/95', 'backdrop-blur-sm', 'w-64', 'h-screen', 'flex-col', 'p-6', 'space-y-4', 'border-l', 'border-gray-800');
+      } else {
+        mainNav.classList.add('hidden');
+        mainNav.classList.remove('fixed', 'top-16', 'right-0', 'bg-gray-900/95', 'backdrop-blur-sm', 'w-64', 'h-screen', 'flex-col', 'p-6', 'space-y-4', 'border-l', 'border-gray-800');
       }
+    });
 
-      function openMobileNav() {
-        navToggle.classList.add('active');
-        mobileNav.classList.add('active');
-        mobileNavBackdrop.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        
-        // Add ARIA attributes for accessibility
-        navToggle.setAttribute('aria-expanded', 'true');
-        mobileNav.setAttribute('aria-hidden', 'false');
-      }
-
-      function closeMobileNav() {
-        navToggle.classList.remove('active');
-        mobileNav.classList.remove('active');
-        mobileNavBackdrop.classList.remove('active');
-        document.body.style.overflow = '';
-        
-        // Update ARIA attributes
-        navToggle.setAttribute('aria-expanded', 'false');
-        mobileNav.setAttribute('aria-hidden', 'true');
-      }
-
-      // Close mobile nav on window resize to desktop
-      let resizeTimer;
-      window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-          if (window.innerWidth >= 768 && mobileNav.classList.contains('active')) {
-            closeMobileNav();
-          }
-        }, 150);
-      });
-
-      // Initialize ARIA attributes
-      navToggle.setAttribute('aria-expanded', 'false');
-      navToggle.setAttribute('aria-controls', 'mobileNav');
-      navToggle.setAttribute('aria-label', 'Toggle mobile navigation');
-      mobileNav.setAttribute('aria-hidden', 'true');
-    }
-
-    // Copy to Clipboard Function with improved UX
+    // Copy to Clipboard Function
     function copyToClipboard(text) {
-      if (!navigator.clipboard) {
-        // Fallback for older browsers
-        const textArea = document.createElement('textarea');
-        textArea.value = text;
-        textArea.style.position = 'fixed';
-        textArea.style.left = '-999999px';
-        textArea.style.top = '-999999px';
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-        
-        try {
-          document.execCommand('copy');
-          showNotification('Copied successfully!', 'success');
-        } catch (err) {
-          showNotification('Failed to copy', 'error');
-        } finally {
-          document.body.removeChild(textArea);
-        }
-        return;
-      }
-
       navigator.clipboard.writeText(text).then(() => {
-        showNotification(`Copied: ${text}`, 'success');
+        showNotification(`Copied: ${text}`);
       }).catch(err => {
-        console.error('Failed to copy: ', err);
-        showNotification('Failed to copy', 'error');
+        console.error('Copy failed:', err);
+        showNotification('Copy failed. Please try again.', 'error');
       });
     }
 
-    // Show Notification Function
+    // Show Notification
     function showNotification(message, type = 'success') {
       const notification = document.getElementById('successNotification');
       const notificationText = document.getElementById('notificationText');
       
-      if (!notification || !notificationText) return;
-      
       notificationText.textContent = message;
       
-      // Change background color based on type
       if (type === 'error') {
-        notification.style.background = '#dc2626';
+        notification.style.background = '#ef4444';
       } else {
-        notification.style.background = 'var(--primary-green)';
+        notification.style.background = '#10b981';
       }
       
       notification.classList.add('show');
-      setTimeout(() => notification.classList.remove('show'), 3000);
+      
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 3000);
     }
 
-    // Smooth scrolling for anchor links
+    // Smooth Scroll for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -995,107 +627,14 @@
       });
     });
 
-    // Performance optimization: Lazy loading for images
-    if ('IntersectionObserver' in window) {
-      const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            if (img.dataset.src) {
-              img.src = img.dataset.src;
-              img.classList.remove('lazy');
-              imageObserver.unobserve(img);
-            }
-          }
-        });
-      });
-
-      document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
-      });
-    }
-
-    // Optimize animations based on user preference
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.documentElement.style.setProperty('--animation-duration', '0.01ms');
-    }
-
-    // Handle window resize for mobile optimization
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        // Mobile nav resize is handled in the mobile nav section above
-        // This is for other resize optimizations
-        if (window.innerWidth < 768) {
-          // Mobile optimizations
-          document.body.classList.add('mobile-view');
-        } else {
-          // Desktop optimizations
-          document.body.classList.remove('mobile-view');
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!navToggle.contains(e.target) && !mainNav.contains(e.target)) {
+        if (!mainNav.classList.contains('hidden')) {
+          mainNav.classList.add('hidden');
+          mainNav.classList.remove('fixed', 'top-16', 'right-0', 'bg-gray-900/95', 'backdrop-blur-sm', 'w-64', 'h-screen', 'flex-col', 'p-6', 'space-y-4', 'border-l', 'border-gray-800');
         }
-      }, 150);
-    });
-
-    // Initialize page
-    document.addEventListener('DOMContentLoaded', () => {
-      // Add loading state removal
-      document.body.classList.add('loaded');
-      
-      // Initialize performance optimizations
-      const cards = document.querySelectorAll('.card-hover');
-      cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-          this.style.willChange = 'transform';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-          this.style.willChange = 'auto';
-        });
-      });
-      
-      console.log('VIN NESIA Donation Page loaded successfully');
-    });
-
-    // Service Worker registration for better caching (optional)
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then(registration => {
-            console.log('SW registered: ', registration);
-          })
-          .catch(registrationError => {
-            console.log('SW registration failed: ', registrationError);
-          });
-      });
-    }
-
-    // Add hover effects for better UX
-    const buttons = document.querySelectorAll('.btn-copy, .btn-primary');
-    buttons.forEach(button => {
-      button.addEventListener('mouseenter', function() {
-        this.style.willChange = 'transform';
-      });
-      
-      button.addEventListener('mouseleave', function() {
-        this.style.willChange = 'auto';
-      });
-    });
-
-    // Enhanced FAQ functionality
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-      const summary = item.querySelector('summary');
-      summary.addEventListener('click', function(e) {
-        // Close other FAQ items when one is opened (accordion style)
-        if (!item.hasAttribute('open')) {
-          faqItems.forEach(otherItem => {
-            if (otherItem !== item && otherItem.hasAttribute('open')) {
-              otherItem.removeAttribute('open');
-            }
-          });
-        }
-      });
+      }
     });
   </script>
 </body>
