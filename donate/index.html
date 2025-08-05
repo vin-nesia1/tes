@@ -23,6 +23,8 @@
   <link rel="icon" href="../favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
   <link rel="manifest" href="../manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -70,6 +72,7 @@
     .card-hover {
       transition: all 0.3s ease;
       border: 1px solid var(--border-color);
+      will-change: transform;
     }
 
     .card-hover:hover {
@@ -87,11 +90,33 @@
       transition: all 0.3s ease;
       border: none;
       cursor: pointer;
+      will-change: transform;
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 20px rgba(251, 191, 36, 0.3);
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: white;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      will-change: transform;
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+      background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
     }
 
     .btn-copy {
@@ -104,6 +129,7 @@
       transition: all 0.2s ease;
       border: none;
       cursor: pointer;
+      will-change: transform;
     }
 
     .btn-copy:hover {
@@ -118,6 +144,7 @@
       padding: 20px;
       margin-bottom: 16px;
       transition: all 0.3s ease;
+      will-change: transform;
     }
 
     .donation-method:hover {
@@ -141,6 +168,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      transition: background-color 0.2s ease;
+    }
+
+    .faq-item summary:hover {
+      background-color: #334155;
     }
 
     .faq-item summary::-webkit-details-marker {
@@ -176,21 +208,173 @@
       transform: translateX(100%);
       transition: transform 0.3s ease;
       z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     .success-notification.show {
       transform: translateX(0);
     }
 
+    /* Mobile Navigation */
+    .nav-hamburger {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 6px;
+      transition: background-color 0.2s ease;
+    }
+
+    .nav-hamburger:hover {
+      background-color: rgba(124, 58, 237, 0.1);
+    }
+
+    .nav-hamburger span {
+      width: 24px;
+      height: 2px;
+      background: #7c3aed;
+      margin: 3px 0;
+      transition: 0.3s;
+      border-radius: 2px;
+    }
+
+    .nav-hamburger.active span:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .nav-hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-hamburger.active span:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    .mobile-nav {
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: rgba(15, 23, 42, 0.98);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-color);
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+      z-index: 40;
+      max-height: calc(100vh - 64px);
+      overflow-y: auto;
+    }
+
+    .mobile-nav.active {
+      transform: translateY(0);
+    }
+
+    .mobile-nav-item {
+      display: block;
+      padding: 16px 24px;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-color);
+      transition: all 0.2s ease;
+    }
+
+    .mobile-nav-item:hover {
+      background-color: var(--card-dark);
+      color: var(--primary-green);
+      padding-left: 32px;
+    }
+
+    .mobile-nav-item:last-child {
+      border-bottom: none;
+    }
+
+    /* Contact WhatsApp Button */
+    .contact-whatsapp {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: white;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 32px rgba(37, 211, 102, 0.3);
+      transition: all 0.3s ease;
+      z-index: 50;
+      will-change: transform;
+    }
+
+    .contact-whatsapp:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 40px rgba(37, 211, 102, 0.4);
+    }
+
+    /* Responsive optimizations */
     @media (max-width: 768px) {
       .donation-methods-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      
+      .hero-gradient {
+        padding: 48px 16px;
+      }
+      
+      .hero-gradient h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-gradient p {
+        font-size: 1rem;
+      }
+      
+      .donation-method {
+        padding: 16px;
+      }
+      
+      .contact-whatsapp {
+        bottom: 16px;
+        right: 16px;
+        width: 48px;
+        height: 48px;
       }
     }
 
     @media (min-width: 769px) {
       .donation-methods-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .donation-methods-grid {
+        gap: 32px;
+      }
+    }
+
+    /* Performance optimizations */
+    .img-optimized {
+      will-change: auto;
+      transform: translateZ(0);
+    }
+
+    /* Reduce animations on mobile for better performance */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-gradient {
+        animation: none;
+      }
+      
+      .card-hover:hover {
+        transform: none;
+      }
+      
+      .btn-primary:hover,
+      .btn-whatsapp:hover {
+        transform: none;
       }
     }
   </style>
@@ -207,17 +391,21 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center gap-3">
-          <img src="../logo.png" alt="VIN NESIA Logo" class="h-10 w-10 rounded-lg shadow-lg">
+          <img src="../logo.png" alt="VIN NESIA Logo" class="h-10 w-10 rounded-lg shadow-lg img-optimized">
           <span class="text-2xl font-bold text-yellow-400">VIN NESIA</span>
         </div>
         
-        <button class="md:hidden flex flex-col gap-1 p-2" id="navToggle" aria-label="Toggle navigation">
-          <span class="w-6 h-0.5 bg-purple-500 rounded transition-all"></span>
-          <span class="w-6 h-0.5 bg-purple-500 rounded transition-all"></span>
-          <span class="w-6 h-0.5 bg-purple-500 rounded transition-all"></span>
-        </button>
+        <!-- Mobile Navigation Toggle -->
+        <div class="md:hidden">
+          <div class="nav-hamburger" id="navToggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
 
-        <nav id="mainNav" class="hidden md:flex items-center gap-6">
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-6">
           <a href="../" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-lg transition-colors">Home</a>
           <a href="../tools" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-lg transition-colors">All Tools</a>
           <a href="../blog" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-lg transition-colors">Blog</a>
@@ -228,6 +416,17 @@
         </nav>
       </div>
     </div>
+
+    <!-- Mobile Navigation Menu -->
+    <nav id="mobileNav" class="mobile-nav">
+      <a href="../" class="mobile-nav-item">🏠 Home</a>
+      <a href="../tools" class="mobile-nav-item">🛠️ All Tools</a>
+      <a href="../blog" class="mobile-nav-item">📝 Blog</a>
+      <a href="../about" class="mobile-nav-item">ℹ️ About Us</a>
+      <a href="../user-guide" class="mobile-nav-item">📖 User Guide</a>
+      <a href="../how-to-use" class="mobile-nav-item">❓ How to Use</a>
+      <a href="../faq" class="mobile-nav-item">❓ FAQ</a>
+    </nav>
   </header>
 
   <!-- Main Content -->
@@ -438,16 +637,16 @@
         </div>
 
         <!-- Contact Section -->
-        <div class="text-center mt-16 p-8 bg-gray-900/50 rounded-lg">
-          <h3 class="text-2xl font-bold text-white mb-4">Need Help?</h3>
-          <p class="text-gray-400 mb-6">
-            If you have any questions about the donation process or need assistance, feel free to contact us directly via WhatsApp.
+        <div class="text-center mt-16">
+          <h3 class="text-2xl font-semibold text-white mb-4">Ready to Donate?</h3>
+          <p class="text-gray-400 mb-6 max-w-2xl mx-auto">
+            Contact us via WhatsApp to confirm your donation or if you need assistance with the donation process.
           </p>
-          <a href="https://wa.me/62895354511777" target="_blank" class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg transition-colors">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.031-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.174.198-.347.297-.521.099-.174-.148-.297-.347-.446-.25-.149-.674-.391-.926-1.465-.189-.773-.326-1.349-.297-1.532.03-.184.114-.391.242-.605.128-.214.258-.373.442-.518.186-.149.446-.197.701-.197h.15c.161 0 .306.044.435.133.501.348 1.037 1.074 1.202 1.258.164.184.173.391.117.606-.056.214-.373.773-.452 1.017-.079.236-.026.465.07.598.104.133.296.297.558.446.751.341 1.489.682 2.126.935.649.259 1.15.417 1.459.561.308.145.614.204.875.204.307 0 .605-.074.85-.23.245-.156.43-.37.548-.608.117-.237.185-.472.235-.706.05-.233.081-.456.081-.682 0-.742-.373-1.373-1.055-1.863-.69-.489-1.686-.749-2.73-.749-1.99 0-3.614 1.257-3.614 2.803 0 .645.233 1.243.614 1.702.383.46.872.703 1.406.703.304 0 .593-.064.85-.183.257-.12.497-.258.703-.428.033-.024.066-.05.099-.074.256-.125.538-.193.825-.193.416 0 .773.13 1.058.389.285.259.43.604.43.956 0 .752-.512 1.374-1.207 1.865-.691.489-1.686.749-2.73.749zm-10.863-4.979c-.918-.005-1.668-.75-1.668-1.668 0-.918.75-1.667 1.668-1.667.916 0 1.668.75 1.668 1.667 0 .918-.75 1.663-1.668 1.668zm13.962 1.883c-1.077 0-2.12-.257-3.043-.749-.924-.492-1.667-1.216-2.305-2.005-.639-.789-1.054-1.745-1.223-2.705-.169-.96-.027-1.925.472-2.749.5-.824 1.203-1.412 2.005-1.623.802-.211 1.686-.134 2.54.211.854.345 1.583.994 2.028 1.826.446.832.702 1.734.702 2.698 0 1.066-.272 2.073-.752 2.95-.48.877-1.181 1.582-2.034 2.116z"/>
+          <a href="https://wa.me/62895354511777?text=Hello, I would like to make a donation to VIN NESIA. Please assist me with the process. Thank you!" target="_blank" class="btn-whatsapp">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.031-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.174.198-.347.297-.521.099-.174.05-.347-.025-.521-.075-.198-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
             </svg>
-            Contact Us on WhatsApp
+            Contact via WhatsApp
           </a>
         </div>
       </div>
@@ -483,15 +682,34 @@
             </div>
           </details>
           <details class="faq-item">
-            <summary>Do I need to notify you after making a donation?</summary>
+            <summary>Is there a minimum donation amount?</summary>
             <div class="faq-content">
-              <p>It's not required but appreciated! You can send us a message via WhatsApp to let us know about your donation so we can thank you personally.</p>
+              <p>No, there is no minimum donation amount. Every contribution, no matter how small, is greatly appreciated and helps us maintain our free services.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Can I donate from outside Indonesia?</summary>
+            <div class="faq-content">
+              <p>Yes! We accept international donations through Wise, Remitly, WorldRemit, Western Union, and other international transfer services to our SeaBank account.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Will I receive a receipt for my donation?</summary>
+            <div class="faq-content">
+              <p>Yes, we will send you a confirmation receipt via WhatsApp or email once we receive your donation. This helps us keep track of our supporters.</p>
             </div>
           </details>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- Fixed WhatsApp Contact Button -->
+  <a href="https://wa.me/62895354511777?text=Hello, I would like to make a donation to VIN NESIA. Please assist me with the process. Thank you!" target="_blank" class="contact-whatsapp" aria-label="Contact via WhatsApp">
+    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.031-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.174.198-.347.297-.521.099-.174.05-.347-.025-.521-.075-.198-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+    </svg>
+  </a>
 
   <!-- Footer -->
   <footer class="bg-gray-900 border-t border-gray-800 py-8">
@@ -503,35 +721,176 @@
 
   <!-- JavaScript -->
   <script>
-    // Navigation Toggle
+    // Mobile Navigation Toggle
     const navToggle = document.getElementById('navToggle');
-    const mainNav = document.getElementById('mainNav');
-    if (navToggle && mainNav) {
-      navToggle.addEventListener('click', () => {
-        mainNav.classList.toggle('hidden');
-        navToggle.classList.toggle('active');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    if (navToggle && mobileNav) {
+      navToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+        mobileNav.classList.toggle('active');
+        
+        // Prevent body scroll when mobile nav is open
+        if (mobileNav.classList.contains('active')) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = '';
+        }
+      });
+
+      // Close mobile nav when clicking on nav items
+      const mobileNavItems = mobileNav.querySelectorAll('.mobile-nav-item');
+      mobileNavItems.forEach(item => {
+        item.addEventListener('click', () => {
+          navToggle.classList.remove('active');
+          mobileNav.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+
+      // Close mobile nav when clicking outside
+      document.addEventListener('click', function(event) {
+        if (!navToggle.contains(event.target) && !mobileNav.contains(event.target)) {
+          navToggle.classList.remove('active');
+          mobileNav.classList.remove('active');
+          document.body.style.overflow = '';
+        }
       });
     }
 
-    // Copy to Clipboard Function
+    // Copy to Clipboard Function with improved UX
     function copyToClipboard(text) {
+      if (!navigator.clipboard) {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        try {
+          document.execCommand('copy');
+          showNotification('Copied successfully!', 'success');
+        } catch (err) {
+          showNotification('Failed to copy', 'error');
+        } finally {
+          document.body.removeChild(textArea);
+        }
+        return;
+      }
+
       navigator.clipboard.writeText(text).then(() => {
-        const notification = document.getElementById('successNotification');
-        const notificationText = document.getElementById('notificationText');
-        notificationText.textContent = 'Copied successfully!';
-        notification.classList.add('show');
-        setTimeout(() => notification.classList.remove('show'), 3000);
-      }).catch(err => console.error('Failed to copy: ', err));
+        showNotification('Copied successfully!', 'success');
+      }).catch(err => {
+        console.error('Failed to copy: ', err);
+        showNotification('Failed to copy', 'error');
+      });
     }
 
     // Show Notification Function
-    function showNotification(message, type) {
+    function showNotification(message, type = 'success') {
       const notification = document.getElementById('successNotification');
       const notificationText = document.getElementById('notificationText');
+      
+      if (!notification || !notificationText) return;
+      
       notificationText.textContent = message;
+      
+      // Change background color based on type
+      if (type === 'error') {
+        notification.style.background = '#dc2626';
+      } else {
+        notification.style.background = 'var(--primary-green)';
+      }
+      
       notification.classList.add('show');
       setTimeout(() => notification.classList.remove('show'), 3000);
     }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Performance optimization: Lazy loading for images
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            img.classList.remove('lazy');
+            imageObserver.unobserve(img);
+          }
+        });
+      });
+
+      document.querySelectorAll('img[data-src]').forEach(img => {
+        imageObserver.observe(img);
+      });
+    }
+
+    // Optimize animations based on user preference
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.style.setProperty('--animation-duration', '0.01ms');
+    }
+
+    // Preload critical resources
+    function preloadResource(href, as) {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.href = href;
+      link.as = as;
+      document.head.appendChild(link);
+    }
+
+    // Service Worker registration for better caching (optional)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('SW registered: ', registration);
+          })
+          .catch(registrationError => {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+
+    // Handle window resize for mobile optimization
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        // Close mobile nav on resize to larger screen
+        if (window.innerWidth >= 768) {
+          navToggle.classList.remove('active');
+          mobileNav.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }, 150);
+    });
+
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', () => {
+      // Add loading state removal
+      document.body.classList.add('loaded');
+      
+      // Initialize any other components here
+      console.log('VIN NESIA Donation Page loaded successfully');
+    });
   </script>
 </body>
 </html>
