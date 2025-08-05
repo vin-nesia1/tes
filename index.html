@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-lang="metaTitle">VIN NESIA - Free & Professional Online Tools for Productivity</title>
-  <meta name="description" data-lang="metaDescription" content="VIN NESIA offers 6 free and professional online tools. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, and more for your productivity. Last updated: July 30, 2025, 01:31 AM WIB." />
+  <meta name="description" data-lang="metaDescription" content="VIN NESIA offers 6 free and professional online tools. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, and more for your productivity. Last updated: August 05, 2025, 06:23 PM WIB." />
   <meta name="robots" content="index, follow" />
   <meta name="keywords" content="online tools, QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, productivity, alat online, generator kode qr, kompres gambar, penghitung kata" />
 
@@ -63,7 +63,7 @@
       --text-main: #f1f1f5;
       --text-muted: #b5bacb;
       --border-radius: 1.1rem;
-      --transition: 0.2s cubic-bezier(.4,0,.2,1);
+      --transition: 0.3s cubic-bezier(.4,0,.2,1);
       --color-error: #ff4d4d;
       --color-success: #e34242;
     }
@@ -89,11 +89,24 @@
       100% { background-position: 100% 50%; }
     }
     .tool-card {
-      min-height: 200px;
+      min-height: 220px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       max-width: 100%;
+      border: 1px solid var(--primary-purple);
+      transition: transform var(--transition), box-shadow var(--transition), opacity 0.5s ease-in-out;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-in-out forwards;
+    }
+    .tool-card:hover, .tool-card:focus {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .tool-icon {
+      width: 48px;
+      height: 48px;
+      font-size: 24px;
     }
     .tool-desc {
       flex-grow: 1;
@@ -101,13 +114,16 @@
     }
     .popular-tools-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
+      padding: 1rem 0;
     }
-    @media (min-width: 768px) {
-      .popular-tools-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .pagination button {
+      transition: background-color var(--transition), color var(--transition);
     }
     .testimonial-slider {
       display: flex;
@@ -159,6 +175,26 @@
       border-radius: 9999px;
       padding: 0.5rem 1rem;
     }
+    .nav-toggle span {
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      transform-origin: center;
+    }
+    .nav-toggle.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+    .mobile-nav-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    .mobile-nav-menu.active {
+      transform: translateX(0);
+    }
   </style>
 </head>
 <body>
@@ -182,7 +218,7 @@
         <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
       </button>
     </div>
-    <nav id="mainNav" class="hidden sm:flex gap-4 sm:gap-6 items-center" role="navigation" aria-label="Main navigation">
+    <nav id="mainNav" class="sm:flex hidden gap-4 sm:gap-6 items-center" role="navigation" aria-label="Main navigation">
       <a href="/" class="font-medium text-white hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400 px-3 py-1.5 rounded-md" aria-current="page" data-lang="navHome">Home</a>
       <a href="/donate" class="font-medium text-white hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400 px-3 py-1.5 rounded-md" data-lang="navDonate">Donate</a>
       <a href="/tools" class="font-medium text-white hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400 px-3 py-1.5 rounded-md" aria-label="View all tools" data-lang="navAllTools">All Tools</a>
@@ -191,6 +227,16 @@
       <a href="/user-guide" class="font-medium text-white hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400 px-3 py-1.5 rounded-md" aria-label="User guide" data-lang="navUserGuide">User Guide</a>
     </nav>
   </header>
+  
+  <nav id="mobileNavMenu" class="mobile-nav-menu fixed top-16 right-0 bg-gray-800/95 w-3/4 max-w-xs h-screen flex flex-col p-4 shadow-lg z-40 sm:hidden" role="dialog" aria-modal="true" aria-labelledby="mobileNavLabel" tabindex="-1">
+    <h2 id="mobileNavLabel" class="sr-only">Mobile Navigation</h2>
+    <a href="/" class="font-medium text-white hover:text-red-400 focus:text-red-400 px-3 py-3 rounded-md" aria-current="page" data-lang="navHome">Home</a>
+    <a href="/donate" class="font-medium text-white hover:text-red-400 focus:text-red-400 px-3 py-3 rounded-md" data-lang="navDonate">Donate</a>
+    <a href="/tools" class="font-medium text-white hover:text-red-400 focus:text-red-400 px-3 py-3 rounded-md" aria-label="View all tools" data-lang="navAllTools">All Tools</a>
+    <a href="/blog" class="font-medium text-white hover:text-red-400 focus:text-red-400 px-3 py-3 rounded-md" aria-label="Read blog" data-lang="navBlog">Blog</a>
+    <a href="/about" class="font-medium text-white hover:text-red-400 focus:text-red-400 px-3 py-3 rounded-md" aria-label="About us" data-lang="navAbout">About Us</a>
+    <a href="/user-guide" class="font-medium text-white hover:text-red-400 focus:text-red-400 px-3 py-3 rounded-md" aria-label="User guide" data-lang="navUserGuide">User Guide</a>
+  </nav>
 
   <section class="hero py-16 sm:py-20 px-4 text-center text-white mb-10" role="region" aria-labelledby="hero-title">
     <h1 id="hero-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-red-400 mb-4" data-lang="heroTitle">VIN NESIA — One Portal, All Free Online Tools!</h1>
@@ -210,10 +256,10 @@
     </form>
   </div>
 
-  <section class="popular-tools-section max-w-6xl mx-auto px-4 mb-10" aria-labelledby="popular-tools-title">
-    <h2 id="popular-tools-title" class="text-2xl sm:text-3xl font-semibold text-red-500 text-center mb-6" data-lang="popularToolsTitle">📈 Today's Popular Tools</h2>
+  <section class="popular-tools-section max-w-6xl mx-auto px-4 mb-12" aria-labelledby="popular-tools-title">
+    <h2 id="popular-tools-title" class="text-2xl sm:text-3xl font-semibold text-red-500 text-center mb-8" data-lang="popularToolsTitle">📈 Today's Popular Tools</h2>
     <div class="popular-tools-grid grid gap-6" id="popularToolsGrid" role="list" aria-live="polite"></div>
-    <nav class="pagination flex justify-center gap-2 mt-6 flex-wrap" id="popularToolsPagination" aria-label="Popular tools page navigation"></nav>
+    <nav class="pagination flex justify-center gap-3 mt-8 flex-wrap" id="popularToolsPagination" aria-label="Popular tools page navigation"></nav>
   </section>
 
   <section class="newsletter max-w-md mx-auto px-4 mb-12 bg-gray-800 rounded-xl p-6 shadow-lg text-center" aria-labelledby="newsletter-title">
@@ -278,8 +324,8 @@
       🚀 Discover your favorite online tools at VIN NESIA – Fast, Free, and Practical!
     </div>
     <div class="footer-main max-w-6xl mx-auto px-4 py-6 flex flex-wrap gap-6 justify-between">
-      <div class="footer-group min-w-[180px]">
-        <div class="footer-group-title font-semibold text-red-400 mb-2" data-lang="footerNavTitle">🧭 Navigation:</div>
+      <nav class="footer-group min-w-[180px]" aria-labelledby="footer-nav-title">
+        <h3 id="footer-nav-title" class="font-semibold text-red-400 mb-2" data-lang="footerNavTitle">🧭 Navigation:</h3>
         <div class="footer-links flex flex-col gap-2">
           <a href="/" class="text-purple-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="Home" data-lang="footerNavHome">Home</a>
           <a href="/donate" class="text-purple-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="Donate" data-lang="footerNavDonate">Donate</a>
@@ -288,31 +334,31 @@
           <a href="/about" class="text-purple-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="About Us" data-lang="footerNavAbout">About Us</a>
           <a href="/user-guide" class="text-purple-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="User Guide" data-lang="footerNavUserGuide">User Guide</a>
         </div>
-      </div>
-      <div class="footer-group min-w-[180px]">
-        <div class="footer-group-title font-semibold text-red-400 mb-2" data-lang="footerHelpTitle">📚 Help:</div>
+      </nav>
+      <nav class="footer-group min-w-[180px]" aria-labelledby="footer-help-title">
+        <h3 id="footer-help-title" class="font-semibold text-red-400 mb-2" data-lang="footerHelpTitle">📚 Help:</h3>
         <div class="footer-help flex flex-col gap-2">
           <a href="/how-to-use" class="text-purple-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="How to Use Tools" data-lang="footerHelpHowTo">How to Use Tools</a>
           <a href="/faq" class="text-purple-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="FAQ" data-lang="footerHelpFaq">FAQ</a>
           <a href="/contact" class="text-purple-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="Contact Us" data-lang="footerHelpContact">Contact Us</a>
         </div>
-      </div>
-      <div class="footer-group min-w-[180px]">
-        <div class="footer-group-title font-semibold text-red-400 mb-2" data-lang="footerLegalTitle">⚖️ Legal:</div>
+      </nav>
+      <nav class="footer-group min-w-[180px]" aria-labelledby="footer-legal-title">
+        <h3 id="footer-legal-title" class="font-semibold text-red-400 mb-2" data-lang="footerLegalTitle">⚖️ Legal:</h3>
         <div class="footer-legal flex flex-col gap-2">
           <a href="/privacy-policy" class="text-purple-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="Privacy Policy" data-lang="footerLegalPrivacy">Privacy Policy</a>
           <a href="/terms-of-service" class="text-purple-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="Terms of Service" data-lang="footerLegalTerms">Terms of Service</a>
           <a href="/sitemap" class="text-purple-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="Sitemap" data-lang="footerLegalSitemap">Sitemap</a>
         </div>
-      </div>
+      </nav>
       <div class="footer-group min-w-[180px]">
-        <div class="footer-group-title font-semibold text-red-400 mb-2" data-lang="footerEmailTitle">📧 Email:</div>
+        <h3 class="font-semibold text-red-400 mb-2" data-lang="footerEmailTitle">📧 Email:</h3>
         <div class="footer-contact flex flex-col gap-2 text-white">
           <a href="mailto:admin@vinnesia.my.id" class="text-red-400 underline" aria-label="Email admin">admin@vinnesia.my.id</a>
           <a href="mailto:support@vinnesia.my.id" class="text-red-400 underline" aria-label="Email support">support@vinnesia.my.id</a>
           <a href="mailto:privacy@vinnesia.my.id" class="text-red-400 underline" aria-label="Email privacy">privacy@vinnesia.my.id</a>
         </div>
-        <div class="footer-group-title font-semibold text-red-400 mt-4 mb-2" data-lang="footerSocialTitle">📱 Social Media:</div>
+        <h3 class="font-semibold text-red-400 mt-4 mb-2" data-lang="footerSocialTitle">📱 Social Media:</h3>
         <div class="footer-social flex gap-4 items-center">
           <a href="https://www.instagram.com/vin.nesia.id" class="text-red-400 hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400" aria-label="Follow VIN NESIA on Instagram" target="_blank" rel="noopener">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -338,11 +384,10 @@
   </footer>
 
   <script>
-    // Object containing translations
     const translations = {
       en: {
         metaTitle: "VIN NESIA - Free & Professional Online Tools for Productivity",
-        metaDescription: "VIN NESIA offers 6 free and professional online tools. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, and more for your productivity. Last updated: July 30, 2025, 01:31 AM WIB.",
+        metaDescription: "VIN NESIA offers 6 free and professional online tools. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, and more for your productivity. Last updated: August 05, 2025, 06:23 PM WIB.",
         ogTitle: "VIN NESIA - Free & Professional Online Tools for Productivity",
         ogDescription: "6 free online tools for daily productivity. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, and more.",
         ogLocale: "en_US",
@@ -420,7 +465,7 @@
       },
       id: {
         metaTitle: "VIN NESIA - Alat Online Gratis & Profesional untuk Produktivitas",
-        metaDescription: "VIN NESIA menawarkan 6 alat online gratis dan profesional. Generator Kode QR, Pembuat Kata Sandi, Kompresor Gambar, JSON Formatter, Penghitung Kata, dan lainnya untuk produktivitas Anda. Terakhir diperbarui: 30 Juli 2025, 01:31 WIB.",
+        metaDescription: "VIN NESIA menawarkan 6 alat online gratis dan profesional. Generator Kode QR, Pembuat Kata Sandi, Kompresor Gambar, JSON Formatter, Penghitung Kata, dan lainnya untuk produktivitas Anda. Terakhir diperbarui: 5 Agustus 2025, 18:23 WIB.",
         ogTitle: "VIN NESIA - Alat Online Gratis & Profesional untuk Produktivitas",
         ogDescription: "6 alat online gratis untuk produktivitas harian. Generator Kode QR, Pembuat Kata Sandi, Kompresor Gambar, JSON Formatter, dan lainnya.",
         ogLocale: "id_ID",
@@ -498,28 +543,31 @@
       }
     };
 
-    // Hamburger menu toggler with A11Y
+    const allToolsData = [
+      {iconHtml: '🔑', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #e34242 100%)', title: {en: 'Password Generator', id: 'Pembuat Kata Sandi'}, desc: {en: 'Create strong and secure passwords with full character options and ambiguous character filter.', id: 'Buat kata sandi yang kuat dan aman dengan opsi karakter lengkap dan filter karakter ambigu.'}, link: 'https://password.vinnesia.my.id/', category: 'security', keywords: 'password generator secure password pembuat kata sandi kata sandi aman'},
+      {iconHtml: '📸', iconStyle: 'background: linear-gradient(135deg, #1e1123 60%, #ffd700 100%)', title: {en: 'QR & Barcode Scanner', id: 'Pemindai QR & Barcode'}, desc: {en: 'Scan QR codes and barcodes directly from your browser camera or image files.', id: 'Pindai kode QR dan barcode langsung dari kamera browser atau file gambar Anda.'}, link: 'https://scan.vinnesia.my.id/', category: 'design-image', keywords: 'qr code scanner barcode scanner read qr code read barcode pindai qr kode batang'},
+      {iconHtml: '🗜️', iconStyle: 'background: linear-gradient(135deg, #e34242 65%, #ffd700 100%)', title: {en: 'Image Compressor', id: 'Kompresor Gambar'}, desc: {en: 'Compress and reduce image file size without losing visual quality.', id: 'Kompres dan kurangi ukuran file gambar tanpa kehilangan kualitas visual.'}, link: 'https://image.vinnesia.my.id/', category: 'design-image', keywords: 'image compressor compress image jpg png webp kompresor gambar kompres gambar jpg png webp'},
+      {iconHtml: '💱', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #e34242 100%)', title: {en: 'Currency Converter', id: 'Konverter Mata Uang'}, desc: {en: 'Convert world currencies with real-time rates & simple calculator.', id: 'Konversi mata uang dunia dengan nilai tukar real-time & kalkulator sederhana.'}, link: 'https://currency.vinnesia.my.id/', category: 'converter', keywords: 'currency converter currency conversion calculator konverter mata uang konversi kalkulator'},
+      {iconHtml: '🔲', iconStyle: 'background: linear-gradient(135deg, #ffd700 65%, #3e0c4a 100%)', title: {en: 'QR Code Generator', id: 'Generator Kode QR'}, desc: {en: 'Create free QR codes for links, text, files, and various needs.', id: 'Buat kode QR gratis untuk tautan, teks, file, dan berbagai kebutuhan.'}, link: 'https://qr.vinnesia.my.id/', category: 'design-image', keywords: 'qr code generator create barcode generator kode qr buat kode batang'},
+      {iconHtml: '🧩', iconStyle: 'background: linear-gradient(135deg, #e34242 60%, #ffd700 100%)', title: {en: 'JSON Formatter', id: 'JSON Formatter'}, desc: {en: 'Format, minify, and validate JSON online, easy & free.', id: 'Format, minify, dan validasi JSON secara online, mudah & gratis.'}, link: 'https://json.vinnesia.my.id/', category: 'text', keywords: 'json formatter json beautifier minifier validation json beautifier minifier validasi'}
+    ];
+
     const navToggle = document.getElementById('navToggle');
-    const mainNav = document.getElementById('mainNav');
-    if (navToggle && mainNav) {
+    const mobileNavMenu = document.getElementById('mobileNavMenu');
+    
+    if (navToggle && mobileNavMenu) {
       navToggle.addEventListener('click', function() {
         const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
         navToggle.setAttribute('aria-expanded', !isExpanded);
-        mainNav.classList.toggle('hidden');
-        mainNav.classList.toggle('flex', !isExpanded);
-        mainNav.classList.toggle('fixed', !isExpanded);
-        mainNav.classList.toggle('top-16', !isExpanded);
-        mainNav.classList.toggle('right-0', !isExpanded);
-        mainNav.classList.toggle('bg-gray-800/95', !isExpanded);
-        mainNav.classList.toggle('w-3/4', !isExpanded);
-        mainNav.classList.toggle('max-w-xs', !isExpanded);
-        mainNav.classList.toggle('h-screen', !isExpanded);
-        mainNav.classList.toggle('flex-col', !isExpanded);
-        mainNav.classList.toggle('p-4', !isExpanded);
+        navToggle.classList.toggle('active', !isExpanded);
+        mobileNavMenu.classList.toggle('active', !isExpanded);
+        
+        if (!isExpanded) {
+          mobileNavMenu.focus();
+        }
       });
     }
 
-    // Language Switcher
     const langSwitcher = document.getElementById('langSwitcher');
     const currentLangEl = document.getElementById('currentLang');
     let currentLang = 'en';
@@ -531,7 +579,6 @@
         document.documentElement.lang = lang;
         localStorage.setItem('lang', lang);
 
-        // Update all elements with data-lang attribute
         document.querySelectorAll('[data-lang]').forEach(el => {
           const key = el.getAttribute('data-lang');
           if (translations[lang][key]) {
@@ -545,7 +592,6 @@
           }
         });
 
-        // Update meta tags dynamically
         document.querySelector('title').textContent = translations[lang].metaTitle;
         document.querySelector('meta[name="description"]').content = translations[lang].metaDescription;
         document.querySelector('meta[property="og:title"]').content = translations[lang].ogTitle;
@@ -554,7 +600,6 @@
         document.querySelector('meta[name="twitter:title"]').content = translations[lang].twitterTitle;
         document.querySelector('meta[name="twitter:description"]').content = translations[lang].twitterDescription;
 
-        // Re-render tools with translated descriptions
         displayTools(popularToolsShuffled, currentPage);
       }
     }
@@ -563,24 +608,11 @@
       setLanguage(currentLang === 'en' ? 'id' : 'en');
     });
 
-    // Check for saved language preference
     const savedLang = localStorage.getItem('lang');
     if (savedLang) {
       setLanguage(savedLang);
     }
 
-
-    // Data for all tools (reduced to 6)
-    const allToolsData = [
-      {iconHtml: '🔑', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #e34242 100%)', title: {en: 'Password Generator', id: 'Pembuat Kata Sandi'}, desc: {en: 'Create strong and secure passwords with full character options and ambiguous character filter.', id: 'Buat kata sandi yang kuat dan aman dengan opsi karakter lengkap dan filter karakter ambigu.'}, link: 'https://password.vinnesia.my.id/', category: 'security', keywords: 'password generator secure password pembuat kata sandi kata sandi aman'},
-      {iconHtml: '📸', iconStyle: 'background: linear-gradient(135deg, #1e1123 60%, #ffd700 100%)', title: {en: 'QR & Barcode Scanner', id: 'Pemindai QR & Barcode'}, desc: {en: 'Scan QR codes and barcodes directly from your browser camera or image files.', id: 'Pindai kode QR dan barcode langsung dari kamera browser atau file gambar Anda.'}, link: 'https://scan.vinnesia.my.id/', category: 'design-image', keywords: 'qr code scanner barcode scanner read qr code read barcode pindai qr kode batang'},
-      {iconHtml: '🗜️', iconStyle: 'background: linear-gradient(135deg, #e34242 65%, #ffd700 100%)', title: {en: 'Image Compressor', id: 'Kompresor Gambar'}, desc: {en: 'Compress and reduce image file size without losing visual quality.', id: 'Kompres dan kurangi ukuran file gambar tanpa kehilangan kualitas visual.'}, link: 'https://image.vinnesia.my.id/', category: 'design-image', keywords: 'image compressor compress image jpg png webp kompresor gambar kompres gambar jpg png webp'},
-      {iconHtml: '💱', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #e34242 100%)', title: {en: 'Currency Converter', id: 'Konverter Mata Uang'}, desc: {en: 'Convert world currencies with real-time rates & simple calculator.', id: 'Konversi mata uang dunia dengan nilai tukar real-time & kalkulator sederhana.'}, link: 'https://currency.vinnesia.my.id/', category: 'converter', keywords: 'currency converter currency conversion calculator konverter mata uang konversi kalkulator'},
-      {iconHtml: '🔲', iconStyle: 'background: linear-gradient(135deg, #ffd700 65%, #3e0c4a 100%)', title: {en: 'QR Code Generator', id: 'Generator Kode QR'}, desc: {en: 'Create free QR codes for links, text, files, and various needs.', id: 'Buat kode QR gratis untuk tautan, teks, file, dan berbagai kebutuhan.'}, link: 'https://qr.vinnesia.my.id/', category: 'design-image', keywords: 'qr code generator create barcode generator kode qr buat kode batang'},
-      {iconHtml: '🧩', iconStyle: 'background: linear-gradient(135deg, #e34242 60%, #ffd700 100%)', title: {en: 'JSON Formatter', id: 'JSON Formatter'}, desc: {en: 'Format, minify, and validate JSON online, easy & free.', id: 'Format, minify, dan validasi JSON secara online, mudah & gratis.'}, link: 'https://json.vinnesia.my.id/', category: 'text', keywords: 'json formatter json beautifier minifier validation json beautifier minifier validasi'}
-    ];
-
-    // Shuffle function
     const shuffleArray = (array) => {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -595,22 +627,22 @@
     let currentPage = 1;
     let popularToolsShuffled = [];
 
-    // Persist currentPage in sessionStorage to maintain state on refresh
     if (sessionStorage.getItem('currentPage')) {
       currentPage = parseInt(sessionStorage.getItem('currentPage'));
     }
 
-    const createToolCard = (tool) => {
+    const createToolCard = (tool, index) => {
       const card = document.createElement('div');
-      card.className = 'tool-card bg-gray-700 rounded-lg p-4 shadow-md hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105 transition max-w-full';
+      card.className = 'tool-card bg-gray-700 rounded-lg p-5 shadow-md hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105 transition max-w-full';
       card.setAttribute('data-keywords', tool.keywords);
       card.setAttribute('tabindex', '0');
       card.setAttribute('role', 'listitem');
+      card.style.animationDelay = `${index * 0.1}s`;
       card.innerHTML = `
-        <div class="tool-icon w-10 h-10 rounded-lg flex items-center justify-center text-white text-xl mb-3" style="${tool.iconStyle}" aria-hidden="true">${tool.iconHtml}</div>
-        <h3 class="tool-title font-semibold text-lg text-red-400 line-clamp-2">${tool.title[currentLang]}</h3>
-        <p class="tool-desc text-sm text-gray-400 line-clamp-3">${tool.desc[currentLang]}</p>
-        <a class="tool-link text-red-400 text-sm font-medium mt-2 inline-flex items-center hover:text-yellow-400 focus:text-yellow-400 focus:outline focus:outline-2 focus:outline-red-400" href="${tool.link}" target="_blank" rel="noopener" aria-label="Open ${tool.title[currentLang]}">${translations[currentLang].toolLink}</a>
+        <div class="tool-icon w-12 h-12 rounded-lg flex items-center justify-center text-white text-2xl mb-4" style="${tool.iconStyle}" aria-hidden="true">${tool.iconHtml}</div>
+        <h3 class="tool-title font-semibold text-xl text-red-400 line-clamp-2">${tool.title[currentLang]}</h3>
+        <p class="tool-desc text-sm text-gray-400 line-clamp-3 mt-2">${tool.desc[currentLang]}</p>
+        <a class="tool-link text-red-400 text-sm font-medium mt-4 inline-flex items-center hover:text-yellow-400 focus:text-yellow-400 focus:outline focus:outline-2 focus:outline-red-400" href="${tool.link}" target="_blank" rel="noopener" aria-label="Open ${tool.title[currentLang]}">${translations[currentLang].toolLink}</a>
       `;
       return card;
     };
@@ -625,8 +657,8 @@
       const end = start + itemsPerPage;
       const paginatedTools = tools.slice(start, end);
 
-      paginatedTools.forEach(tool => {
-        popularToolsGrid.appendChild(createToolCard(tool));
+      paginatedTools.forEach((tool, index) => {
+        popularToolsGrid.appendChild(createToolCard(tool, index));
       });
     };
 
@@ -642,7 +674,7 @@
 
       const prevButton = document.createElement('button');
       prevButton.textContent = translations[currentLang].prevButton;
-      prevButton.className = 'bg-gray-800 text-red-400 border border-purple-500 px-4 py-2 rounded-md hover:bg-purple-500 hover:text-white focus:outline focus:outline-2 focus:outline-red-400 min-w-[44px]';
+      prevButton.className = 'bg-gray-800 text-red-400 border border-purple-500 px-4 py-2 rounded-full hover:bg-purple-500 hover:text-white focus:outline focus:outline-2 focus:outline-red-400 min-w-[48px]';
       prevButton.setAttribute('aria-label', translations[currentLang].prevButton + ' page');
       prevButton.disabled = currentPage === 1;
       prevButton.addEventListener('click', () => {
@@ -659,8 +691,9 @@
       for (let i = 1; i <= pageCount; i++) {
         const button = document.createElement('button');
         button.textContent = i;
-        button.className = `bg-gray-800 text-red-400 border border-purple-500 px-4 py-2 rounded-md hover:bg-purple-500 hover:text-white focus:outline focus:outline-2 focus:outline-red-400 min-w-[44px] ${i === currentPage ? 'bg-red-400 text-gray-900' : ''}`;
+        button.className = `bg-gray-800 text-red-400 border border-purple-500 px-4 py-2 rounded-full hover:bg-purple-500 hover:text-white focus:outline focus:outline-2 focus:outline-red-400 min-w-[48px] ${i === currentPage ? 'bg-red-400 text-gray-900' : ''}`;
         button.setAttribute('aria-label', `Page ${i}`);
+        button.setAttribute('aria-current', i === currentPage ? 'page' : 'false');
         button.addEventListener('click', () => {
           currentPage = i;
           sessionStorage.setItem('currentPage', currentPage);
@@ -673,7 +706,7 @@
 
       const nextButton = document.createElement('button');
       nextButton.textContent = translations[currentLang].nextButton;
-      nextButton.className = 'bg-gray-800 text-red-400 border border-purple-500 px-4 py-2 rounded-md hover:bg-purple-500 hover:text-white focus:outline focus:outline-2 focus:outline-red-400 min-w-[44px]';
+      nextButton.className = 'bg-gray-800 text-red-400 border border-purple-500 px-4 py-2 rounded-full hover:bg-purple-500 hover:text-white focus:outline focus:outline-2 focus:outline-red-400 min-w-[48px]';
       nextButton.setAttribute('aria-label', translations[currentLang].nextButton + ' page');
       nextButton.disabled = currentPage === pageCount;
       nextButton.addEventListener('click', () => {
@@ -706,11 +739,11 @@
           button.classList.toggle('text-gray-900', pageNum === currentPage);
           button.classList.toggle('bg-gray-800', pageNum !== currentPage);
           button.classList.toggle('text-red-400', pageNum !== currentPage);
+          button.setAttribute('aria-current', pageNum === currentPage ? 'page' : 'false');
         }
       });
     };
 
-    // Testimonial Slider Navigation
     const setupTestimonialSlider = () => {
       const slider = document.getElementById('testimonialSlider');
       const prevButton = document.getElementById('prevTestimonial');
@@ -721,12 +754,11 @@
       let currentIndex = 0;
 
       const updateSlider = () => {
-        const itemWidth = items[0].offsetWidth + 16; // Including gap
-        slider.scrollLeft = currentIndex * itemWidth; // Set the scroll position directly
+        const itemWidth = items[0].offsetWidth + 16;
+        slider.scrollLeft = currentIndex * itemWidth;
         prevButton.disabled = currentIndex === 0;
-        nextButton.disabled = currentIndex >= items.length - Math.floor(slider.offsetWidth / itemWidth); // Logic to disable 'next' at the end
+        nextButton.disabled = currentIndex >= items.length - Math.floor(slider.offsetWidth / itemWidth);
         items.forEach((item, index) => {
-          // Hide items not in view for screen readers
           item.setAttribute('aria-hidden', index < currentIndex || index >= currentIndex + Math.floor(slider.offsetWidth / itemWidth));
         });
       };
@@ -755,13 +787,12 @@
         }
       });
 
-      window.addEventListener('resize', updateSlider); // Recalculate on resize
-      updateSlider(); // Initial call
+      window.addEventListener('resize', updateSlider);
+      updateSlider();
     };
 
     document.addEventListener('DOMContentLoaded', () => {
-      // Initialize Popular Tools with state persistence
-      popularToolsShuffled = shuffleArray([...allToolsData]); // Shuffle once on load
+      popularToolsShuffled = shuffleArray([...allToolsData]);
       if (popularToolsGrid && popularToolsPagination) {
         displayTools(popularToolsShuffled, currentPage);
         setupPagination(popularToolsShuffled, popularToolsPagination);
@@ -769,7 +800,6 @@
         console.error('Required elements (popularToolsGrid or popularToolsPagination) not found');
       }
 
-      // Search functionality
       const searchInput = document.getElementById('searchInput');
       if (searchInput) {
         searchInput.addEventListener('input', function() {
@@ -778,7 +808,7 @@
             const text = `${tool.title.en} ${tool.title.id} ${tool.desc.en} ${tool.desc.id} ${tool.keywords}`.toLowerCase();
             return text.includes(q);
           });
-          currentPage = 1; // Reset to first page on search
+          currentPage = 1;
           sessionStorage.setItem('currentPage', currentPage);
           if (popularToolsGrid && popularToolsPagination) {
             displayTools(filteredPopularTools, currentPage);
@@ -787,7 +817,6 @@
         });
       }
 
-      // Newsletter form handling
       const newsletterForm = document.getElementById('newsletterForm');
       const newsletterEmail = document.getElementById('newsletterEmail');
       const newsletterMessage = document.getElementById('newsletterMessage');
@@ -811,7 +840,6 @@
         });
       }
 
-      // Cookie Consent Logic
       const cookieBanner = document.getElementById('cookie-consent-banner');
       const acceptCookiesBtn = document.getElementById('accept-cookies');
       if (cookieBanner && acceptCookiesBtn) {
@@ -825,10 +853,7 @@
         });
       }
 
-      // Initialize Testimonial Slider
       setupTestimonialSlider();
-
-      // Apply initial language based on preference
       setLanguage(localStorage.getItem('lang') || 'en');
     });
   </script>
