@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Support VIN NESIA’s free online tools with a voluntary donation via Wise, Remitly, WorldRemit, DSGPAY, Western Union, SeaBank, Dana, GoPay, or ShopeePay.">
+  <meta name="description" content="Support VIN NESIA's free online tools with a voluntary donation via Wise, Remitly, WorldRemit, DSGPAY, Western Union, SeaBank, Dana, GoPay, or ShopeePay.">
   <meta name="keywords" content="donate VIN NESIA, donation Indonesia, Wise, Remitly, WorldRemit, DSGPAY, Western Union, free online tools, Dana, GoPay, ShopeePay">
   <meta name="author" content="VIN NESIA">
   <meta name="robots" content="index, follow">
   <meta property="og:title" content="Donate - VIN NESIA">
-  <meta property="og:description" content="Support VIN NESIA’s free online tools with a voluntary donation via Wise, Remitly, WorldRemit, DSGPAY, Western Union, SeaBank, Dana, GoPay, or ShopeePay.">
+  <meta property="og:description" content="Support VIN NESIA's free online tools with a voluntary donation via Wise, Remitly, WorldRemit, DSGPAY, Western Union, SeaBank, Dana, GoPay, or ShopeePay.">
   <meta property="og:image" content="https://vinnesia.my.id/images/vin-nesia-banner.jpg">
   <meta property="og:url" content="https://vinnesia.my.id/donate">
   <meta property="og:type" content="website">
@@ -17,250 +17,765 @@
   <meta name="twitter:site" content="@VinNesiaID">
   <meta name="twitter:creator" content="@VinNesiaID">
   <meta name="twitter:title" content="Donate - VIN NESIA">
-  <meta name="twitter:description" content="Support VIN NESIA’s free online tools with a voluntary donation via Wise, Remitly, WorldRemit, DSGPAY, Western Union, SeaBank, Dana, GoPay, or ShopeePay.">
+  <meta name="twitter:description" content="Support VIN NESIA's free online tools with a voluntary donation via Wise, Remitly, WorldRemit, DSGPAY, Western Union, SeaBank, Dana, GoPay, or ShopeePay.">
   <meta name="twitter:image" content="https://vinnesia.my.id/images/vin-nesia-banner.jpg">
   <link rel="canonical" href="https://vinnesia.my.id/donate">
   <link rel="icon" href="../favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
   <link rel="manifest" href="../manifest.json">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
       --primary-purple: #7c3aed;
-      --primary-green: #42e39a;
-      --primary-gold: #ffd700;
-      --bg-dark: #181926;
-      --card-dark: #23253a;
-      --text-main: #f1f1f5;
-      --text-muted: #b5bacb;
-      --border-radius: 0.75rem;
-      --transition: 0.2s cubic-bezier(.4,0,.2,1);
+      --primary-green: #10b981;
+      --primary-gold: #fbbf24;
+      --bg-dark: #0f172a;
+      --card-dark: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
     }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     html, body {
       font-family: 'Poppins', sans-serif;
       background: var(--bg-dark);
       color: var(--text-main);
       scroll-behavior: smooth;
-      margin: 0;
-      padding: 0;
+      line-height: 1.6;
     }
-    .footer-cta {
-      background: linear-gradient(120deg, #7c3aed 0%, #42e39a 100%);
+
+    .gradient-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-green) 100%);
       background-size: 200% 200%;
-      animation: heroGradient 8s ease-in-out infinite alternate;
+      animation: gradientShift 8s ease-in-out infinite;
     }
-    @keyframes heroGradient { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
-    .donation-details li:hover { transform: translateX(5px); background: #2a2e4a; }
-    .cta-btn { animation: pulse 2s infinite; }
-    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-    .fade-in-up { animation: fadeInUp 1s ease-in; }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    @media (max-width: 640px) {
-      .footer-main { flex-direction: column; align-items: center; }
-      .footer-group { width: 100%; margin-bottom: 1rem; }
-      button#navToggle { display: flex; }
-      nav#mainNav { display: none; }
-      nav#mainNav.flex { display: flex; }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
-    @media (min-width: 641px) {
-      button#navToggle { display: none; }
-      nav#mainNav { display: flex; }
+
+    .card-hover {
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+    }
+
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border-color: var(--primary-green);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-gold) 0%, #f59e0b 100%);
+      color: #1f2937;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(251, 191, 36, 0.3);
+    }
+
+    .btn-copy {
+      background: var(--primary-green);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-copy:hover {
+      background: #059669;
+      transform: scale(1.05);
+    }
+
+    .donation-method {
+      background: var(--card-dark);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .donation-method:hover {
+      border-color: var(--primary-green);
+      background: #334155;
+    }
+
+    .form-input {
+      background: #334155;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 12px 16px;
+      border-radius: 8px;
+      width: 100%;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary-green);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+    }
+
+    .faq-item {
+      background: var(--card-dark);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+
+    .faq-item summary {
+      padding: 16px;
+      cursor: pointer;
+      font-weight: 500;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: '+';
+      font-size: 18px;
+      color: var(--primary-green);
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-content {
+      padding: 0 16px 16px 16px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+      background: #0f172a;
+    }
+
+    .success-notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--primary-green);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+    }
+
+    .success-notification.show {
+      transform: translateX(0);
+    }
+
+    @media (max-width: 768px) {
+      .donation-methods-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .donation-methods-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
+
 <body class="min-h-screen flex flex-col">
-  <header class="bg-gray-900/95 sticky top-0 z-50 px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 shadow-md border-b border-gray-800">
-    <div class="flex items-center gap-2">
-      <img src="../logo.png" alt="Logo VIN NESIA" class="h-10 w-10 rounded-lg shadow-md">
-      <span class="text-2xl sm:text-3xl font-bold text-yellow-400">VIN NESIA</span>
+  <!-- Success Notification -->
+  <div id="successNotification" class="success-notification">
+    <span id="notificationText">Copied successfully!</span>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-gray-900/95 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-3">
+          <img src="../logo.png" alt="VIN NESIA Logo" class="h-10 w-10 rounded-lg shadow-lg">
+          <span class="text-2xl font-bold text-yellow-400">VIN NESIA</span>
+        </div>
+        
+        <button class="md:hidden flex flex-col gap-1 p-2" id="navToggle" aria-label="Toggle navigation">
+          <span class="w-6 h-0.5 bg-purple-500 rounded transition-all"></span>
+          <span class="w-6 h-0.5 bg-purple-500 rounded transition-all"></span>
+          <span class="w-6 h-0.5 bg-purple-500 rounded transition-all"></span>
+        </button>
+
+        <nav id="mainNav" class="hidden md:flex items-center gap-6">
+          <a href="../" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-lg transition-colors">Home</a>
+          <a href="../tools" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-lg transition-colors">All Tools</a>
+          <a href="../blog" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-lg transition-colors">Blog</a>
+          <a href="../about" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-lg transition-colors">About Us</a>
+          <a href="../user-guide" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-lg transition-colors">User Guide</a>
+          <a href="../how-to-use" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-lg transition-colors">How to Use</a>
+          <a href="../faq" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-lg transition-colors">FAQ</a>
+        </nav>
+      </div>
     </div>
-    <button class="nav-toggle sm:hidden flex flex-col gap-1.5 p-2" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mainNav">
-      <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
-      <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
-      <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
-    </button>
-    <nav id="mainNav" class="hidden sm:flex gap-4 sm:gap-6 items-center">
-      <a href="../" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md">Home</a>
-      <a href="../tools" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md">All Tools</a>
-      <a href="../blog" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md">Blog</a>
-      <a href="../about" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md">About Us</a>
-      <a href="../user-guide" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md">User Guide</a>
-      <a href="../how-to-use" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md">How to Use</a>
-      <a href="../faq" class="font-medium text-white hover:text-green-400 focus:text-green-400 focus:outline focus:outline-2 focus:outline-green-400 px-3 py-1.5 rounded-md">FAQ</a>
-    </nav>
   </header>
 
-  <main class="flex-1 max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
-    <section class="text-center mb-8 fade-in-up">
-      <h1 class="text-3xl sm:text-4xl font-bold text-yellow-400 mb-4">Donate to VIN NESIA</h1>
-      <p class="text-gray-400 max-w-2xl mx-auto">Your voluntary support keeps our free online tools alive! Donations help cover hosting costs, domain maintenance, and new feature development. Every contribution matters!</p>
-    </section>
-
-    <section class="bg-card-dark p-6 rounded-xl shadow-lg mb-6 fade-in-up" aria-labelledby="international-donation">
-      <h2 id="international-donation" class="text-2xl font-semibold text-purple-500 mb-4">International Donors</h2>
-      <p class="text-gray-400 mb-4">Donate via <a href="https://wise.com" target="_blank" class="text-green-400 underline">Wise</a>, <a href="https://www.remitly.com" target="_blank" class="text-green-400 underline">Remitly</a>, <a href="https://www.worldremit.com" target="_blank" class="text-green-400 underline">WorldRemit</a>, <a href="https://www.dsgpay.com" target="_blank" class="text-green-400 underline">DSGPAY</a>, or <a href="https://www.westernunion.com" target="_blank" class="text-green-400 underline">Western Union</a>. Use these details:</p>
-      <ul class="donation-details grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-        <li class="p-4 rounded-lg bg-gray-800"><strong>SeaBank</strong><br>Name: Sultan Andrian Fahirza<br>Account: 901040922850 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('901040922850')">Copy</button><br>SWIFT: SEAAIDJA <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('SEAAIDJA')">Copy</button></li>
-        <li class="p-4 rounded-lg bg-gray-800"><strong>E-Wallets</strong><br>Name: Sultan Andrian Fahirza<br>Phone: +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('+62895354511777')">Copy</button><br>Options: Dana, GoPay, ShopeePay</li>
-        <li class="p-4 rounded-lg bg-gray-800 col-span-2"><strong>Western Union</strong><br>Name: Sultan Andrian Fahirza<br>Location: Indonesia<br>Contact: +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('+62895354511777')">Copy</button> for coordination</li>
-      </ul>
-      <p class="text-gray-400 mb-4">Payments arrive in 1-5 days (SeaBank) or instantly (e-wallets/Western Union cash pickup).</p>
-      <a href="../donation-guide" class="cta-btn inline-block bg-yellow-400 text-gray-900 font-bold px-4 py-2 rounded-md hover:bg-white">View Full Guide</a>
-
-      <div class="donation-form mt-6 bg-gray-800 p-4 rounded-xl">
-        <h3 class="text-xl font-semibold text-yellow-400 mb-4">Plan Your Donation</h3>
-        <div class="grid grid-cols-1 gap-4">
-          <input type="text" id="donor-name" placeholder="Your Name (Optional)" class="p-3 rounded-md bg-gray-700 text-white border-none focus:outline focus:outline-2 focus:outline-green-400">
-          <input type="number" id="donation-amount" placeholder="Amount (IDR)" min="1000" class="p-3 rounded-md bg-gray-700 text-white border-none focus:outline focus:outline-2 focus:outline-green-400">
-          <select id="donation-method" class="p-3 rounded-md bg-gray-700 text-white border-none focus:outline focus:outline-2 focus:outline-green-400">
-            <option value="wise">Wise</option>
-            <option value="remitly">Remitly</option>
-            <option value="worldremit">WorldRemit</option>
-            <option value="dsgpay">DSGPAY</option>
-            <option value="westernunion">Western Union</option>
-            <option value="direct">Direct (SeaBank/Dana/GoPay/ShopeePay)</option>
-          </select>
-          <button onclick="submitDonation()" class="bg-yellow-400 text-gray-900 font-bold px-4 py-2 rounded-md hover:bg-white">Submit Plan</button>
+  <!-- Main Content -->
+  <main class="flex-1">
+    <!-- Hero Section -->
+    <section class="hero-gradient text-center py-16 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Support VIN NESIA</h1>
+        <p class="text-xl text-gray-100 mb-8 max-w-2xl mx-auto">
+          Your voluntary support keeps our free online tools alive! Every donation helps us maintain our services and develop new features.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#donation-methods" class="btn-primary inline-flex items-center justify-center">
+            💝 Donate Now
+          </a>
+          <a href="../donation-guide" class="bg-white/10 text-white px-6 py-3 rounded-lg hover:bg-white/20 transition-colors">
+            📖 Read Guide
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="bg-card-dark p-6 rounded-xl shadow-lg mb-6 fade-in-up" aria-labelledby="domestic-donation">
-      <h2 id="domestic-donation" class="text-2xl font-semibold text-purple-500 mb-4">Domestic Donors</h2>
-      <p class="text-gray-400 mb-4">Donate via <a href="https://wise.com" target="_blank" class="text-green-400 underline">Wise</a>, <a href="https://www.remitly.com" target="_blank" class="text-green-400 underline">Remitly</a>, <a href="https://www.worldremit.com" target="_blank" class="text-green-400 underline">WorldRemit</a>, <a href="https://www.dsgpay.com" target="_blank" class="text-green-400 underline">DSGPAY</a>, <a href="https://www.westernunion.com" target="_blank" class="text-green-400 underline">Western Union</a>, or direct transfers to SeaBank/Dana/GoPay/ShopeePay.</p>
-      <ul class="donation-details grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-        <li class="p-4 rounded-lg bg-gray-800"><strong>SeaBank</strong><br>Name: Sultan Andrian Fahirza<br>Account: 901040922850 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('901040922850')">Copy</button></li>
-        <li class="p-4 rounded-lg bg-gray-800"><strong>E-Wallets</strong><br>Name: Sultan Andrian Fahirza<br>Phone: +62895354511777 <button class="copy-btn bg-yellow-400 text-gray-900 font-semibold px-2 py-1 rounded-md hover:bg-white ml-2" onclick="copyText('+62895354511777')">Copy</button><br>Options: Dana, GoPay, ShopeePay</li>
-      </ul>
-      <p class="text-gray-400 mb-4">E-wallet transfers are instant; SeaBank takes 1-5 days.</p>
-      <a href="../donation-guide" class="cta-btn inline-block bg-yellow-400 text-gray-900 font-bold px-4 py-2 rounded-md hover:bg-white">View Full Guide</a>
-
-      <div class="donation-form mt-6 bg-gray-800 p-4 rounded-xl">
-        <h3 class="text-xl font-semibold text-yellow-400 mb-4">Plan Your Donation</h3>
-        <div class="grid grid-cols-1 gap-4">
-          <input type="text" id="donor-name-domestic" placeholder="Your Name (Optional)" class="p-3 rounded-md bg-gray-700 text-white border-none focus:outline focus:outline-2 focus:outline-green-400">
-          <input type="number" id="donation-amount-domestic" placeholder="Amount (IDR)" min="1000" class="p-3 rounded-md bg-gray-700 text-white border-none focus:outline focus:outline-2 focus:outline-green-400">
-          <select id="donation-method-domestic" class="p-3 rounded-md bg-gray-700 text-white border-none focus:outline focus:outline-2 focus:outline-green-400">
-            <option value="wise">Wise</option>
-            <option value="remitly">Remitly</option>
-            <option value="worldremit">WorldRemit</option>
-            <option value="dsgpay">DSGPAY</option>
-            <option value="westernunion">Western Union</option>
-            <option value="direct">Direct (SeaBank/Dana/GoPay/ShopeePay)</option>
-          </select>
-          <button onclick="submitDonationDomestic()" class="bg-yellow-400 text-gray-900 font-bold px-4 py-2 rounded-md hover:bg-white">Submit Plan</button>
+    <!-- Donation Methods Section -->
+    <section id="donation-methods" class="py-16 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-white mb-4">Choose Your Donation Method</h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            We accept donations through various secure platforms. Choose the method that's most convenient for you.
+          </p>
         </div>
-      </div>
 
-      <div class="faq mt-6">
-        <h3 class="text-xl font-semibold text-yellow-400 mb-4">FAQs</h3>
-        <details class="mb-2">
-          <summary class="p-3 rounded-lg bg-gray-800">Is donating mandatory?</summary>
-          <div class="content p-3 bg-gray-700 rounded-lg text-gray-400">No, it’s voluntary to support our free tools.</div>
-        </details>
-        <details class="mb-2">
-          <summary class="p-3 rounded-lg bg-gray-800">Where do funds go?</summary>
-          <div class="content p-3 bg-gray-700 rounded-lg text-gray-400">To hosting, domain, and new feature development.</div>
-        </details>
-        <details class="mb-2">
-          <summary class="p-3 rounded-lg bg-gray-800">How secure is it?</summary>
-          <div class="content p-3 bg-gray-700 rounded-lg text-gray-400">Uses trusted platforms with HTTPS encryption.</div>
-        </details>
-        <details class="mb-2">
-          <summary class="p-3 rounded-lg bg-gray-800">Any amount?</summary>
-          <div class="content p-3 bg-gray-700 rounded-lg text-gray-400">Yes, every bit helps!</div>
-        </details>
+        <!-- International Donors -->
+        <div class="mb-16">
+          <h3 class="text-2xl font-semibold text-purple-400 mb-8 text-center">🌍 International Donors</h3>
+          
+          <div class="donation-methods-grid grid gap-6 mb-8">
+            <!-- SeaBank -->
+            <div class="donation-method card-hover">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                  <span class="text-white font-bold">SB</span>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-white">SeaBank Transfer</h4>
+                  <p class="text-gray-400 text-sm">International wire transfer (1-5 days)</p>
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-400">Account Name:</span>
+                  <span class="text-white font-medium">Sultan Andrian Fahirza</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-400">Account Number:</span>
+                  <div class="flex items-center gap-2">
+                    <span class="text-white font-mono">901040922850</span>
+                    <button class="btn-copy" onclick="copyToClipboard('901040922850')">Copy</button>
+                  </div>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-400">SWIFT Code:</span>
+                  <div class="flex items-center gap-2">
+                    <span class="text-white font-mono">SEAAIDJA</span>
+                    <button class="btn-copy" onclick="copyToClipboard('SEAAIDJA')">Copy</button>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-gray-600">
+                <p class="text-sm text-gray-400">
+                  💡 Recommended for: <a href="https://wise.com" target="_blank" class="text-green-400 hover:underline">Wise</a>, 
+                  <a href="https://www.remitly.com" target="_blank" class="text-green-400 hover:underline">Remitly</a>, 
+                  <a href="https://www.worldremit.com" target="_blank" class="text-green-400 hover:underline">WorldRemit</a>
+                </p>
+              </div>
+            </div>
+
+            <!-- E-Wallets -->
+            <div class="donation-method card-hover">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
+                  <span class="text-white font-bold">📱</span>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-white">Indonesian E-Wallets</h4>
+                  <p class="text-gray-400 text-sm">Instant transfer via local e-wallets</p>
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-400">Account Name:</span>
+                  <span class="text-white font-medium">Sultan Andrian Fahirza</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-400">Phone Number:</span>
+                  <div class="flex items-center gap-2">
+                    <span class="text-white font-mono">+62895354511777</span>
+                    <button class="btn-copy" onclick="copyToClipboard('+62895354511777')">Copy</button>
+                  </div>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Dana</span>
+                  <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">GoPay</span>
+                  <span class="bg-orange-600 text-white px-3 py-1 rounded-full text-sm">ShopeePay</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Western Union -->
+            <div class="donation-method card-hover" style="grid-column: 1 / -1;">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center">
+                  <span class="text-white font-bold">WU</span>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-white">Western Union</h4>
+                  <p class="text-gray-400 text-sm">Cash pickup available in Indonesia</p>
+                </div>
+              </div>
+              <div class="grid md:grid-cols-3 gap-4">
+                <div>
+                  <span class="text-gray-400 block mb-1">Recipient Name:</span>
+                  <span class="text-white font-medium">Sultan Andrian Fahirza</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 block mb-1">Country:</span>
+                  <span class="text-white font-medium">Indonesia</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 block mb-1">Contact Number:</span>
+                  <div class="flex items-center gap-2">
+                    <span class="text-white font-mono">+62895354511777</span>
+                    <button class="btn-copy" onclick="copyToClipboard('+62895354511777')">Copy</button>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 p-3 bg-yellow-900/20 border border-yellow-600 rounded-lg">
+                <p class="text-yellow-200 text-sm">
+                  ⚡ <strong>Instant:</strong> Send via <a href="https://www.westernunion.com" target="_blank" class="text-yellow-400 hover:underline">Western Union</a> for immediate cash pickup
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Domestic Donors -->
+        <div class="mb-16">
+          <h3 class="text-2xl font-semibold text-purple-400 mb-8 text-center">🇮🇩 Indonesian Donors</h3>
+          
+          <div class="donation-methods-grid grid gap-6">
+            <!-- Direct SeaBank -->
+            <div class="donation-method card-hover">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                  <span class="text-white font-bold">SB</span>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-white">SeaBank Direct</h4>
+                  <p class="text-gray-400 text-sm">Direct bank transfer (1-5 days)</p>
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-400">Account Name:</span>
+                  <span class="text-white font-medium">Sultan Andrian Fahirza</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-400">Account Number:</span>
+                  <div class="flex items-center gap-2">
+                    <span class="text-white font-mono">901040922850</span>
+                    <button class="btn-copy" onclick="copyToClipboard('901040922850')">Copy</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Direct E-Wallets -->
+            <div class="donation-method card-hover">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
+                  <span class="text-white font-bold">📱</span>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-white">E-Wallet Direct</h4>
+                  <p class="text-gray-400 text-sm">Instant transfer</p>
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-400">Account Name:</span>
+                  <span class="text-white font-medium">Sultan Andrian Fahirza</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-400">Phone Number:</span>
+                  <div class="flex items-center gap-2">
+                    <span class="text-white font-mono">+62895354511777</span>
+                    <button class="btn-copy" onclick="copyToClipboard('+62895354511777')">Copy</button>
+                  </div>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Dana</span>
+                  <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">GoPay</span>
+                  <span class="bg-orange-600 text-white px-3 py-1 rounded-full text-sm">ShopeePay</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Donation Planning Form -->
+        <div class="bg-gray-800 rounded-xl p-8 mb-16">
+          <h3 class="text-2xl font-semibold text-yellow-400 mb-6 text-center">📋 Plan Your Donation</h3>
+          <p class="text-gray-300 text-center mb-8">Fill out this form to get a summary that you can send to us for confirmation</p>
+          
+          <div class="form-grid grid gap-6">
+            <div>
+              <label class="block text-gray-300 mb-2 font-medium">Your Name (Optional)</label>
+              <input type="text" id="donorName" placeholder="Enter your name" class="form-input">
+            </div>
+            <div>
+              <label class="block text-gray-300 mb-2 font-medium">Donation Amount</label>
+              <input type="number" id="donationAmount" placeholder="Amount in IDR" min="1000" class="form-input">
+            </div>
+            <div>
+              <label class="block text-gray-300 mb-2 font-medium">Donation Method</label>
+              <select id="donationMethod" class="form-input">
+                <option value="wise">Wise Transfer</option>
+                <option value="remitly">Remitly</option>
+                <option value="worldremit">WorldRemit</option>
+                <option value="dsgpay">DSGPAY</option>
+                <option value="westernunion">Western Union</option>
+                <option value="seabank">SeaBank Direct</option>
+                <option value="dana">Dana</option>
+                <option value="gopay">GoPay</option>
+                <option value="shopeepay">ShopeePay</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-gray-300 mb-2 font-medium">Message (Optional)</label>
+              <textarea id="donationMessage" placeholder="Any message for us?" class="form-input" rows="3"></textarea>
+            </div>
+          </div>
+          
+          <div class="text-center mt-8">
+            <button onclick="generateDonationPlan()" class="btn-primary text-lg px-8 py-4">
+              📋 Generate Donation Plan
+            </button>
+          </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="mb-16">
+          <h3 class="text-2xl font-semibold text-yellow-400 mb-8 text-center">❓ Frequently Asked Questions</h3>
+          
+          <div class="max-w-4xl mx-auto space-y-4">
+            <details class="faq-item">
+              <summary>Is donating mandatory to use VIN NESIA tools?</summary>
+              <div class="faq-content">
+                <p>No, absolutely not! All our tools are completely free to use. Donations are entirely voluntary and help us maintain and improve our services.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>Where do the donated funds go?</summary>
+              <div class="faq-content">
+                <p>Your donations help us cover hosting costs, domain renewals, server maintenance, and development of new features. We're committed to keeping our tools free for everyone.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>How secure are these donation methods?</summary>
+              <div class="faq-content">
+                <p>All recommended platforms (Wise, Remitly, WorldRemit, etc.) use bank-level security with HTTPS encryption. We never store your payment information.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>Is there a minimum donation amount?</summary>
+              <div class="faq-content">
+                <p>There's no minimum amount! Every contribution, no matter how small, helps us keep the lights on. Even 1,000 IDR makes a difference.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>How will I know my donation was received?</summary>
+              <div class="faq-content">
+                <p>Send your donation confirmation to <strong>support@vinnesia.my.id</strong> or WhatsApp <strong>+62895354511777</strong>. We'll confirm receipt within 24 hours.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>Can I get a receipt for tax purposes?</summary>
+              <div class="faq-content">
+                <p>As we're not a registered charity organization, we can't provide tax-deductible receipts. However, we can provide a simple donation confirmation for your records.</p>
+              </div>
+            </details>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="bg-gray-900 border-t border-gray-800 text-gray-400 mt-auto">
-    <div class="footer-cta text-center py-4 px-4 rounded-b-3xl shadow-lg">
-      🚀 Support VIN NESIA’s free tools with a donation!
+  <!-- Footer -->
+  <footer class="bg-gray-900 border-t border-gray-800">
+    <div class="hero-gradient text-center py-6">
+      <p class="text-white font-medium">🚀 Support VIN NESIA's free tools with a donation!</p>
     </div>
-    <div class="footer-main max-w-6xl mx-auto px-4 py-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="footer-group">
-        <h4 class="font-semibold text-yellow-400 mb-2">Navigation</h4>
-        <ul class="space-y-2">
-          <li><a href="../" class="text-purple-400 hover:text-green-400">Home</a></li>
-          <li><a href="../tools" class="text-purple-400 hover:text-green-400">All Tools</a></li>
-          <li><a href="../blog" class="text-purple-400 hover:text-green-400">Blog</a></li>
-          <li><a href="../about" class="text-purple-400 hover:text-green-400">About Us</a></li>
-        </ul>
-      </div>
-      <div class="footer-group">
-        <h4 class="font-semibold text-yellow-400 mb-2">Help</h4>
-        <ul class="space-y-2">
-          <li><a href="../how-to-use" class="text-purple-400 hover:text-green-400">How to Use</a></li>
-          <li><a href="../user-guide" class="text-purple-400 hover:text-green-400">User Guide</a></li>
-          <li><a href="../faq" class="text-purple-400 hover:text-green-400">FAQ</a></li>
-          <li><a href="../contact" class="text-purple-400 hover:text-green-400">Contact Us</a></li>
-        </ul>
-      </div>
-      <div class="footer-group">
-        <h4 class="font-semibold text-yellow-400 mb-2">Legal</h4>
-        <ul class="space-y-2">
-          <li><a href="../privacy" class="text-purple-400 hover:text-green-400">Privacy Policy</a></li>
-          <li><a href="../terms" class="text-purple-400 hover:text-green-400">Terms of Service</a></li>
-          <li><a href="../sitemap" class="text-purple-400 hover:text-green-400">Sitemap</a></li>
-        </ul>
-      </div>
-      <div class="footer-group">
-        <h4 class="font-semibold text-yellow-400 mb-2">Contact</h4>
-        <ul class="space-y-2">
-          <li><a href="mailto:admin@vinnesia.my.id" class="text-green-400 underline">admin@vinnesia.my.id</a></li>
-          <li><a href="mailto:support@vinnesia.my.id" class="text-green-400 underline">support@vinnesia.my.id</a></li>
-          <li><a href="mailto:privacy@vinnesia.my.id" class="text-green-400 underline">privacy@vinnesia.my.id</a></li>
-        </ul>
-        <h4 class="font-semibold text-yellow-400 mt-4 mb-2">Social</h4>
-        <div class="flex gap-4">
-          <a href="https://instagram.com/vin.nesia.id" class="text-yellow-400 hover:text-green-400" target="_blank" rel="noopener">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37a4 4 0 1 1-4.63-4.63 4 4 0 0 1 4.63 4.63z"/><circle cx="17.5" cy="6.5" r="1"/></svg>
-          </a>
-          <a href="https://wa.me/+62895354511777" class="text-yellow-400 hover:text-green-400" target="_blank" rel="noopener">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 12A9.5 9.5 0 1 1 12 2.5a9.5 9.5 0 0 1 9.5 9.5z"/><path d="M12 22c-2.21 0-4.27-.72-5.94-1.97l-3.05.82.81-3.04A9.5 9.5 0 1 1 12 22z"/><path d="M16.29 14.12c-.18-.09-1.07-.53-1.24-.59-.17-.06-.29-.09-.41.09-.12.18-.47.58-.58.70-.11.12-.22.13-.40.04-.18-.09-.76-.28-1.44-.89-.53-.47-.88-1.05-.98-1.23-.10-.18-.01-.28.08-.37.09-.09.18-.22.27-.33.09-.11.12-.18.18-.30.06-.12.03-.23-.02-.32-.06-.09-.41-.98-.56-1.34-.15-.36-.30-.31-.41-.32-.11-.01-.23-.01-.36-.01-.12 0-.31.05-.47.23-.16.18-.62.61-.62 1.50 0 .89.63 1.74.71 1.86.09.12 1.25 2.02 3.13 2.76.44.15.79.23 1.06.29.45.10.86.08 1.18.05.36-.03 1.07-.44 1.22-.87.15-.43.15-.79.10-.87z"/></svg>
-          </a>
+
+    <div class="max-w-6xl mx-auto px-4 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <h4 class="font-semibold text-yellow-400 mb-4">Navigation</h4>
+          <ul class="space-y-2">
+            <li><a href="../" class="text-gray-400 hover:text-green-400 transition-colors">Home</a></li>
+            <li><a href="../tools" class="text-gray-400 hover:text-green-400 transition-colors">All Tools</a></li>
+            <li><a href="../blog" class="text-gray-400 hover:text-green-400 transition-colors">Blog</a></li>
+            <li><a href="../about" class="text-gray-400 hover:text-green-400 transition-colors">About Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-yellow-400 mb-4">Help & Support</h4>
+          <ul class="space-y-2">
+            <li><a href="../how-to-use" class="text-gray-400 hover:text-green-400 transition-colors">How to Use</a></li>
+            <li><a href="../user-guide" class="text-gray-400 hover:text-green-400 transition-colors">User Guide</a></li>
+            <li><a href="../faq" class="text-gray-400 hover:text-green-400 transition-colors">FAQ</a></li>
+            <li><a href="../contact" class="text-gray-400 hover:text-green-400 transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-yellow-400 mb-4">Legal</h4>
+          <ul class="space-y-2">
+            <li><a href="../privacy" class="text-gray-400 hover:text-green-400 transition-colors">Privacy Policy</a></li>
+            <li><a href="../terms" class="text-gray-400 hover:text-green-400 transition-colors">Terms of Service</a></li>
+            <li><a href="../sitemap" class="text-gray-400 hover:text-green-400 transition-colors">Sitemap</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-yellow-400 mb-4">Contact</h4>
+          <ul class="space-y-2">
+            <li><a href="mailto:admin@vinnesia.my.id" class="text-green-400 hover:text-green-300 transition-colors">admin@vinnesia.my.id</a></li>
+            <li><a href="mailto:support@vinnesia.my.id" class="text-green-400 hover:text-green-300 transition-colors">support@vinnesia.my.id</a></li>
+            <li><a href="mailto:privacy@vinnesia.my.id" class="text-green-400 hover:text-green-300 transition-colors">privacy@vinnesia.my.id</a></li>
+          </ul>
+          
+          <h4 class="font-semibold text-yellow-400 mt-6 mb-4">Social Media</h4>
+          <div class="flex gap-4">
+            <a href="https://instagram.com/vin.nesia.id" class="text-gray-400 hover:text-pink-400 transition-colors" target="_blank" rel="noopener">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <path d="M16 11.37a4 4 0 1 1-4.63-4.63 4 4 0 0 1 4.63 4.63z"/>
+                <circle cx="17.5" cy="6.5" r="1"/>
+              </svg>
+            </a>
+            <a href="https://wa.me/+62895354511777" class="text-gray-400 hover:text-green-400 transition-colors" target="_blank" rel="noopener">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 9 9z"/>
+                <path d="M8.5 14.5L12 12l3.5 2.5"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="footer-copy text-center text-sm py-4 bg-gray-950">
-      © 2025 <span class="text-yellow-400 font-bold">VIN NESIA</span>. All rights reserved. Built with <span class="text-red-400">❤️</span>.
+
+    <div class="bg-gray-950 text-center py-4 px-4">
+      <p class="text-gray-400">
+        © 2025 <span class="text-yellow-400 font-bold">VIN NESIA</span>. All rights reserved. Built with <span class="text-red-400">❤️</span> in Indonesia.
+      </p>
     </div>
   </footer>
 
   <script>
-    function copyText(text) { navigator.clipboard.writeText(text).then(() => alert('Copied: ' + text)).catch(err => console.error('Copy failed:', err)); }
-    function submitDonation() {
-      const name = document.getElementById('donor-name').value || 'Anonymous';
-      const amount = document.getElementById('donation-amount').value;
-      const method = document.getElementById('donation-method').value;
-      const message = `Donation Plan\nName: ${name}\nAmount: IDR ${amount}\nMethod: ${method}\nSend confirmation to support@vinnesia.my.id or +62895354511777.`;
-      navigator.clipboard.writeText(message).then(() => alert('Plan copied! Send confirmation to support@vinnesia.my.id or WhatsApp.'));
-    }
-    function submitDonationDomestic() {
-      const name = document.getElementById('donor-name-domestic').value || 'Anonymous';
-      const amount = document.getElementById('donation-amount-domestic').value;
-      const method = document.getElementById('donation-method-domestic').value;
-      const message = `Donation Plan\nName: ${name}\nAmount: IDR ${amount}\nMethod: ${method}\nSend confirmation to support@vinnesia.my.id or +62895354511777.`;
-      navigator.clipboard.writeText(message).then(() => alert('Plan copied! Send confirmation to support@vinnesia.my.id or WhatsApp.'));
-    }
+    // Mobile Navigation Toggle
     const navToggle = document.getElementById('navToggle');
     const mainNav = document.getElementById('mainNav');
+
     navToggle.addEventListener('click', () => {
-      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', !isExpanded);
-      mainNav.classList.toggle('hidden');
-      mainNav.classList.toggle('flex', !isExpanded);
-      mainNav.classList.toggle('fixed', !isExpanded);
-      mainNav.classList.toggle('top-16', !isExpanded);
-      mainNav.classList.toggle('right-0', !isExpanded);
-      mainNav.classList.toggle('bg-gray-800/95', !isExpanded);
-      mainNav.classList.toggle('w-3/4', !isExpanded);
-      mainNav.classList.toggle('max-w-xs', !isExpanded);
-      mainNav.classList.toggle('h-screen', !isExpanded);
-      mainNav.classList.toggle('flex-col', !isExpanded);
-      mainNav.classList.toggle('p-4', !isExpanded);
+      const isHidden = mainNav.classList.contains('hidden');
+      
+      if (isHidden) {
+        mainNav.classList.remove('hidden');
+        mainNav.classList.add('fixed', 'top-16', 'right-0', 'bg-gray-900/95', 'backdrop-blur-sm', 'w-64', 'h-screen', 'flex-col', 'p-6', 'space-y-4', 'border-l', 'border-gray-800');
+      } else {
+        mainNav.classList.add('hidden');
+        mainNav.classList.remove('fixed', 'top-16', 'right-0', 'bg-gray-900/95', 'backdrop-blur-sm', 'w-64', 'h-screen', 'flex-col', 'p-6', 'space-y-4', 'border-l', 'border-gray-800');
+      }
+    });
+
+    // Copy to Clipboard Function
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showNotification(`Copied: ${text}`);
+      }).catch(err => {
+        console.error('Copy failed:', err);
+        showNotification('Copy failed. Please try again.', 'error');
+      });
+    }
+
+    // Show Notification
+    function showNotification(message, type = 'success') {
+      const notification = document.getElementById('successNotification');
+      const notificationText = document.getElementById('notificationText');
+      
+      notificationText.textContent = message;
+      
+      if (type === 'error') {
+        notification.style.background = '#ef4444';
+      } else {
+        notification.style.background = '#10b981';
+      }
+      
+      notification.classList.add('show');
+      
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 3000);
+    }
+
+    // Generate Donation Plan
+    function generateDonationPlan() {
+      const name = document.getElementById('donorName').value || 'Anonymous';
+      const amount = document.getElementById('donationAmount').value;
+      const method = document.getElementById('donationMethod').value;
+      const message = document.getElementById('donationMessage').value;
+
+      if (!amount || amount < 1000) {
+        showNotification('Please enter a valid donation amount (minimum 1,000 IDR)', 'error');
+        return;
+      }
+
+      const methodNames = {
+        'wise': 'Wise Transfer',
+        'remitly': 'Remitly',
+        'worldremit': 'WorldRemit',
+        'dsgpay': 'DSGPAY',
+        'westernunion': 'Western Union',
+        'seabank': 'SeaBank Direct Transfer',
+        'dana': 'Dana E-Wallet',
+        'gopay': 'GoPay E-Wallet',
+        'shopeepay': 'ShopeePay E-Wallet'
+      };
+
+      const donationPlan = `DONATION PLAN - VIN NESIA
+
+👤 Donor Name: ${name}
+💰 Amount: IDR ${parseInt(amount).toLocaleString('id-ID')}
+🔄 Method: ${methodNames[method]}
+💬 Message: ${message || 'No additional message'}
+
+📧 Send confirmation to: support@vinnesia.my.id
+📱 WhatsApp: +62895354511777
+
+Thank you for supporting VIN NESIA! 🙏
+
+---
+Generated on: ${new Date().toLocaleString('id-ID')}`;
+
+      navigator.clipboard.writeText(donationPlan).then(() => {
+        showNotification('Donation plan copied! Please send it to our support team.');
+        
+        // Clear form
+        document.getElementById('donorName').value = '';
+        document.getElementById('donationAmount').value = '';
+        document.getElementById('donationMessage').value = '';
+      }).catch(err => {
+        console.error('Copy failed:', err);
+        showNotification('Failed to copy. Please try again.', 'error');
+      });
+    }
+
+    // Smooth Scroll for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!navToggle.contains(e.target) && !mainNav.contains(e.target)) {
+        if (!mainNav.classList.contains('hidden')) {
+          mainNav.classList.add('hidden');
+          mainNav.classList.remove('fixed', 'top-16', 'right-0', 'bg-gray-900/95', 'backdrop-blur-sm', 'w-64', 'h-screen', 'flex-col', 'p-6', 'space-y-4', 'border-l', 'border-gray-800');
+        }
+      }
+    });
+
+    // Add loading animation for forms
+    const formInputs = document.querySelectorAll('.form-input');
+    formInputs.forEach(input => {
+      input.addEventListener('focus', function() {
+        this.style.transform = 'scale(1.02)';
+      });
+      
+      input.addEventListener('blur', function() {
+        this.style.transform = 'scale(1)';
+      });
+    });
+
+    // Format number input for donation amount
+    const amountInputs = document.querySelectorAll('#donationAmount');
+    amountInputs.forEach(input => {
+      input.addEventListener('input', function() {
+        let value = this.value.replace(/[^\d]/g, '');
+        if (value) {
+          this.value = parseInt(value).toLocaleString('id-ID');
+        }
+      });
+      
+      input.addEventListener('blur', function() {
+        let value = this.value.replace(/[^\d]/g, '');
+        this.value = value;
+      });
     });
   </script>
 </body>
