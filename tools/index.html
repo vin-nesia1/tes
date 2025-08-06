@@ -9,7 +9,7 @@
     <meta name="robots" content="index, follow">
     <meta name="author" content="Vinnesia">
     <link rel="canonical" href="https://www.vinnesia.my.id/tools">
-    
+
     <!-- Open Graph Tags -->
     <meta property="og:title" content="All Tools - Vinnesia | Complete Online Tools Collection">
     <meta property="og:description" content="Discover all powerful online tools at Vinnesia - Password Generator, QR Code, Image Tools, Currency Converter, JSON Formatter, and many more SEO & developer tools.">
@@ -20,7 +20,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
-    
+
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="All Tools - Vinnesia | Complete Online Tools Collection">
@@ -28,19 +28,19 @@
     <meta name="twitter:image" content="https://www.vinnesia.my.id/assets/images/vinnesia-tools-twitter.jpg">
     <meta name="twitter:site" content="@vinnesia">
     <meta name="twitter:creator" content="@vinnesia">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
     {
@@ -79,14 +79,14 @@
         }
     }
     </script>
-    
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 35%, #0f3460 100%);
@@ -96,13 +96,13 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         /* Header */
         .header {
             background: rgba(0, 0, 0, 0.2);
@@ -113,27 +113,27 @@
             top: 0;
             z-index: 1000;
         }
-        
+
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: relative;
         }
-        
+
         .logo-container {
             display: flex;
             align-items: center;
             gap: 12px;
         }
-        
+
         .logo-img {
             width: 40px;
             height: 40px;
             border-radius: 8px;
             object-fit: cover;
         }
-        
+
         .logo {
             font-size: 28px;
             font-weight: 700;
@@ -143,12 +143,12 @@
             background-clip: text;
             text-decoration: none;
         }
-        
+
         .nav {
             display: flex;
             gap: 30px;
         }
-        
+
         .nav a {
             color: #ffffff;
             text-decoration: none;
@@ -156,7 +156,7 @@
             transition: color 0.3s ease;
             position: relative;
         }
-        
+
         .nav a::after {
             content: '';
             position: absolute;
@@ -168,26 +168,26 @@
             transition: all 0.3s ease;
             transform: translateX(-50%);
         }
-        
+
         .nav a:hover {
             color: #06ffa5;
         }
-        
+
         .nav a:hover::after {
             width: 100%;
         }
-        
+
         /* Main Content */
         .main {
             padding: 60px 0;
             flex-grow: 1;
         }
-        
+
         .hero {
             text-align: center;
             margin-bottom: 60px;
         }
-        
+
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 700;
@@ -197,14 +197,14 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
         .hero p {
             font-size: 1.2rem;
             color: #cccccc;
             max-width: 700px;
             margin: 0 auto;
         }
-        
+
         /* Tools Grid */
         .tools-grid {
             display: grid;
@@ -212,21 +212,21 @@
             gap: 20px;
             margin-bottom: 40px;
         }
-        
+
         @media (min-width: 768px) {
             .tools-grid {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 25px;
             }
         }
-        
+
         @media (min-width: 1200px) {
             .tools-grid {
                 grid-template-columns: repeat(4, 1fr);
                 gap: 30px;
             }
         }
-        
+
         .tool-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -244,7 +244,7 @@
             flex-direction: column;
             justify-content: center;
         }
-        
+
         .tool-card::before {
             content: '';
             position: absolute;
@@ -255,18 +255,18 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
             transition: left 0.5s ease;
         }
-        
+
         .tool-card:hover::before {
             left: 100%;
         }
-        
+
         .tool-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(157, 78, 221, 0.3);
             border-color: rgba(6, 255, 165, 0.5);
             background: rgba(255, 255, 255, 0.08);
         }
-        
+
         .tool-icon {
             font-size: 2.5rem;
             margin-bottom: 15px;
@@ -276,20 +276,60 @@
             background-clip: text;
             filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
         }
-        
+
         .tool-card h3 {
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 8px;
             color: #ffffff;
         }
-        
+
         .tool-card p {
             color: #cccccc;
             font-size: 0.85rem;
             line-height: 1.4;
         }
-        
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .pagination-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .pagination-btn:hover:not(:disabled) {
+            background: linear-gradient(45deg, #9d4edd, #06ffa5);
+            border-color: #06ffa5;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(157, 78, 221, 0.3);
+        }
+
+        .pagination-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .page-info {
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
         /* Footer */
         .footer {
             background: #111111;
@@ -297,20 +337,20 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             margin-top: auto;
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 40px;
             margin-bottom: 40px;
         }
-        
+
         @media (min-width: 768px) {
             .footer-content {
                 grid-template-columns: repeat(4, 1fr);
             }
         }
-        
+
         .footer-section h4 {
             color: #ffffff;
             font-size: 1.1rem;
@@ -320,33 +360,33 @@
             align-items: center;
             gap: 8px;
         }
-        
+
         .footer-section ul {
             list-style: none;
         }
-        
+
         .footer-section ul li {
             margin-bottom: 12px;
         }
-        
+
         .footer-section ul li a {
             color: #cccccc;
             text-decoration: none;
             transition: all 0.3s ease;
             display: inline-block;
         }
-        
+
         .footer-section ul li a:hover {
             color: #06ffa5;
             transform: translateX(5px);
         }
-        
+
         .social-icons {
             display: flex;
             gap: 15px;
             margin-top: 15px;
         }
-        
+
         .social-icons a {
             display: flex;
             align-items: center;
@@ -360,87 +400,87 @@
             transition: all 0.3s ease;
             font-size: 1.2rem;
         }
-        
+
         .social-icons a:hover {
             background: linear-gradient(45deg, #9d4edd, #06ffa5);
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(157, 78, 221, 0.3);
         }
-        
+
         .footer-bottom {
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #999999;
         }
-        
+
         /* Mobile Responsive */
         @media (max-width: 767px) {
             .nav {
                 display: none;
             }
-            
+
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
+
             .hero p {
                 font-size: 1rem;
                 padding: 0 10px;
             }
-            
+
             .tool-card {
                 padding: 20px 15px;
                 min-height: 180px;
             }
-            
+
             .tool-icon {
                 font-size: 2.2rem;
                 margin-bottom: 12px;
             }
-            
+
             .tool-card h3 {
                 font-size: 1rem;
             }
-            
+
             .tool-card p {
                 font-size: 0.8rem;
             }
-            
+
             .pagination-btn {
                 padding: 8px 12px;
                 font-size: 0.9rem;
             }
-            
+
             .social-icons {
                 justify-content: center;
             }
         }
-        
+
         @media (min-width: 1200px) {
             .hero h1 {
                 font-size: 4rem;
             }
-            
+
             .hero p {
                 font-size: 1.3rem;
             }
-            
+
             .tool-card {
                 padding: 30px 20px;
                 min-height: 220px;
             }
-            
+
             .tool-icon {
                 font-size: 3rem;
                 margin-bottom: 20px;
             }
-            
+
             .tool-card h3 {
                 font-size: 1.2rem;
                 margin-bottom: 10px;
             }
-            
+
             .tool-card p {
                 font-size: 0.9rem;
             }
@@ -474,7 +514,7 @@
             </section>
 
             <section class="tools-grid-container">
-                <!-- Bagian ini telah diubah menjadi HTML statis sesuai permintaan -->
+                <!-- Daftar tools statis -->
                 <div class="tools-grid" id="toolsGrid">
                     <a href="https://password.vinnesia.my.id" class="tool-card" target="_blank" rel="noopener noreferrer">
                         <div class="tool-icon">🔐</div>
@@ -562,8 +602,11 @@
                         <p>Create favicons and app icons in multiple formats</p>
                     </a>
                 </div>
+                <!-- Pagination Buttons -->
                 <div class="pagination" id="pagination">
-                    <!-- Pagination dihapus, jadi tidak ada tombol paginasi di sini -->
+                    <button id="prevBtn" class="pagination-btn" disabled>Previous</button>
+                    <span id="pageInfo" class="page-info"></span>
+                    <button id="nextBtn" class="pagination-btn">Next</button>
                 </div>
             </section>
         </div>
@@ -583,7 +626,7 @@
                         <li><a href="../user-guide">User Guide</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>📚 Help</h4>
                     <ul>
@@ -592,7 +635,7 @@
                         <li><a href="../contact">Contact</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>⚖️ Legal</h4>
                     <ul>
@@ -601,7 +644,7 @@
                         <li><a href="../sitemap">Sitemap</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>📧 Contact</h4>
                     <ul>
@@ -609,7 +652,7 @@
                         <li><a href="mailto:support@vinnesia.my.id">support@vinnesia.my.id</a></li>
                         <li><a href="mailto:privacy@vinnesia.my.id">privacy@vinnesia.my.id</a></li>
                     </ul>
-                    
+
                     <h4 style="margin-top: 30px;">📱 Social Media</h4>
                     <div class="social-icons">
                         <a href="#" target="_blank" title="Instagram">
@@ -627,17 +670,76 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 Vinnesia. All rights reserved.</p>
             </div>
         </div>
     </footer>
-    
+
     <!-- Script lainnya yang tidak terkait dengan tools tetap dipertahankan -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Hamburger menu logic
+            // Logika untuk paginasi tools statis
+            const toolsGrid = document.getElementById('toolsGrid');
+            const toolCards = toolsGrid.querySelectorAll('.tool-card');
+            const pagination = document.getElementById('pagination');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const pageInfo = document.getElementById('pageInfo');
+            
+            const itemsPerPage = 8;
+            let currentPage = 1;
+            
+            // Hitung total halaman berdasarkan jumlah tool
+            const totalItems = toolCards.length;
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+            // Fungsi untuk menampilkan tools di halaman tertentu
+            function displayTools(page) {
+                // Sembunyikan semua tools
+                toolCards.forEach(card => card.style.display = 'none');
+                
+                // Tentukan tools mana yang harus ditampilkan
+                const start = (page - 1) * itemsPerPage;
+                const end = start + itemsPerPage;
+                
+                // Tampilkan tools yang sesuai
+                for (let i = start; i < end && i < totalItems; i++) {
+                    toolCards[i].style.display = 'flex';
+                }
+            }
+
+            // Fungsi untuk memperbarui status tombol dan info halaman
+            function updatePagination() {
+                pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+                prevBtn.disabled = currentPage === 1;
+                nextBtn.disabled = currentPage === totalPages;
+            }
+
+            // Event listener untuk tombol "Previous"
+            prevBtn.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    displayTools(currentPage);
+                    updatePagination();
+                }
+            });
+
+            // Event listener untuk tombol "Next"
+            nextBtn.addEventListener('click', () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    displayTools(currentPage);
+                    updatePagination();
+                }
+            });
+
+            // Inisialisasi tampilan tools dan paginasi saat halaman dimuat
+            displayTools(currentPage);
+            updatePagination();
+
+            // Hamburger menu logic (dari skrip asli)
             const hamburger = document.getElementById('hamburger');
             const navMenu = document.getElementById('navMenu');
             if (hamburger && navMenu) {
