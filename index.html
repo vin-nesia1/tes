@@ -227,9 +227,20 @@
   <section class="hero py-16 sm:py-20 px-4 text-center text-white mb-10" role="region" aria-labelledby="hero-title">
     <h1 id="hero-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-red-400 mb-4" data-lang="heroTitle">VIN NESIA — One Portal, All Free Online Tools!</h1>
     <p class="text-lg sm:text-xl max-w-2xl mx-auto mb-6" data-lang="heroDescription">Discover 6 free and professional tools to boost your daily productivity.</p>
-    <a href="/tools" aria-label="Explore all tools">
-      <button class="bg-gradient-to-r from-purple-900 to-red-600 text-gray-100 font-bold py-3 px-8 rounded-full shadow-lg hover:from-red-600 hover:to-purple-900 focus:outline focus:outline-2 focus:outline-yellow-400 transform hover:-translate-y-0.5 focus:-translate-y-0.5 transition" data-lang="heroButton">Explore Tools</button>
-    </a>
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+      <a href="/tools" aria-label="Explore all tools">
+        <button class="bg-gradient-to-r from-purple-900 to-red-600 text-gray-100 font-bold py-3 px-8 rounded-full shadow-lg hover:from-red-600 hover:to-purple-900 focus:outline focus:outline-2 focus:outline-yellow-400 transform hover:-translate-y-0.5 focus:-translate-y-0.5 transition" data-lang="heroButton">Explore Tools</button>
+      </a>
+      <a href="donate" aria-label="Donate to support us">
+        <button class="bg-gradient-to-r from-purple-900 to-red-600 text-gray-100 font-bold py-3 px-8 rounded-full shadow-lg hover:from-red-600 hover:to-purple-900 focus:outline focus:outline-2 focus:outline-yellow-400 transform hover:-translate-y-0.5 focus:-translate-y-0.5 transition" data-lang="heroDonateButton">Donate</button>
+      </a>
+    </div>
+    <p class="text-sm mt-4 max-w-lg mx-auto text-gray-300">
+      Dukungan Anda membantu kami terus mengembangkan dan menyediakan alat-alat gratis ini untuk semua. Terima kasih atas kedermawanan Anda.
+    </p>
+    <p class="text-sm max-w-lg mx-auto text-gray-300">
+      Your support helps us to keep developing and providing these free tools for everyone. Thank you for your generosity.
+    </p>
   </section>
 
   <div class="search-section flex justify-center -mt-10 mb-10 px-4" role="search" aria-label="Search tools">
@@ -307,7 +318,7 @@
 
   <footer class="bg-gray-900 border-t-2 border-gray-800 text-gray-400 mt-12" role="contentinfo">
     <div class="footer-cta bg-gradient-to-r from-red-500 to-purple-900 text-gray-100 font-bold text-center py-6 px-4 rounded-b-3xl shadow-lg" data-lang="footerCta">
-      🚀 Discover your favorite online tools at VIN NESIA – Fast, Free, and Practical!
+      🚀 Temukan alat online favorit Anda di VIN NESIA – Cepat, Gratis, dan Praktis!
     </div>
     <div class="max-w-6xl mx-auto px-4 py-12">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
@@ -338,32 +349,32 @@
         </div>
         
         <nav class="footer-group" aria-labelledby="footer-nav-title">
-          <h3 id="footer-nav-title" class="font-semibold text-red-400 mb-4" data-lang="footerNavTitle">🧭 Navigation</h3>
+          <h3 id="footer-nav-title" class="font-semibold text-red-400 mb-4" data-lang="footerNavTitle">🧭 Navigasi</h3>
           <div class="flex flex-col gap-3">
-            <a href="/" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="Home" data-lang="footerNavHome">Home</a>
-            <a href="/donate" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="Donate" data-lang="footerNavDonate">Donate</a>
-            <a href="/tools" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="All Tools" data-lang="footerNavAllTools">All Tools</a>
+            <a href="/" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="Home" data-lang="footerNavHome">Beranda</a>
+            <a href="/donate" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="Donate" data-lang="footerNavDonate">Donasi</a>
+            <a href="/tools" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="All Tools" data-lang="footerNavAllTools">Semua Alat</a>
             <a href="/blog" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="Blog" data-lang="footerNavBlog">Blog</a>
-            <a href="/about" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="About Us" data-lang="footerNavAbout">About Us</a>
+            <a href="/about" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="About Us" data-lang="footerNavAbout">Tentang Kami</a>
           </div>
         </nav>
         
         <div class="footer-group">
           <nav class="mb-8" aria-labelledby="footer-help-title">
-            <h3 id="footer-help-title" class="font-semibold text-red-400 mb-4" data-lang="footerHelpTitle">📚 Help</h3>
+            <h3 id="footer-help-title" class="font-semibold text-red-400 mb-4" data-lang="footerHelpTitle">📚 Bantuan</h3>
             <div class="flex flex-col gap-3">
-              <a href="how-to-use" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="How to Use Tools" data-lang="footerHelpHowTo">How to Use Tools</a>
-              <a href="faq" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="FAQ" data-lang="footerHelpFaq">FAQ</a>
-              <a href="contact" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="Contact Us" data-lang="footerHelpContact">Contact Us</a>
+              <a href="/how-to-use" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="How to Use Tools" data-lang="footerHelpHowTo">Cara Menggunakan Alat</a>
+              <a href="/faq" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="FAQ" data-lang="footerHelpFaq">FAQ</a>
+              <a href="/contact" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="Contact Us" data-lang="footerHelpContact">Hubungi Kami</a>
             </div>
           </nav>
           
           <nav aria-labelledby="footer-legal-title">
-            <h3 id="footer-legal-title" class="font-semibold text-red-400 mb-4" data-lang="footerLegalTitle">⚖️ Legal</h3>
+            <h3 id="footer-legal-title" class="font-semibold text-red-400 mb-4" data-lang="footerLegalTitle">⚖️ Hukum</h3>
             <div class="flex flex-col gap-3">
-              <a href="privacy-policy" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="Privacy Policy" data-lang="footerLegalPrivacy">Privacy Policy</a>
-              <a href="terms-of-service" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="Terms of Service" data-lang="footerLegalTerms">Terms of Service</a>
-              <a href="sitemap" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="Sitemap" data-lang="footerLegalSitemap">Sitemap</a>
+              <a href="/privacy-policy" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="Privacy Policy" data-lang="footerLegalPrivacy">Kebijakan Privasi</a>
+              <a href="/terms-of-service" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="Terms of Service" data-lang="footerLegalTerms">Ketentuan Layanan</a>
+              <a href="/sitemap" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="Sitemap" data-lang="footerLegalSitemap">Peta Situs</a>
             </div>
           </nav>
         </div>
@@ -407,6 +418,8 @@
         heroTitle: "VIN NESIA — One Portal, All Free Online Tools!",
         heroDescription: "Discover 6 free and professional tools to boost your daily productivity.",
         heroButton: "Explore Tools",
+        heroDonateButton: "Donate",
+        heroDonateDescription: "Your support helps us continue to develop and provide these free tools for everyone. Thank you for your generosity.",
         searchPlaceholder: "Search tools like QR Code, Text Counter...",
         popularToolsTitle: "📈 Today's Popular Tools",
         toolQrScannerTitle: "QR & Barcode Scanner",
@@ -484,6 +497,8 @@
         heroTitle: "VIN NESIA — Satu Portal, Semua Alat Online Gratis!",
         heroDescription: "Temukan 6 alat gratis dan profesional untuk meningkatkan produktivitas harian Anda.",
         heroButton: "Jelajahi Alat",
+        heroDonateButton: "Donasi",
+        heroDonateDescription: "Dukungan Anda membantu kami terus mengembangkan dan menyediakan alat-alat gratis ini untuk semua. Terima kasih atas kedermawanan Anda.",
         searchPlaceholder: "Cari alat seperti Kode QR, Penghitung Teks...",
         popularToolsTitle: "📈 Alat Populer Hari Ini",
         toolQrScannerTitle: "Pemindai QR & Barcode",
@@ -874,18 +889,6 @@
       // Initialize Testimonial Slider
       setupTestimonialSlider();
     });
-    }
-    if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(registration => {
-        console.log('SW registered: ', registration);
-      })
-      .catch(registrationError => {
-        console.log('SW registration failed: ', registrationError);
-      });
-  });
-}
   </script>
 </body>
 </html>
