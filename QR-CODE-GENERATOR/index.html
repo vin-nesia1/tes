@@ -1,157 +1,678 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Create stunning QR codes with VIN NESIA.">
-  <title>QR CODE VIN NESIA</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-  <!-- SEO meta tags -->
-  <meta name="title" content="QR CODE Generator by Vin Nesia - Stylish, Fast & Free">
-  <meta name="description" content="Generate high-quality QR codes with an elegant design. Stylish, fast, and free by Vin Nesia.">
-  <meta name="keywords" content="QR Code, Generator, Stylish QR, Free QR Code, Vin Nesia">
-  <meta name="author" content="Vin Nesia">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://qr.vinnesia.my.id/index.html">
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-  <!-- Analytics (placeholder) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8V8Y4XQN4"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-F8V8Y4XQN4');
-  </script>
-</head>
-
-<body class="bg-gradient-to-br from-black via-purple-900 to-yellow-900 min-h-screen font-sans text-white">
-
-  <header class="bg-white/10 backdrop-blur shadow-md p-4">
-    <div class="flex items-center justify-between max-w-6xl mx-auto">
-      <a href="https://www.vinnesia.my.id" class="flex items-center space-x-3">
-        <img src="logo.png" alt="Logo" class="w-8 h-8 object-contain" style="max-width: 32px; max-height: 32px;">
-        <span class="text-lg sm:text-xl font-extrabold text-yellow-400">QR CODE VIN NESIA</span>
-      </a>
-      <nav class="space-x-4 text-sm font-medium">
-        <a href="index.html" class="hover:underline text-purple-300">Home</a>
-        <a href="about.html" class="hover:underline text-purple-300">About</a>
-        <a href="terms.html" class="hover:underline text-purple-300">Terms</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="max-w-2xl mx-auto mt-12 px-4">
-    <section class="bg-white/5 backdrop-blur-md rounded-2xl shadow-2xl p-6 text-center">
-      <div class="flex justify-center mb-4">
-        <svg class="w-10 h-10 text-yellow-300" fill="none" stroke="currentColor" stroke-width="2"
-          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="M3 3h2v2H3V3zm2 4H3v2h2V7zm2-4h2v2H7V3zm0 4h2v2H7V7zm4-4h2v2h-2V3zm0 4h2v2h-2V7zm4-4h2v2h-2V3zm0 4h2v2h-2V7zM3 11h2v2H3v-2zm4 0h2v2H7v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zM3 15h2v2H3v-2zm4 0h2v2H7v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2z"></path>
-        </svg>
-      </div>
-      <h1 class="text-3xl font-bold text-yellow-300 mb-2">Create QR Code</h1>
-      <p class="text-sm text-purple-200 mb-6">Scan, Share, and Simplify!</p>
-
-      <input type="text" id="qrInput"
-        class="w-full p-3 rounded-lg bg-white/10 text-white border border-purple-400 placeholder-purple-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-        placeholder="Enter text or URL">
-      <button onclick="generateQR()"
-        class="mt-4 bg-yellow-400 hover:bg-yellow-300 transition px-6 py-2 rounded-lg text-black font-semibold shadow">
-        Generate
-      </button>
-      <div id="qrCode" class="mt-6 flex justify-center"></div>
-      <button onclick="downloadQR()" id="downloadBtn" class="hidden mt-4 bg-purple-500 hover:bg-purple-400 px-5 py-2 text-white font-semibold rounded shadow mr-2">Download PNG</button>
-  <button onclick="shareQR()" id="shareBtn" 
-  class="hidden mt-4 bg-yellow-500 hover:bg-yellow-400 px-5 py-2 text-black font-semibold rounded shadow">Share QR</button>
-        
-    </section>
-
-    <section class="mt-10 bg-white/10 p-4 rounded-lg">
-      <h2 class="text-sm font-semibold text-purple-200 mb-2">QR Code History</h2>
-      <ul id="historyList" class="text-xs text-white space-y-1 list-disc list-inside"></ul>
-    </section>
-  </main>
-
-  <footer class="mt-12 p-4 text-center text-sm bg-black/30 text-white">
-    © 2025 Vin Nesia · <a href="mailto:vin.nesiaa.id@gmail.com" class="underline hover:text-yellow-400">vin.nesiaa.id@gmail.com</a>
-  </footer>
-
-  <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
-  <script>
-    let qrCodeInstance = null;
-
-    function generateQR() {
-      const input = document.getElementById('qrInput').value;
-      const qrCodeDiv = document.getElementById('qrCode');
-      const downloadBtn = document.getElementById('downloadBtn');
-      qrCodeDiv.innerHTML = '';
-      downloadBtn.classList.add('hidden');
-      if (!input) return;
-
-      // Simpan ke localStorage history
-      const history = JSON.parse(localStorage.getItem("qrHistory") || "[]");
-      if (!history.includes(input)) {
-        history.unshift(input);
-        if (history.length > 10) history.pop();
-        localStorage.setItem("qrHistory", JSON.stringify(history));
-        renderHistory();
-      }
-
-      if (qrCodeInstance) qrCodeInstance.clear();
-      qrCodeInstance = new QRCode(qrCodeDiv, {
-        text: input,
-        width: 200,
-        height: 200,
-        colorDark: "#000000",
-        colorLight: "#ffffff"
-      });
-      downloadBtn.classList.remove('hidden');
-    }
-
-    function downloadQR() {
-      const qrCodeDiv = document.getElementById('qrCode');
-      const canvas = qrCodeDiv.getElementsByTagName('canvas')[0];
-      if (canvas) {
-        const link = document.createElement('a');
-        link.download = 'qrcode.png';
-        link.href = canvas.toDataURL('image/png');
-        link.click();
-      }
-    }
-
-    function renderHistory() {
-      const list = document.getElementById('historyList');
-      const history = JSON.parse(localStorage.getItem("qrHistory") || "[]");
-      list.innerHTML = '';
-      history.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        list.appendChild(li);
-      });
-    }
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    function shareQR() {
-      const qrCodeDiv = document.getElementById('qrCode');
-      const canvas = qrCodeDiv.getElementsByTagName('canvas')[0];
-      if (canvas && navigator.share) {
-        canvas.toBlob(blob => {
-          const file = new File([blob], 'qrcode.png', { type: 'image/png' });
-          navigator.share({
-            title: 'QR Code by Vin Nesia',
-            text: 'Scan this QR Code!',
-            files: [file]
-          }).catch(err => console.log('Share failed:', err));
-        });
-      } else {
-        alert('Sharing not supported on this device/browser.');
-      }
-    }
+    <!-- SEO Meta Tags (English) -->
+    <title>QR Code Generator - VIN NESIA</title>
+    <meta name="description" content="Create custom QR Codes with your logo for free. The VIN NESIA QR Code Generator supports Text, URL, WiFi, vCard, Location, and Files. Design your QR code with unique colors and styles.">
+    <meta name="keywords" content="qr code generator, create qr code, free qr code, vin nesia, online qr code, qr code with logo, wifi qr code, vcard qr code, qr generator tool">
+    <meta name="author" content="VIN NESIA">
+    <link rel="canonical" href="https://vinnesia.my.id/QR-CODE-GENERATOR">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
 
-    // Initial render
-    renderHistory();
-  </script>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vinnesia.my.id/QR-CODE-GENERATOR">
+    <meta property="og:title" content="QR Code Generator - VIN NESIA">
+    <meta property="og:description" content="Easily create custom QR Codes with your logo for free. Supports Text, URL, WiFi, vCard, and more.">
+    <meta property="og:image" content="https://www.vinnesia.my.id/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vinnesia.my.id/QR-CODE-GENERATOR">
+    <meta property="twitter:title" content="QR Code Generator - VIN NESIA">
+    <meta property="twitter:description" content="Easily create custom QR Codes with your logo for free. Supports Text, URL, WiFi, vCard, and more.">
+    <meta property="twitter:image" content="https://www.vinnesia.my.id/og-image.png">
+
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --primary-purple: #3e0c4a;
+            --primary-green: #e34242;
+            --primary-gold: #ffd700;
+            --bg-dark: #120a16;
+            --card-dark: #1e1123;
+            --text-main: #f1f1f5;
+            --text-muted: #b5bacb;
+            --border-radius: 1.1rem;
+            --transition: 0.2s cubic-bezier(.4,0,.2,1);
+            --color-error: #ff4d4d;
+            --color-success: #e34242;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 2rem auto;
+            flex-grow: 1;
+        }
+
+        /* Reusing header styles from homepage */
+        .header-main {
+            background-color: #120a16; /* Darker background for specific header */
+            padding: 2rem 1rem;
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-main h1 {
+            margin: 0;
+            color: var(--text-main);
+            font-size: 2.8em;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .logo-img {
+            height: 50px;
+            filter: drop-shadow(0 0 5px var(--primary-gold));
+        }
+
+        .header-main p {
+            color: var(--text-muted);
+            font-size: 1.1em;
+            margin-top: 0.5rem;
+        }
+
+        main {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .controls {
+            flex: 2;
+            background: var(--card-dark);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 1px solid #1e1123; /* Adjusted for card-dark */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .output {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--card-dark);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 1px solid #1e1123; /* Adjusted for card-dark */
+            min-height: 350px;
+            position: sticky;
+            top: 2rem;
+            align-self: flex-start;
+        }
+
+        .tabs-grid-container {
+            display: flex;
+            flex-wrap: wrap; /* Allow tabs to wrap */
+            border-bottom: 1px solid var(--text-muted); /* Adjusted border color */
+            margin-bottom: 1.5rem;
+            gap: 0.5rem; /* Gap between buttons */
+        }
+
+        .tab-button {
+            padding: 0.8rem 1rem;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 1em;
+            color: var(--text-muted);
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            border-radius: 0.5rem; /* Rounded corners for tabs */
+        }
+        .tab-button:hover { color: var(--text-main); background-color: rgba(255, 255, 255, 0.1); }
+        .tab-button.active {
+            color: var(--primary-gold);
+            font-weight: bold;
+            border-bottom-color: var(--primary-gold);
+            background-color: rgba(255, 255, 255, 0.05); /* Slight background for active tab */
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; color: var(--text-main); }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--text-muted); /* Adjusted border color */
+            border-radius: 0.5rem; /* Adjusted border radius */
+            box-sizing: border-box;
+            font-size: 1em;
+            background-color: var(--bg-dark); /* Darker input background */
+            color: var(--text-main);
+        }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .form-group input[type="color"] { padding: 0.2rem; height: 40px; }
+
+        .file-warning {
+            background-color: rgba(255, 215, 0, 0.1);
+            color: var(--primary-gold);
+            padding: 0.8rem;
+            border: 1px solid var(--primary-gold);
+            border-radius: 0.5rem;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        #qr-code-container {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            box-sizing: border-box;
+            transition: background-color 0.3s ease;
+        }
+        #qr-code canvas, #qr-code svg { border-radius: 4px; display: block; width: 100%; height: auto; }
+
+        .download-buttons { display: flex; gap: 1rem; width: 100%; }
+        .btn {
+            flex-grow: 1;
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.5rem; /* Adjusted border radius */
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: none;
+        }
+        .btn-primary { background-color: var(--primary-purple); color: white; }
+        .btn-primary:hover { background-color: #5a1a6b; }
+        .btn-secondary { background-color: var(--primary-gold); color: var(--bg-dark); }
+        .btn-secondary:hover { background-color: #e6c200; }
+        
+        .btn-generate {
+            background-color: var(--primary-green);
+            color: white;
+            width: 100%;
+            padding: 1rem;
+            margin-top: auto; /* Pushes button to the bottom */
+            font-size: 1.2em;
+        }
+        .btn-generate:hover { background-color: #c93333; }
+        
+        .btn-outline { background-color: transparent; color: var(--primary-gold); border: 1px solid var(--primary-gold); }
+        .btn-outline:hover { background-color: var(--primary-gold); color: var(--bg-dark); }
+
+        footer {
+            background-color: var(--bg-dark);
+            border-top: 2px solid var(--card-dark);
+            color: var(--text-muted);
+            margin-top: 3rem; /* Increased margin-top */
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+        }
+        .footer-content { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+        .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 2rem; list-style: none; padding: 0; margin: 0; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; transition: color 0.3s ease; }
+        .footer-links a:hover { color: var(--primary-gold); }
+        .copyright { margin-top: 1rem; font-size: 0.9em; }
+
+        /* Mobile nav transition (from homepage) */
+        .mobile-nav-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-nav-menu.active {
+            transform: translateX(0);
+        }
+
+        /* --- MEDIA QUERIES FOR RESPONSIVE DESIGN --- */
+        @media (max-width: 992px) {
+            main { flex-direction: column; }
+            .output { position: static; align-self: auto; }
+            
+            /* --- GRID TAB LAYOUT FOR TABLET & MOBILE --- */
+            .tabs-grid-container {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.5rem;
+                border-bottom: none;
+            }
+            .tab-button {
+                border: 1px solid var(--text-muted);
+                border-radius: 0.5rem;
+                padding: 0.75rem 0.5rem;
+                font-size: 0.85em;
+                text-align: center;
+                border-bottom: 1px solid var(--text-muted); /* Reset border */
+            }
+            .tab-button.active {
+                border-color: var(--primary-gold);
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container { width: 95%; margin: 1.5rem auto; }
+            .header-main h1 { font-size: 2.2em; } .logo-img { height: 40px; }
+            .controls, .output { padding: 1.5rem; }
+            .footer-links { flex-direction: column; gap: 1rem; }
+        }
+        
+        @media (max-width: 576px) {
+            .header-main h1 { font-size: 2em; } .logo-img { height: 35px; }
+            .download-buttons { flex-direction: column; }
+            .btn { padding: 1rem; }
+            #qr-code-container { padding: 0.5rem; }
+            .tabs-grid-container { grid-template-columns: repeat(3, 1fr); } /* 3 columns for very small screens */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="bg-gray-900/95 sticky top-0 z-50 px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 shadow-md border-b border-gray-800" role="banner">
+        <div class="flex items-center gap-3">
+            <img src="../images/logo-vinnesia.png" alt="VIN NESIA Logo" class="h-10 w-10 rounded-lg shadow-md" loading="lazy">
+            <span class="text-2xl sm:text-3xl font-bold text-red-400">VIN NESIA</span>
+        </div>
+        <div class="flex items-center gap-4 sm:gap-6">
+            <button class="nav-toggle sm:hidden flex flex-col gap-1.5 p-2" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav">
+                <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
+                <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
+                <span class="w-6 h-0.5 bg-purple-500 rounded"></span>
+            </button>
+        </div>
+        <nav id="mainNav" class="sm:flex hidden gap-4 sm:gap-6 items-center" role="navigation" aria-label="Main navigation">
+            <a href="../" class="font-medium text-white hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400 px-3 py-1.5 rounded-md" aria-current="page">Home</a>
+            <a href="../donate" class="font-medium text-white hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400 px-3 py-1.5 rounded-md">Donate</a>
+            <a href="../tools" class="font-medium text-white hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400 px-3 py-1.5 rounded-md" aria-label="View all tools">All Tools</a>
+            <a href="../blog" class="font-medium text-white hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400 px-3 py-1.5 rounded-md" aria-label="Read blog">Blog</a>
+            <a href="../about" class="font-medium text-white hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400 px-3 py-1.5 rounded-md" aria-label="About us">About Us</a>
+            <a href="../user-guide" class="font-medium text-white hover:text-red-400 focus:text-red-400 focus:outline focus:outline-2 focus:outline-red-400 px-3 py-1.5 rounded-md" aria-label="User guide">User Guide</a>
+        </nav>
+    </header>
+    
+    <nav id="mobileNavMenu" class="mobile-nav-menu fixed top-16 right-0 bg-gray-800/95 w-3/4 max-w-xs h-screen flex flex-col p-4 shadow-lg z-40 sm:hidden" role="dialog" aria-modal="true" aria-labelledby="mobileNavLabel" tabindex="-1">
+        <h2 id="mobileNavLabel" class="sr-only">Mobile Navigation</h2>
+        <a href="../" class="font-medium text-white hover:text-red-400 focus:text-red-400 px-3 py-3 rounded-md" aria-current="page">Home</a>
+        <a href="../donate" class="font-medium text-white hover:text-red-400 focus:text-red-400 px-3 py-3 rounded-md">Donate</a>
+        <a href="../tools" class="font-medium text-white hover:text-red-400 focus:text-red-400 px-3 py-3 rounded-md" aria-label="View all tools">All Tools</a>
+        <a href="../blog" class="font-medium text-white hover:text-red-400 focus:text-red-400 px-3 py-3 rounded-md" aria-label="Read blog">Blog</a>
+        <a href="../about" class="font-medium text-white hover:text-red-400 focus:text-red-400 px-3 py-3 rounded-md" aria-label="About us">About Us</a>
+        <a href="../user-guide" class="font-medium text-white hover:text-red-400 focus:text-red-400 px-3 py-3 rounded-md" aria-label="User guide">User Guide</a>
+    </nav>
+
+    <main class="container">
+        <div class="controls">
+            <h2 class="text-2xl sm:text-3xl font-bold text-red-400 mb-6 text-center">QR Code Generator</h2>
+            <div class="tabs-grid-container">
+                <button class="tab-button active" onclick="openTab(event, 'text')">📝 Text/URL</button>
+                <button class="tab-button" onclick="openTab(event, 'wifi')">📶 WiFi</button>
+                <button class="tab-button" onclick="openTab(event, 'vcard')">👤 vCard</button>
+                <button class="tab-button" onclick="openTab(event, 'email')">📧 Email</button>
+                <button class="tab-button" onclick="openTab(event, 'sms')">📱 SMS</button>
+                <button class="tab-button" onclick="openTab(event, 'geo')">📍 Location</button>
+                <button class="tab-button" onclick="openTab(event, 'file')">📁 File</button>
+                <button class="tab-button" onclick="openTab(event, 'event')">🗓️ Event</button>
+                <button class="tab-button" onclick="openTab(event, 'crypto')">💰 Crypto</button>
+                <button class="tab-button" onclick="openTab(event, 'phone')">☎️ Phone</button>
+                <button class="tab-button" onclick="openTab(event, 'whatsapp')">💬 WhatsApp</button>
+                <button class="tab-button" onclick="openTab(event, 'social')">🌐 Social</button>
+                <button class="tab-button" onclick="openTab(event, 'appstore')">📱 App Store</button>
+                <button class="tab-button" onclick="openTab(event, 'multilang')">🌍 Multi-Lang</button>
+                <button class="tab-button" onclick="openTab(event, 'htmlcustom')">📄 HTML</button>
+            </div>
+
+            <div id="text" class="tab-content active"><div class="form-group"><label for="text-input">Your Text or URL</label><textarea id="text-input" placeholder="e.g., https://www.vinnesia.my.id"></textarea></div></div>
+            <div id="wifi" class="tab-content"><div class="form-group"><label for="wifi-ssid">Network Name (SSID)</label><input type="text" id="wifi-ssid" placeholder="MyWiFiNetwork"></div><div class="form-group"><label for="wifi-password">Password</label><input type="text" id="wifi-password" placeholder="SecretPassword"></div><div class="form-group"><label for="wifi-encryption">Encryption</label><select id="wifi-encryption"><option value="WPA">WPA/WPA2</option><option value="WEP">WEP</option><option value="nopass">None</option></select></div></div>
+            <div id="vcard" class="tab-content"><div class="form-group"><label for="vcard-name">Full Name</label><input type="text" id="vcard-name"></div><div class="form-group"><label for="vcard-phone">Phone</label><input type="tel" id="vcard-phone"></div><div class="form-group"><label for="vcard-email">Email</label><input type="email" id="vcard-email"></div><div class="form-group"><label for="vcard-org">Organization</label><input type="text" id="vcard-org"></div><div class="form-group"><label for="vcard-url">Website</label><input type="url" id="vcard-url"></div></div>
+            <div id="email" class="tab-content"><div class="form-group"><label for="email-to">Recipient Email</label><input type="email" id="email-to" placeholder="recipient@example.com"></div><div class="form-group"><label for="email-subject">Subject</label><input type="text" id="email-subject"></div><div class="form-group"><label for="email-body">Message</label><textarea id="email-body"></textarea></div></div>
+            <div id="sms" class="tab-content"><div class="form-group"><label for="sms-to">Phone Number</label><input type="tel" id="sms-to" placeholder="+1234567890"></div><div class="form-group"><label for="sms-body">Message</label><textarea id="sms-body"></textarea></div></div>
+            <div id="geo" class="tab-content"><div class="form-group"><label for="geo-lat">Latitude</label><input type="text" id="geo-lat" placeholder="40.7128"></div><div class="form-group"><label for="geo-lon">Longitude</label><input type="text" id="geo-lon" placeholder="-74.0060"></div></div>
+            <div id="file" class="tab-content"><div class="form-group"><label for="file-input">Upload File</label><input type="file" id="file-input"><div class="file-warning"><strong>Warning:</strong> For very small files (< 2KB) only. Large files will create unscannable QR codes. For larger files, upload them to a cloud service and create a QR code from the share link.</div></div></div>
+            <div id="event" class="tab-content">
+                <div class="form-group"><label for="event-summary">Event Title</label><input type="text" id="event-summary" placeholder="My Event"></div>
+                <div class="form-group"><label for="event-start">Start Date (YYYY-MM-DDTHH:MM)</label><input type="text" id="event-start" placeholder="2023-12-31T23:59"></div>
+                <div class="form-group"><label for="event-end">End Date (YYYY-MM-DDTHH:MM)</label><input type="text" id="event-end" placeholder="2024-01-01T00:01"></div>
+                <div class="form-group"><label for="event-location">Location</label><input type="text" id="event-location" placeholder="Jakarta, Indonesia"></div>
+                <div class="form-group"><label for="event-description">Description</label><textarea id="event-description" placeholder="Event details..."></textarea></div>
+            </div>
+            <div id="crypto" class="tab-content">
+                <div class="form-group"><label for="crypto-type">Crypto Type</label><select id="crypto-type"><option value="bitcoin">Bitcoin</option><option value="ethereum">Ethereum</option><option value="litecoin">Litecoin</option></select></div>
+                <div class="form-group"><label for="crypto-address">Wallet Address</label><input type="text" id="crypto-address" placeholder="1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa"></div>
+                <div class="form-group"><label for="crypto-amount">Amount</label><input type="text" id="crypto-amount" placeholder="0.001"></div>
+                <div class="form-group"><label for="crypto-label">Label</label><input type="text" id="crypto-label" placeholder="Donation"></div>
+            </div>
+            <div id="phone" class="tab-content">
+                <div class="form-group"><label for="phone-number">Phone Number</label><input type="tel" id="phone-number" placeholder="+6281234567890"></div>
+            </div>
+            <div id="whatsapp" class="tab-content">
+                <div class="form-group"><label for="whatsapp-number">Phone Number</label><input type="tel" id="whatsapp-number" placeholder="+6281234567890"></div>
+                <div class="form-group"><label for="whatsapp-message">Pre-filled Message</label><textarea id="whatsapp-message" placeholder="Hello!"></textarea></div>
+            </div>
+            <div id="social" class="tab-content">
+                <div class="form-group"><label for="social-platform">Platform</label><select id="social-platform"><option value="instagram">Instagram</option><option value="telegram">Telegram</option><option value="tiktok">TikTok</option></select></div>
+                <div class="form-group"><label for="social-username">Username</label><input type="text" id="social-username" placeholder="username"></div>
+            </div>
+            <div id="appstore" class="tab-content">
+                <div class="form-group"><label for="appstore-platform">Platform</label><select id="appstore-platform"><option value="playstore">Google Play Store</option><option value="appstore">Apple App Store</option></select></div>
+                <div class="form-group"><label for="appstore-id">App ID or URL</label><input type="text" id="appstore-id" placeholder="com.example.app or full URL"></div>
+            </div>
+            <div id="multilang" class="tab-content">
+                <div class="form-group"><label for="multilang-baseurl">Base URL</label><input type="url" id="multilang-baseurl" placeholder="https://example.com"></div>
+                <div class="form-group"><label for="multilang-langparam">Language Parameter (e.g., lang=en)</label><input type="text" id="multilang-langparam" placeholder="lang=en"></div>
+            </div>
+            <div id="htmlcustom" class="tab-content">
+                <div class="form-group"><label for="htmlcustom-content">HTML Content</label><textarea id="htmlcustom-content" placeholder="<h1>Hello World</h1>"></textarea></div>
+            </div>
+
+            <h3 class="text-xl font-semibold text-red-400 mt-8 mb-4 border-t border-gray-700 pt-4">Design Options</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                <div class="form-group"><label for="dot-color">Dot Color</label><input type="color" id="dot-color" value="#000000"></div>
+                <div class="form-group"><label for="bg-color">Background Color</label><input type="color" id="bg-color" value="#ffffff"></div>
+                <div class="form-group"><label for="dot-style">Dot Style</label><select id="dot-style"><option value="square">Square</option><option value="dots">Dots</option><option value="rounded">Rounded</option><option value="extra-rounded">Extra Rounded</option><option value="classy">Classy</option><option value="classy-rounded">Classy Rounded</option></select></div>
+                <div class="form-group"><label for="logo-upload">Upload Logo</label><input type="file" id="logo-upload" accept="image/*"></div>
+            </div>
+
+            <button id="generate-btn" class="btn btn-generate">Generate QR Code</button>
+        </div>
+
+        <div class="output">
+            <div id="qr-code-container">
+                <div id="qr-code"></div>
+            </div>
+            <div class="download-buttons">
+                <button id="download-png" class="btn btn-primary">Download PNG</button>
+                <button id="download-svg" class="btn btn-secondary">Download SVG</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 border-t-2 border-gray-800 text-gray-400 mt-12" role="contentinfo">
+        <div class="footer-cta bg-gradient-to-r from-red-500 to-purple-900 text-gray-100 font-bold text-center py-6 px-4 rounded-b-3xl shadow-lg">
+          🚀 Discover your favorite online tools at VIN NESIA – Fast, Free, and Practical!
+        </div>
+        <div class="max-w-6xl mx-auto px-4 py-12">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+            <div class="footer-group">
+              <a href="../" class="flex items-center gap-2 mb-4">
+                <img src="../images/logo-vinnesia.png" alt="VIN NESIA Logo" class="h-10 w-10 rounded-lg shadow-md" loading="lazy">
+                <span class="text-2xl font-bold text-red-400">VIN NESIA</span>
+              </a>
+              <p class="text-gray-400 text-sm mb-4">
+                VIN NESIA offers a collection of free, professional, and reliable online tools to boost your daily productivity.
+              </p>
+              <div class="footer-social flex gap-4">
+                <a href="https://www.instagram.com/vin.nesia.id" class="text-gray-400 hover:text-red-400 focus:text-red-400 transition" aria-label="Follow VIN NESIA on Instagram" target="_blank" rel="noopener">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
+                    <rect x="2" y="2" width="20" height="20" rx="5"/>
+                    <path d="M16 11.37a4 4 0 1 1-4.63-4.63 4 4 0 0 1 4.63 4.63z"/>
+                    <circle cx="17.5" cy="6.5" r="1"/>
+                  </svg>
+                </a>
+                <a href="https://wa.me/6281234567890" class="text-gray-400 hover:text-red-400 focus:text-red-400 transition" aria-label="Contact VIN NESIA on WhatsApp" target="_blank" rel="noopener">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
+                    <path d="M21.5 12A9.5 9.5 0 1 1 12 2.5a9.5 9.5 0 0 1 9.5 9.5z" />
+                    <path d="M12 22c-2.21 0-4.27-.72-5.94-1.97l-3.05.82.81-3.04A9.5 9.5 0 1 1 12 22z"/>
+                    <path d="M16.29 14.12c-.18-.09-1.07-.53-1.24-.59-.17-.06-.29.09-.41.09-.12.18-.47.58-.58.70-.11.12-.22.13-.40.04-.18-.09-.76-.28-1.44-.89-.53-.47-.88-1.05-.98-1.23-.10-.18-.01-.28.08-.37.09-.09.18-.22.27-.33.09-.11.12-.18.18-.30.06-.12.03-.23-.02-.32-.06-.09-.41-.98-.56-1.34-.15-.36-.30-.31-.41-.32-.11-.01-.23-.01-.36-.01-.12 0-.31.05-.47.23-.16.18-.62.61-.62 1.50 0 .89.63 1.74.71 1.86.09.12 1.25 2.02 3.13 2.76.44.15.79.23 1.06.29.45.10.86.08 1.18.05.36-.03 1.07-.44 1.22-.87.15-.43.15-.79.10-.87z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            
+            <nav class="footer-group" aria-labelledby="footer-nav-title">
+              <h3 id="footer-nav-title" class="font-semibold text-red-400 mb-4">🧭 Navigation</h3>
+              <div class="flex flex-col gap-3">
+                <a href="../" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="Home">Home</a>
+                <a href="../donate" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="Donate">Donate</a>
+                <a href="../tools" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="All Tools">All Tools</a>
+                <a href="../blog" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="Blog">Blog</a>
+                <a href="../about" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="About Us">About Us</a>
+              </div>
+            </nav>
+            
+            <div class="footer-group">
+              <nav class="mb-8" aria-labelledby="footer-help-title">
+                <h3 id="footer-help-title" class="font-semibold text-red-400 mb-4">📚 Help</h3>
+                <div class="flex flex-col gap-3">
+                  <a href="../how-to-use" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="How to Use Tools">How to Use Tools</a>
+                  <a href="../faq" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="FAQ">FAQ</a>
+                  <a href="../contact" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="Contact Us">Contact Us</a>
+                </div>
+              </nav>
+              
+              <nav aria-labelledby="footer-legal-title">
+                <h3 id="footer-legal-title" class="font-semibold text-red-400 mb-4">⚖️ Legal</h3>
+                <div class="flex flex-col gap-3">
+                  <a href="../privacy-policy" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="Privacy Policy">Privacy Policy</a>
+                  <a href="../terms-of-service" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="Terms of Service">Terms of Service</a>
+                  <a href="../sitemap" class="text-gray-400 hover:text-white focus:text-white transition" aria-label="Sitemap">Sitemap</a>
+                </div>
+              </nav>
+            </div>
+            
+            <div class="footer-group">
+              <h3 class="font-semibold text-red-400 mb-4">📧 Email</h3>
+              <div class="flex flex-col gap-3">
+                <a href="mailto:admin@vinnesia.my.id" class="text-gray-400 hover:text-red-400 focus:text-red-400 transition" aria-label="Email admin">admin@vinnesia.my.id</a>
+                <a href="mailto:support@vinnesia.my.id" class="text-gray-400 hover:text-red-400 focus:text-red-400 transition" aria-label="Email support">support@vinnesia.my.id</a>
+                <a href="mailto:privacy@vinnesia.my.id" class="text-gray-400 hover:text-red-400 focus:text-red-400 transition" aria-label="Email privacy">privacy@vinnesia.my.id</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-copy text-center text-sm py-6 border-t border-gray-800 bg-gray-950">
+          <div class="max-w-6xl mx-auto px-4">
+            <span>© 2025 VIN NESIA. All rights reserved. Built with <span class="text-red-400">❤️</span> for everyone.<br class="sm:hidden" />
+            VIN NESIA is not responsible for the misuse of tools.</span>
+          </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentTab = 'text';
+        let logoImage = null;
+        let fileDataUrl = null;
+
+        const qrCode = new QRCodeStyling({
+            width: 300,
+            height: 300,
+            data: "Welcome to VIN NESIA QR Generator!",
+            image: "",
+            dotsOptions: { color: "#000000", type: "square" },
+            backgroundOptions: { color: "#ffffff" },
+            imageOptions: { crossOrigin: "anonymous", margin: 5, imageSize: 0.4 },
+            qrOptions: { errorCorrectionLevel: 'H' }
+        });
+
+        qrCode.append(document.getElementById("qr-code"));
+
+        function openTab(evt, tabName) {
+            currentTab = tabName;
+            document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+            document.querySelectorAll('.tab-button').forEach(tb => tb.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+            // Do not generate on tab switch, wait for button press
+        }
+
+        function generateQrCode() {
+            let data = "";
+            switch (currentTab) {
+                case 'text': data = document.getElementById('text-input').value || "https://vinnesia.my.id/QR-CODE-GENERATOR"; break;
+                case 'wifi':
+                    const ssid = document.getElementById('wifi-ssid').value;
+                    const password = document.getElementById('wifi-password').value;
+                    const encryption = document.getElementById('wifi-encryption').value;
+                    if (ssid) data = `WIFI:T:${encryption};S:${ssid};P:${password};;`;
+                    break;
+                case 'vcard':
+                    const name = document.getElementById('vcard-name').value;
+                    const phone = document.getElementById('vcard-phone').value;
+                    const email = document.getElementById('vcard-email').value;
+                    const org = document.getElementById('vcard-org').value;
+                    const url = document.getElementById('vcard-url').value;
+                    if (name) data = `BEGIN:VCARD\nVERSION:3.0\nFN:${name}\nTEL:${phone}\nEMAIL:${email}\nORG:${org}\nURL:${url}\nEND:VCARD`;
+                    break;
+                case 'email':
+                    const to = document.getElementById('email-to').value;
+                    const subject = document.getElementById('email-subject').value;
+                    const body = document.getElementById('email-body').value;
+                    if (to) data = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    break;
+                case 'sms':
+                    const smsTo = document.getElementById('sms-to').value;
+                    const smsBody = document.getElementById('sms-body').value;
+                    if (smsTo) data = `SMSTO:${smsTo}:${encodeURIComponent(smsBody)}`;
+                    break;
+                case 'geo':
+                    const lat = document.getElementById('geo-lat').value;
+                    const lon = document.getElementById('geo-lon').value;
+                    if (lat && lon) data = `geo:${lat},${lon}`;
+                    break;
+                case 'file': data = fileDataUrl || " "; break;
+                case 'event':
+                    const summary = document.getElementById('event-summary').value;
+                    const start = document.getElementById('event-start').value.replace(/[-:]/g, '');
+                    const end = document.getElementById('event-end').value.replace(/[-:]/g, '');
+                    const location = document.getElementById('event-location').value;
+                    const description = document.getElementById('event-description').value;
+                    if (summary && start && end) {
+                        data = `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nSUMMARY:${summary}\nDTSTART:${start}\nDTEND:${end}\nLOCATION:${location}\nDESCRIPTION:${description}\nEND:VEVENT\nEND:VCALENDAR`;
+                    }
+                    break;
+                case 'crypto':
+                    const cryptoType = document.getElementById('crypto-type').value;
+                    const address = document.getElementById('crypto-address').value;
+                    const amount = document.getElementById('crypto-amount').value;
+                    const label = document.getElementById('crypto-label').value;
+                    if (address) data = `${cryptoType}:${address}${amount ? `?amount=${amount}` : ''}${label ? `&label=${encodeURIComponent(label)}` : ''}`;
+                    break;
+                case 'phone':
+                    const phoneNumber = document.getElementById('phone-number').value;
+                    if (phoneNumber) data = `tel:${phoneNumber}`;
+                    break;
+                case 'whatsapp':
+                    const whatsappNumber = document.getElementById('whatsapp-number').value;
+                    const whatsappMessage = document.getElementById('whatsapp-message').value;
+                    if (whatsappNumber) data = `https://wa.me/${whatsappNumber.replace('+', '')}${whatsappMessage ? `?text=${encodeURIComponent(whatsappMessage)}` : ''}`;
+                    break;
+                case 'social':
+                    const platform = document.getElementById('social-platform').value;
+                    const username = document.getElementById('social-username').value;
+                    if (username) {
+                        if (platform === 'instagram') data = `https://instagram.com/${username}`;
+                        else if (platform === 'telegram') data = `https://t.me/${username}`;
+                        else if (platform === 'tiktok') data = `https://tiktok.com/@${username}`;
+                    }
+                    break;
+                case 'appstore':
+                    const appPlatform = document.getElementById('appstore-platform').value;
+                    const appId = document.getElementById('appstore-id').value;
+                    if (appId) {
+                        if (appPlatform === 'playstore') data = appId.startsWith('http') ? appId : `https://play.google.com/store/apps/details?id=${appId}`;
+                        else if (appPlatform === 'appstore') data = appId.startsWith('http') ? appId : `https://apps.apple.com/app/id${appId}`;
+                    }
+                    break;
+                case 'multilang':
+                    const baseUrl = document.getElementById('multilang-baseurl').value;
+                    const langParam = document.getElementById('multilang-langparam').value;
+                    if (baseUrl && langParam) data = `${baseUrl}?${langParam}`;
+                    break;
+                case 'htmlcustom':
+                    const htmlContent = document.getElementById('htmlcustom-content').value;
+                    if (htmlContent) data = `data:text/html;base64,${btoa(htmlContent)}`;
+                    break;
+            }
+
+            const dotColor = document.getElementById('dot-color').value;
+            const bgColor = document.getElementById('bg-color').value;
+            const dotStyle = document.getElementById('dot-style').value;
+            const qrContainer = document.getElementById('qr-code-container');
+            qrContainer.style.backgroundColor = bgColor;
+
+            qrCode.update({
+                data: data || " ",
+                image: logoImage,
+                dotsOptions: { color: dotColor, type: dotStyle },
+                backgroundOptions: { color: "transparent" }
+            });
+        }
+        
+        // Event listener for the Generate button
+        document.getElementById('generate-btn').addEventListener('click', generateQrCode);
+
+        // Event listeners for file inputs (these need to be real-time)
+        document.getElementById('logo-upload').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => { logoImage = event.target.result; };
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        document.getElementById('file-input').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => { fileDataUrl = event.target.result; };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Download buttons
+        document.getElementById('download-png').addEventListener('click', () => qrCode.download({ name: "vinnesia-qr", extension: "png" }));
+        document.getElementById('download-svg').addEventListener('click', () => qrCode.download({ name: "vinnesia-qr", extension: "svg" }));
+
+        // Hamburger menu and mobile nav (from homepage)
+        const navToggle = document.getElementById('navToggle');
+        const mobileNavMenu = document.getElementById('mobileNavMenu');
+        
+        if (navToggle && mobileNavMenu) {
+            navToggle.addEventListener('click', function() {
+                const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+                navToggle.setAttribute('aria-expanded', !isExpanded);
+                navToggle.classList.toggle('active', !isExpanded);
+                mobileNavMenu.classList.toggle('active', !isExpanded);
+                
+                // Simple focus trapping for a11y
+                if (!isExpanded) {
+                    mobileNavMenu.focus();
+                }
+            });
+        }
+
+        // Initial setup
+        document.querySelector('.tab-button').click();
+        generateQrCode(); // Generate a default QR on page load
+    </script>
+
 </body>
 </html>
