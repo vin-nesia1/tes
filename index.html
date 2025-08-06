@@ -180,13 +180,22 @@
     .mobile-nav-menu.active {
       transform: translateX(0);
     }
+    /* Adjust font size for site name on smaller screens */
+    .header-site-name {
+        font-size: 1.5rem; /* Smaller font size for mobile */
+    }
+    @media (max-width: 480px) {
+        .header-site-name {
+            font-size: 1.2rem; /* Even smaller font size for very small mobile */
+        }
+    }
   </style>
 </head>
 <body>
   <header class="bg-gray-900/95 sticky top-0 z-50 px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 shadow-md border-b border-gray-800" role="banner">
     <div class="flex items-center gap-3">
       <img src="/images/logo-vinnesia.png" alt="VIN NESIA Logo" class="h-10 w-10 rounded-lg shadow-md" loading="lazy">
-      <span class="text-2xl sm:text-3xl font-bold text-red-400">VIN NESIA</span>
+      <span class="text-2xl sm:text-3xl font-bold text-red-400 whitespace-nowrap header-site-name">VIN NESIA</span>
     </div>
     <div class="flex items-center gap-4 sm:gap-6">
       <button class="nav-toggle sm:hidden flex flex-col gap-1.5 p-2" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav">
@@ -243,8 +252,51 @@
 
   <section class="popular-tools-section max-w-6xl mx-auto px-4 mb-10" aria-labelledby="popular-tools-title">
     <h2 id="popular-tools-title" class="text-2xl sm:text-3xl font-semibold text-red-500 text-center mb-6" data-lang="popularToolsTitle">📈 Today's Popular Tools</h2>
-    <div class="popular-tools-grid grid gap-6" id="popularToolsGrid" role="list" aria-live="polite"></div>
-    <nav class="pagination flex justify-center gap-2 mt-6 flex-wrap" id="popularToolsPagination" aria-label="Popular tools page navigation"></nav>
+    <div class="popular-tools-grid grid gap-6" role="list">
+      <!-- Static Tool List -->
+      <a href="https://www.vinnesia.my.id/qr-code-generator.html" class="tool-card bg-gray-700 rounded-lg p-4 shadow-md hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105 transition max-w-full" role="listitem" aria-label="Open QR Code Generator">
+        <div class="tool-icon w-10 h-10 rounded-lg flex items-center justify-center text-white text-xl mb-3" style="background: linear-gradient(135deg, #ffd700 65%, #3e0c4a 100%);" aria-hidden="true">🔲</div>
+        <h3 class="tool-title font-semibold text-lg text-red-400 line-clamp-2">QR Code Generator</h3>
+        <p class="tool-desc text-sm text-gray-400 line-clamp-3">Create free QR codes for links, text, files, and various needs.</p>
+        <span class="tool-link text-red-400 text-sm font-medium mt-2 inline-flex items-center hover:text-yellow-400 focus:text-yellow-400 focus:outline focus:outline-2 focus:outline-red-400">Open Tool &rarr;</span>
+      </a>
+
+      <a href="https://www.vinnesia.my.id/PASSWORD-GENERATOR" class="tool-card bg-gray-700 rounded-lg p-4 shadow-md hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105 transition max-w-full" role="listitem" aria-label="Open Password Generator">
+        <div class="tool-icon w-10 h-10 rounded-lg flex items-center justify-center text-white text-xl mb-3" style="background: linear-gradient(135deg, #ffd700 60%, #e34242 100%);" aria-hidden="true">🔑</div>
+        <h3 class="tool-title font-semibold text-lg text-red-400 line-clamp-2">Password Generator</h3>
+        <p class="tool-desc text-sm text-gray-400 line-clamp-3">Create strong and secure passwords with full character options and ambiguous character filter.</p>
+        <span class="tool-link text-red-400 text-sm font-medium mt-2 inline-flex items-center hover:text-yellow-400 focus:text-yellow-400 focus:outline focus:outline-2 focus:outline-red-400">Open Tool &rarr;</span>
+      </a>
+
+      <a href="https://www.vinnesia.my.id/currency-converter.html" class="tool-card bg-gray-700 rounded-lg p-4 shadow-md hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105 transition max-w-full" role="listitem" aria-label="Open Currency Converter">
+        <div class="tool-icon w-10 h-10 rounded-lg flex items-center justify-center text-white text-xl mb-3" style="background: linear-gradient(135deg, #ffd700 60%, #e34242 100%);" aria-hidden="true">💱</div>
+        <h3 class="tool-title font-semibold text-lg text-red-400 line-clamp-2">Currency Converter</h3>
+        <p class="tool-desc text-sm text-gray-400 line-clamp-3">Convert world currencies with real-time rates & simple calculator.</p>
+        <span class="tool-link text-red-400 text-sm font-medium mt-2 inline-flex items-center hover:text-yellow-400 focus:text-yellow-400 focus:outline focus:outline-2 focus:outline-red-400">Open Tool &rarr;</span>
+      </a>
+
+      <a href="https://www.vinnesia.my.id/QR-CODE-GENERATOR" class="tool-card bg-gray-700 rounded-lg p-4 shadow-md hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105 transition max-w-full" role="listitem" aria-label="Open QR & Barcode Scanner">
+        <div class="tool-icon w-10 h-10 rounded-lg flex items-center justify-center text-white text-xl mb-3" style="background: linear-gradient(135deg, #1e1123 60%, #ffd700 100%);" aria-hidden="true">📸</div>
+        <h3 class="tool-title font-semibold text-lg text-red-400 line-clamp-2">QR & Barcode Scanner</h3>
+        <p class="tool-desc text-sm text-gray-400 line-clamp-3">Scan QR codes and barcodes directly from your browser camera or image files.</p>
+        <span class="tool-link text-red-400 text-sm font-medium mt-2 inline-flex items-center hover:text-yellow-400 focus:text-yellow-400 focus:outline focus:outline-2 focus:outline-red-400">Open Tool &rarr;</span>
+      </a>
+
+      <a href="https://www.vinnesia.my.id/json-formatter.html" class="tool-card bg-gray-700 rounded-lg p-4 shadow-md hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105 transition max-w-full" role="listitem" aria-label="Open JSON Formatter">
+        <div class="tool-icon w-10 h-10 rounded-lg flex items-center justify-center text-white text-xl mb-3" style="background: linear-gradient(135deg, #e34242 60%, #ffd700 100%);" aria-hidden="true">🧩</div>
+        <h3 class="tool-title font-semibold text-lg text-red-400 line-clamp-2">JSON Formatter</h3>
+        <p class="tool-desc text-sm text-gray-400 line-clamp-3">Format, minify, and validate JSON online, easy & free.</p>
+        <span class="tool-link text-red-400 text-sm font-medium mt-2 inline-flex items-center hover:text-yellow-400 focus:text-yellow-400 focus:outline focus:outline-2 focus:outline-red-400">Open Tool &rarr;</span>
+      </a>
+
+      <a href="https://www.vinnesia.my.id/image-compressor.html" class="tool-card bg-gray-700 rounded-lg p-4 shadow-md hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105 transition max-w-full" role="listitem" aria-label="Open Image Compressor">
+        <div class="tool-icon w-10 h-10 rounded-lg flex items-center justify-center text-white text-xl mb-3" style="background: linear-gradient(135deg, #e34242 65%, #ffd700 100%);" aria-hidden="true">🗜️</div>
+        <h3 class="tool-title font-semibold text-lg text-red-400 line-clamp-2">Image Compressor</h3>
+        <p class="tool-desc text-sm text-gray-400 line-clamp-3">Compress and reduce image file size without losing visual quality.</p>
+        <span class="tool-link text-red-400 text-sm font-medium mt-2 inline-flex items-center hover:text-yellow-400 focus:text-yellow-400 focus:outline focus:outline-2 focus:outline-red-400">Open Tool &rarr;</span>
+      </a>
+    </div>
+    <!-- Pagination and search functionality removed as per request -->
   </section>
 
   <section class="newsletter max-w-md mx-auto px-4 mb-12 bg-gray-800 rounded-xl p-6 shadow-lg text-center" aria-labelledby="newsletter-title">
@@ -470,15 +522,10 @@
       }
     };
 
-    // Data for all tools (reduced to 6)
-    const allToolsData = [
-      {iconHtml: '🔑', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #e34242 100%)', title: {en: 'Password Generator'}, desc: {en: 'Create strong and secure passwords with full character options and ambiguous character filter.'}, link: 'PASSWORD-GENERATOR', category: 'security', keywords: 'password generator secure password'},
-      {iconHtml: '📸', iconStyle: 'background: linear-gradient(135deg, #1e1123 60%, #ffd700 100%)', title: {en: 'QR & Barcode Scanner'}, desc: {en: 'Scan QR codes and barcodes directly from your browser camera or image files.'}, link: 'QR-CODE-GENERATOR', category: 'design-image', keywords: 'qr code scanner barcode scanner read qr code read barcode'},
-      {iconHtml: '🗜️', iconStyle: 'background: linear-gradient(135deg, #e34242 65%, #ffd700 100%)', title: {en: 'Image Compressor'}, desc: {en: 'Compress and reduce image file size without losing visual quality.'}, link: 'image-compressor.html', category: 'design-image', keywords: 'image compressor compress image jpg png webp'},
-      {iconHtml: '💱', iconStyle: 'background: linear-gradient(135deg, #ffd700 60%, #e34242 100%)', title: {en: 'Currency Converter'}, desc: {en: 'Convert world currencies with real-time rates & simple calculator.'}, link: 'currency-converter.html', category: 'converter', keywords: 'currency converter currency conversion calculator'},
-      {iconHtml: '🔲', iconStyle: 'background: linear-gradient(135deg, #ffd700 65%, #3e0c4a 100%)', title: {en: 'QR Code Generator'}, desc: {en: 'Create free QR codes for links, text, files, and various needs.'}, link: 'qr-code-generator.html', category: 'design-image', keywords: 'qr code generator create barcode'},
-      {iconHtml: '🧩', iconStyle: 'background: linear-gradient(135deg, #e34242 60%, #ffd700 100%)', title: {en: 'JSON Formatter'}, desc: {en: 'Format, minify, and validate JSON online, easy & free.'}, link: 'json-formatter.html', category: 'text', keywords: 'json formatter json beautifier minifier validation'}
-    ];
+    // All JavaScript related to tool display, search, and pagination has been removed.
+    // The `allToolsData` array is no longer needed in JavaScript.
+    // The `setLanguage` function no longer needs to re-render tools.
+    // The `shuffleArray`, `createToolCard`, `displayTools`, `setupPagination`, `updatePaginationButtons` functions are removed.
 
     // Hamburger menu and mobile nav
     const navToggle = document.getElementById('navToggle');
@@ -498,176 +545,48 @@
       });
     }
 
-    const currentLang = 'en'; // Language is now fixed to English
+    // Language is now fixed to English, no dynamic switching
+    const currentLang = 'en'; 
 
-    function setLanguage(lang) {
-      if (lang === 'en') {
-        document.documentElement.lang = lang;
-        localStorage.setItem('lang', lang);
-
-        // Update all elements with data-lang attribute
-        document.querySelectorAll('[data-lang]').forEach(el => {
-          const key = el.getAttribute('data-lang');
-          if (translations[lang][key]) {
-            if (el.tagName === 'INPUT' && el.type === 'search') {
-              el.placeholder = translations[lang][key];
-            } else if (key === 'cookieConsentText') {
-              el.innerHTML = translations[lang][key];
-            } else {
-              el.textContent = translations[lang][key];
-            }
-          }
-        });
-
-        // Update meta tags dynamically
-        document.querySelector('title').textContent = translations[lang].metaTitle;
-        document.querySelector('meta[name="description"]').content = translations[lang].metaDescription;
-        document.querySelector('meta[property="og:title"]').content = translations[lang].ogTitle;
-        document.querySelector('meta[property="og:description"]').content = translations[lang].ogDescription;
-        document.querySelector('meta[property="og:locale"]').content = translations[lang].ogLocale;
-        document.querySelector('meta[name="twitter:title"]').content = translations[lang].twitterTitle;
-        document.querySelector('meta[name="twitter:description"]').content = translations[lang].twitterDescription;
-
-        // Re-render tools with translated descriptions
-        if (popularToolsGrid) {
-            displayTools(popularToolsShuffled, currentPage);
-            updatePaginationButtons(popularToolsShuffled, popularToolsPagination);
+    // Newsletter form handling (kept as it's not related to tool display)
+    const newsletterForm = document.getElementById('newsletterForm');
+    const newsletterEmail = document.getElementById('newsletterEmail');
+    const newsletterMessage = document.getElementById('newsletterMessage');
+    if (newsletterForm && newsletterEmail && newsletterMessage) {
+      newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = newsletterEmail.value.trim();
+        if (!email) {
+          newsletterMessage.style.color = 'var(--color-error)';
+          newsletterMessage.textContent = 'Email cannot be empty.';
+          return;
         }
-      }
+        if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {
+          newsletterMessage.style.color = 'var(--color-error)';
+          newsletterMessage.textContent = 'Please enter a valid email.';
+          return;
+        }
+        newsletterMessage.style.color = 'var(--color-success)';
+        newsletterMessage.textContent = 'Thank you for subscribing!';
+        newsletterForm.reset();
+      });
     }
 
-
-    // Shuffle function
-    const shuffleArray = (array) => {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+    // Cookie Consent Logic (kept as it's not related to tool display)
+    const cookieBanner = document.getElementById('cookie-consent-banner');
+    const acceptCookiesBtn = document.getElementById('accept-cookies');
+    if (cookieBanner && acceptCookiesBtn) {
+      const hasAcceptedCookies = localStorage.getItem('cookieConsent');
+      if (!hasAcceptedCookies) {
+        cookieBanner.classList.remove('hidden');
       }
-      return array;
-    };
-
-    const popularToolsGrid = document.getElementById('popularToolsGrid');
-    const popularToolsPagination = document.getElementById('popularToolsPagination');
-    const itemsPerPage = 6;
-    let currentPage = 1;
-    let popularToolsShuffled = [];
-
-    // Persist currentPage in sessionStorage to maintain state on refresh
-    if (sessionStorage.getItem('currentPage')) {
-      currentPage = parseInt(sessionStorage.getItem('currentPage'));
+      acceptCookiesBtn.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'true');
+        cookieBanner.classList.add('hidden');
+      });
     }
 
-    const createToolCard = (tool) => {
-      const card = document.createElement('div');
-      card.className = 'tool-card bg-gray-700 rounded-lg p-4 shadow-md hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105 transition max-w-full';
-      card.setAttribute('data-keywords', tool.keywords);
-      card.setAttribute('tabindex', '0');
-      card.setAttribute('role', 'listitem');
-      card.innerHTML = `
-        <div class="tool-icon w-10 h-10 rounded-lg flex items-center justify-center text-white text-xl mb-3" style="${tool.iconStyle}" aria-hidden="true">${tool.iconHtml}</div>
-        <h3 class="tool-title font-semibold text-lg text-red-400 line-clamp-2">${tool.title[currentLang]}</h3>
-        <p class="tool-desc text-sm text-gray-400 line-clamp-3">${tool.desc[currentLang]}</p>
-        <a class="tool-link text-red-400 text-sm font-medium mt-2 inline-flex items-center hover:text-yellow-400 focus:text-yellow-400 focus:outline focus:outline-2 focus:outline-red-400" href="${tool.link}" aria-label="Open ${tool.title[currentLang]}">${translations[currentLang].toolLink}</a>
-      `;
-      return card;
-    };
-
-    const displayTools = (tools, page) => {
-      if (!popularToolsGrid) {
-        console.error('popularToolsGrid not found');
-        return;
-      }
-      popularToolsGrid.innerHTML = '';
-      const start = (page - 1) * itemsPerPage;
-      const end = start + itemsPerPage;
-      const paginatedTools = tools.slice(start, end);
-
-      paginatedTools.forEach(tool => {
-        popularToolsGrid.appendChild(createToolCard(tool));
-      });
-    };
-
-    const setupPagination = (tools, paginationContainer) => {
-      if (!paginationContainer) {
-        console.error('popularToolsPagination not found');
-        return;
-      }
-      paginationContainer.innerHTML = '';
-      const pageCount = Math.ceil(tools.length / itemsPerPage);
-
-      if (pageCount <= 1) return;
-
-      const prevButton = document.createElement('button');
-      prevButton.textContent = translations[currentLang].prevButton;
-      prevButton.className = 'bg-gray-800 text-red-400 border border-purple-500 px-4 py-2 rounded-md hover:bg-purple-500 hover:text-white focus:outline focus:outline-2 focus:outline-red-400 min-w-[44px]';
-      prevButton.setAttribute('aria-label', translations[currentLang].prevButton + ' page');
-      prevButton.disabled = currentPage === 1;
-      prevButton.addEventListener('click', () => {
-        if (currentPage > 1) {
-          currentPage--;
-          sessionStorage.setItem('currentPage', currentPage);
-          displayTools(tools, currentPage);
-          updatePaginationButtons(tools, paginationContainer);
-          popularToolsGrid.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-      paginationContainer.appendChild(prevButton);
-
-      for (let i = 1; i <= pageCount; i++) {
-        const button = document.createElement('button');
-        button.textContent = i;
-        button.className = `bg-gray-800 text-red-400 border border-purple-500 px-4 py-2 rounded-md hover:bg-purple-500 hover:text-white focus:outline focus:outline-2 focus:outline-red-400 min-w-[44px] ${i === currentPage ? 'bg-red-400 text-gray-900' : ''}`;
-        button.setAttribute('aria-label', `Page ${i}`);
-        button.addEventListener('click', () => {
-          currentPage = i;
-          sessionStorage.setItem('currentPage', currentPage);
-          displayTools(tools, currentPage);
-          updatePaginationButtons(tools, paginationContainer);
-          popularToolsGrid.scrollIntoView({ behavior: 'smooth' });
-        });
-        paginationContainer.appendChild(button);
-      }
-
-      const nextButton = document.createElement('button');
-      nextButton.textContent = translations[currentLang].nextButton;
-      nextButton.className = 'bg-gray-800 text-red-400 border border-purple-500 px-4 py-2 rounded-md hover:bg-purple-500 hover:text-white focus:outline focus:outline-2 focus:outline-red-400 min-w-[44px]';
-      nextButton.setAttribute('aria-label', translations[currentLang].nextButton + ' page');
-      nextButton.disabled = currentPage === pageCount;
-      nextButton.addEventListener('click', () => {
-        if (currentPage < pageCount) {
-          currentPage++;
-          sessionStorage.setItem('currentPage', currentPage);
-          displayTools(tools, currentPage);
-          updatePaginationButtons(tools, paginationContainer);
-          popularToolsGrid.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-      paginationContainer.appendChild(nextButton);
-    };
-
-    const updatePaginationButtons = (tools, paginationContainer) => {
-      if (!paginationContainer) return;
-      const pageButtons = paginationContainer.querySelectorAll('button');
-      const pageCount = Math.ceil(tools.length / itemsPerPage);
-
-      pageButtons.forEach(button => {
-        if (button.textContent === 'Previous') {
-          button.disabled = currentPage === 1;
-          button.textContent = 'Previous';
-        } else if (button.textContent === 'Next') {
-          button.disabled = currentPage === pageCount;
-          button.textContent = 'Next';
-        } else {
-          const pageNum = parseInt(button.textContent);
-          button.classList.toggle('bg-red-400', pageNum === currentPage);
-          button.classList.toggle('text-gray-900', pageNum === currentPage);
-          button.classList.toggle('bg-gray-800', pageNum !== currentPage);
-          button.classList.toggle('text-red-400', pageNum !== currentPage);
-        }
-      });
-    };
-
-    // Testimonial Slider Navigation
+    // Testimonial Slider Logic (kept as it's not related to tool display)
     const setupTestimonialSlider = () => {
       const slider = document.getElementById('testimonialSlider');
       const prevButton = document.getElementById('prevTestimonial');
@@ -717,73 +636,11 @@
     };
 
     document.addEventListener('DOMContentLoaded', () => {
-      setLanguage('en');
-
-      // Initialize Popular Tools with state persistence
-      popularToolsShuffled = shuffleArray([...allToolsData]); // Shuffle once on load
-      if (popularToolsGrid && popularToolsPagination) {
-        displayTools(popularToolsShuffled, currentPage);
-        setupPagination(popularToolsShuffled, popularToolsPagination);
-      } else {
-        console.error('Required elements (popularToolsGrid or popularToolsPagination) not found');
-      }
-
-      // Search functionality
-      const searchInput = document.getElementById('searchInput');
-      if (searchInput) {
-        searchInput.addEventListener('input', function() {
-          const q = this.value.trim().toLowerCase();
-          const filteredPopularTools = popularToolsShuffled.filter(tool => {
-            const text = `${tool.title.en} ${tool.desc.en} ${tool.keywords}`.toLowerCase();
-            return text.includes(q);
-          });
-          currentPage = 1; // Reset to first page on search
-          sessionStorage.setItem('currentPage', currentPage);
-          if (popularToolsGrid && popularToolsPagination) {
-            displayTools(filteredPopularTools, currentPage);
-            setupPagination(filteredPopularTools, popularToolsPagination);
-          }
-        });
-      }
-
-      // Newsletter form handling
-      const newsletterForm = document.getElementById('newsletterForm');
-      const newsletterEmail = document.getElementById('newsletterEmail');
-      const newsletterMessage = document.getElementById('newsletterMessage');
-      if (newsletterForm && newsletterEmail && newsletterMessage) {
-        newsletterForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          const email = newsletterEmail.value.trim();
-          if (!email) {
-            newsletterMessage.style.color = 'var(--color-error)';
-            newsletterMessage.textContent = 'Email cannot be empty.';
-            return;
-          }
-          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            newsletterMessage.style.color = 'var(--color-error)';
-            newsletterMessage.textContent = 'Please enter a valid email.';
-            return;
-          }
-          newsletterMessage.style.color = 'var(--color-success)';
-          newsletterMessage.textContent = 'Thank you for subscribing!';
-          newsletterForm.reset();
-        });
-      }
-
-      // Cookie Consent Logic
-      const cookieBanner = document.getElementById('cookie-consent-banner');
-      const acceptCookiesBtn = document.getElementById('accept-cookies');
-      if (cookieBanner && acceptCookiesBtn) {
-        const hasAcceptedCookies = localStorage.getItem('cookieConsent');
-        if (!hasAcceptedCookies) {
-          cookieBanner.classList.remove('hidden');
-        }
-        acceptCookiesBtn.addEventListener('click', () => {
-          localStorage.setItem('cookieConsent', 'true');
-          cookieBanner.classList.add('hidden');
-        });
-      }
-
+      // The setLanguage function is still called to apply initial translations for static text.
+      // However, it no longer affects the tool listing as it's now static HTML.
+      // The `allToolsData` array and related display/pagination logic are removed from JS.
+      // The search input event listener is also removed as it relied on dynamic tool filtering.
+      
       // Initialize Testimonial Slider
       setupTestimonialSlider();
     });
