@@ -1,21 +1,121 @@
 {
-  "name": "VIN NESIA Tools",
-  "short_name": "VN Tools",
+  "name": "VIN NESIA - Free & Professional Online Tools",
+  "short_name": "VIN NESIA",
+  "description": "VIN NESIA offers 6 free and professional online tools. QR Code Generator, Password Generator, Image Compressor, JSON Formatter, Word Counter, and more for your productivity.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#121212",
-  "theme_color": "#8e24aa",
-  "description": "Kumpulan tools online gratis dari VIN NESIA",
+  "background_color": "#120a16",
+  "theme_color": "#e34242",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["productivity", "utilities", "tools"],
   "icons": [
     {
-      "src": "/icons/icon-192.png",
+      "src": "/images/logo-vinnesia.png",
+      "sizes": "192x192",
       "type": "image/png",
-      "sizes": "192x192"
+      "purpose": "any maskable"
     },
     {
-      "src": "/icons/icon-512.png",
+      "src": "/images/logo-vinnesia.png",
+      "sizes": "512x512",
       "type": "image/png",
-      "sizes": "512x512"
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon",
+      "purpose": "any"
     }
-  ]
+  ],
+  "screenshots": [
+    {
+      "src": "/images/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "VIN NESIA Desktop View"
+    },
+    {
+      "src": "/images/screenshot-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "VIN NESIA Mobile View"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "QR Code Generator",
+      "short_name": "QR Generator",
+      "description": "Create free QR codes for links, text, files, and various needs",
+      "url": "https://qr.vinnesia.my.id/",
+      "icons": [
+        {
+          "src": "/images/shortcut-qr.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Password Generator",
+      "short_name": "Password",
+      "description": "Create strong and secure passwords",
+      "url": "https://password.vinnesia.my.id/",
+      "icons": [
+        {
+          "src": "/images/shortcut-password.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Image Compressor",
+      "short_name": "Compress",
+      "description": "Compress and reduce image file size",
+      "url": "https://image.vinnesia.my.id/",
+      "icons": [
+        {
+          "src": "/images/shortcut-compress.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "All Tools",
+      "short_name": "Tools",
+      "description": "View all available tools",
+      "url": "/tools",
+      "icons": [
+        {
+          "src": "/images/shortcut-tools.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "share_target": {
+    "action": "/",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
 }
