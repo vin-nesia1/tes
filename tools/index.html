@@ -100,6 +100,78 @@
             color: #ffffff;
             line-height: 1.6;
             min-height: 100vh;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        /* Advanced Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #9d4edd, #06ffa5);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #06ffa5, #ffd60a);
+        }
+        
+        /* Selection styling */
+        ::selection {
+            background: rgba(6, 255, 165, 0.3);
+            color: #ffffff;
+        }
+        
+        /* Focus management */
+        :focus {
+            outline: 2px solid #06ffa5;
+            outline-offset: 2px;
+        }
+        
+        /* Loading screen */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 35%, #0f3460 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .page-loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loader-content {
+            text-align: center;
+        }
+        
+        .loader-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #06ffa5;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        .loader-text {
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 600;
         }
         
         .container {
@@ -260,9 +332,474 @@
             border-bottom: none;
         }
         
+        /* Featured Tools Slider */
+        .featured-tools {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            padding: 40px 0 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-tools::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.05) 0%, rgba(6, 255, 165, 0.05) 100%);
+            pointer-events: none;
+        }
+        
+        .featured-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .featured-title h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .featured-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #9d4edd, #06ffa5, #ffd60a);
+            border-radius: 2px;
+        }
+        
+        .featured-title .subtitle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .featured-title p {
+            color: #cccccc;
+            font-size: 1.1rem;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        .stats-counter {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #06ffa5;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(6, 255, 165, 0.12);
+            padding: 8px 16px;
+            border-radius: 25px;
+            border: 1px solid rgba(6, 255, 165, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.8s ease;
+        }
+        
+        .stat-item:hover::before {
+            left: 100%;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(6, 255, 165, 0.3);
+            border-color: rgba(6, 255, 165, 0.6);
+        }
+        
+        .stat-number {
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            color: #ffffff;
+        }
+        
+        .stat-item i {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            touch-action: pan-y pinch-zoom;
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 25px 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+        
+        .slider-wrapper {
+            display: flex;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            gap: 25px;
+            padding: 0 10px;
+            cursor: grab;
+            will-change: transform;
+        }
+        
+        .slider-wrapper.dragging {
+            transition: none;
+            cursor: grabbing;
+        }
+        
+        .slider-wrapper.momentum {
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        /* Touch indicators */
+        .touch-indicator {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8rem;
+            font-weight: 500;
+            z-index: 5;
+        }
+        
+        .touch-indicator i {
+            font-size: 1rem;
+            animation: swipeHint 2s ease-in-out infinite;
+        }
+        
+        @keyframes swipeHint {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
+        }
+        
+        .featured-tool {
+            flex: 0 0 300px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 18px;
+            padding: 30px 25px;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        
+        .featured-tool:active {
+            transform: scale(0.98);
+        }
+        
+        /* Ripple effect */
+        .featured-tool::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .featured-tool.ripple::before {
+            animation: ripple 0.6s ease-out;
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+        
+        .featured-tool::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.1), rgba(6, 255, 165, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 18px;
+        }
+        
+        .featured-tool:hover::before {
+            left: 100%;
+        }
+        
+        .featured-tool:hover::after {
+            opacity: 1;
+        }
+        
+        .featured-tool:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(157, 78, 221, 0.4);
+            border-color: rgba(6, 255, 165, 0.4);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
+        }
+        
+        /* Prevent hover on touch devices */
+        @media (hover: none) {
+            .featured-tool:hover {
+                transform: none;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+                border-color: rgba(255, 255, 255, 0.12);
+                background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+            }
+            
+            .featured-tool:hover::after {
+                opacity: 0;
+            }
+        }
+        
+        .featured-tool-icon {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #9d4edd, #06ffa5, #ffd60a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+        
+        .featured-tool:hover .featured-tool-icon {
+            transform: scale(1.1) rotateY(15deg);
+        }
+        
+        .featured-tool h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #ffffff;
+            position: relative;
+            z-index: 2;
+            transition: color 0.3s ease;
+        }
+        
+        .featured-tool:hover h3 {
+            color: #06ffa5;
+        }
+        
+        .featured-tool p {
+            color: #cccccc;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+            transition: color 0.3s ease;
+        }
+        
+        .featured-tool:hover p {
+            color: #ffffff;
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .slider-btn {
+            width: 50px;
+            height: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            color: #ffffff;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slider-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: linear-gradient(45deg, #9d4edd, #06ffa5);
+            border-radius: 50%;
+            transition: all 0.4s ease;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+        
+        .slider-btn:hover::before {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .slider-btn:hover:not(:disabled) {
+            color: #ffffff;
+            transform: scale(1.15);
+            border-color: rgba(6, 255, 165, 0.6);
+            box-shadow: 0 8px 30px rgba(157, 78, 221, 0.4);
+        }
+        
+        .slider-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: scale(0.9);
+        }
+        
+        .slider-dots {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .slider-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .slider-dot::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: linear-gradient(45deg, #9d4edd, #06ffa5);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            transform: translate(-50%, -50%);
+        }
+        
+        .slider-dot.active::before {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .slider-dot.active {
+            transform: scale(1.3);
+            box-shadow: 0 0 20px rgba(6, 255, 165, 0.6);
+            border-color: rgba(6, 255, 165, 0.8);
+        }
+        
+        .slider-dot:hover:not(.active) {
+            transform: scale(1.2);
+            background: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Progress Bar */
+        .slider-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #9d4edd, #06ffa5, #ffd60a);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        
+        /* Fade edges effect */
+        .slider-container::before,
+        .slider-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 30px;
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        .slider-container::before {
+            left: 0;
+            background: linear-gradient(to right, rgba(26, 26, 46, 0.8), transparent);
+        }
+        
+        .slider-container::after {
+            right: 0;
+            background: linear-gradient(to left, rgba(26, 26, 46, 0.8), transparent);
+        }
+        
         /* Main Content */
         .main {
-            padding: 60px 0;
+            padding: 40px 0 60px;
             min-height: calc(100vh - 200px);
         }
         
@@ -544,6 +1081,42 @@
                 display: flex;
             }
             
+            .featured-title h2 {
+                font-size: 1.5rem;
+            }
+            
+            .featured-title .subtitle {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .stats-counter {
+                gap: 10px;
+            }
+            
+            .stat-item {
+                padding: 4px 10px;
+                font-size: 0.8rem;
+            }
+            
+            .featured-tool {
+                flex: 0 0 260px;
+                padding: 25px 20px;
+                min-height: 200px;
+            }
+            
+            .featured-tool-icon {
+                font-size: 2.5rem;
+            }
+            
+            .featured-tool h3 {
+                font-size: 1.1rem;
+            }
+            
+            .featured-tool p {
+                font-size: 0.85rem;
+            }
+            
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -587,6 +1160,24 @@
         }
         
         @media (min-width: 1200px) {
+            .featured-tool {
+                flex: 0 0 320px;
+                padding: 30px;
+                min-height: 220px;
+            }
+            
+            .featured-tool-icon {
+                font-size: 3.5rem;
+            }
+            
+            .featured-tool h3 {
+                font-size: 1.4rem;
+            }
+            
+            .featured-tool p {
+                font-size: 1rem;
+            }
+            
             .hero h1 {
                 font-size: 4rem;
             }
@@ -647,6 +1238,14 @@
     </style>
 </head>
 <body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">Loading Tools...</div>
+        </div>
+    </div>
+
     <header class="header">
         <div class="container">
             <div class="header-content">
@@ -660,16 +1259,6 @@
                     <a href="../tools">All Tools</a>
                     <a href="../blog">Blog</a>
                     <a href="../about">About</a>
-                </nav>
-                <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <div class="mobile-nav" id="mobileNav">
-                    <a href="../">Home</a>
-                    <a href="../donate">Donate💰</a>
-                    <a href="../about">About</a>
                     <a href="../terms-of-service">Terms of Service</a>
                     <a href="../privacy-policy">Privacy Policy</a>
                     <a href="../contact">Contact</a>
@@ -677,6 +1266,54 @@
             </div>
         </div>
     </header>
+
+    <!-- Featured Tools Slider -->
+    <section class="featured-tools">
+        <div class="container">
+            <div class="featured-title">
+                <h2>🔥 TOOLS POPULER</h2>
+                <div class="subtitle">
+                    <p>Tool yang paling sering digunakan</p>
+                    <div class="stats-counter">
+                        <div class="stat-item">
+                            <i class="fas fa-eye"></i>
+                            <span class="stat-number" id="viewsCounter">0</span>
+                            <span>views</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-users"></i>
+                            <span class="stat-number" id="usersCounter">0</span>
+                            <span>pengguna</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slider-container">
+                <div class="touch-indicator">
+                    <i class="fas fa-hand-paper"></i>
+                    <span>Swipe</span>
+                </div>
+                <div class="slider-wrapper" id="sliderWrapper">
+                    <!-- Featured tools will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="slider-nav">
+                <button class="slider-btn" id="prevBtn" onclick="previousSlide()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="slider-dots" id="sliderDots">
+                    <!-- Dots will be populated by JavaScript -->
+                </div>
+                
+                <button class="slider-btn" id="nextBtn" onclick="nextSlide()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
 
     <main class="main">
         <div class="container">
@@ -768,6 +1405,70 @@
     </footer>
 
     <script>
+        // Featured Tools Data
+        const featuredTools = [
+            {
+                url: "https://toolsvin.vinnesia.my.id/text-converter",
+                icon: "🔤",
+                title: "Text Converter",
+                description: "Convert text case, remove spaces, and transform text formats easily"
+            },
+            {
+                url: "https://toolsvin.vinnesia.my.id/base64-encoder",
+                icon: "🔐",
+                title: "Base64 Encoder",
+                description: "Encode and decode Base64 strings with advanced options"
+            },
+            {
+                url: "https://json.vinnesia.my.id",
+                icon: "📋",
+                title: "JSON Formatter",
+                description: "Format, validate, and beautify JSON data with syntax highlighting"
+            },
+            {
+                url: "https://toolsvin.vinnesia.my.id/url-decoder",
+                icon: "🔗",
+                title: "URL Decoder",
+                description: "Decode and encode URLs with special character handling"
+            },
+            {
+                url: "https://qr.vinnesia.my.id",
+                icon: "📄",
+                title: "QR Code Generator",
+                description: "Generate customizable QR codes for URLs, text, and contact info"
+            },
+            {
+                url: "https://password.vinnesia.my.id",
+                icon: "🛡️",
+                title: "Password Generator",
+                description: "Create ultra-strong passwords with customizable security options"
+            },
+            {
+                url: "https://image.vinnesia.my.id",
+                icon: "🎨",
+                title: "Image Tools",
+                description: "Professional image editing, compression, and format conversion"
+            },
+            {
+                url: "https://currency.vinnesia.my.id",
+                icon: "💰",
+                title: "Currency Converter",
+                description: "Real-time currency exchange with live rates from 170+ countries"
+            },
+            {
+                url: "https://toolsvin.vinnesia.my.id/hash-generator",
+                icon: "🔒",
+                title: "Hash Generator",
+                description: "Generate MD5, SHA-1, SHA-256 hashes for data integrity verification"
+            },
+            {
+                url: "https://toolsvin.vinnesia.my.id/color-palette",
+                icon: "🌈",
+                title: "Color Palette",
+                description: "Generate beautiful color palettes and extract colors from images"
+            }
+        ];
+
         // Tools data
         const tools = [
             {
@@ -874,8 +1575,376 @@
             }
         ];
 
+        // Slider variables
+        let currentSlide = 0;
+        let slidesPerView = 1;
+        let autoSlideInterval;
+        
+        // Touch/Swipe variables
+        let isDragging = false;
+        let startX = 0;
+        let startY = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+        let animationId = 0;
+        let initialTransform = 0;
+        let velocityX = 0;
+        let lastX = 0;
+        let lastTime = 0;
+
+        // Counter variables
+        let viewsTarget = 4250000;
+        let usersTarget = 320000;
+        let viewsCount = 0;
+        let usersCount = 0;
+
+        // Pagination variables
         let currentPage = 1;
         let isMobile = false;
+
+        // Counter Animation Functions
+        function animateCounter(element, target, duration = 2000) {
+            const start = 0;
+            const range = target - start;
+            const increment = target > 0 ? 1 : -1;
+            const stepTime = Math.abs(Math.floor(duration / range));
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += Math.ceil(range / 100);
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = formatNumber(current);
+            }, stepTime);
+        }
+        
+        function formatNumber(num) {
+            if (num >= 1000000) {
+                return (num / 1000000).toFixed(1) + 'M';
+            } else if (num >= 1000) {
+                return (num / 1000).toFixed(0) + 'K';
+            }
+            return num.toString();
+        }
+        
+        function startCounters() {
+            const viewsElement = document.getElementById('viewsCounter');
+            const usersElement = document.getElementById('usersCounter');
+            
+            // Randomize target numbers for 10 popular tools
+            viewsTarget = Math.floor(Math.random() * 2000000) + 4000000; // 4M - 6M views
+            usersTarget = Math.floor(Math.random() * 300000) + 300000;   // 300K - 600K users
+            
+            animateCounter(viewsElement, viewsTarget, 3000);
+            animateCounter(usersElement, usersTarget, 3500);
+            
+            // Update counters periodically (more activity with 10 tools)
+            setInterval(() => {
+                viewsTarget += Math.floor(Math.random() * 200) + 100;
+                usersTarget += Math.floor(Math.random() * 20) + 5;
+                
+                viewsElement.textContent = formatNumber(viewsTarget);
+                usersElement.textContent = formatNumber(usersTarget);
+            }, 4000); // Update every 4 seconds for more dynamic feel
+        }
+
+        // Touch/Swipe Functions
+        function getPositionX(event) {
+            return event.type.includes('mouse') ? event.clientX : event.touches[0].clientX;
+        }
+        
+        function setSliderPosition() {
+            const sliderWrapper = document.getElementById('sliderWrapper');
+            if (sliderWrapper) {
+                sliderWrapper.style.transform = `translateX(${currentTranslate}px)`;
+            }
+        }
+        
+        function animation() {
+            setSliderPosition();
+            if (isDragging) requestAnimationFrame(animation);
+        }
+        
+        function setPositionByIndex() {
+            const itemWidth = 300 + 25; // tool width + gap  
+            currentTranslate = -currentSlide * itemWidth * slidesPerView;
+            prevTranslate = currentTranslate;
+            setSliderPosition();
+        }
+
+        // Featured Tools Slider Functions
+        function calculateSlidesPerView() {
+            const screenWidth = window.innerWidth;
+            if (screenWidth >= 1200) return 4;
+            if (screenWidth >= 768) return 3;
+            if (screenWidth >= 480) return 2;
+            return 1;
+        }
+
+        function initializeSlider() {
+            slidesPerView = calculateSlidesPerView();
+            const sliderWrapper = document.getElementById('sliderWrapper');
+            const sliderDots = document.getElementById('sliderDots');
+            
+            // Clear existing content
+            sliderWrapper.innerHTML = '';
+            sliderDots.innerHTML = '';
+            
+            // Add featured tools to slider
+            featuredTools.forEach((tool, index) => {
+                const toolElement = document.createElement('a');
+                toolElement.href = tool.url;
+                toolElement.className = 'featured-tool';
+                toolElement.target = '_blank';
+                toolElement.rel = 'noopener noreferrer';
+                toolElement.innerHTML = `
+                    <div class="featured-tool-icon">${tool.icon}</div>
+                    <h3>${tool.title}</h3>
+                    <p>${tool.description}</p>
+                `;
+                
+                // Add touch event listeners to each tool
+                toolElement.addEventListener('touchstart', touchStart, { passive: false });
+                toolElement.addEventListener('touchmove', touchMove, { passive: false });
+                toolElement.addEventListener('touchend', touchEnd);
+                toolElement.addEventListener('mousedown', touchStart);
+                toolElement.addEventListener('mousemove', touchMove);
+                toolElement.addEventListener('mouseup', touchEnd);
+                toolElement.addEventListener('mouseleave', touchEnd);
+                
+                sliderWrapper.appendChild(toolElement);
+            });
+            
+            // Add touch events to slider wrapper
+            sliderWrapper.addEventListener('touchstart', touchStart, { passive: false });
+            sliderWrapper.addEventListener('touchmove', touchMove, { passive: false });
+            sliderWrapper.addEventListener('touchend', touchEnd);
+            sliderWrapper.addEventListener('mousedown', touchStart);
+            sliderWrapper.addEventListener('mousemove', touchMove);
+            sliderWrapper.addEventListener('mouseup', touchEnd);
+            sliderWrapper.addEventListener('mouseleave', touchEnd);
+            
+            // Calculate max slides
+            const maxSlides = Math.ceil(featuredTools.length / slidesPerView);
+            
+            // Add dots
+            for (let i = 0; i < maxSlides; i++) {
+                const dot = document.createElement('div');
+                dot.className = `slider-dot ${i === 0 ? 'active' : ''}`;
+                dot.onclick = () => goToSlide(i);
+                sliderDots.appendChild(dot);
+            }
+            
+            updateSlider();
+            updateSliderButtons();
+        }
+
+        // Touch Event Handlers (Enhanced)
+        function touchStart(event) {
+            const touch = event.touches ? event.touches[0] : event;
+            isDragging = true;
+            startX = getPositionX(event);
+            startY = touch.clientY || event.clientY;
+            lastX = startX;
+            lastTime = Date.now();
+            velocityX = 0;
+            
+            const sliderWrapper = document.getElementById('sliderWrapper');
+            sliderWrapper.classList.add('dragging');
+            sliderWrapper.classList.remove('momentum');
+            
+            animationId = requestAnimationFrame(animation);
+            
+            // Prevent default for mouse events only
+            if (!event.touches) {
+                event.preventDefault();
+            }
+            
+            // Add ripple effect
+            if (event.target.closest('.featured-tool')) {
+                event.target.closest('.featured-tool').classList.add('ripple');
+                setTimeout(() => {
+                    event.target.closest('.featured-tool')?.classList.remove('ripple');
+                }, 600);
+            }
+        }
+        
+        function touchMove(event) {
+            if (!isDragging) return;
+            
+            const touch = event.touches ? event.touches[0] : event;
+            const currentX = getPositionX(event);
+            const currentY = touch.clientY || event.clientY;
+            const diffX = currentX - startX;
+            const diffY = Math.abs(currentY - startY);
+            const now = Date.now();
+            
+            // Calculate velocity for momentum
+            if (now - lastTime > 0) {
+                velocityX = (currentX - lastX) / (now - lastTime);
+                lastX = currentX;
+                lastTime = now;
+            }
+            
+            // Only handle horizontal swipes
+            if (Math.abs(diffX) > diffY) {
+                currentTranslate = prevTranslate + diffX;
+                event.preventDefault();
+                
+                // Add resistance at boundaries
+                const maxSlides = Math.ceil(featuredTools.length / slidesPerView);
+                const itemWidth = 300 + 25;
+                const minTranslate = -(maxSlides - 1) * itemWidth * slidesPerView;
+                const maxTranslate = 0;
+                
+                if (currentTranslate > maxTranslate) {
+                    currentTranslate = maxTranslate + (currentTranslate - maxTranslate) * 0.3;
+                } else if (currentTranslate < minTranslate) {
+                    currentTranslate = minTranslate + (currentTranslate - minTranslate) * 0.3;
+                }
+            }
+        }
+        
+        function touchEnd(event) {
+            if (!isDragging) return;
+            
+            isDragging = false;
+            cancelAnimationFrame(animationId);
+            
+            const sliderWrapper = document.getElementById('sliderWrapper');
+            sliderWrapper.classList.remove('dragging');
+            
+            const movedBy = currentTranslate - prevTranslate;
+            const threshold = 50;
+            const maxSlides = Math.ceil(featuredTools.length / slidesPerView);
+            
+            // Apply momentum for smooth deceleration
+            let targetSlide = currentSlide;
+            
+            // Determine slide change based on distance and velocity
+            if (Math.abs(movedBy) > threshold || Math.abs(velocityX) > 0.5) {
+                if (movedBy < -threshold || velocityX < -0.5) {
+                    targetSlide = Math.min(currentSlide + 1, maxSlides - 1);
+                } else if (movedBy > threshold || velocityX > 0.5) {
+                    targetSlide = Math.max(currentSlide - 1, 0);
+                }
+            }
+            
+            // Apply momentum scrolling
+            if (Math.abs(velocityX) > 1.5) {
+                const momentumDistance = velocityX * 300;
+                const itemWidth = 300 + 25;
+                const momentumSlides = Math.round(Math.abs(momentumDistance) / itemWidth);
+                
+                if (velocityX < 0) {
+                    targetSlide = Math.min(currentSlide + momentumSlides, maxSlides - 1);
+                } else {
+                    targetSlide = Math.max(currentSlide - momentumSlides, 0);
+                }
+                
+                sliderWrapper.classList.add('momentum');
+            }
+            
+            if (targetSlide !== currentSlide) {
+                goToSlide(targetSlide);
+            } else {
+                setPositionByIndex();
+            }
+            
+            // Reset velocity
+            velocityX = 0;
+        }
+
+        function updateSlider() {
+            const sliderWrapper = document.getElementById('sliderWrapper');
+            const sliderContainer = document.querySelector('.slider-container');
+            
+            // Calculate proper translation
+            const itemWidth = 300 + 25; // tool width + gap
+            const translation = -currentSlide * itemWidth * slidesPerView;
+            
+            currentTranslate = translation;
+            prevTranslate = translation;
+            
+            sliderWrapper.style.transform = `translateX(${translation}px)`;
+            
+            // Update dots
+            document.querySelectorAll('.slider-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+            
+            // Update progress bar
+            updateProgressBar();
+        }
+        
+        function updateProgressBar() {
+            let progressBar = document.querySelector('.slider-progress');
+            if (!progressBar) {
+                progressBar = document.createElement('div');
+                progressBar.className = 'slider-progress';
+                document.querySelector('.slider-container').appendChild(progressBar);
+            }
+            
+            const maxSlides = Math.ceil(featuredTools.length / slidesPerView);
+            const progress = ((currentSlide + 1) / maxSlides) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        function updateSliderButtons() {
+            const maxSlides = Math.ceil(featuredTools.length / slidesPerView);
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide >= maxSlides - 1;
+        }
+
+        function goToSlide(slideIndex) {
+            const maxSlides = Math.ceil(featuredTools.length / slidesPerView);
+            currentSlide = Math.max(0, Math.min(slideIndex, maxSlides - 1));
+            updateSlider();
+            updateSliderButtons();
+            resetAutoSlide();
+        }
+
+        function nextSlide() {
+            const maxSlides = Math.ceil(featuredTools.length / slidesPerView);
+            if (currentSlide < maxSlides - 1) {
+                currentSlide++;
+                updateSlider();
+                updateSliderButtons();
+                resetAutoSlide();
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlider();
+                updateSliderButtons();
+                resetAutoSlide();
+            }
+        }
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                const maxSlides = Math.ceil(featuredTools.length / slidesPerView);
+                if (currentSlide >= maxSlides - 1) {
+                    currentSlide = 0;
+                } else {
+                    currentSlide++;
+                }
+                updateSlider();
+                updateSliderButtons();
+            }, 5000); // Auto slide every 5 seconds
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
 
         // Check if device is mobile
         function checkIfMobile() {
@@ -1025,23 +2094,130 @@
             });
         }
 
-        // Initialize page
+        // Initialize page with loading screen
         function initializePage() {
+            // Show loading screen
+            const loader = document.getElementById('pageLoader');
+            
+            // Initialize components
             isMobile = checkIfMobile();
             currentPage = 1;
-            displayTools(currentPage);
-            createPagination();
+            
+            // Simulate loading time for better UX
+            setTimeout(() => {
+                displayTools(currentPage);
+                createPagination();
+                initializeSlider();
+                startAutoSlide();
+                startCounters();
+                
+                // Hide loader with smooth transition
+                loader.classList.add('hidden');
+                
+                // Remove loader from DOM after animation
+                setTimeout(() => {
+                    loader.remove();
+                }, 500);
+            }, 1500); // 1.5 second loading time
+        }
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            const totalPages = getTotalPages();
+            const maxSlides = Math.ceil(featuredTools.length / slidesPerView);
+            
+            // Page navigation
+            if (e.key === 'ArrowLeft' && currentPage > 1) {
+                goToPage(currentPage - 1);
+            } else if (e.key === 'ArrowRight' && currentPage < totalPages) {
+                goToPage(currentPage + 1);
+            }
+            // Slider navigation
+            else if (e.key === 'ArrowUp' && currentSlide > 0) {
+                e.preventDefault();
+                previousSlide();
+            } else if (e.key === 'ArrowDown' && currentSlide < maxSlides - 1) {
+                e.preventDefault();
+                nextSlide();
+            }
+            // Quick access
+            else if (e.key === 'Home') {
+                e.preventDefault();
+                goToPage(1);
+                goToSlide(0);
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                goToPage(totalPages);
+                goToSlide(maxSlides - 1);
+            }
+        });
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Smooth scroll to section
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+        
+        // Preload images for better performance
+        function preloadImages() {
+            const images = [
+                '../logo.png',
+                '../favicon.ico'
+            ];
+            
+            images.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        }
+        
+        // Performance monitoring
+        function logPerformance() {
+            if ('performance' in window) {
+                window.addEventListener('load', () => {
+                    const perfData = performance.getEntriesByType('navigation')[0];
+                    console.log('Page Load Time:', Math.round(perfData.loadEventEnd - perfData.loadEventStart), 'ms');
+                });
+            }
         }
 
-        // Handle window resize for responsive pagination
+        // Handle window resize for responsive pagination and slider
         window.addEventListener('resize', () => {
             const wasInitiallyMobile = isMobile;
             isMobile = checkIfMobile();
             
-            // If device type changed, reinitialize
+            // Reinitialize slider on resize
+            const newSlidesPerView = calculateSlidesPerView();
+            if (newSlidesPerView !== slidesPerView) {
+                currentSlide = 0; // Reset slider position
+                initializeSlider();
+            }
+            
+            // If device type changed, reinitialize pagination
             if (wasInitiallyMobile !== isMobile) {
                 currentPage = 1; // Reset to first page
-                initializePage();
+                displayTools(currentPage);
+                createPagination();
             } else {
                 createPagination();
             }
@@ -1079,10 +2255,40 @@
             }
         });
 
+        // Pause auto slide on hover
+        document.addEventListener('DOMContentLoaded', () => {
+            const sliderContainer = document.querySelector('.featured-tools');
+            if (sliderContainer) {
+                sliderContainer.addEventListener('mouseenter', () => {
+                    clearInterval(autoSlideInterval);
+                });
+                
+                sliderContainer.addEventListener('mouseleave', () => {
+                    startAutoSlide();
+                });
+            }
+        });
+
         // Initialize when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
+            preloadImages();
+            logPerformance();
             initializePage();
+            
+            // Observe elements for scroll animations
+            const animatedElements = document.querySelectorAll('.tool-card, .featured-tool');
+            animatedElements.forEach(el => observer.observe(el));
         });
     </script>
 </body>
-</html>
+</html></a>
+                </nav>
+                <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="mobile-nav" id="mobileNav">
+                    <a href="../">Home</a>
+                    <a href="../donate">Donate💰</a>
+                    <a href="../about">About
