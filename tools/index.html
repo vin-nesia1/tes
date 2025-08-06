@@ -177,6 +177,56 @@
             width: 100%;
         }
 
+        /* Tambahan untuk mobile: Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        @media (max-width: 767px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                position: absolute;
+                top: 70px;
+                left: 0;
+                padding: 20px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .nav-menu a {
+                padding: 10px 0;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .nav-menu a:last-child {
+                border-bottom: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+        }
+
         /* Main Content */
         .main {
             padding: 60px 0;
@@ -495,13 +545,18 @@
                     <img src="../logo.png" alt="Vinnesia Logo" class="logo-img">
                     <a href="../" class="logo">Vinnesia</a>
                 </div>
-                <nav class="nav">
+                <nav class="nav" id="navMenu">
                     <a href="../">Home</a>
                     <a href="../donate">Donate💰</a>
                     <a href="../tools">All Tools</a>
                     <a href="../blog">Blog</a>
                     <a href="../about">About</a>
                 </nav>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </header>
@@ -677,9 +732,18 @@
         </div>
     </footer>
 
-    <!-- Script lainnya yang tidak terkait dengan tools tetap dipertahankan -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Logika untuk menu hamburger
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                });
+            }
+
             // Logika untuk paginasi tools statis
             const toolsGrid = document.getElementById('toolsGrid');
             const toolCards = toolsGrid.querySelectorAll('.tool-card');
@@ -697,14 +761,11 @@
 
             // Fungsi untuk menampilkan tools di halaman tertentu
             function displayTools(page) {
-                // Sembunyikan semua tools
                 toolCards.forEach(card => card.style.display = 'none');
                 
-                // Tentukan tools mana yang harus ditampilkan
                 const start = (page - 1) * itemsPerPage;
                 const end = start + itemsPerPage;
                 
-                // Tampilkan tools yang sesuai
                 for (let i = start; i < end && i < totalItems; i++) {
                     toolCards[i].style.display = 'flex';
                 }
@@ -712,7 +773,7 @@
 
             // Fungsi untuk memperbarui status tombol dan info halaman
             function updatePagination() {
-                pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+                pageInfo.textContent = `Halaman ${currentPage} dari ${totalPages}`;
                 prevBtn.disabled = currentPage === 1;
                 nextBtn.disabled = currentPage === totalPages;
             }
@@ -739,15 +800,6 @@
             displayTools(currentPage);
             updatePagination();
 
-            // Hamburger menu logic (dari skrip asli)
-            const hamburger = document.getElementById('hamburger');
-            const navMenu = document.getElementById('navMenu');
-            if (hamburger && navMenu) {
-                hamburger.addEventListener('click', () => {
-                    navMenu.classList.toggle('active');
-                    hamburger.classList.toggle('active');
-                });
-            }
         });
     </script>
 </body>
