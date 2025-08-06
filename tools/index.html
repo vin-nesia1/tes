@@ -378,6 +378,79 @@
             line-height: 1.4;
         }
         
+        /* Pagination */
+        .page-info {
+            color: #cccccc;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .pagination button {
+            padding: 12px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            min-width: 45px;
+            font-size: 0.9rem;
+        }
+        
+        .pagination button:hover:not(:disabled) {
+            background: rgba(6, 255, 165, 0.2);
+            border-color: rgba(6, 255, 165, 0.5);
+            color: #06ffa5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(6, 255, 165, 0.2);
+        }
+        
+        .pagination button.active {
+            background: linear-gradient(45deg, #9d4edd, #06ffa5);
+            border-color: transparent;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(157, 78, 221, 0.4);
+        }
+        
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #06ffa5;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
         /* Footer */
         .footer {
             background: #111111;
@@ -498,6 +571,16 @@
                 font-size: 0.8rem;
             }
             
+            .pagination {
+                gap: 8px;
+            }
+            
+            .pagination button {
+                padding: 10px 14px;
+                font-size: 0.85rem;
+                min-width: 42px;
+            }
+            
             .social-icons {
                 justify-content: center;
             }
@@ -602,110 +685,20 @@
                 <p>Discover our complete collection of powerful online tools designed to make your work easier and more efficient. From password generation to SEO optimization.</p>
             </section>
 
-            <!-- Direct HTML Tools Grid -->
-            <section class="tools-grid">
-                <a href="https://password.vinnesia.my.id" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon">🔐</div>
-                    <h3>Password Generator</h3>
-                    <p>Generate strong, secure passwords with customizable options</p>
-                </a>
+            <div class="page-info" id="pageInfo">
+                Loading tools...
+            </div>
 
-                <a href="https://scan.vinnesia.my.id" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon">📱</div>
-                    <h3>Document Scanner</h3>
-                    <p>Scan and digitize documents with advanced OCR technology</p>
-                </a>
-
-                <a href="https://image.vinnesia.my.id" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon">🖼️</div>
-                    <h3>Image Tools</h3>
-                    <p>Comprehensive image editing, compression, and conversion tools</p>
-                </a>
-
-                <a href="https://currency.vinnesia.my.id" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon">💱</div>
-                    <h3>Currency Converter</h3>
-                    <p>Real-time currency conversion with live exchange rates</p>
-                </a>
-
-                <a href="https://qr.vinnesia.my.id" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon">📄</div>
-                    <h3>QR Code Generator</h3>
-                    <p>Create custom QR codes for URLs, text, and more</p>
-                </a>
-
-                <a href="https://json.vinnesia.my.id" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon">📋</div>
-                    <h3>JSON Formatter</h3>
-                    <p>Format, validate, and beautify JSON data easily</p>
-                </a>
-
-                <a href="https://handwriting.vinnesia.my.id" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon">✍️</div>
-                    <h3>Handwriting Tools</h3>
-                    <p>Convert text to handwriting and handwriting recognition</p>
-                </a>
-
-                <a href="https://word.vinnesia.my.id" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon">📝</div>
-                    <h3>Word Tools</h3>
-                    <p>Word count, text analysis, and document processing tools</p>
-                </a>
-
-                <a href="https://toolsvin.vinnesia.my.id/beautifier" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon">✨</div>
-                    <h3>Code Beautifier</h3>
-                    <p>Format and beautify HTML, CSS, JavaScript, and more</p>
-                </a>
-
-                <a href="https://toolsvin.vinnesia.my.id/markdown-to-html" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon">📰</div>
-                    <h3>Markdown to HTML</h3>
-                    <p>Convert Markdown text to clean HTML markup</p>
-                </a>
-
-                <a href="https://toolsvin.vinnesia.my.id/html-entity" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon">🔤</div>
-                    <h3>HTML Entity Encoder</h3>
-                    <p>Encode and decode HTML entities for safe web content</p>
-                </a>
-
-                <a href="https://seo.vinnesia.my.id/tools/metatag" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon">🏷️</div>
-                    <h3>Meta Tag Generator</h3>
-                    <p>Generate SEO-optimized meta tags for your website</p>
-                </a>
-
-                <a href="https://seo.vinnesia.my.id/tools/ogtag" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon">📊</div>
-                    <h3>Open Graph Generator</h3>
-                    <p>Create Open Graph tags for better social media sharing</p>
-                </a>
-
-                <a href="https://seo.vinnesia.my.id/tools/twittercar" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon">🐦</div>
-                    <h3>Twitter Card Generator</h3>
-                    <p>Generate Twitter Card meta tags for enhanced tweets</p>
-                </a>
-
-                <a href="https://seo.vinnesia.my.id/tools/canonical" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon">🔗</div>
-                    <h3>Canonical URL Tool</h3>
-                    <p>Generate canonical link tags to prevent duplicate content</p>
-                </a>
-
-                <a href="https://seo.vinnesia.my.id/tools/noindexnofollow" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon">🚫</div>
-                    <h3>Robots Meta Generator</h3>
-                    <p>Create robots meta tags for search engine control</p>
-                </a>
-
-                <a href="https://seo.vinnesia.my.id/tools/favicon" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon">🎨</div>
-                    <h3>Favicon Generator</h3>
-                    <p>Create favicons and app icons in multiple formats</p>
-                </a>
+            <!-- Tools Grid with Pagination -->
+            <section class="tools-grid" id="toolsGrid">
+                <div class="loading">
+                    <div class="spinner"></div>
+                </div>
             </section>
+
+            <div class="pagination" id="pagination">
+                <!-- Pagination will be dynamically generated here -->
+            </div>
         </div>
     </main>
 
@@ -775,6 +768,131 @@
     </footer>
 
     <script>
+        // Tools data
+        const tools = [
+            {
+                url: "PASSWORD-GENERATOR",
+                icon: "🔐",
+                title: "Password Generator",
+                description: "Generate strong, secure passwords with customizable options"
+            },
+            {
+                url: "https://scan.vinnesia.my.id",
+                icon: "📱",
+                title: "Document Scanner",
+                description: "Scan and digitize documents with advanced OCR technology"
+            },
+            {
+                url: "https://image.vinnesia.my.id",
+                icon: "🖼️",
+                title: "Image Tools",
+                description: "Comprehensive image editing, compression, and conversion tools"
+            },
+            {
+                url: "https://currency.vinnesia.my.id",
+                icon: "💱",
+                title: "Currency Converter",
+                description: "Real-time currency conversion with live exchange rates"
+            },
+            {
+                url: "QR-CODE-GENERATOR",
+                icon: "📄",
+                title: "QR Code Generator",
+                description: "Create custom QR codes for URLs, text, and more"
+            },
+            {
+                url: "https://json.vinnesia.my.id",
+                icon: "📋",
+                title: "JSON Formatter",
+                description: "Format, validate, and beautify JSON data easily"
+            },
+            {
+                url: "https://handwriting.vinnesia.my.id",
+                icon: "✍️",
+                title: "Handwriting Tools",
+                description: "Convert text to handwriting and handwriting recognition"
+            },
+            {
+                url: "https://word.vinnesia.my.id",
+                icon: "📝",
+                title: "Word Tools",
+                description: "Word count, text analysis, and document processing tools"
+            },
+            {
+                url: "https://toolsvin.vinnesia.my.id/beautifier",
+                icon: "✨",
+                title: "Code Beautifier",
+                description: "Format and beautify HTML, CSS, JavaScript, and more"
+            },
+            {
+                url: "https://toolsvin.vinnesia.my.id/markdown-to-html",
+                icon: "📰",
+                title: "Markdown to HTML",
+                description: "Convert Markdown text to clean HTML markup"
+            },
+            {
+                url: "https://toolsvin.vinnesia.my.id/html-entity",
+                icon: "🔤",
+                title: "HTML Entity Encoder",
+                description: "Encode and decode HTML entities for safe web content"
+            },
+            {
+                url: "https://seo.vinnesia.my.id/tools/metatag",
+                icon: "🏷️",
+                title: "Meta Tag Generator",
+                description: "Generate SEO-optimized meta tags for your website"
+            },
+            {
+                url: "https://seo.vinnesia.my.id/tools/ogtag",
+                icon: "📊",
+                title: "Open Graph Generator",
+                description: "Create Open Graph tags for better social media sharing"
+            },
+            {
+                url: "https://seo.vinnesia.my.id/tools/twittercar",
+                icon: "🐦",
+                title: "Twitter Card Generator",
+                description: "Generate Twitter Card meta tags for enhanced tweets"
+            },
+            {
+                url: "https://seo.vinnesia.my.id/tools/canonical",
+                icon: "🔗",
+                title: "Canonical URL Tool",
+                description: "Generate canonical link tags to prevent duplicate content"
+            },
+            {
+                url: "https://seo.vinnesia.my.id/tools/noindexnofollow",
+                icon: "🚫",
+                title: "Robots Meta Generator",
+                description: "Create robots meta tags for search engine control"
+            },
+            {
+                url: "https://seo.vinnesia.my.id/tools/favicon",
+                icon: "🎨",
+                title: "Favicon Generator",
+                description: "Create favicons and app icons in multiple formats"
+            }
+        ];
+
+        let currentPage = 1;
+        let isMobile = false;
+
+        // Check if device is mobile
+        function checkIfMobile() {
+            return window.innerWidth <= 767;
+        }
+
+        // Get tools per page based on device
+        function getToolsPerPage() {
+            return checkIfMobile() ? 10 : 9; // Mobile: 10, Desktop: 9
+        }
+
+        // Calculate total pages
+        function getTotalPages() {
+            const toolsPerPage = getToolsPerPage();
+            return Math.ceil(tools.length / toolsPerPage);
+        }
+
         // Mobile menu toggle function
         function toggleMobileMenu() {
             const mobileNav = document.getElementById('mobileNav');
@@ -783,6 +901,151 @@
             mobileNav.classList.toggle('active');
             toggle.classList.toggle('active');
         }
+
+        // Display tools for current page
+        function displayTools(page) {
+            const toolsPerPage = getToolsPerPage();
+            const startIndex = (page - 1) * toolsPerPage;
+            const endIndex = startIndex + toolsPerPage;
+            const toolsToShow = tools.slice(startIndex, endIndex);
+            
+            const toolsGrid = document.getElementById('toolsGrid');
+            toolsGrid.innerHTML = '';
+            
+            toolsToShow.forEach((tool, index) => {
+                const toolCard = document.createElement('a');
+                toolCard.href = tool.url;
+                toolCard.className = 'tool-card';
+                toolCard.target = '_blank';
+                toolCard.rel = 'noopener noreferrer';
+                toolCard.style.animationDelay = `${index * 0.1}s`;
+                toolCard.innerHTML = `
+                    <div class="tool-icon">${tool.icon}</div>
+                    <h3>${tool.title}</h3>
+                    <p>${tool.description}</p>
+                `;
+                toolsGrid.appendChild(toolCard);
+            });
+            
+            updatePageInfo(page, startIndex, Math.min(endIndex, tools.length));
+        }
+
+        // Update page information
+        function updatePageInfo(page, start, end) {
+            const pageInfo = document.getElementById('pageInfo');
+            const totalPages = getTotalPages();
+            const deviceType = checkIfMobile() ? 'Mobile' : 'Desktop';
+            pageInfo.textContent = `Showing ${start + 1}-${end} of ${tools.length} tools (Page ${page} of ${totalPages}) - ${deviceType}`;
+        }
+
+        // Create pagination buttons
+        function createPagination() {
+            const pagination = document.getElementById('pagination');
+            const totalPages = getTotalPages();
+            pagination.innerHTML = '';
+            
+            if (totalPages <= 1) return; // Don't show pagination if only one page
+            
+            // Previous button
+            const prevBtn = document.createElement('button');
+            prevBtn.innerHTML = '← Previous';
+            prevBtn.disabled = currentPage === 1;
+            prevBtn.onclick = () => goToPage(currentPage - 1);
+            pagination.appendChild(prevBtn);
+            
+            // Page numbers
+            const maxVisiblePages = checkIfMobile() ? 3 : 5;
+            let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+            
+            if (endPage - startPage + 1 < maxVisiblePages) {
+                startPage = Math.max(1, endPage - maxVisiblePages + 1);
+            }
+            
+            // First page button
+            if (startPage > 1) {
+                const firstBtn = document.createElement('button');
+                firstBtn.textContent = '1';
+                firstBtn.onclick = () => goToPage(1);
+                pagination.appendChild(firstBtn);
+                
+                if (startPage > 2) {
+                    const dots = document.createElement('button');
+                    dots.textContent = '...';
+                    dots.disabled = true;
+                    pagination.appendChild(dots);
+                }
+            }
+            
+            // Page number buttons
+            for (let i = startPage; i <= endPage; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.textContent = i;
+                pageBtn.className = currentPage === i ? 'active' : '';
+                pageBtn.onclick = () => goToPage(i);
+                pagination.appendChild(pageBtn);
+            }
+            
+            // Last page button
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    const dots = document.createElement('button');
+                    dots.textContent = '...';
+                    dots.disabled = true;
+                    pagination.appendChild(dots);
+                }
+                
+                const lastBtn = document.createElement('button');
+                lastBtn.textContent = totalPages;
+                lastBtn.onclick = () => goToPage(totalPages);
+                pagination.appendChild(lastBtn);
+            }
+            
+            // Next button
+            const nextBtn = document.createElement('button');
+            nextBtn.innerHTML = 'Next →';
+            nextBtn.disabled = currentPage === totalPages;
+            nextBtn.onclick = () => goToPage(currentPage + 1);
+            pagination.appendChild(nextBtn);
+        }
+
+        // Navigate to specific page
+        function goToPage(page) {
+            const totalPages = getTotalPages();
+            if (page < 1 || page > totalPages || page === currentPage) return;
+            
+            currentPage = page;
+            displayTools(currentPage);
+            createPagination();
+            
+            // Smooth scroll to top of tools section
+            document.querySelector('.tools-grid').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        // Initialize page
+        function initializePage() {
+            isMobile = checkIfMobile();
+            currentPage = 1;
+            displayTools(currentPage);
+            createPagination();
+        }
+
+        // Handle window resize for responsive pagination
+        window.addEventListener('resize', () => {
+            const wasInitiallyMobile = isMobile;
+            isMobile = checkIfMobile();
+            
+            // If device type changed, reinitialize
+            if (wasInitiallyMobile !== isMobile) {
+                currentPage = 1; // Reset to first page
+                initializePage();
+            } else {
+                createPagination();
+            }
+        });
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
@@ -806,15 +1069,19 @@
             });
         });
 
-        // Add smooth scroll for tool cards
-        document.querySelectorAll('.tool-card').forEach((card, index) => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-15px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(-10px) scale(1)';
-            });
+        // Keyboard navigation for pagination
+        document.addEventListener('keydown', (e) => {
+            const totalPages = getTotalPages();
+            if (e.key === 'ArrowLeft' && currentPage > 1) {
+                goToPage(currentPage - 1);
+            } else if (e.key === 'ArrowRight' && currentPage < totalPages) {
+                goToPage(currentPage + 1);
+            }
+        });
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initializePage();
         });
     </script>
 </body>
